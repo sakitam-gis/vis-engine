@@ -1,0 +1,148 @@
+{
+  "name": "vis-engine",
+  "version": "1.0.0",
+  "description": "A sample gl render engine toolkit.",
+  "private": false,
+  "license": "BSD 3-Clause",
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.js",
+  "commonjs": "dist/index.cjs.js",
+  "namespace": "ve",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "author": "sakitam-fdd <smilefdd@gmail.com>",
+  "repository": {
+    "url": "https://github.com/sakitam-gis/vis-engine.git"
+  },
+  "keywords": [
+    "3d",
+    "webgl",
+    "vis",
+    "three"
+  ],
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "node": {
+        "import": {
+          "production": "./dist/index.esm.js",
+          "development": "./dist/index.esm.js",
+          "default": "./dist/index.esm.js"
+        },
+        "require": {
+          "production": "./dist/index.cjs.js",
+          "development": "./dist/index.cjs.js",
+          "default": "./dist/index.cjs.js"
+        }
+      },
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "dev": "rollup -wm --config rollup.config.ts --configPlugin esbuild --environment NODE_ENV:development",
+    "build": "rollup --config rollup.config.ts --configPlugin esbuild --environment MINIFY,NODE_ENV:production",
+    "build:analyze": "cross-env BUILD_ANALYZER=true pnpm run build",
+    "lint": "eslint src --ext js,jsx,ts,tsx",
+    "prepublishOnly": "npm run build",
+    "test": "npm run build && npm run test-only",
+    "test-only": "vitest run",
+    "coverage": "vitest run --coverage",
+    "semantic-release": "semantic-release --branches master"
+  },
+  "dependencies": {
+    "gl-matrix": "^3.4.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.18.6",
+    "@babel/plugin-proposal-object-rest-spread": "^7.19.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.18.9",
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
+    "@babel/plugin-proposal-private-property-in-object": "^7.18.6",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/preset-typescript": "^7.18.6",
+    "@changesets/cli": "^2.25.0",
+    "@rollup/plugin-alias": "^4.0.2",
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-eslint": "^9.0.0",
+    "@rollup/plugin-json": "^5.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-replace": "^5.0.1",
+    "@rollup/plugin-typescript": "^9.0.2",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.5",
+    "@semantic-release/npm": "^9.0.1",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "@types/node": "^18.6.4",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "@vitest/coverage-c8": "^0.22.1",
+    "c8": "7.12.0",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.15.13",
+    "eslint": "^8.21.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-header": "^3.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.0",
+    "rollup": "^3.2.3",
+    "rollup-plugin-dts": "^5.0.0",
+    "rollup-plugin-esbuild": "^4.10.1",
+    "rollup-plugin-glslify": "^1.3.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-visualizer": "^5.8.1",
+    "rollup-plugin-web-worker-loader": "^1.6.0",
+    "semantic-release": "^19.0.3",
+    "terser": "^5.15.1",
+    "typedoc": "^0.23.21",
+    "typedoc-plugin-markdown": "^3.13.6",
+    "typescript": "^4.7.4",
+    "vitest": "^0.24.3",
+    "wait-for-expect": "3.0.2"
+  },
+  "engines": {
+    "node": ">= 14.18.1",
+    "npm": ">= 6.14.15"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pnpm run lint",
+      "pre-push": "pnpm run test"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write",
+      "git add"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

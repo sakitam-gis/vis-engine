@@ -1,0 +1,13 @@
+.idea/
+.vscode/
+
+node_modules/
+**/node_modules
+
+dist
+coverage
+documents/.docusaurus
+
+*.log
+.cache
+.DS_Store

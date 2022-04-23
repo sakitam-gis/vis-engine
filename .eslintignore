@@ -1,0 +1,20 @@
+*.html
+
+node_modules
+
+# build
+coverage
+dist
+
+# other
+.eslintrc.cjs
+.prettierrc.js
+vitest.config.ts
+
+# lib
+
+playground/lib
+
+# config
+
+rollup.config.ts

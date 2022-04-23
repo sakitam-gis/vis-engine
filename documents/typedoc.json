@@ -1,0 +1,15 @@
+{
+  "entryPoints": [
+    "../src/index.ts"
+  ],
+  "sourceLinkTemplate": "https://github.com/sakitam-gis/vis-engine/blob/master/documents/{path}?at={gitRevision}#line={line}",
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "hideGenerator": true,
+  "includeVersion": true,
+  "name": "vis-engine",
+  "out": "./docs/api",
+  "readme": "none",
+  "tsconfig": "./tsconfig.docs.json"
+}
