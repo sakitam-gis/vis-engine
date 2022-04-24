@@ -29,4 +29,4 @@ boolean
 
 #### Defined in
 
-index.ts:9
+[index.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/index.ts?at&#x3D;4a5b181#line&#x3D;9)

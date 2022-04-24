@@ -2,7 +2,7 @@
   "entryPoints": [
     "../src/index.ts"
   ],
-  "sourceLinkTemplate": "https://github.com/sakitam-gis/vis-engine/blob/master/documents/{path}?at={gitRevision}#line={line}",
+  "sourceLinkTemplate": "https://github.com/sakitam-gis/vis-engine/blob/master/{path}?at={gitRevision}#line={line}",
   "excludeExternals": true,
   "excludePrivate": true,
   "excludeProtected": true,
