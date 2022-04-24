@@ -1,7 +1,7 @@
 ---
 id: start
 title: Introduction
-slug: /intro
+slug: /
 ---
 
 **vis-engine** is a sample gl render engine toolkit.
@@ -16,3 +16,4 @@ Use cases for vis-engine include:
 - Program
 - Geometry
 - Camera
+- cc-a

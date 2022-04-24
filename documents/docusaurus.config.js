@@ -13,7 +13,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'images/logo.svg',
   organizationName: 'sakitam-gis',
   projectName: 'vis-engine',
   presets: [
@@ -23,13 +23,6 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars/docs.sidebars.js'),
           editUrl: 'https://github.com/sakitam-gis/vis-engine/edit/master/documents/docs',
-          versions: {
-            current: {
-              label: 'current',
-            },
-          },
-          // lastVersion: 'current',
-          onlyIncludeVersions: ['current'],
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
@@ -43,11 +36,18 @@ module.exports = {
     colorMode: {
       defaultMode: 'light',
     },
+    liveCodeBlock: {
+      /**
+       * The position of the live playground, above or under the editor
+       * Possible values: "top" | "bottom"
+       */
+      playgroundPosition: 'bottom',
+    },
     navbar: {
       hideOnScroll: true,
       logo: {
         alt: 'vis-engine',
-        src: `img/logo.png`,
+        src: `images/logo.svg`,
       },
       items: [
         {
@@ -73,6 +73,47 @@ module.exports = {
         },
       ],
     },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Getting Started',
+              to: 'docs',
+            },
+            {
+              label: 'API Reference',
+              to: 'api',
+            },
+            {
+              label: 'Playground',
+              to: 'playground',
+            },
+          ],
+        },
+        {
+          title: 'Changelog',
+          items: [
+            {
+              label: 'GitHub',
+              href: 'https://github.com/sakitam-gis/vis-engine/changelog.md',
+            },
+          ],
+        },
+        {
+          title: 'More',
+          items: [
+            {
+              label: 'GitHub',
+              href: 'https://github.com/sakitam-gis/vis-engine',
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} sakitam-gis. Built with Docusaurus.`,
+    },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
@@ -92,28 +133,28 @@ module.exports = {
         sidebar: { sidebarFile: null },
       },
     ],
-    [
-      path.resolve(__dirname, './plugins/plugin-overwrite-slug.js'),
-      {
-        basePath: 'docs/api',
-        files: [
-          {
-            path: 'index.md',
-            slug: '/',
-          },
-        ],
-      },
-    ],
     // [
-    //   '@docusaurus/plugin-content-docs',
+    //   path.resolve(__dirname, './plugins/plugin-overwrite-slug.js'),
     //   {
-    //     id: 'api',
-    //     path: 'api',
-    //     routeBasePath: 'api',
-    //     sidebarPath: require.resolve('./sidebars/api.sidebars.js'),
-    //     editUrl: 'https://github.com/sakitam-gis/vis-engine/edit/master/documents/docs',
+    //     basePath: 'api',
+    //     files: [
+    //       {
+    //         path: 'index.md',
+    //         slug: '/',
+    //       },
+    //     ],
     //   },
     // ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'api',
+        path: 'api',
+        routeBasePath: 'api',
+        sidebarPath: require.resolve('./sidebars/api.sidebars.js'),
+        editUrl: 'https://github.com/sakitam-gis/vis-engine/edit/master/documents/docs',
+      },
+    ],
   ],
   themes: [
     '@docusaurus/theme-live-codeblock',

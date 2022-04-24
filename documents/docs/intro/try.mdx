@@ -1,0 +1,47 @@
+---
+id: try
+title: Try vis-engine
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+### Using an ES6 Module Bundler
+
+Install the package.
+
+<Tabs
+  defaultValue='yarn'
+  values={[
+    { label: 'Yarn', value: 'yarn', },
+    { label: 'pnpm', value: 'pnpm', },
+  ]
+}>
+<TabItem value='yarn'>
+
+```zsh
+yarn add vis-engine
+```
+
+</TabItem>
+<TabItem value='pnpm'>
+
+```zsh
+pnpm i vis-engine
+```
+
+</TabItem>
+</Tabs>
+
+```tsx live
+function render(props) {
+  return (
+    <div>1</div>
+  );
+}
+```
+
+## broken
+
+- https://github.com/facebook/docusaurus/issues/7880
+- https://github.com/facebook/docusaurus/issues/6724

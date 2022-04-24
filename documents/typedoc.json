@@ -9,7 +9,7 @@
   "hideGenerator": true,
   "includeVersion": true,
   "name": "vis-engine",
-  "out": "./docs/api",
+  "out": "./api",
   "readme": "none",
   "tsconfig": "./tsconfig.docs.json"
 }
