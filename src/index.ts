@@ -1,3 +1,5 @@
+import Clock from '@/animation/Clock';
+
 const caches = new Map();
 
 /**
@@ -9,4 +11,8 @@ const caches = new Map();
 export const hooks = (id: string, hook: () => void) => {
   caches.set(id, hook);
   return true;
+}
+
+export {
+  Clock,
 }
