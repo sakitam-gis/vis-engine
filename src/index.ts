@@ -1,4 +1,6 @@
 import Clock from '@/animation/Clock';
+import Raf from '@/animation/Raf';
+import type { IRafOptions } from '@/animation/Raf';
 
 const caches = new Map();
 
@@ -14,5 +16,10 @@ export const hooks = (id: string, hook: () => void) => {
 }
 
 export {
+  Raf,
   Clock,
+}
+
+export type {
+  IRafOptions,
 }
