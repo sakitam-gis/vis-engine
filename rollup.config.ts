@@ -10,7 +10,7 @@ import glslify from 'rollup-plugin-glslify';
 import replace from '@rollup/plugin-replace';
 import alias from '@rollup/plugin-alias';
 import dts from 'rollup-plugin-dts';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import worker from 'rollup-plugin-web-worker-loader';
 
 const rq = createRequire(import.meta.url);
@@ -46,7 +46,10 @@ const plugins = [
     extensions: ['.js', 'ts'],
   }),
   commonjs(),
-  nodeResolve({ preferBuiltins: false }),
+  nodeResolve({
+    preferBuiltins: false,
+    extensions: ['.ts', '.js', '.mjs', '.json']
+  }),
   esbuild({ target: 'node14' }),
   ...(MINIFY ? [
     terser(),
