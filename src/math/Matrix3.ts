@@ -26,7 +26,7 @@ import {
 import Matrix from './Matrix';
 
 /**
- * 一个表示3X3矩阵
+ * 一个表示3X3的矩阵
  * 1--0--0
  * |  |  |
  * 0--1--0
@@ -67,14 +67,26 @@ export default class Matrix3 extends Matrix {
     e[8] = m33;
   }
 
+  /**
+   * 获取向量 x 值
+   * @return number;
+   */
   get x() {
     return this.#elements[12];
   }
 
+  /**
+   * 获取向量 y 值
+   * @return number;
+   */
   get y() {
     return this.#elements[13];
   }
 
+  /**
+   * 获取向量 z 值
+   * @return number;
+   */
   get z() {
     return this.#elements[14];
   }
