@@ -24,9 +24,12 @@ import {
 } from 'gl-matrix/mat3';
 
 import Matrix from './Matrix';
+import Matrix4 from './Matrix4';
+import Vector2 from './Vector2';
+import Quaternion from './Quaternion';
 
 /**
- * 一个表示3X3的矩阵
+ * 一个表示 3*3 的矩阵
  * 1--0--0
  * |  |  |
  * 0--1--0
@@ -40,31 +43,31 @@ export default class Matrix3 extends Matrix {
   #elements = new Float32Array(9);
 
   /**
-   * @param m11 第一行第一列，默认是 1
-   * @param m12 第一行第二列，默认是 0
-   * @param m13 第一行第三列，默认是 0
-   * @param m21 第二行第一列，默认是 0
-   * @param m22 第二行第二列，默认是 1
-   * @param m23 第二行第三列，默认是 0
-   * @param m31 第三行第一列，默认是 0
-   * @param m32 第三行第二列，默认是 0
-   * @param m33 第三行第三列，默认是 1
+   * @param m00 第一行第一列，默认是 1
+   * @param m01 第一行第二列，默认是 0
+   * @param m02 第一行第三列，默认是 0
+   * @param m10 第二行第一列，默认是 0
+   * @param m11 第二行第二列，默认是 1
+   * @param m12 第二行第三列，默认是 0
+   * @param m20 第三行第一列，默认是 0
+   * @param m21 第三行第二列，默认是 0
+   * @param m22 第三行第三列，默认是 1
    */
-  constructor(m11 = 1, m12 = 0, m13 = 0, m21 = 0, m22 = 1, m23 = 0, m31 = 0, m32 = 0, m33 = 1) {
+  constructor(m00 = 1, m01 = 0, m02 = 0, m10 = 0, m11 = 1, m12 = 0, m20 = 0, m21 = 0, m22 = 1) {
     super();
     const e: Float32Array = this.#elements;
 
-    e[0] = m11;
-    e[1] = m12;
-    e[2] = m13;
+    e[0] = m00;
+    e[1] = m01;
+    e[2] = m02;
 
-    e[3] = m21;
-    e[4] = m22;
-    e[5] = m23;
+    e[3] = m10;
+    e[4] = m11;
+    e[5] = m12;
 
-    e[6] = m31;
-    e[7] = m32;
-    e[8] = m33;
+    e[6] = m20;
+    e[7] = m21;
+    e[8] = m22;
   }
 
   /**
@@ -96,24 +99,6 @@ export default class Matrix3 extends Matrix {
    */
   static get identity() {
     return new Matrix3().fromArray(identity());
-  }
-
-  /**
-   * 将传入的 Matrix3 复制到此矩阵
-   * @param  {Matrix3} m 源矩阵
-   * @return {Matrix3} this
-   */
-  copy(m) {
-    copy(this.#elements, m.elements);
-    return this;
-  }
-
-  /**
-   * 从此矩阵创建一个新的 3*3 矩阵
-   * @return {Matrix3} a new Matrix3
-   */
-  clone() {
-    return new Matrix3().copy(this);
   }
 
   /**
@@ -177,11 +162,11 @@ export default class Matrix3 extends Matrix {
    * @param  {Matrix3} [b] 如果不传，计算 this 和 a 的乘积
    * @return {Matrix3} this
    */
-  multiply(a, b) {
+  multiply(a: Matrix3, b?: Matrix3) {
     if (b) {
       multiply(this.#elements, a.elements, b.elements);
     } else {
-      multiply(this.#elements, this.#elements, b.elements);
+      multiply(this.#elements, this.#elements, a.elements);
     }
 
     return this;
@@ -193,21 +178,21 @@ export default class Matrix3 extends Matrix {
    * @param  {Matrix3} b 如果不传，计算 this 和 a 的左乘
    * @return {Matrix3}  this
    */
-  premultiply(a, b) {
+  premultiply(a: Matrix3, b?: Matrix3) {
     if (b) {
       multiply(this.#elements, b.elements, a.elements);
     } else {
-      multiply(this.#elements, a.elements, a.elements);
+      multiply(this.#elements, a.elements, this.#elements);
     }
     return this;
   }
 
   /**
-   * 通过给定的向量 v 平移此矩阵
+   * 通过给定的向量 Vector2 平移此矩阵
    * @param  {Vector2} v 向量
    * @return {Matrix3} this
    */
-  translate(v) {
+  translate(v: Vector2) {
     translate(this.#elements, this.#elements, v.elements);
     return this;
   }
@@ -217,7 +202,7 @@ export default class Matrix3 extends Matrix {
    * @param  {Number} rad 弧度
    * @return {Matrix3} this
    */
-  rotate(rad) {
+  rotate(rad: number) {
     rotate(this.#elements, this.#elements, rad);
     return this;
   }
@@ -227,7 +212,7 @@ export default class Matrix3 extends Matrix {
    * @param  {Vector2} v 向量
    * @return {Matrix3} this
    */
-  scale(v) {
+  scale(v: Vector2) {
     scale(this.#elements, this.#elements, v.elements);
     return this;
   }
@@ -237,7 +222,7 @@ export default class Matrix3 extends Matrix {
    * @param  {Vector2} v 平移的向量
    * @return {Matrix3} this
    */
-  fromTranslation(v) {
+  fromTranslation(v: Vector2) {
     fromTranslation(this.#elements, v.elements);
     return this;
   }
@@ -247,7 +232,7 @@ export default class Matrix3 extends Matrix {
    * @param  {Number} rad 旋转弧度
    * @return {Matrix3} this
    */
-  fromRotation(rad) {
+  fromRotation(rad: number) {
     fromRotation(this.#elements, rad);
     return this;
   }
@@ -267,7 +252,7 @@ export default class Matrix3 extends Matrix {
    * @param  {Quaternion} q Quaternion to create matrix from
    * @return {Matrix3} this
    */
-  fromQuat(q) {
+  fromQuat(q: Quaternion) {
     fromQuat(this.#elements, q.elements);
     return this;
   }
@@ -306,11 +291,11 @@ export default class Matrix3 extends Matrix {
    * @param {Matrix3} [b] 如果不传，计算 this 和 a 的和
    * @return {Matrix3} this
    */
-  add(a, b) {
+  add(a: Matrix3, b?: Matrix3) {
     if (b) {
       add(this.#elements, a.elements, b.elements);
     } else {
-      add(this.#elements, a.elements, b.elements);
+      add(this.#elements, this.#elements, a.elements);
     }
 
     return this;
@@ -322,23 +307,27 @@ export default class Matrix3 extends Matrix {
    * @param {Matrix3} [b] 如果不传，计算 this 和 a 的差
    * @return {Matrix3} this
    */
-  subtract(a, b) {
+  subtract(a: Matrix3, b: Matrix3) {
     if (b) {
       subtract(this.#elements, a.elements, b.elements);
     } else {
-      subtract(this.#elements, a.elements, b.elements);
+      subtract(this.#elements, this.#elements, a.elements);
     }
     return this;
   }
 
   /**
-   * 判断两个矩阵是否大致相等
+   * 判断两个矩阵是否近似相等
    * @param {Matrix3} a
    * @param {Matrix3} [b] 如果不传，比较 this 和 a 是否近似相等
    * @return {Boolean}
    */
-  equals(a, b) {
-    return equals(a.elements, b.elements);
+  equals(a: Matrix3, b?: Matrix3) {
+    if (b) {
+      return equals(a.elements, b.elements);
+    } else {
+      return equals(this.#elements, a.elements);
+    }
   }
 
   /**
@@ -356,6 +345,34 @@ export default class Matrix3 extends Matrix {
 
     this.set(scaleX * cos, -scaleY * sin, 0, scaleX * sin, scaleY * cos, 0, x, y, 1);
     return this;
+  }
+
+  /**
+   * 从 4x4 矩阵计算 3x3 正态矩阵（转置逆矩阵）
+   * 这个值传递给着色器，用于计算物体的光照。 它是物体的modelViewMatrix矩阵中，左上角3x3子矩阵的逆的转置矩阵
+   * @param m
+   */
+  getNormalMatrix(m: Matrix4) {
+    normalFromMat4(this.#elements, m.elements);
+    return this;
+  }
+
+  /**
+   * 将传入的 Matrix3 复制到此矩阵
+   * @param  {Matrix3} m 源矩阵
+   * @return {Matrix3} this
+   */
+  copy(m) {
+    copy(this.#elements, m.elements);
+    return this;
+  }
+
+  /**
+   * 从此矩阵创建一个新的 3*3 矩阵
+   * @return {Matrix3} a new Matrix3
+   */
+  clone() {
+    return new Matrix3().copy(this);
   }
 
   /**

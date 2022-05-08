@@ -3,7 +3,13 @@ import Raf from '@/animation/Raf';
 import type { IRafOptions } from '@/animation/Raf';
 
 import Vector2 from '@/math/Vector2';
+import Vector3 from '@/math/Vector4';
+import Vector4 from '@/math/Vector3';
 import Matrix3 from '@/math/Matrix3';
+import Matrix4 from '@/math/Matrix4';
+import Euler from '@/math/Euler';
+import Quaternion from '@/math/Quaternion';
+import ProjectionMatrix from '@/math/ProjectionMatrix';
 
 const caches = new Map();
 
@@ -21,8 +27,14 @@ export const hooks = (id: string, hook: () => void) => {
 export {
   Raf,
   Clock,
+  Euler,
   Vector2,
+  Vector3,
+  Vector4,
   Matrix3,
+  Matrix4,
+  Quaternion,
+  ProjectionMatrix,
 }
 
 export type {
