@@ -1,0 +1,646 @@
+[vis-engine - v1.0.0](../index.md) / Euler
+
+# Class: Euler
+
+欧拉角描述一个旋转变换，通过指定轴顺序和其各个轴向上的指定旋转角度来旋转一个物体
+
+```ts
+const a = new Euler(0, 1, 1.57, 'xyz' )
+```
+
+## Hierarchy
+
+- `default`
+
+  ↳ **`Euler`**
+
+## Table of contents
+
+### Constructors
+
+- [constructor](Euler.md#constructor)
+
+### Accessors
+
+- [elements](Euler.md#elements)
+- [order](Euler.md#order)
+- [pitch](Euler.md#pitch)
+- [roll](Euler.md#roll)
+- [x](Euler.md#x)
+- [y](Euler.md#y)
+- [yaw](Euler.md#yaw)
+- [z](Euler.md#z)
+
+### Methods
+
+- [clone](Euler.md#clone)
+- [copy](Euler.md#copy)
+- [equals](Euler.md#equals)
+- [fromArray](Euler.md#fromarray)
+- [fromObject](Euler.md#fromobject)
+- [fromQuaternion](Euler.md#fromquaternion)
+- [fromRotationMatrix](Euler.md#fromrotationmatrix)
+- [fromVector3](Euler.md#fromvector3)
+- [onChange](Euler.md#onchange)
+- [set](Euler.md#set)
+- [toArray](Euler.md#toarray)
+- [toObject](Euler.md#toobject)
+- [toQuaternion](Euler.md#toquaternion)
+- [toVector3](Euler.md#tovector3)
+- [triggerChange](Euler.md#triggerchange)
+
+## Constructors
+
+### constructor
+
+• **new Euler**(`x?`, `y?`, `z?`, `order?`)
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `x` | `number` | `0` | 用弧度表示x轴旋转量，默认值是 0 |
+| `y` | `number` | `0` | 用弧度表示y轴旋转量，默认值是 0 |
+| `z` | `number` | `0` | 用弧度表示z轴旋转量，默认值是 0 |
+| `order` | [`ANGLE_ORDER`](../index.md#angle_order) | `'xyz'` | 表示旋转顺序的字符串，默认为'xyz' |
+
+#### Overrides
+
+Vector.constructor
+
+#### Defined in
+
+[math/Euler.ts:32](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;32)
+
+## Accessors
+
+### elements
+
+• `get` **elements**(): `Float32Array`
+
+#### Returns
+
+`Float32Array`
+
+#### Inherited from
+
+Vector.elements
+
+#### Defined in
+
+[math/Vector.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;873d649#line&#x3D;8)
+
+___
+
+### order
+
+• `get` **order**(): [`ANGLE_ORDER`](../index.md#angle_order)
+
+获取旋转顺序
+
+#### Returns
+
+[`ANGLE_ORDER`](../index.md#angle_order)
+
+#### Defined in
+
+[math/Euler.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;95)
+
+• `set` **order**(`order`): `void`
+
+设置旋转顺序
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `order` | [`ANGLE_ORDER`](../index.md#angle_order) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[math/Euler.ts:103](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;103)
+
+___
+
+### pitch
+
+• `get` **pitch**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[math/Euler.ts:116](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;116)
+
+• `set` **pitch**(`pitch`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `pitch` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[math/Euler.ts:120](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;120)
+
+___
+
+### roll
+
+• `get` **roll**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[math/Euler.ts:108](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;108)
+
+• `set` **roll**(`roll`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `roll` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[math/Euler.ts:112](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;112)
+
+___
+
+### x
+
+• `get` **x**(): `number`
+
+获取 x 值
+
+#### Returns
+
+`number`
+
+number;
+
+#### Defined in
+
+[math/Euler.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;45)
+
+• `set` **x**(`x`): `void`
+
+设置 x 值
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[math/Euler.ts:53](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;53)
+
+___
+
+### y
+
+• `get` **y**(): `number`
+
+获取 y 值
+
+#### Returns
+
+`number`
+
+number;
+
+#### Defined in
+
+[math/Euler.ts:62](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;62)
+
+• `set` **y**(`y`): `void`
+
+设置 y 值
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `y` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[math/Euler.ts:70](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;70)
+
+___
+
+### yaw
+
+• `get` **yaw**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[math/Euler.ts:124](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;124)
+
+• `set` **yaw**(`yaw`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `yaw` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[math/Euler.ts:128](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;128)
+
+___
+
+### z
+
+• `get` **z**(): `number`
+
+获取 z 值
+
+#### Returns
+
+`number`
+
+number;
+
+#### Defined in
+
+[math/Euler.ts:79](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;79)
+
+• `set` **z**(`z`): `void`
+
+设置 z 值
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `z` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[math/Euler.ts:87](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;87)
+
+## Methods
+
+### clone
+
+▸ **clone**(): [`Euler`](Euler.md)
+
+克隆此欧拉角对象
+
+#### Returns
+
+[`Euler`](Euler.md)
+
+#### Defined in
+
+[math/Euler.ts:337](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;337)
+
+___
+
+### copy
+
+▸ **copy**(`euler`): [`Euler`](Euler.md)
+
+将传入的 euler 的各数值复制到此欧拉角
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `euler` | [`Euler`](Euler.md) |
+
+#### Returns
+
+[`Euler`](Euler.md)
+
+#### Defined in
+
+[math/Euler.ts:345](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;345)
+
+___
+
+### equals
+
+▸ **equals**(`e`): `boolean`
+
+判断两个欧拉角是否相同
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `e` | [`Euler`](Euler.md) |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[math/Euler.ts:361](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;361)
+
+___
+
+### fromArray
+
+▸ **fromArray**(`array`, `offset?`): [`Euler`](Euler.md)
+
+从数组构建向量数据
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `array` | `any` | `undefined` | 原始数组 |
+| `offset` | `number` | `0` | 数组偏移量 |
+
+#### Returns
+
+[`Euler`](Euler.md)
+
+#### Inherited from
+
+Vector.fromArray
+
+#### Defined in
+
+[math/Vector.ts:17](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;873d649#line&#x3D;17)
+
+___
+
+### fromObject
+
+▸ **fromObject**(`__namedParameters`): [`Euler`](Euler.md)
+
+从对象创建欧拉角
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `__namedParameters` | `Object` |
+
+#### Returns
+
+[`Euler`](Euler.md)
+
+#### Defined in
+
+[math/Euler.ts:139](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;139)
+
+___
+
+### fromQuaternion
+
+▸ **fromQuaternion**(`q`): [`Euler`](Euler.md)
+
+从四元数创建欧拉角
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `q` | [`Quaternion`](Quaternion.md) |
+
+#### Returns
+
+[`Euler`](Euler.md)
+
+#### Defined in
+
+[math/Euler.ts:268](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;268)
+
+___
+
+### fromRotationMatrix
+
+▸ **fromRotationMatrix**(`m`, `order?`, `update?`): [`Euler`](Euler.md)
+
+从 Matrix4 创建欧拉角
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `m` | [`Matrix4`](Matrix4.md) | `undefined` |
+| `order` | [`ANGLE_ORDER`](../index.md#angle_order) | `undefined` |
+| `update` | `boolean` | `true` |
+
+#### Returns
+
+[`Euler`](Euler.md)
+
+#### Defined in
+
+[math/Euler.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;174)
+
+___
+
+### fromVector3
+
+▸ **fromVector3**(`vec3`, `order?`): [`Euler`](Euler.md)
+
+从 Vector3 创建欧拉角
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vec3` | `any` |
+| `order` | [`ANGLE_ORDER`](../index.md#angle_order) |
+
+#### Returns
+
+[`Euler`](Euler.md)
+
+#### Defined in
+
+[math/Euler.ts:289](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;289)
+
+___
+
+### onChange
+
+▸ **onChange**(`cb`): `void`
+
+监听欧拉角变更
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `cb` | [`ICallback`](../index.md#icallback) | 回调函数 |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[math/Euler.ts:369](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;369)
+
+___
+
+### set
+
+▸ **set**(`x`, `y`, `z`, `order?`): [`Euler`](Euler.md)
+
+设置欧拉角的 x、y、z、order
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `any` |
+| `y` | `any` |
+| `z` | `any` |
+| `order` | [`ANGLE_ORDER`](../index.md#angle_order) |
+
+#### Returns
+
+[`Euler`](Euler.md)
+
+#### Defined in
+
+[math/Euler.ts:325](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;325)
+
+___
+
+### toArray
+
+▸ **toArray**(`out?`, `offset?`): `Float32Array` \| `number`[]
+
+从向量转换到数组
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `out` | `Float32Array` \| `number`[] | `[]` | 输出数据 |
+| `offset` | `number` | `0` | 偏移量 |
+
+#### Returns
+
+`Float32Array` \| `number`[]
+
+#### Inherited from
+
+Vector.toArray
+
+#### Defined in
+
+[math/Vector.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;873d649#line&#x3D;30)
+
+___
+
+### toObject
+
+▸ **toObject**(): `Object`
+
+转换到对象
+
+#### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `order` | [`ANGLE_ORDER`](../index.md#angle_order) |
+| `x` | `number` |
+| `y` | `number` |
+| `z` | `number` |
+
+#### Defined in
+
+[math/Euler.ts:159](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;159)
+
+___
+
+### toQuaternion
+
+▸ **toQuaternion**(): [`Quaternion`](Quaternion.md)
+
+转换到四元数
+
+#### Returns
+
+[`Quaternion`](Quaternion.md)
+
+#### Defined in
+
+[math/Euler.ts:296](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;296)
+
+___
+
+### toVector3
+
+▸ **toVector3**(): [`Vector4`](Vector4.md)
+
+转换到 Vector3
+
+#### Returns
+
+[`Vector4`](Vector4.md)
+
+#### Defined in
+
+[math/Euler.ts:314](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;314)
+
+___
+
+### triggerChange
+
+▸ **triggerChange**(): `void`
+
+触发所有的回调函数
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[math/Euler.ts:378](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;378)

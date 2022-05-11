@@ -8,7 +8,6 @@ import {
   divide,
   dot,
   lerp,
-  slerp,
   scale,
   scaleAndAdd,
   equals,
@@ -152,7 +151,7 @@ export default class Vector3 extends Vector {
   /**
    * 计算从 `[0, 0, 0]` 到此向量的直线距离
    */
-  length() {
+  length(): number {
     return length(this.#elements);
   }
 
@@ -340,16 +339,6 @@ export default class Vector3 extends Vector {
   }
 
   /**
-   * 从此向量到 vec 向量进行球面插值
-   * @param vec 目标向量
-   * @param t 插值因数，范围一般在[0-1]，通常在这两个值之间
-   */
-  slerp(vec: Vector3, t: number) {
-    slerp(this.#elements, this.#elements, vec.elements, t);
-    return this;
-  }
-
-  /**
    * 将此向量转换为单位向量 (将其设置为与此向量具有相同方向但长度为 1 的向量)
    */
   normalize() {
@@ -414,7 +403,7 @@ export default class Vector3 extends Vector {
   /**
    * 转换为字符串
    */
-  toString() {
+  toString(): string {
     return str(this.#elements);
   }
 }

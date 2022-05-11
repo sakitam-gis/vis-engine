@@ -212,7 +212,7 @@ export default class Vector2 extends Vector {
   /**
    * 计算从 `[0, 0]` 到此向量的直线距离
    */
-  length() {
+  length(): number {
     return length(this.#elements);
   }
 
@@ -335,7 +335,7 @@ export default class Vector2 extends Vector {
   /**
    * 转换为字符串
    */
-  toString() {
+  toString(): string {
     return str(this.#elements);
   }
 }

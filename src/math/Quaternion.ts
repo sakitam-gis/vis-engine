@@ -8,7 +8,6 @@ import {
   invert,
   conjugate,
   multiply,
-  premultiply,
   getAngle,
   fromEuler,
   fromMat3,
@@ -223,9 +222,9 @@ export default class Quaternion extends Vector {
    */
   premultiply(a: Quaternion, b?: Quaternion) {
     if (b) {
-      premultiply(this.#elements, a.elements, b.elements);
+      multiply(this.#elements, b.elements, a.elements);
     } else {
-      premultiply(this.#elements, this.#elements, a.elements);
+      multiply(this.#elements, a.elements, this.#elements);
     }
 
     this.triggerChange();

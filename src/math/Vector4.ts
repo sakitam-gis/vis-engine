@@ -7,12 +7,10 @@ import {
   divide,
   dot,
   lerp,
-  slerp,
   scale,
   equals,
   distance,
   length,
-  angle,
   cross,
   negate,
   inverse,
@@ -286,23 +284,8 @@ export default class Vector4 extends Vector {
   /**
    * 计算从 `[0, 0, 0, 0]` 到此向量的直线距离
    */
-  length() {
+  length(): number {
     return length(this.#elements);
-  }
-
-  /**
-   * 计算此向量相对于正 x 轴的弧度角
-   * @param vector
-   */
-  angle(vector: Vector4) {
-    return angle(this.#elements, [1, 0, 0, 0]);
-  }
-
-  /**
-   * 以弧度返回该向量与向量 v 之间的角度
-   */
-  angleTo(vector: Vector4) {
-    return angle(this.#elements, vector.elements);
   }
 
   /**
@@ -357,16 +340,6 @@ export default class Vector4 extends Vector {
   }
 
   /**
-   * 从此向量到 vec 向量进行球面插值
-   * @param vec 目标向量
-   * @param t 插值因数，范围一般在[0-1]，通常在这两个值之间
-   */
-  slerp(vec: Vector4, t: number) {
-    slerp(this.#elements, this.#elements, vec.elements, t);
-    return this;
-  }
-
-  /**
    * 将此向量转换为单位向量 (将其设置为与此向量具有相同方向但长度为 1 的向量)
    */
   normalize() {
@@ -414,7 +387,7 @@ export default class Vector4 extends Vector {
   /**
    * 转换为字符串
    */
-  toString() {
+  toString(): string {
     return str(this.#elements);
   }
 }

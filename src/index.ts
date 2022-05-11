@@ -8,6 +8,7 @@ import Vector4 from '@/math/Vector3';
 import Matrix3 from '@/math/Matrix3';
 import Matrix4 from '@/math/Matrix4';
 import Euler from '@/math/Euler';
+import type { ANGLE_ORDER } from '@/math/Euler';
 import Quaternion from '@/math/Quaternion';
 import ProjectionMatrix from '@/math/ProjectionMatrix';
 
@@ -35,8 +36,11 @@ export {
   Matrix4,
   Quaternion,
   ProjectionMatrix,
-}
+};
 
 export type {
   IRafOptions,
+  ANGLE_ORDER,
 }
+
+export * from './types';

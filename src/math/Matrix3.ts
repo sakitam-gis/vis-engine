@@ -30,11 +30,15 @@ import Quaternion from './Quaternion';
 
 /**
  * 一个表示 3*3 的矩阵
+ * ```bash
  * 1--0--0
  * |  |  |
  * 0--1--0
  * |  |  |
  * 0--0--1
+ * ```
+ *
+ * 示例：
  * ```ts
  * const m = new Matrix3();
  * ```
@@ -378,7 +382,7 @@ export default class Matrix3 extends Matrix {
   /**
    * 转换为字符串
    */
-  toString() {
+  toString(): string {
     return str(this.#elements);
   }
 }

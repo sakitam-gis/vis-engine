@@ -21,9 +21,42 @@ vis-engine - v1.0.0
 
 - [IRafOptions](interfaces/IRafOptions.md)
 
+### Type Aliases
+
+- [ANGLE\_ORDER](index.md#angle_order)
+- [ICallback](index.md#icallback)
+
 ### Functions
 
 - [hooks](index.md#hooks)
+
+## Type Aliases
+
+### ANGLE\_ORDER
+
+Ƭ **ANGLE\_ORDER**: ``"zyx"`` \| ``"xyz"`` \| ``"yxz"`` \| ``"yzx"`` \| ``"zxy"`` \| ``"xzy"``
+
+#### Defined in
+
+[math/Euler.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;873d649#line&#x3D;10)
+
+___
+
+### ICallback
+
+Ƭ **ICallback**: () => `void`
+
+#### Type declaration
+
+▸ (): `void`
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[types.ts:1](https://github.com/sakitam-gis/vis-engine/blob/master/src/types.ts?at&#x3D;873d649#line&#x3D;1)
 
 ## Functions
 
@@ -48,4 +81,4 @@ boolean
 
 #### Defined in
 
-[index.ts:22](https://github.com/sakitam-gis/vis-engine/blob/master/src/index.ts?at&#x3D;5522f1c#line&#x3D;22)
+[index.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/index.ts?at&#x3D;873d649#line&#x3D;23)

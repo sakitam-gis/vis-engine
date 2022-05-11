@@ -29,7 +29,6 @@ import {
   multiplyScalar,
   perspective,
   ortho,
-  decompose,
   fromQuat,
   fromRotationTranslation,
   fromRotationTranslationScale,
@@ -44,6 +43,7 @@ const tempArray: number[] = [];
 
 /**
  * 一个表示 4*4 的矩阵
+ * ```bash
  * 1--0--0--0
  * |  |  |  |
  * 0--1--0--0
@@ -51,6 +51,9 @@ const tempArray: number[] = [];
  * 0--0--1--0
  * |  |  |  |
  * 0--0--0--1
+ * ```
+ *
+ * 示例：
  * ```ts
  * const m = new Matrix4();
  * ```
@@ -192,7 +195,7 @@ export default class Matrix4 extends Matrix {
 
   /**
    * 将此矩阵转换为逆矩阵
-   * @param m {Matrix4} [m = this]
+   * @param m m = this
    * @return Matrix4
    */
   invert(m = this) {
@@ -504,13 +507,14 @@ export default class Matrix4 extends Matrix {
   }
 
   /**
-   * 从矩阵转换到四元数、平移和缩放向量
-   * @param quat
+   * 从矩阵转换到旋转、平移和缩放向量
    */
-  decompose(quat = new Quaternion()) {
-    decompose(tempArray, this.getTranslation().elements, this.getScale().elements, this.getRotation().elements);
-    quat.set(tempArray[0], tempArray[1], tempArray[2], tempArray[3]);
-    return quat;
+  decompose() {
+    return {
+      rotation: this.getRotation(),
+      scale: this.getScale(),
+      translation: this.getTranslation(),
+    };
   }
 
   /**
@@ -534,7 +538,7 @@ export default class Matrix4 extends Matrix {
   /**
    * 转换为字符串
    */
-  toString() {
+  toString(): string {
     return str(this.#elements);
   }
 }

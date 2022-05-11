@@ -7,7 +7,7 @@ import Quaternion from './Quaternion';
 
 import type { ICallback } from '@/types';
 
-export type ANGLE_ORDER = 'zyx'|'xyz'|'yxz'|'yzx'|'zxy'|'xzy';
+export type ANGLE_ORDER = 'zyx' | 'xyz' | 'yxz' | 'yzx' | 'zxy' | 'xzy';
 
 /**
  * 欧拉角描述一个旋转变换，通过指定轴顺序和其各个轴向上的指定旋转角度来旋转一个物体
@@ -136,9 +136,7 @@ export default class Euler extends Vector {
    * @param z
    * @param order
    */
-  fromObject({
-    x, y, z, order,
-  }) {
+  fromObject({ x, y, z, order }) {
     if (x !== undefined) {
       this.x = x;
     }
@@ -175,9 +173,15 @@ export default class Euler extends Vector {
    */
   fromRotationMatrix(m: Matrix4, order = this.#order, update = true) {
     const te = m.toArray();
-    const m11 = te[0]; const m12 = te[4]; const m13 = te[8];
-    const m21 = te[1]; const m22 = te[5]; const m23 = te[9];
-    const m31 = te[2]; const m32 = te[6]; const m33 = te[10];
+    const m11 = te[0];
+    const m12 = te[4];
+    const m13 = te[8];
+    const m21 = te[1];
+    const m22 = te[5];
+    const m23 = te[9];
+    const m31 = te[2];
+    const m32 = te[6];
+    const m33 = te[10];
 
     switch (order) {
       case 'xyz':
