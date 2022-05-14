@@ -1,3 +1,5 @@
+export * from './shader';
+
 /**
  * 获取当前秒数，自动回退
  * @return number
@@ -28,4 +30,42 @@ export function isString(s: any): s is string {
  */
 export function isRegexp(obj: any): obj is RegExp {
   return typeOf(obj) === 'regexp';
+}
+
+/**
+ * 判断是否是 null
+ * @param value
+ */
+export function isNull(value) {
+  return value == null;
+}
+
+/**
+ * 判断是否是对象
+ * @param value
+ */
+export function isObject(value) {
+  const type = typeof value;
+  return value !== null && (type === 'object' || type === 'function');
+}
+
+export function hasValue(v, state) {
+  if (isObject(v)) {
+    return !isNull(v.value) && (isNull(state) || v.value === state);
+  } else {
+    return !isNull(v) && (isNull(state) || v === state);
+  }
+}
+
+const uidCounters: Record<string, number> = {};
+
+/**
+ * 获取 uid
+ * @param id= - Identifier base name
+ * @return uid
+ **/
+export function uid(id: string = 'id'): string {
+  uidCounters[id] = uidCounters[id] || 1;
+  const count = uidCounters[id]++;
+  return `${id}-${count}`;
 }
