@@ -1,5 +1,3 @@
-export type IType = 'webgl' | 'webgl1' | 'webgl2';
-
 /** Check if supplied parameter is a WebGLRenderingContext */
 export function isWebGL(gl: any): boolean {
   if (typeof WebGLRenderingContext !== 'undefined' && gl instanceof WebGLRenderingContext) {
@@ -26,35 +24,27 @@ export function isWebGL2(gl: any): boolean {
  * 这是一个基类，
  */
 export default class Context {
-  #context: WebGLRenderingContext | WebGL2RenderingContext;
-
-  #type: IType;
+  #gl: WebGLRenderingContext | WebGL2RenderingContext;
 
   #state: any;
 
-  constructor(context: WebGLRenderingContext | WebGL2RenderingContext, type = 'webgl') {
-    this.#context = context;
-
-    this.#type = type as IType;
+  constructor(gl: WebGLRenderingContext | WebGL2RenderingContext) {
+    this.#gl = gl;
   }
 
   get contextState() {
     return this.#state;
   }
 
-  get context() {
-    return this.#context;
+  get gl() {
+    return this.#gl;
   }
 
   get isWebGL() {
-    return isWebGL(this.context);
+    return isWebGL(this.gl);
   }
 
   get isWebGL2() {
-    return isWebGL2(this.context);
-  }
-
-  get type() {
-    return this.#type;
+    return isWebGL2(this.gl);
   }
 }
