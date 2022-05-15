@@ -1,7 +1,8 @@
 import { uid } from '@/utils';
 import type { WithUndef } from '@/types';
 
-import Context from './Context';
+import Base from './Base';
+import Renderer from './Renderer';
 
 const ERR_RESOURCE_METHOD_UNDEFINED = 'Resource subclass must define virtual methods';
 
@@ -12,7 +13,7 @@ export interface IResourceOptions {
   userData: any;
 }
 
-export default class Resource<T> extends Context {
+export default class Resource<T> extends Base {
   #handle: any;
 
   id: string;
@@ -26,8 +27,8 @@ export default class Resource<T> extends Context {
 
   options: Partial<IResourceOptions & T>;
 
-  constructor(context: WebGLRenderingContext | WebGL2RenderingContext, options: Partial<IResourceOptions & T> = {}) {
-    super(context);
+  constructor(renderer: Renderer, options: Partial<IResourceOptions & T> = {}) {
+    super(renderer);
     this.id = options?.id || uid(this.constructor.name);
     this.name = options?.name;
     this.userData = options?.userData;
@@ -52,7 +53,7 @@ export default class Resource<T> extends Context {
   delete({ deleteChildren = false } = {}) {
     // Delete this object, and get refs to any children
     // @ts-expect-error
-    const children = this.#handle && this.#deleteHandle(this.#handle);
+    const children = this.#handle && this.deleteHandle(this.#handle);
     if (this.#handle) {
       this.removeStats();
     }
