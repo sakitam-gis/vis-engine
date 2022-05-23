@@ -497,11 +497,11 @@ export default class Matrix4 extends Matrix {
 
   /**
    * 从四元数旋转、平移和缩放创建矩阵
-   * @param q
    * @param v
+   * @param q
    * @param s
    */
-  compose(q: Quaternion, v: Vector3, s: Vector3) {
+  compose(v: Vector3, q: Quaternion, s: Vector3) {
     fromRotationTranslationScale(this.#elements, q.elements, v.elements, s.elements);
     return this;
   }

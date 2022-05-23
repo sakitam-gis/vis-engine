@@ -27,6 +27,10 @@ export function clamp(val: number, min: number, max: number) {
   return Math.min(Math.max(val, min), max);
 }
 
+/**
+ * 判断数值是否是 2 的 n 次方
+ * @param value
+ */
 export function isPowerOfTwo(value) {
   return (Math.log(value) / Math.LN2) % 1 === 0;
 }
