@@ -1,4 +1,5 @@
 import Resource from './Resource';
+import Renderer from './Renderer';
 
 const ERR_SOURCE = 'Shader: GLSL source code must be a JavaScript string';
 
@@ -43,10 +44,10 @@ export class Shader extends Resource<any> {
 
   public sourceCode: string;
 
-  constructor(context, sourceCode, type, options = {}) {
-    const shaderType = getShaderType(context.gl, type);
-    super(context, {
-      name: getShaderName(sourceCode) || genShaderName(getTypeName(context, shaderType))
+  constructor(renderer: Renderer, sourceCode, type, options = {}) {
+    const shaderType = getShaderType(renderer.gl, type);
+    super(renderer, {
+      name: getShaderName(sourceCode) || genShaderName(getTypeName(renderer, shaderType))
     });
     console.assert(
       typeof sourceCode === 'string', ERR_SOURCE
@@ -74,11 +75,11 @@ export class Shader extends Resource<any> {
     let s = source.replace(/#include </g, '#glsl_include <');
     s = this.injectShaderModule(s, this.options || {})
       .replace(/\n\n+/gm, '\n\n');
-    this.context.shaderSource(this.handle, s);
-    this.context.compileShader(this.handle);
-    if (!this.context.getShaderParameter(this.handle, this.context.COMPILE_STATUS)) {
-      this.context.deleteShader(this.handle);
-      throw new Error(this.context.getShaderInfoLog(this.handle) || '');
+    this.gl.shaderSource(this.handle, s);
+    this.gl.compileShader(this.handle);
+    if (!this.gl.getShaderParameter(this.handle, this.gl.COMPILE_STATUS)) {
+      this.gl.deleteShader(this.handle);
+      throw new Error(this.gl.getShaderInfoLog(this.handle) || '');
     }
   }
 
@@ -91,7 +92,7 @@ export class Shader extends Resource<any> {
   }
 
   getSource() {
-    return this.context.getShaderSource(this.handle);
+    return this.gl.getShaderSource(this.handle);
   }
 
   setSource(source) {
@@ -103,11 +104,11 @@ export class Shader extends Resource<any> {
   }
 
   deleteHandle() {
-    this.context.deleteShader(this.handle);
+    this.gl.deleteShader(this.handle);
   }
 
   toString(): string {
-    return `${getTypeName(this.context, this.shaderType)}:${this.id}`;
+    return `${getTypeName(this.gl, this.shaderType)}:${this.id}`;
   }
 }
 
@@ -115,12 +116,12 @@ export class Shader extends Resource<any> {
  * 顶点着色器
  */
 export class VertexShader extends Shader {
-  constructor(gl: WebGLRenderingContext, sourceCode: string, options) {
-    super(gl, sourceCode, 'vertex', options);
+  constructor(renderer: Renderer, sourceCode: string, options) {
+    super(renderer, sourceCode, 'vertex', options);
   }
 
   createHandle() {
-    return this.context.createShader(this.context.VERTEX_SHADER);
+    return this.gl.createShader(this.gl.VERTEX_SHADER);
   }
 }
 
@@ -128,11 +129,11 @@ export class VertexShader extends Shader {
  * 片段着色器
  */
 export class FragmentShader extends Shader {
-  constructor(gl: WebGLRenderingContext, sourceCode: string, options) {
-    super(gl, sourceCode, 'fragment', options);
+  constructor(renderer: Renderer, sourceCode: string, options) {
+    super(renderer, sourceCode, 'fragment', options);
   }
 
   createHandle() {
-    return this.context.createShader(this.context.FRAGMENT_SHADER);
+    return this.gl.createShader(this.gl.FRAGMENT_SHADER);
   }
 }
