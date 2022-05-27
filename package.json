@@ -61,7 +61,8 @@
     "semantic-release": "semantic-release --branches master"
   },
   "dependencies": {
-    "gl-matrix": "^3.4.3"
+    "gl-matrix": "^3.4.3",
+    "tinycolor2": "^1.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",

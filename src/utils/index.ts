@@ -1,4 +1,5 @@
 export * from './shader';
+export * from './math';
 
 /**
  * 获取当前秒数，自动回退
@@ -22,6 +23,32 @@ export function typeOf(value: any): string {
  */
 export function isString(s: any): s is string {
   return typeOf(s) === 'string';
+}
+
+/**
+ * 判断是否是 undefined
+ * @param s
+ * @return boolean
+ */
+export function isUndef(s: any): s is undefined {
+  return typeOf(s) === 'undefined';
+}
+
+/**
+ * 简单判断是否是 16 进制字符串（需要完善）
+ * @param string
+ */
+export function isHex(string) {
+  return isString(string) && string.includes('%');
+}
+
+/**
+ * 判断是否是数字
+ * @param s
+ * @return boolean
+ */
+export function isNumber(s: any): s is number {
+  return typeOf(s) === 'number';
 }
 
 /**
