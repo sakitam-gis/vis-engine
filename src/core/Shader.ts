@@ -44,7 +44,7 @@ export class Shader extends Resource<any> {
 
   public sourceCode: string;
 
-  constructor(renderer: Renderer, sourceCode, type, options = {}) {
+  constructor(renderer: Renderer, sourceCode, type, includes = {}) {
     const shaderType = getShaderType(renderer.gl, type);
     super(renderer, {
       name: getShaderName(sourceCode) || genShaderName(getTypeName(renderer, shaderType))
@@ -53,7 +53,7 @@ export class Shader extends Resource<any> {
       typeof sourceCode === 'string', ERR_SOURCE
     );
     this.#shaderType = shaderType;
-    this.sourceCode = this.injectShaderModule(sourceCode, options || {})
+    this.sourceCode = this.injectShaderModule(sourceCode, includes || {})
       .replace(/\n\n+/gm, '\n\n');
     this.createShader(this.sourceCode);
   }
@@ -116,8 +116,8 @@ export class Shader extends Resource<any> {
  * 顶点着色器
  */
 export class VertexShader extends Shader {
-  constructor(renderer: Renderer, sourceCode: string, options) {
-    super(renderer, sourceCode, 'vertex', options);
+  constructor(renderer: Renderer, sourceCode: string, includes) {
+    super(renderer, sourceCode, 'vertex', includes);
   }
 
   createHandle() {
@@ -129,8 +129,8 @@ export class VertexShader extends Shader {
  * 片段着色器
  */
 export class FragmentShader extends Shader {
-  constructor(renderer: Renderer, sourceCode: string, options) {
-    super(renderer, sourceCode, 'fragment', options);
+  constructor(renderer: Renderer, sourceCode: string, includes) {
+    super(renderer, sourceCode, 'fragment', includes);
   }
 
   createHandle() {

@@ -1,4 +1,4 @@
-export function parseShader(shader, defines = [], includes = []) {
+export function parseShader(shader, defines: string[] = [], includes = []) {
   return shader.replace(/<#defines>/, defines.join('\n')).replace(/<#includes>/, includes.join('\n'));
 }
 

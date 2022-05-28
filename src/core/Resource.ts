@@ -53,8 +53,8 @@ export default class Resource<T> extends Base {
   delete({ deleteChildren = false } = {}) {
     // Delete this object, and get refs to any children
     // @ts-expect-error
-    const children = this.#handle && this.deleteHandle(this.#handle);
-    if (this.#handle) {
+    const children = this.handle && this.deleteHandle(this.handle);
+    if (this.handle) {
       this.removeStats();
     }
     this.#handle = null;
