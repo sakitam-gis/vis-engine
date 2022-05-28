@@ -47,7 +47,7 @@ export default class Renderer {
   constructor(gl: WebGLRenderingContext | WebGL2RenderingContext) {
     this.#gl = gl;
 
-    this.#state = new State(this.#gl);
+    this.#state = new State(this);
     this.vertexAttribDivisor = this.getExtension(
       'ANGLE_instanced_arrays',
       'vertexAttribDivisor',

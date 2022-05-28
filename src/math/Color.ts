@@ -18,7 +18,7 @@ export default class Color {
   public b: number;
   public a: number;
 
-  constructor (v = 0, g, b, a = 1) {
+  constructor (v = 0, g?: number, b?: number, a = 1) {
     this.r = 1;
     this.g = 1;
     this.b = 1;
