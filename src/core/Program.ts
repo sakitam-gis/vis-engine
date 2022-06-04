@@ -1,5 +1,5 @@
-import { isNull, isUndef, parseShader, uid } from '@/utils';
-import type { WithNull } from '@/types';
+import { isNull, isUndef, parseShader, uid } from '../utils';
+import type { WithNull } from '../types';
 
 import Resource from './Resource';
 import Texture from './Texture';

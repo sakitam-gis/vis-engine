@@ -1,4 +1,4 @@
-import { uid } from '@/utils';
+import { uid } from '../utils';
 import Object3D from './Object3D';
 import Vector2 from '../math/Vector2';
 import Matrix3 from '../math/Matrix3';
@@ -73,14 +73,11 @@ export default class Mesh extends Object3D {
   }
 
   draw(options: MeshDrawOptions = {} as MeshDrawOptions) {
-    const { renderer, camera, target } = options;
+    const { camera, target } = options;
     const uniforms = {};
     let mode = this.mode;
     if (this.program.wireframe) {
       mode = this.gl.LINE_STRIP;
-    }
-    if (renderer) {
-      renderer.state.apply(this.program.renderState.opts);
     }
     if (camera) {
       Object.assign(uniforms, {

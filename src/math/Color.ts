@@ -1,6 +1,6 @@
 import tinycolor from 'tinycolor2'; // fixme: remove dep?
 import Vector4 from '../math/Vector4';
-import { isUndef, isNumber, isString, isHex, clamp } from '@/utils';
+import { isUndef, isNumber, isString, isHex, clamp } from '../utils';
 
 const normalize = (a, min, max) => {
   const hex = isHex(a);

@@ -43,7 +43,6 @@ const tempArray: number[] = [];
 
 /**
  * 一个表示 4*4 的矩阵
- * ```bash
  * 1--0--0--0
  * |  |  |  |
  * 0--1--0--0
@@ -51,9 +50,6 @@ const tempArray: number[] = [];
  * 0--0--1--0
  * |  |  |  |
  * 0--0--0--1
- * ```
- *
- * 示例：
  * ```ts
  * const m = new Matrix4();
  * ```
@@ -195,7 +191,7 @@ export default class Matrix4 extends Matrix {
 
   /**
    * 将此矩阵转换为逆矩阵
-   * @param m m = this
+   * @param m {Matrix4} [m = this]
    * @return Matrix4
    */
   invert(m = this) {
@@ -507,7 +503,7 @@ export default class Matrix4 extends Matrix {
   }
 
   /**
-   * 从矩阵转换到旋转、平移和缩放向量
+   * 从矩阵转换到四元数、平移和缩放向量
    */
   decompose() {
     return {
@@ -538,7 +534,7 @@ export default class Matrix4 extends Matrix {
   /**
    * 转换为字符串
    */
-  toString(): string {
+  toString() {
     return str(this.#elements);
   }
 }

@@ -1,5 +1,5 @@
-import type { WithNull } from '@/types';
-import { isNull, isUndef } from '@/utils';
+import type { WithNull } from '../types';
+import { isNull, isUndef } from '../utils';
 import Color from '../math/Color';
 import Base from './Base';
 import Renderer from './Renderer';

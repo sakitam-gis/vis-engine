@@ -1,4 +1,4 @@
-import { isString, isRegexp } from '@/utils';
+import { isString, isRegexp } from '../utils';
 
 type Keys<T> = Extract<keyof T, string>;
 

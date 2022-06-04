@@ -1,4 +1,4 @@
-import { now } from '@/utils';
+import { now } from '../utils';
 
 /**
  * 时钟对象，默认内部会使用 [performance.now](https://developer.mozilla.org/en-US/docs/Web/API/Performance/now) 否则会

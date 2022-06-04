@@ -1,5 +1,5 @@
-import { uid } from '@/utils';
-import Program from '@/core/Program';
+import { uid } from '../utils';
+import Program from '../core/Program';
 import Base from './Base';
 import Renderer from './Renderer';
 import BufferAttribute from './BufferAttribute';

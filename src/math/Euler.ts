@@ -1,11 +1,11 @@
-import { clamp } from '@/utils/math';
+import { clamp } from '../utils/math';
 
 import Vector from './Vector';
 import Vector3 from './Vector3';
 import Matrix4 from './Matrix4';
 import Quaternion from './Quaternion';
 
-import type { ICallback } from '@/types';
+import type { ICallback } from '../types';
 
 export type ANGLE_ORDER = 'zyx' | 'xyz' | 'yxz' | 'yzx' | 'zxy' | 'xzy';
 

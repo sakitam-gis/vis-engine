@@ -16,12 +16,12 @@ import {
 } from 'gl-matrix/quat';
 
 import { equals } from 'gl-matrix/vec4';
-import { radToDeg } from '@/utils/math';
+import { radToDeg } from '../utils/math';
 import Euler from './Euler';
 import Vector from './Vector';
 import Vector3 from './Vector3';
 import Matrix3 from './Matrix3';
-import type { ICallback } from '@/types';
+import type { ICallback } from '../types';
 
 const tempArray: number[] = [];
 
@@ -209,22 +209,6 @@ export default class Quaternion extends Vector {
       multiply(this.#elements, a.elements, b.elements);
     } else {
       multiply(this.#elements, this.#elements, a.elements);
-    }
-
-    this.triggerChange();
-    return this;
-  }
-
-  /**
-   * 左乘
-   * @param a
-   * @param b
-   */
-  premultiply(a: Quaternion, b?: Quaternion) {
-    if (b) {
-      multiply(this.#elements, b.elements, a.elements);
-    } else {
-      multiply(this.#elements, a.elements, this.#elements);
     }
 
     this.triggerChange();

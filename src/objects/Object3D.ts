@@ -1,4 +1,4 @@
-import type { WithNull } from '@/types';
+import type { WithNull } from '../types';
 import Euler from '../math/Euler';
 import Quaternion from '../math/Quaternion';
 import Vector3 from '../math/Vector3';

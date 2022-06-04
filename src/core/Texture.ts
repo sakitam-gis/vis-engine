@@ -1,4 +1,4 @@
-import { isPowerOfTwo } from '@/utils/math';
+import { isPowerOfTwo } from '../utils/math';
 import Resource from './Resource';
 import Renderer from './Renderer';
 

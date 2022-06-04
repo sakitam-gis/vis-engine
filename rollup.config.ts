@@ -8,7 +8,7 @@ import esbuild from 'rollup-plugin-esbuild';
 import json from '@rollup/plugin-json';
 import glslify from 'rollup-plugin-glslify';
 import replace from '@rollup/plugin-replace';
-import alias from '@rollup/plugin-alias';
+// import alias from '@rollup/plugin-alias';
 import dts from 'rollup-plugin-dts';
 import terser from '@rollup/plugin-terser';
 import worker from 'rollup-plugin-web-worker-loader';
@@ -22,16 +22,25 @@ const PROD = !DEV;
 
 const r = (p: string) => resolve(ROOT, '..', p);
 
+const getFileName = (name) => {
+  const arr = name.split('.');
+  if (MINIFY) {
+    arr.splice(arr.length - 1, 0, 'min');
+    return arr.join('.');
+  }
+  return name;
+}
+
 const external = [
   ...Object.keys(pkg.dependencies),
 ];
 
 const plugins = [
-  alias({
-    entries: [
-      { find: '@', replacement: r('./src') },
-    ],
-  }),
+  // alias({
+  //   entries: [
+  //     { find: '@', replacement: r('./src') },
+  //   ],
+  // }),
   replace({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     preventAssignment: true,
@@ -52,7 +61,9 @@ const plugins = [
   }),
   esbuild({ target: 'node14' }),
   ...(MINIFY ? [
-    terser(),
+    terser({
+      compress: true,
+    }),
   ] : []),
 ];
 
@@ -60,8 +71,8 @@ const esmBuild: RollupOptions = {
   input: r('src/index.ts'),
   output: {
     format: 'esm',
-    file: pkg.module,
-    sourcemap: true,
+    file: getFileName(pkg.module),
+    sourcemap: !MINIFY,
   },
   external,
   plugins,
@@ -74,8 +85,8 @@ const cjsBuild: RollupOptions = {
   input: r('src/index.ts'),
   output: {
     format: 'cjs',
-    file: pkg.commonjs,
-    sourcemap: true,
+    file: getFileName(pkg.commonjs),
+    sourcemap: !MINIFY,
   },
   external,
   plugins,
@@ -91,9 +102,9 @@ const umdBuild: RollupOptions = {
     dir: undefined,
     name: pkg.namespace,
     sourcemap: !MINIFY,
-    file: pkg.main,
+    file: getFileName(pkg.main),
   },
-  external,
+  external: [],
   plugins,
   onwarn(warning, warn) {
     if (warning.code !== 'EVAL') warn(warning);

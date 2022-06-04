@@ -1,5 +1,5 @@
-import { uid } from '@/utils';
-import type { WithUndef } from '@/types';
+import { uid } from '../utils';
+import type { WithUndef } from '../types';
 
 import Base from './Base';
 import Renderer from './Renderer';
