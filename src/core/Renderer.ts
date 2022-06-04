@@ -37,12 +37,12 @@ export default class Renderer {
     [key in ExtensionKeys]: Extensions;
   };
 
-  public vertexAttribDivisor: Extensions;
-  public drawArraysInstanced: Extensions;
-  public drawElementsInstanced: Extensions;
-  public createVertexArray: Extensions;
-  public bindVertexArray: Extensions;
-  public deleteVertexArray: Extensions;
+  public vertexAttribDivisor: any;
+  public drawArraysInstanced: any;
+  public drawElementsInstanced: any;
+  public createVertexArray: any;
+  public bindVertexArray: any;
+  public deleteVertexArray: any;
 
   constructor(gl: WebGLRenderingContext | WebGL2RenderingContext) {
     this.#gl = gl;
