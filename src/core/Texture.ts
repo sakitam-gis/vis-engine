@@ -5,17 +5,16 @@ import Renderer from './Renderer';
 export interface ITextureOptions {
   width: number; // 纹理宽度，默认为	0
   height: number; // 纹理高度，默认为	0
-  mag: number; //	Sets magnification filter (see table)	'nearest'
-  min: number; //	Sets minification filter (see table)	'nearest'
+  magFilter: number; //	Sets magnification filter (see table)	'nearest'
+  minFilter: number; //	Sets minification filter (see table)	'nearest'
   wrapS: number; //	Sets wrap mode on S axis (see table)	'clamp'
   wrapT: number; //	Sets wrap mode on T axis (see table)	'clamp'
-  aniso: number; //	Sets number of anisotropic samples, requires EXT_texture_filter_anisotropic	0
   format: number; //	Texture format (see table)	'rgba'
   internalFormat: number; //	Texture format (see table)	'rgba'
   type: number; //	Texture type (see table)	'uint8'
-  mipmap: boolean; //	See below for a description	false
+  generateMipmaps: boolean; //	See below for a description	false
   flipY: boolean; //	Flips textures vertically when uploading	false
-  alignment: number; //	Sets unpack alignment per row	1
+  unpackAlignment: number;
   premultiplyAlpha: boolean; //	Premultiply alpha when unpacking	false
 
   image: any;
@@ -26,8 +25,11 @@ interface IState {
   image: any;
   wrapS: GLenum;
   wrapT: GLenum;
-  min: GLenum;
-  mag: GLenum;
+  minFilter: GLenum;
+  magFilter: GLenum;
+  flipY: boolean;
+  unpackAlignment: number;
+  premultiplyAlpha: boolean;
 }
 
 export default class Texture extends Resource<ITextureOptions> {
@@ -51,13 +53,12 @@ export default class Texture extends Resource<ITextureOptions> {
       internalFormat: options.format || gl.RGBA,
       wrapS: gl.CLAMP_TO_EDGE,
       wrapT: gl.CLAMP_TO_EDGE,
-      mipmap: true,
-      min: gl.LINEAR,
-      mag: gl.LINEAR,
+      generateMipmaps: true,
+      minFilter: gl.LINEAR,
+      magFilter: gl.LINEAR,
       premultiplyAlpha: false,
-      alignment: 4, // valid values: 1, 2, 4, 8 (see http://www.khronos.org/opengles/sdk/docs/man/xhtml/glPixelStorei.xml)
+      unpackAlignment: 4, // valid values: 1, 2, 4, 8 (see http://www.khronos.org/opengles/sdk/docs/man/xhtml/glPixelStorei.xml)
       flipY: false,
-      anisotropy: 0,
       level: 0,
     };
 
@@ -90,25 +91,25 @@ export default class Texture extends Resource<ITextureOptions> {
       this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.options.wrapT as GLenum);
       this.#state.wrapT = this.options.wrapT as GLenum;
     }
-    if (this.options.min !== this.#state.min) {
-      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.options.min as GLenum);
-      this.#state.min = this.options.min as GLenum;
+    if (this.options.minFilter !== this.#state.minFilter) {
+      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.options.minFilter as GLenum);
+      this.#state.minFilter = this.options.minFilter as GLenum;
     }
-    if (this.options.mag !== this.#state.mag) {
-      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.options.mag as GLenum);
-      this.#state.mag = this.options.mag as GLenum;
+    if (this.options.magFilter !== this.#state.magFilter) {
+      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.options.magFilter as GLenum);
+      this.#state.magFilter = this.options.magFilter as GLenum;
     }
-    if (this.options.flipY !== this.rendererState.opts.flipY) {
+    if (this.options.flipY !== this.#state.flipY) {
       this.gl.pixelStorei(this.gl.UNPACK_FLIP_Y_WEBGL, this.options.flipY as boolean);
-      this.rendererState.opts.flipY = this.options.flipY;
+      this.#state.flipY = this.options.flipY as boolean;
     }
-    if (this.options.premultiplyAlpha !== this.rendererState.opts.premultiplyAlpha) {
+    if (this.options.premultiplyAlpha !== this.#state.premultiplyAlpha) {
       this.gl.pixelStorei(this.gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, this.options.premultiplyAlpha as boolean);
-      this.rendererState.opts.premultiplyAlpha = this.options.premultiplyAlpha;
+      this.#state.premultiplyAlpha = this.options.premultiplyAlpha as boolean;
     }
-    if (this.options.alignment !== this.rendererState.opts.alignment) {
-      this.gl.pixelStorei(this.gl.UNPACK_ALIGNMENT, this.options.alignment as GLenum);
-      this.rendererState.opts.alignment = this.options.alignment;
+    if (this.options.unpackAlignment !== this.#state.unpackAlignment) {
+      this.gl.pixelStorei(this.gl.UNPACK_ALIGNMENT, this.options.unpackAlignment as GLenum);
+      this.#state.unpackAlignment = this.options.unpackAlignment as number;
     }
     if (this.image) {
       if (this.image.width) {
@@ -137,7 +138,7 @@ export default class Texture extends Resource<ITextureOptions> {
           this.image,
         );
       }
-      if (this.options.mipmap) {
+      if (this.options.generateMipmaps) {
         if (
           this.renderer.isWebGL2
           || isPowerOfTwo(this.image.width)
@@ -145,10 +146,10 @@ export default class Texture extends Resource<ITextureOptions> {
         ) {
           this.gl.generateMipmap(this.gl.TEXTURE_2D);
         } else {
-          this.options.mipmap = false;
+          this.options.generateMipmaps = false;
           this.options.wrapS = this.gl.CLAMP_TO_EDGE;
           this.options.wrapT = this.options.wrapS;
-          this.options.min = this.gl.LINEAR;
+          this.options.minFilter = this.gl.LINEAR;
         }
       }
     } else {

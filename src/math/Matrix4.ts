@@ -191,7 +191,7 @@ export default class Matrix4 extends Matrix {
 
   /**
    * 将此矩阵转换为逆矩阵
-   * @param m {Matrix4} [m = this]
+   * @param m 默认为当前实例
    * @return Matrix4
    */
   invert(m = this) {
@@ -201,8 +201,7 @@ export default class Matrix4 extends Matrix {
 
   /**
    * 计算此矩阵的伴随矩阵
-   * @param  {Matrix4} [m=this]
-   * @return {Matrix4} this
+   * @param m 默认为当前实例
    */
   adjoint(m = this) {
     adjoint(this.#elements, m.elements);

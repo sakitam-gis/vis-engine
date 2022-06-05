@@ -16,6 +16,7 @@ import Scene from './objects/Scene';
 import State from './core/State';
 import Renderer from './core/Renderer';
 import RenderBuffer from './core/RenderBuffer';
+import RenderTarget from './core/RenderTarget';
 import BufferAttribute from './core/BufferAttribute';
 
 import Object3D from './objects/Object3D';
@@ -51,6 +52,7 @@ export {
   Scene,
   Renderer,
   RenderBuffer,
+  RenderTarget,
   BufferAttribute,
   Object3D,
   Geometry,
