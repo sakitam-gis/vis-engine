@@ -46,6 +46,9 @@ export default class Resource<T> extends Base {
     return this.#handle;
   }
 
+  /**
+   * 销毁相关资源
+   */
   destroy(): void {
     this.delete();
   }

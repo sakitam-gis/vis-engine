@@ -108,8 +108,8 @@ export default class Program extends Resource<ProgramOptions> {
     this.#vs = typeof vertexShader === 'string' ? new VertexShader(renderer, parseShader(vertexShader, defs), includes) : vertexShader;
     this.#fs = typeof fragmentShader === 'string' ? new FragmentShader(renderer, parseShader(fragmentShader, defs), includes) : fragmentShader;
 
-    this.gl.attachShader(this.handle, this.vertexShader.handle);
-    this.gl.attachShader(this.handle, this.fragmentShader.handle);
+    this.gl.attachShader(this.handle, this.#vs.handle);
+    this.gl.attachShader(this.handle, this.#fs.handle);
     this.gl.linkProgram(this.handle);
     this.gl.validateProgram(this.handle);
     if (!this.gl.getProgramParameter(this.handle, this.gl.LINK_STATUS)) {
@@ -229,8 +229,8 @@ export default class Program extends Resource<ProgramOptions> {
   }
 
   setUniform(key, value) {
-    if (this.uniforms[key]) {
-      this.uniforms[key].value = value;
+    if (this.#uniformLocations.get(key)) {
+      this.#uniformLocations.get(key).value = value;
     }
   }
 

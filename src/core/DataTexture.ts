@@ -9,7 +9,7 @@ export default class DataTexture extends Texture {
       height,
       premultiplyAlpha: true,
       flipY: false,
-      alignment: 1
+      unpackAlignment: 1
     });
     this.needsUpdate = true;
   }

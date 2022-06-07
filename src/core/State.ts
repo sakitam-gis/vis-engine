@@ -16,7 +16,7 @@ enum blendType {
 type IBlendType = blendType;
 
 type FBOData = {
-  target: GLenum;
+  target?: GLenum;
   buffer: WithNull<WebGLFramebuffer>;
 }
 
@@ -78,6 +78,8 @@ interface StateOptions {
   polygonOffsetUnits: GLenum;
 
   framebuffer: WithNull<WebGLFramebuffer>;
+
+  viewport: { x: number, y: number, width: number, height: number }
 }
 
 interface IState extends StateOptions {
@@ -92,7 +94,14 @@ export default class State extends Base {
   constructor (renderer: Renderer, options?: Partial<StateOptions>) {
     super(renderer);
     const { gl } = renderer;
-    this.#state = {} as IState;
+    this.#state = {
+      viewport: {
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+      }
+    } as IState;
     this.apply(options || {
       frontFace: gl.CCW,
       depthTest: false,

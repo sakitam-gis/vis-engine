@@ -24,6 +24,8 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
 
   #renderBuffers: Map<any, any>;
 
+  public depth: boolean;
+
   public width: number;
 
   public height: number;
@@ -51,6 +53,7 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
 
     this.#renderBuffers = new Map();
     this.#textures = new Map();
+    this.depth = Boolean(options.depth);
     this.drawBuffers = [];
     this.drawBuffersChanged = false;
     this.width = this.options.width as number;
