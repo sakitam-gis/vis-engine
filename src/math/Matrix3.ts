@@ -30,21 +30,17 @@ import Quaternion from './Quaternion';
 
 /**
  * 一个表示 3*3 的矩阵
- * ```bash
  * 1--0--0
  * |  |  |
  * 0--1--0
  * |  |  |
  * 0--0--1
- * ```
- *
- * 示例：
  * ```ts
  * const m = new Matrix3();
  * ```
  */
 export default class Matrix3 extends Matrix {
-  #elements = new Float32Array(9);
+  elements = new Float32Array(9);
 
   /**
    * @param m00 第一行第一列，默认是 1
@@ -59,7 +55,7 @@ export default class Matrix3 extends Matrix {
    */
   constructor(m00 = 1, m01 = 0, m02 = 0, m10 = 0, m11 = 1, m12 = 0, m20 = 0, m21 = 0, m22 = 1) {
     super();
-    const e: Float32Array = this.#elements;
+    const e: Float32Array = this.elements;
 
     e[0] = m00;
     e[1] = m01;
@@ -79,7 +75,7 @@ export default class Matrix3 extends Matrix {
    * @return number;
    */
   get x() {
-    return this.#elements[12];
+    return this.elements[12];
   }
 
   /**
@@ -87,7 +83,7 @@ export default class Matrix3 extends Matrix {
    * @return number;
    */
   get y() {
-    return this.#elements[13];
+    return this.elements[13];
   }
 
   /**
@@ -95,7 +91,7 @@ export default class Matrix3 extends Matrix {
    * @return number;
    */
   get z() {
-    return this.#elements[14];
+    return this.elements[14];
   }
 
   /**
@@ -119,7 +115,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   set(m00, m01, m02, m10, m11, m12, m20, m21, m22) {
-    set(this.#elements, m00, m01, m02, m10, m11, m12, m20, m21, m22);
+    set(this.elements, m00, m01, m02, m10, m11, m12, m20, m21, m22);
     return this;
   }
 
@@ -128,7 +124,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   transpose() {
-    transpose(this.#elements, this.#elements);
+    transpose(this.elements, this.elements);
     return this;
   }
 
@@ -138,7 +134,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   invert(m = this) {
-    invert(this.#elements, m.elements);
+    invert(this.elements, m.elements);
     return this;
   }
 
@@ -148,7 +144,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   adjoint(m = this) {
-    adjoint(this.#elements, m.elements);
+    adjoint(this.elements, m.elements);
     return this;
   }
 
@@ -157,7 +153,7 @@ export default class Matrix3 extends Matrix {
    * @return {Number}
    */
   determinant() {
-    return determinant(this.#elements);
+    return determinant(this.elements);
   }
 
   /**
@@ -168,9 +164,9 @@ export default class Matrix3 extends Matrix {
    */
   multiply(a: Matrix3, b?: Matrix3) {
     if (b) {
-      multiply(this.#elements, a.elements, b.elements);
+      multiply(this.elements, a.elements, b.elements);
     } else {
-      multiply(this.#elements, this.#elements, a.elements);
+      multiply(this.elements, this.elements, a.elements);
     }
 
     return this;
@@ -184,9 +180,9 @@ export default class Matrix3 extends Matrix {
    */
   premultiply(a: Matrix3, b?: Matrix3) {
     if (b) {
-      multiply(this.#elements, b.elements, a.elements);
+      multiply(this.elements, b.elements, a.elements);
     } else {
-      multiply(this.#elements, a.elements, this.#elements);
+      multiply(this.elements, a.elements, this.elements);
     }
     return this;
   }
@@ -197,7 +193,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   translate(v: Vector2) {
-    translate(this.#elements, this.#elements, v.elements);
+    translate(this.elements, this.elements, v.elements);
     return this;
   }
 
@@ -207,7 +203,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   rotate(rad: number) {
-    rotate(this.#elements, this.#elements, rad);
+    rotate(this.elements, this.elements, rad);
     return this;
   }
 
@@ -217,7 +213,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   scale(v: Vector2) {
-    scale(this.#elements, this.#elements, v.elements);
+    scale(this.elements, this.elements, v.elements);
     return this;
   }
 
@@ -227,7 +223,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   fromTranslation(v: Vector2) {
-    fromTranslation(this.#elements, v.elements);
+    fromTranslation(this.elements, v.elements);
     return this;
   }
 
@@ -237,7 +233,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   fromRotation(rad: number) {
-    fromRotation(this.#elements, rad);
+    fromRotation(this.elements, rad);
     return this;
   }
 
@@ -247,7 +243,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   fromScaling(v) {
-    fromScaling(this.#elements, v.elements);
+    fromScaling(this.elements, v.elements);
     return this;
   }
 
@@ -257,7 +253,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   fromQuat(q: Quaternion) {
-    fromQuat(this.#elements, q.elements);
+    fromQuat(this.elements, q.elements);
     return this;
   }
 
@@ -267,7 +263,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   normalFromMat4(m) {
-    normalFromMat4(this.#elements, m.elements);
+    normalFromMat4(this.elements, m.elements);
     return this;
   }
 
@@ -277,7 +273,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   fromMat4(m) {
-    fromMat4(this.#elements, m.elements);
+    fromMat4(this.elements, m.elements);
     return this;
   }
 
@@ -286,7 +282,7 @@ export default class Matrix3 extends Matrix {
    * @return {Number} Frobenius 范数
    */
   frob() {
-    return frob(this.#elements);
+    return frob(this.elements);
   }
 
   /**
@@ -297,9 +293,9 @@ export default class Matrix3 extends Matrix {
    */
   add(a: Matrix3, b?: Matrix3) {
     if (b) {
-      add(this.#elements, a.elements, b.elements);
+      add(this.elements, a.elements, b.elements);
     } else {
-      add(this.#elements, this.#elements, a.elements);
+      add(this.elements, this.elements, a.elements);
     }
 
     return this;
@@ -313,9 +309,9 @@ export default class Matrix3 extends Matrix {
    */
   subtract(a: Matrix3, b: Matrix3) {
     if (b) {
-      subtract(this.#elements, a.elements, b.elements);
+      subtract(this.elements, a.elements, b.elements);
     } else {
-      subtract(this.#elements, this.#elements, a.elements);
+      subtract(this.elements, this.elements, a.elements);
     }
     return this;
   }
@@ -330,7 +326,7 @@ export default class Matrix3 extends Matrix {
     if (b) {
       return equals(a.elements, b.elements);
     } else {
-      return equals(this.#elements, a.elements);
+      return equals(this.elements, a.elements);
     }
   }
 
@@ -357,7 +353,7 @@ export default class Matrix3 extends Matrix {
    * @param m
    */
   getNormalMatrix(m: Matrix4) {
-    normalFromMat4(this.#elements, m.elements);
+    normalFromMat4(this.elements, m.elements);
     return this;
   }
 
@@ -367,7 +363,7 @@ export default class Matrix3 extends Matrix {
    * @return {Matrix3} this
    */
   copy(m) {
-    copy(this.#elements, m.elements);
+    copy(this.elements, m.elements);
     return this;
   }
 
@@ -382,7 +378,7 @@ export default class Matrix3 extends Matrix {
   /**
    * 转换为字符串
    */
-  toString(): string {
-    return str(this.#elements);
+  toString() {
+    return str(this.elements);
   }
 }

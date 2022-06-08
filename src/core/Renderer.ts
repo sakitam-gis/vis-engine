@@ -28,6 +28,7 @@ export type ExtensionKeys = 'ANGLE_instanced_arrays' | 'OES_vertex_array_object'
 export type Extensions = ANGLE_instanced_arrays | OES_vertex_array_object;
 
 export interface RendererOptions {
+  dpr: number;
   autoClear: boolean;
   depth: boolean;
   stencil: boolean;
@@ -53,12 +54,18 @@ export default class Renderer {
 
   #color: boolean;
 
+  #dpr: number;
+
   public vertexAttribDivisor: any;
   public drawArraysInstanced: any;
   public drawElementsInstanced: any;
   public createVertexArray: any;
   public bindVertexArray: any;
   public deleteVertexArray: any;
+
+  public width: number;
+
+  public height: number;
 
   constructor(gl: WebGLRenderingContext | WebGL2RenderingContext, options: Partial<RendererOptions> = {}) {
     this.#gl = gl;
@@ -72,6 +79,8 @@ export default class Renderer {
     this.#stencil = Boolean(options.stencil);
 
     this.#color = true;
+
+    this.#dpr = options.dpr || 1;
 
     this.#extensions = {} as {
       [key in ExtensionKeys]: Extensions;
@@ -134,6 +143,14 @@ export default class Renderer {
 
   get state () {
     return this.#state;
+  }
+
+  setSize(width: number, height: number) {
+    this.width = width;
+    this.height = height;
+
+    this.gl.canvas.width = width * this.#dpr;
+    this.gl.canvas.height = height * this.#dpr;
   }
 
   setViewport(width, height, x = 0, y = 0) {

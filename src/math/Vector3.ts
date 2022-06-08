@@ -42,7 +42,7 @@ import Matrix4 from './Matrix4';
  * ```
  */
 export default class Vector3 extends Vector {
-  #elements = new Float32Array(3);
+  elements = new Float32Array(3);
 
   /**
    * @param x 向量的x值，默认为0
@@ -51,7 +51,7 @@ export default class Vector3 extends Vector {
    */
   constructor(x = 0, y = 0, z = 0) {
     super();
-    const v = this.#elements;
+    const v = this.elements;
     v[0] = x;
     v[1] = y;
     v[2] = z;
@@ -62,7 +62,7 @@ export default class Vector3 extends Vector {
    * @return number;
    */
   get x() {
-    return this.#elements[0];
+    return this.elements[0];
   }
 
   /**
@@ -70,7 +70,7 @@ export default class Vector3 extends Vector {
    * @param x
    */
   set x(x: number) {
-    this.#elements[0] = x;
+    this.elements[0] = x;
   }
 
   /**
@@ -78,7 +78,7 @@ export default class Vector3 extends Vector {
    * @return number;
    */
   get y() {
-    return this.#elements[1];
+    return this.elements[1];
   }
 
   /**
@@ -86,7 +86,7 @@ export default class Vector3 extends Vector {
    * @param y
    */
   set y(y: number) {
-    this.#elements[1] = y;
+    this.elements[1] = y;
   }
 
   /**
@@ -94,7 +94,7 @@ export default class Vector3 extends Vector {
    * @return number;
    */
   get z() {
-    return this.#elements[2];
+    return this.elements[2];
   }
 
 
@@ -103,7 +103,7 @@ export default class Vector3 extends Vector {
    * @param z
    */
   set z(z: number) {
-    this.#elements[2] = z;
+    this.elements[2] = z;
   }
 
   /**
@@ -136,7 +136,7 @@ export default class Vector3 extends Vector {
    * @param z
    */
   set(x, y, z) {
-    set(this.#elements, x, y, z);
+    set(this.elements, x, y, z);
     return this;
   }
 
@@ -151,8 +151,8 @@ export default class Vector3 extends Vector {
   /**
    * 计算从 `[0, 0, 0]` 到此向量的直线距离
    */
-  length(): number {
-    return length(this.#elements);
+  length() {
+    return length(this.elements);
   }
 
   /**
@@ -160,7 +160,7 @@ export default class Vector3 extends Vector {
    * @param vec 传入的 Vector3
    */
   add(vec: Vector3) {
-    add(this.#elements, this.#elements, vec.elements);
+    add(this.elements, this.elements, vec.elements);
     return this;
   }
 
@@ -169,7 +169,7 @@ export default class Vector3 extends Vector {
    * @param v 传入的 标量值
    */
   addScalar(v: number) {
-    add(this.#elements, this.#elements, [v, v, v]);
+    add(this.elements, this.elements, [v, v, v]);
     return this;
   }
 
@@ -178,7 +178,7 @@ export default class Vector3 extends Vector {
    * @param vec 传入的 Vector3
    */
   subtract(vec: Vector3) {
-    subtract(this.#elements, this.#elements, vec.elements);
+    subtract(this.elements, this.elements, vec.elements);
     return this;
   }
 
@@ -187,7 +187,7 @@ export default class Vector3 extends Vector {
    * @param v 标量值
    */
   subtractScalar(v: number) {
-    subtract(this.#elements, this.#elements, [v, v, v]);
+    subtract(this.elements, this.elements, [v, v, v]);
     return this;
   }
 
@@ -197,7 +197,7 @@ export default class Vector3 extends Vector {
    * @param b
    */
   subVectors(a: Vector3, b: Vector3) {
-    subtract(this.#elements, a.elements, b.elements);
+    subtract(this.elements, a.elements, b.elements);
     return this;
   }
 
@@ -206,7 +206,7 @@ export default class Vector3 extends Vector {
    * @param vec
    */
   multiply(vec: Vector3) {
-    multiply(this.#elements, this.#elements, vec.elements);
+    multiply(this.elements, this.elements, vec.elements);
     return this;
   }
 
@@ -215,7 +215,7 @@ export default class Vector3 extends Vector {
    * @param v 标量值
    */
   multiplyScalar(v: number) {
-    multiply(this.#elements, this.#elements, [v, v, v]);
+    multiply(this.elements, this.elements, [v, v, v]);
     return this;
   }
 
@@ -224,7 +224,7 @@ export default class Vector3 extends Vector {
    * @param vec
    */
   divide(vec) {
-    divide(this.#elements, this.#elements, vec.elements);
+    divide(this.elements, this.elements, vec.elements);
     return this;
   }
 
@@ -233,7 +233,7 @@ export default class Vector3 extends Vector {
    * @param v 标量值
    */
   divideScalar(v) {
-    divide(this.#elements, this.#elements, [v, v, v]);
+    divide(this.elements, this.elements, [v, v, v]);
     return this;
   }
 
@@ -242,7 +242,7 @@ export default class Vector3 extends Vector {
    * @param s
    */
   scale(s: number) {
-    scale(this.#elements, this.#elements, s);
+    scale(this.elements, this.elements, s);
     return this;
   }
 
@@ -252,7 +252,7 @@ export default class Vector3 extends Vector {
    * @param s
    */
   scaleAndAdd(v: Vector3, s: number) {
-    scaleAndAdd(this.#elements, this.#elements, v.elements, s);
+    scaleAndAdd(this.elements, this.elements, v.elements, s);
     return this;
   }
 
@@ -261,7 +261,7 @@ export default class Vector3 extends Vector {
    * @param vec
    */
   distanceTo(vec: Vector3) {
-    return distance(this.#elements, vec.elements);
+    return distance(this.elements, vec.elements);
   }
 
   /**
@@ -269,7 +269,7 @@ export default class Vector3 extends Vector {
    * @param vec
    */
   distanceToSquared(vec: Vector3) {
-    return squaredDistance(this.#elements, vec.elements);
+    return squaredDistance(this.elements, vec.elements);
   }
 
   /**
@@ -277,14 +277,14 @@ export default class Vector3 extends Vector {
    * @param vector
    */
   angle(vector: Vector3) {
-    return angle(this.#elements, [1, 0, 0]);
+    return angle(this.elements, [1, 0, 0]);
   }
 
   /**
    * 以弧度返回该向量与向量 v 之间的角度
    */
   angleTo(vector: Vector3) {
-    return angle(this.#elements, vector.elements);
+    return angle(this.elements, vector.elements);
   }
 
   /**
@@ -292,7 +292,7 @@ export default class Vector3 extends Vector {
    * @param vec
    */
   dot(vec: Vector3) {
-    return dot(this.#elements, vec.elements);
+    return dot(this.elements, vec.elements);
   }
 
   /**
@@ -300,7 +300,7 @@ export default class Vector3 extends Vector {
    * @param vec
    */
   equals(vec: Vector3) {
-    return equals(this.#elements, vec.elements);
+    return equals(this.elements, vec.elements);
   }
 
   /**
@@ -308,7 +308,7 @@ export default class Vector3 extends Vector {
    * @param vec
    */
   cross(vec: Vector3) {
-    cross(this.#elements, this.#elements, vec.elements);
+    cross(this.elements, this.elements, vec.elements);
     return this;
   }
 
@@ -316,7 +316,7 @@ export default class Vector3 extends Vector {
    * 针对此向量取反
    */
   negate() {
-    negate(this.#elements, this.#elements);
+    negate(this.elements, this.elements);
     return this;
   }
 
@@ -324,7 +324,7 @@ export default class Vector3 extends Vector {
    * 针对此向量取倒数
    */
   inverse() {
-    inverse(this.#elements, this.#elements);
+    inverse(this.elements, this.elements);
     return this;
   }
 
@@ -334,7 +334,7 @@ export default class Vector3 extends Vector {
    * @param t 插值因数，范围一般在[0-1]，通常在这两个值之间
    */
   lerp(vec: Vector3, t: number) {
-    lerp(this.#elements, this.#elements, vec.elements, t);
+    lerp(this.elements, this.elements, vec.elements, t);
     return this;
   }
 
@@ -342,7 +342,7 @@ export default class Vector3 extends Vector {
    * 将此向量转换为单位向量 (将其设置为与此向量具有相同方向但长度为 1 的向量)
    */
   normalize() {
-    normalize(this.#elements, this.#elements);
+    normalize(this.elements, this.elements);
     return this;
   }
 
@@ -360,7 +360,7 @@ export default class Vector3 extends Vector {
    * @param matrix
    */
   applyMatrix3(matrix: Matrix3) {
-    transformMat3(this.#elements, this.#elements, matrix.elements);
+    transformMat3(this.elements, this.elements, matrix.elements);
     return this;
   }
 
@@ -369,7 +369,7 @@ export default class Vector3 extends Vector {
    * @param matrix
    */
   applyMatrix4(matrix: Matrix4) {
-    transformMat4(this.#elements, this.#elements, matrix.elements);
+    transformMat4(this.elements, this.elements, matrix.elements);
     return this;
   }
 
@@ -378,7 +378,7 @@ export default class Vector3 extends Vector {
    * @param quaternion
    */
   applyQuaternion(quaternion: Quaternion) {
-    transformQuat(this.#elements, this.#elements, quaternion.elements);
+    transformQuat(this.elements, this.elements, quaternion.elements);
     return this;
   }
 
@@ -403,7 +403,7 @@ export default class Vector3 extends Vector {
   /**
    * 转换为字符串
    */
-  toString(): string {
-    return str(this.#elements);
+  toString() {
+    return str(this.elements);
   }
 }

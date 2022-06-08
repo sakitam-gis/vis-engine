@@ -87,7 +87,7 @@ export default class Camera extends Object3D {
     }
   }
 
-  perspective(fov, aspect, near, far) {
+  perspective(fov = this.fov, aspect = this.aspect, near = this.near, far = this.far) {
     this.fov = fov;
     this.aspect = aspect;
     this.near = near;
@@ -96,7 +96,7 @@ export default class Camera extends Object3D {
     this.cameraType = 'perspective';
   }
 
-  orthographic(left, right, top, bottom, near, far, zoom = 1) {
+  orthographic(left, right, top, bottom, near = this.near, far = this.far, zoom = 1) {
     this.bounds = {
       left,
       right,

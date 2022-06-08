@@ -32,7 +32,7 @@ const tempArray: number[] = [];
  * ```
  */
 export default class Quaternion extends Vector {
-  #elements = new Float32Array(4);
+  elements = new Float32Array(4);
 
   #changeCallbacks: ICallback[] = [];
 
@@ -44,7 +44,7 @@ export default class Quaternion extends Vector {
    */
   constructor(x = 0, y = 0, z = 0, w = 0) {
     super();
-    const v = this.#elements;
+    const v = this.elements;
     v[0] = x;
     v[1] = y;
     v[2] = z;
@@ -56,7 +56,7 @@ export default class Quaternion extends Vector {
    * @return number;
    */
   get x() {
-    return this.#elements[0];
+    return this.elements[0];
   }
 
   /**
@@ -64,7 +64,7 @@ export default class Quaternion extends Vector {
    * @param x
    */
   set x(x: number) {
-    this.#elements[0] = x;
+    this.elements[0] = x;
     this.triggerChange();
   }
 
@@ -73,7 +73,7 @@ export default class Quaternion extends Vector {
    * @return number;
    */
   get y() {
-    return this.#elements[1];
+    return this.elements[1];
   }
 
   /**
@@ -81,7 +81,7 @@ export default class Quaternion extends Vector {
    * @param y
    */
   set y(y) {
-    this.#elements[1] = y;
+    this.elements[1] = y;
     this.triggerChange();
   }
 
@@ -90,7 +90,7 @@ export default class Quaternion extends Vector {
    * @return number;
    */
   get z() {
-    return this.#elements[2];
+    return this.elements[2];
   }
 
   /**
@@ -98,7 +98,7 @@ export default class Quaternion extends Vector {
    * @param z
    */
   set z(z: number) {
-    this.#elements[2] = z;
+    this.elements[2] = z;
     this.triggerChange();
   }
 
@@ -107,7 +107,7 @@ export default class Quaternion extends Vector {
    * @return number;
    */
   get w() {
-    return this.#elements[3];
+    return this.elements[3];
   }
 
   /**
@@ -115,7 +115,7 @@ export default class Quaternion extends Vector {
    * @param w
    */
   set w(w) {
-    this.#elements[3] = w;
+    this.elements[3] = w;
     this.triggerChange();
   }
 
@@ -152,7 +152,7 @@ export default class Quaternion extends Vector {
    * @param rad
    */
   fromAxisAngle(axis: Vector3, rad: number) {
-    setAxisAngle(this.#elements, axis.elements, rad);
+    setAxisAngle(this.elements, axis.elements, rad);
     this.triggerChange();
     return this;
   }
@@ -162,7 +162,7 @@ export default class Quaternion extends Vector {
    * @param axis
    */
   getAxisAngle(axis = new Vector3()) {
-    const rad = getAxisAngle(tempArray, this.#elements);
+    const rad = getAxisAngle(tempArray, this.elements);
     axis.set(tempArray[0], tempArray[1], tempArray[2]);
     return rad;
   }
@@ -172,7 +172,7 @@ export default class Quaternion extends Vector {
    * @param e
    */
   fromEuler(e: Euler) {
-    fromEuler(this.#elements, radToDeg(e.x), radToDeg(e.y), radToDeg(e.z));
+    fromEuler(this.elements, radToDeg(e.x), radToDeg(e.y), radToDeg(e.z));
     this.triggerChange();
     return this;
   }
@@ -182,12 +182,12 @@ export default class Quaternion extends Vector {
    * @param m
    */
   fromMat3(m: Matrix3) {
-    fromMat3(this.#elements, m);
+    fromMat3(this.elements, m);
     return this;
   }
 
   set(x, y, z, w) {
-    set(this.#elements, x, y, z, w);
+    set(this.elements, x, y, z, w);
     this.triggerChange();
     return this;
   }
@@ -196,7 +196,7 @@ export default class Quaternion extends Vector {
    * 计算四元数的直线长度
    */
   length() {
-    return length(this.#elements);
+    return length(this.elements);
   }
 
   /**
@@ -206,9 +206,9 @@ export default class Quaternion extends Vector {
    */
   multiply(a: Quaternion, b?: Quaternion) {
     if (b) {
-      multiply(this.#elements, a.elements, b.elements);
+      multiply(this.elements, a.elements, b.elements);
     } else {
-      multiply(this.#elements, this.#elements, a.elements);
+      multiply(this.elements, this.elements, a.elements);
     }
 
     this.triggerChange();
@@ -221,7 +221,7 @@ export default class Quaternion extends Vector {
    * @param t
    */
   slerp(q: Quaternion, t: number) {
-    slerp(this.#elements, this.#elements, q.elements, t);
+    slerp(this.elements, this.elements, q.elements, t);
     this.triggerChange();
     return this;
   }
@@ -230,7 +230,7 @@ export default class Quaternion extends Vector {
    * 翻转该四元数
    */
   invert() {
-    invert(this.#elements, this.#elements);
+    invert(this.elements, this.elements);
     this.triggerChange();
     return this;
   }
@@ -239,7 +239,7 @@ export default class Quaternion extends Vector {
    * 计算此四元数的旋转共轭（围绕旋转轴在相反方向上的旋转）
    */
   conjugate() {
-    conjugate(this.#elements, this.#elements);
+    conjugate(this.elements, this.elements);
     this.triggerChange();
     return this;
   }
@@ -248,7 +248,7 @@ export default class Quaternion extends Vector {
    * （归一化）四元数。 即计算与该四元数具有相同旋转、但长度为1的四元数
    */
   normalize() {
-    normalize(this.#elements, this.#elements);
+    normalize(this.elements, this.elements);
     this.triggerChange();
     return this;
   }
@@ -258,7 +258,7 @@ export default class Quaternion extends Vector {
    * @param q
    */
   dot(q: Quaternion) {
-    return dot(this.#elements, q.elements);
+    return dot(this.elements, q.elements);
   }
 
   /**
@@ -266,7 +266,7 @@ export default class Quaternion extends Vector {
    * @param q
    */
   angleTo(q: Quaternion) {
-    return getAngle(this.#elements, q.elements);
+    return getAngle(this.elements, q.elements);
   }
 
   /**
@@ -281,7 +281,7 @@ export default class Quaternion extends Vector {
    * @param q
    */
   copy(q: Quaternion) {
-    copy(this.#elements, q.elements);
+    copy(this.elements, q.elements);
     this.triggerChange();
     return this;
   }
@@ -291,7 +291,7 @@ export default class Quaternion extends Vector {
    * @param q
    */
   equals(q: Quaternion) {
-    return equals(this.#elements, q.elements);
+    return equals(this.elements, q.elements);
   }
 
   /**

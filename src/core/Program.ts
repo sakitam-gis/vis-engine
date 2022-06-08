@@ -78,6 +78,8 @@ export default class Program extends Resource<ProgramOptions> {
 
   public attributeOrder: string;
 
+  public uniforms: Uniforms;
+
   #uniformLocations: Map<any, any>;
 
   #attributeLocations: Map<any, any>;
@@ -116,6 +118,8 @@ export default class Program extends Resource<ProgramOptions> {
       throw new Error('Program:'.concat(this.id, ': Error linking ').concat(this.gl.getProgramInfoLog(this.handle) as string));
     }
 
+    this.uniforms = uniforms;
+
     this.#uniformLocations = new Map();
     this.#attributeLocations = new Map();
 
@@ -132,11 +136,11 @@ export default class Program extends Resource<ProgramOptions> {
     }
   }
 
-  get uniforms() {
+  get uniformLocations() {
     return this.#uniformLocations;
   }
 
-  get attributes() {
+  get attributeLocations() {
     return this.#attributeLocations;
   }
 
@@ -157,7 +161,7 @@ export default class Program extends Resource<ProgramOptions> {
     }
 
     this.#uniformLocations.forEach((location, activeUniform) => {
-      let name = location.uniformName;
+      let name = activeUniform.name;
 
       let uniform = this.uniforms[name];
 
@@ -229,8 +233,8 @@ export default class Program extends Resource<ProgramOptions> {
   }
 
   setUniform(key, value) {
-    if (this.#uniformLocations.get(key)) {
-      this.#uniformLocations.get(key).value = value;
+    if (this.uniforms[key]) {
+      this.uniforms[key].value = value;
     }
   }
 

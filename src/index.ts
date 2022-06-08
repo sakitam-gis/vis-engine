@@ -1,5 +1,6 @@
 import Clock from './animation/Clock';
 import Raf from './animation/Raf';
+import * as utils from './utils';
 import type { IRafOptions } from './animation/Raf';
 
 import Vector2 from './math/Vector2';
@@ -31,6 +32,7 @@ import PerspectiveCamera from './cameras/PerspectiveCamera';
 import OrthographicCamera from './cameras/OrthographicCamera';
 
 export {
+  utils,
   Raf,
   Clock,
   Euler,

@@ -98,9 +98,10 @@ export default class Mesh extends Object3D {
       normalMatrix: this.normalMatrix,
     });
     Object.keys(uniforms).forEach((key) => {
-      if (this.program.uniforms[key]) {
-        this.program.uniforms[key].value = uniforms[key];
+      if (!Object.hasOwn(this.program.uniforms, key)) {
+        this.program.uniforms[key] = { value: null };
       }
+      this.program.uniforms[key].value = uniforms[key];
     });
     if (target) target.bind();
     this.program.use();

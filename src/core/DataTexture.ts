@@ -1,8 +1,8 @@
 import Texture from './Texture';
 
 export default class DataTexture extends Texture {
-  constructor (context, data, width, height, options = {}) {
-    super(context, {
+  constructor (renderer, data, width, height, options = {}) {
+    super(renderer, {
       ...options,
       image: data,
       width,

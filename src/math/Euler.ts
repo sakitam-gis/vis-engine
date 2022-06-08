@@ -17,7 +17,7 @@ export type ANGLE_ORDER = 'zyx' | 'xyz' | 'yxz' | 'yzx' | 'zxy' | 'xzy';
  * ```
  */
 export default class Euler extends Vector {
-  #elements = new Float32Array(3);
+  elements = new Float32Array(3);
 
   #changeCallbacks: ICallback[] = [];
 
@@ -31,7 +31,7 @@ export default class Euler extends Vector {
    */
   constructor(x = 0, y = 0, z = 0, order: ANGLE_ORDER = 'xyz') {
     super();
-    const v = this.#elements;
+    const v = this.elements;
     v[0] = x;
     v[1] = y;
     v[2] = z;
@@ -43,7 +43,7 @@ export default class Euler extends Vector {
    * @return number;
    */
   get x() {
-    return this.#elements[0];
+    return this.elements[0];
   }
 
   /**
@@ -51,7 +51,7 @@ export default class Euler extends Vector {
    * @param x
    */
   set x(x: number) {
-    this.#elements[0] = x;
+    this.elements[0] = x;
     this.triggerChange();
   }
 
@@ -60,7 +60,7 @@ export default class Euler extends Vector {
    * @return number;
    */
   get y() {
-    return this.#elements[1];
+    return this.elements[1];
   }
 
   /**
@@ -68,7 +68,7 @@ export default class Euler extends Vector {
    * @param y
    */
   set y(y) {
-    this.#elements[1] = y;
+    this.elements[1] = y;
     this.triggerChange();
   }
 
@@ -77,7 +77,7 @@ export default class Euler extends Vector {
    * @return number;
    */
   get z() {
-    return this.#elements[2];
+    return this.elements[2];
   }
 
   /**
@@ -85,7 +85,7 @@ export default class Euler extends Vector {
    * @param z
    */
   set z(z: number) {
-    this.#elements[2] = z;
+    this.elements[2] = z;
     this.triggerChange();
   }
 
@@ -323,9 +323,9 @@ export default class Euler extends Vector {
    * @param order
    */
   set(x, y, z, order = this.#order) {
-    this.#elements[0] = x;
-    this.#elements[1] = y;
-    this.#elements[2] = z;
+    this.elements[0] = x;
+    this.elements[1] = y;
+    this.elements[2] = z;
     this.#order = order;
     this.triggerChange();
     return this;
@@ -344,8 +344,8 @@ export default class Euler extends Vector {
    */
   copy(euler: Euler) {
     let i = 0;
-    for (; i < this.#elements.length; i++) {
-      this.#elements[i] = euler.elements[i];
+    for (; i < this.elements.length; i++) {
+      this.elements[i] = euler.elements[i];
     }
 
     this.#order = euler.order;

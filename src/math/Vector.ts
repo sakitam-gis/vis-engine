@@ -3,11 +3,7 @@ export default class Vector {
    * 向量数据
    * @private
    */
-  #elements = new Float32Array(2);
-
-  get elements() {
-    return this.#elements;
-  }
+  elements = new Float32Array(2);
 
   /**
    * 从数组构建向量数据
@@ -16,8 +12,8 @@ export default class Vector {
    */
   fromArray(array, offset = 0) {
     let i = 0;
-    for (; i < this.#elements.length; i++) {
-      this.#elements[i] = array[offset + i];
+    for (; i < this.elements.length; i++) {
+      this.elements[i] = array[offset + i];
     }
     return this;
   }
@@ -29,8 +25,8 @@ export default class Vector {
    */
   toArray(out: number[] | Float32Array = [], offset = 0) {
     let i = 0;
-    for (; i < this.#elements.length; i++) {
-      out[offset + i] = this.#elements[i];
+    for (; i < this.elements.length; i++) {
+      out[offset + i] = this.elements[i];
     }
     return out;
   }

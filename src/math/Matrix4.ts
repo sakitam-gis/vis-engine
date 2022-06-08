@@ -55,7 +55,7 @@ const tempArray: number[] = [];
  * ```
  */
 export default class Matrix4 extends Matrix {
-  #elements = new Float32Array(16);
+  elements = new Float32Array(16);
 
   /**
    * @param m00 第一行第一列，默认是 1
@@ -94,7 +94,7 @@ export default class Matrix4 extends Matrix {
     m33 = 1,
   ) {
     super();
-    const e: Float32Array = this.#elements;
+    const e: Float32Array = this.elements;
 
     e[0] = m00;
     e[1] = m01;
@@ -122,7 +122,7 @@ export default class Matrix4 extends Matrix {
    * @return number;
    */
   get x() {
-    return this.#elements[12];
+    return this.elements[12];
   }
 
   /**
@@ -130,7 +130,7 @@ export default class Matrix4 extends Matrix {
    * @return number;
    */
   get y() {
-    return this.#elements[13];
+    return this.elements[13];
   }
 
   /**
@@ -138,7 +138,7 @@ export default class Matrix4 extends Matrix {
    * @return number;
    */
   get z() {
-    return this.#elements[14];
+    return this.elements[14];
   }
 
   /**
@@ -146,7 +146,7 @@ export default class Matrix4 extends Matrix {
    * @return number;
    */
   get w() {
-    return this.#elements[15];
+    return this.elements[15];
   }
 
   /**
@@ -176,7 +176,7 @@ export default class Matrix4 extends Matrix {
    * @param m33
    */
   set(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33) {
-    set(this.#elements, m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33);
+    set(this.elements, m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33);
     return this;
   }
 
@@ -185,7 +185,7 @@ export default class Matrix4 extends Matrix {
    * @return {Matrix4} this
    */
   transpose() {
-    transpose(this.#elements, this.#elements);
+    transpose(this.elements, this.elements);
     return this;
   }
 
@@ -195,7 +195,7 @@ export default class Matrix4 extends Matrix {
    * @return Matrix4
    */
   invert(m = this) {
-    invert(this.#elements, m.elements);
+    invert(this.elements, m.elements);
     return this;
   }
 
@@ -204,7 +204,7 @@ export default class Matrix4 extends Matrix {
    * @param m 默认为当前实例
    */
   adjoint(m = this) {
-    adjoint(this.#elements, m.elements);
+    adjoint(this.elements, m.elements);
     return this;
   }
 
@@ -213,7 +213,7 @@ export default class Matrix4 extends Matrix {
    * @return {Number}
    */
   determinant() {
-    return determinant(this.#elements);
+    return determinant(this.elements);
   }
 
   /**
@@ -224,9 +224,9 @@ export default class Matrix4 extends Matrix {
    */
   add(a, b) {
     if (b) {
-      add(this.#elements, a.elements, b.elements);
+      add(this.elements, a.elements, b.elements);
     } else {
-      add(this.#elements, a.elements, b.elements);
+      add(this.elements, a.elements, b.elements);
     }
 
     return this;
@@ -240,9 +240,9 @@ export default class Matrix4 extends Matrix {
    */
   subtract(a, b) {
     if (b) {
-      subtract(this.#elements, a.elements, b.elements);
+      subtract(this.elements, a.elements, b.elements);
     } else {
-      subtract(this.#elements, a.elements, b.elements);
+      subtract(this.elements, a.elements, b.elements);
     }
     return this;
   }
@@ -255,9 +255,9 @@ export default class Matrix4 extends Matrix {
    */
   multiply(a: Matrix4, b: Matrix4) {
     if (b) {
-      multiply(this.#elements, a.elements, b.elements);
+      multiply(this.elements, a.elements, b.elements);
     } else {
-      multiply(this.#elements, this.#elements, a.elements);
+      multiply(this.elements, this.elements, a.elements);
     }
     return this;
   }
@@ -268,7 +268,7 @@ export default class Matrix4 extends Matrix {
    * @param b
    */
   multiplyScalar(a: Matrix4 = this, b: number) {
-    multiplyScalar(this.#elements, a.elements, b);
+    multiplyScalar(this.elements, a.elements, b);
     return this;
   }
 
@@ -280,9 +280,9 @@ export default class Matrix4 extends Matrix {
    */
   premultiply(a: Matrix4, b: Matrix4) {
     if (b) {
-      multiply(this.#elements, b.elements, a.elements);
+      multiply(this.elements, b.elements, a.elements);
     } else {
-      multiply(this.#elements, a.elements, this.#elements);
+      multiply(this.elements, a.elements, this.elements);
     }
     return this;
   }
@@ -293,7 +293,7 @@ export default class Matrix4 extends Matrix {
    * @return {Matrix4} this
    */
   translate(v: Vector3) {
-    translate(this.#elements, this.#elements, v.elements);
+    translate(this.elements, this.elements, v.elements);
     return this;
   }
 
@@ -303,7 +303,7 @@ export default class Matrix4 extends Matrix {
    * @return {Matrix4} this
    */
   rotate(rad: number) {
-    rotate(this.#elements, this.#elements, rad);
+    rotate(this.elements, this.elements, rad);
     return this;
   }
 
@@ -312,7 +312,7 @@ export default class Matrix4 extends Matrix {
    * @param vec3
    */
   scale(vec3: Vector3) {
-    scale(this.#elements, this.#elements, vec3.elements);
+    scale(this.elements, this.elements, vec3.elements);
     return this;
   }
 
@@ -321,7 +321,7 @@ export default class Matrix4 extends Matrix {
    * @param s
    */
   scaleScalar(s: number) {
-    scale(this.#elements, this.#elements, [s, s, s]);
+    scale(this.elements, this.elements, [s, s, s]);
     return this;
   }
 
@@ -330,7 +330,7 @@ export default class Matrix4 extends Matrix {
    * @param vec
    */
   fromTranslation(vec: Vector3) {
-    fromTranslation(this.#elements, vec.elements);
+    fromTranslation(this.elements, vec.elements);
     return this;
   }
 
@@ -340,7 +340,7 @@ export default class Matrix4 extends Matrix {
    * @param axis 轴
    */
   fromRotation(rad, axis) {
-    fromRotation(this.#elements, rad, axis);
+    fromRotation(this.elements, rad, axis);
     return this;
   }
 
@@ -349,7 +349,7 @@ export default class Matrix4 extends Matrix {
    * @param rad
    */
   fromRotationX(rad) {
-    fromXRotation(this.#elements, rad);
+    fromXRotation(this.elements, rad);
     return this;
   }
 
@@ -358,7 +358,7 @@ export default class Matrix4 extends Matrix {
    * @param rad
    */
   fromRotationY(rad) {
-    fromYRotation(this.#elements, rad);
+    fromYRotation(this.elements, rad);
     return this;
   }
 
@@ -367,7 +367,7 @@ export default class Matrix4 extends Matrix {
    * @param rad
    */
   fromRotationZ(rad) {
-    fromZRotation(this.#elements, rad);
+    fromZRotation(this.elements, rad);
     return this;
   }
 
@@ -376,7 +376,7 @@ export default class Matrix4 extends Matrix {
    * @param vec4
    */
   fromScale(vec4: Vector4) {
-    fromScaling(this.#elements, vec4.elements);
+    fromScaling(this.elements, vec4.elements);
     return this;
   }
 
@@ -386,7 +386,7 @@ export default class Matrix4 extends Matrix {
    * @param v
    */
   fromRotationTranslation(quat: Quaternion, v: Vector3) {
-    fromRotationTranslation(this.#elements, quat.elements, v.elements);
+    fromRotationTranslation(this.elements, quat.elements, v.elements);
     return this;
   }
 
@@ -398,7 +398,7 @@ export default class Matrix4 extends Matrix {
    * @param far
    */
   fromPerspective(fovy, aspect, near, far) {
-    perspective(this.#elements, fovy, aspect, near, far);
+    perspective(this.elements, fovy, aspect, near, far);
     return this;
   }
 
@@ -412,7 +412,7 @@ export default class Matrix4 extends Matrix {
    * @param far
    */
   fromOrthogonal(left, right, bottom, top, near, far) {
-    ortho(this.#elements, left, right, bottom, top, near, far);
+    ortho(this.elements, left, right, bottom, top, near, far);
     return this;
   }
 
@@ -421,7 +421,7 @@ export default class Matrix4 extends Matrix {
    * @param q
    */
   fromQuat(q: Quaternion) {
-    fromQuat(this.#elements, q.elements);
+    fromQuat(this.elements, q.elements);
     return this;
   }
 
@@ -430,7 +430,7 @@ export default class Matrix4 extends Matrix {
    * @param mat4
    */
   equals(mat4) {
-    return equals(this.#elements, mat4.value);
+    return equals(this.elements, mat4.value);
   }
 
   /**
@@ -438,7 +438,7 @@ export default class Matrix4 extends Matrix {
    * @param q
    */
   getRotation(q = new Quaternion()) {
-    getRotation(tempArray, this.#elements);
+    getRotation(tempArray, this.elements);
     q.set(tempArray[0], tempArray[1], tempArray[2], tempArray[3]);
     return q;
   }
@@ -448,7 +448,7 @@ export default class Matrix4 extends Matrix {
    * @param v
    */
   getScale(v = new Vector3()) {
-    getScaling(tempArray, this.#elements);
+    getScaling(tempArray, this.elements);
     v.set(tempArray[0], tempArray[1], tempArray[2]);
     return v;
   }
@@ -458,7 +458,7 @@ export default class Matrix4 extends Matrix {
    * @param v
    */
   getTranslation(v = new Vector3()) {
-    getTranslation(tempArray, this.#elements);
+    getTranslation(tempArray, this.elements);
     v.set(tempArray[0], tempArray[1], tempArray[2]);
     return v;
   }
@@ -468,7 +468,7 @@ export default class Matrix4 extends Matrix {
    * @param rad
    */
   rotateX(rad) {
-    rotateX(this.#elements, this.#elements, rad);
+    rotateX(this.elements, this.elements, rad);
     return this;
   }
 
@@ -477,7 +477,7 @@ export default class Matrix4 extends Matrix {
    * @param rad
    */
   rotateY(rad) {
-    rotateY(this.#elements, this.#elements, rad);
+    rotateY(this.elements, this.elements, rad);
     return this;
   }
 
@@ -486,7 +486,7 @@ export default class Matrix4 extends Matrix {
    * @param rad
    */
   rotateZ(rad) {
-    rotateZ(this.#elements, this.#elements, rad);
+    rotateZ(this.elements, this.elements, rad);
     return this;
   }
 
@@ -497,7 +497,7 @@ export default class Matrix4 extends Matrix {
    * @param s
    */
   compose(v: Vector3, q: Quaternion, s: Vector3) {
-    fromRotationTranslationScale(this.#elements, q.elements, v.elements, s.elements);
+    fromRotationTranslationScale(this.elements, q.elements, v.elements, s.elements);
     return this;
   }
 
@@ -518,7 +518,7 @@ export default class Matrix4 extends Matrix {
    * @return {Matrix4} this
    */
   copy(m: Matrix4) {
-    copy(this.#elements, m.elements);
+    copy(this.elements, m.elements);
     return this;
   }
 
@@ -534,6 +534,6 @@ export default class Matrix4 extends Matrix {
    * 转换为字符串
    */
   toString() {
-    return str(this.#elements);
+    return str(this.elements);
   }
 }

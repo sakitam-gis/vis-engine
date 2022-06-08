@@ -41,7 +41,7 @@ export default class Object3D {
     this.up = new Vector3(0, 1, 0);
     this.parent = null;
     this.children = [];
-    this.worldMatrixNeedsUpdate = false;
+    this.worldMatrixNeedsUpdate = true;
     this.rotation.onChange(() => {
       this.quaternion.fromEuler(this.rotation);
     });
@@ -72,12 +72,12 @@ export default class Object3D {
     return this.children.includes(object);
   }
 
-  setParent(object, force) {
-    if (force && this.parent && object !== this.parent) {
+  setParent(object, notifyParent = true) {
+    if (this.parent && object !== this.parent) {
       this.parent.remove(this, false);
     }
     this.parent = object;
-    if (force && object) {
+    if (notifyParent && object) {
       object.add(this, false);
     }
   }

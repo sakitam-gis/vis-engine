@@ -35,7 +35,7 @@ import Matrix4 from './Matrix4';
  * ```
  */
 export default class Vector2 extends Vector {
-  #elements = new Float32Array(2);
+  elements = new Float32Array(2);
 
   /**
    * @param x 向量的x值，默认为0
@@ -43,7 +43,7 @@ export default class Vector2 extends Vector {
    */
   constructor(x = 0, y = 0) {
     super();
-    const v = this.#elements;
+    const v = this.elements;
     v[0] = x;
     v[1] = y;
   }
@@ -53,7 +53,7 @@ export default class Vector2 extends Vector {
    * @return number;
    */
   get x() {
-    return this.#elements[0];
+    return this.elements[0];
   }
 
   /**
@@ -61,7 +61,7 @@ export default class Vector2 extends Vector {
    * @param x
    */
   set x(x) {
-    this.#elements[0] = x;
+    this.elements[0] = x;
   }
 
   /**
@@ -69,7 +69,7 @@ export default class Vector2 extends Vector {
    * @return number;
    */
   get y() {
-    return this.#elements[1];
+    return this.elements[1];
   }
 
   /**
@@ -77,7 +77,7 @@ export default class Vector2 extends Vector {
    * @param y
    */
   set y(y) {
-    this.#elements[1] = y;
+    this.elements[1] = y;
   }
 
   /**
@@ -125,7 +125,7 @@ export default class Vector2 extends Vector {
    * @param vec 传入的 Vector2
    */
   add(vec: Vector2) {
-    add(this.#elements, this.#elements, vec.elements);
+    add(this.elements, this.elements, vec.elements);
     return this;
   }
 
@@ -134,7 +134,7 @@ export default class Vector2 extends Vector {
    * @param v 标量值
    */
   addScalar(v: number) {
-    add(this.#elements, this.#elements, [v, v]);
+    add(this.elements, this.elements, [v, v]);
     return this;
   }
 
@@ -143,7 +143,7 @@ export default class Vector2 extends Vector {
    * @param vec 传入的 Vector2
    */
   subtract(vec: Vector2) {
-    subtract(this.#elements, this.#elements, vec.elements);
+    subtract(this.elements, this.elements, vec.elements);
     return this;
   }
 
@@ -152,7 +152,7 @@ export default class Vector2 extends Vector {
    * @param v 标量值
    */
   subtractScalar(v: number) {
-    subtract(this.#elements, this.#elements, [v, v]);
+    subtract(this.elements, this.elements, [v, v]);
     return this;
   }
 
@@ -161,7 +161,7 @@ export default class Vector2 extends Vector {
    * @param vec
    */
   multiply(vec: Vector2) {
-    multiply(this.#elements, this.#elements, vec.elements);
+    multiply(this.elements, this.elements, vec.elements);
     return this;
   }
 
@@ -170,7 +170,7 @@ export default class Vector2 extends Vector {
    * @param v 标量值
    */
   multiplyScalar(v: number) {
-    multiply(this.#elements, this.#elements, [v, v]);
+    multiply(this.elements, this.elements, [v, v]);
     return this;
   }
 
@@ -179,7 +179,7 @@ export default class Vector2 extends Vector {
    * @param vec
    */
   divide(vec: Vector2) {
-    divide(this.#elements, this.#elements, vec.elements);
+    divide(this.elements, this.elements, vec.elements);
     return this;
   }
 
@@ -188,7 +188,7 @@ export default class Vector2 extends Vector {
    * @param v 标量值
    */
   divideScalar(v: number) {
-    divide(this.#elements, this.#elements, [v, v]);
+    divide(this.elements, this.elements, [v, v]);
     return this;
   }
 
@@ -197,7 +197,7 @@ export default class Vector2 extends Vector {
    * @param s
    */
   scale(s: number) {
-    scale(this.#elements, this.#elements, s);
+    scale(this.elements, this.elements, s);
     return this;
   }
 
@@ -206,14 +206,14 @@ export default class Vector2 extends Vector {
    * @param vec
    */
   distanceTo(vec: Vector2) {
-    return distance(this.#elements, vec.elements);
+    return distance(this.elements, vec.elements);
   }
 
   /**
    * 计算从 `[0, 0]` 到此向量的直线距离
    */
-  length(): number {
-    return length(this.#elements);
+  length() {
+    return length(this.elements);
   }
 
   /**
@@ -221,21 +221,21 @@ export default class Vector2 extends Vector {
    * @param v
    */
   distanceToSquared(v: Vector2) {
-    return squaredDistance(v.elements, this.#elements);
+    return squaredDistance(v.elements, this.elements);
   }
 
   /**
    * 计算此向量相对于正 x 轴的弧度角
    */
   angle() {
-    return angle(this.#elements, [1, 0]);
+    return angle(this.elements, [1, 0]);
   }
 
   /**
    * 以弧度返回该向量与向量 v 之间的角度
    */
   angleTo(v: Vector2) {
-    return angle(this.#elements, v.elements);
+    return angle(this.elements, v.elements);
   }
 
   /**
@@ -243,7 +243,7 @@ export default class Vector2 extends Vector {
    * @param vec
    */
   dot(vec: Vector2) {
-    return dot(this.#elements, vec.elements);
+    return dot(this.elements, vec.elements);
   }
 
   /**
@@ -251,7 +251,7 @@ export default class Vector2 extends Vector {
    * @param vec
    */
   equals(vec: Vector2) {
-    return equals(this.#elements, vec.elements);
+    return equals(this.elements, vec.elements);
   }
 
   /**
@@ -259,7 +259,7 @@ export default class Vector2 extends Vector {
    * @param vec
    */
   cross(vec: Vector2) {
-    cross(this.#elements, this.#elements, vec.elements);
+    cross(this.elements, this.elements, vec.elements);
     return this;
   }
 
@@ -267,7 +267,7 @@ export default class Vector2 extends Vector {
    * 针对此向量取反
    */
   negate() {
-    negate(this.#elements, this.#elements);
+    negate(this.elements, this.elements);
     return this;
   }
 
@@ -275,7 +275,7 @@ export default class Vector2 extends Vector {
    * 针对此向量取倒数
    */
   inverse() {
-    inverse(this.#elements, this.#elements);
+    inverse(this.elements, this.elements);
     return this;
   }
 
@@ -285,7 +285,7 @@ export default class Vector2 extends Vector {
    * @param t 插值因数，范围一般在[0-1]，通常在这两个值之间
    */
   lerp(vec: Vector2, t: number) {
-    lerp(this.#elements, this.#elements, vec.elements, t);
+    lerp(this.elements, this.elements, vec.elements, t);
     return this;
   }
 
@@ -293,7 +293,7 @@ export default class Vector2 extends Vector {
    * 将此向量转换为单位向量 (将其设置为与此向量具有相同方向但长度为 1 的向量)
    */
   normalize() {
-    normalize(this.#elements, this.#elements);
+    normalize(this.elements, this.elements);
     return this;
   }
 
@@ -302,7 +302,7 @@ export default class Vector2 extends Vector {
    * @param matrix
    */
   applyMatrix3(matrix: Matrix3) {
-    transformMat3(this.#elements, this.#elements, matrix.elements);
+    transformMat3(this.elements, this.elements, matrix.elements);
     return this;
   }
 
@@ -311,7 +311,7 @@ export default class Vector2 extends Vector {
    * @param matrix
    */
   applyMatrix4(matrix: Matrix4) {
-    transformMat4(this.#elements, this.#elements, matrix.elements);
+    transformMat4(this.elements, this.elements, matrix.elements);
     return this;
   }
 
@@ -335,7 +335,7 @@ export default class Vector2 extends Vector {
   /**
    * 转换为字符串
    */
-  toString(): string {
-    return str(this.#elements);
+  toString() {
+    return str(this.elements);
   }
 }

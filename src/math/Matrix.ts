@@ -3,11 +3,7 @@ export default class Matrix {
    * 矩阵数据
    * @private
    */
-  #elements = new Float32Array(16);
-
-  get elements() {
-    return this.#elements;
-  }
+  elements = new Float32Array(16);
 
   /**
    * 从数组构建矩阵
@@ -16,8 +12,8 @@ export default class Matrix {
    */
   fromArray(array, offset = 0) {
     let i = 0;
-    for (; i < this.#elements.length; i++) {
-      this.#elements[i] = array[offset + i];
+    for (; i < this.elements.length; i++) {
+      this.elements[i] = array[offset + i];
     }
     return this;
   }
@@ -29,8 +25,8 @@ export default class Matrix {
    */
   toArray(out: number[] | Float32Array = [], offset = 0) {
     let i = 0;
-    for (; i < this.#elements.length; i++) {
-      out[offset + i] = this.#elements[i];
+    for (; i < this.elements.length; i++) {
+      out[offset + i] = this.elements[i];
     }
     return out;
   }

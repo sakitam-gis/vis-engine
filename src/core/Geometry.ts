@@ -215,7 +215,7 @@ export default class Geometry extends Base {
   }
 
   bindAttributes(program: Program) {
-    program.attributes.forEach((location, { name, type }) => {
+    program.attributeLocations.forEach((location, { name, type }) => {
       const attributes = this.attributes.get(name);
       if (!attributes) return;
       this.gl.bindBuffer(attributes.target, attributes.buffer);
@@ -310,7 +310,7 @@ export default class Geometry extends Base {
       if (!this.#VAOs[program.attributeOrder]) {
         this.createVAO(program);
       }
-      program.context.bindVertexArray(this.#VAOs[program.attributeOrder]);
+      program.renderer.bindVertexArray(this.#VAOs[program.attributeOrder]);
     }
     // eslint-disable-next-line guard-for-in
     for (const name in program.attributes) {
