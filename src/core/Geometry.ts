@@ -75,10 +75,10 @@ export default class Geometry extends Base {
           stride,
           offset,
           divisor,
+          usage,
         } = attribute;
-        if (size && data) {
-          // eslint-disable-next-line max-len
-          const n = new BufferAttribute(this.gl, data, size, normalized, stride, offset, divisor);
+        if (data) {
+          const n = new BufferAttribute(this.gl, data, size, normalized, stride, offset, divisor, usage);
           if (t === 'index') {
             this.setIndex(n);
           } else {
@@ -119,14 +119,15 @@ export default class Geometry extends Base {
     if (attribute.divisor) {
       this.isInstanced = true;
       if (this.instancedCount && this.instancedCount !== attribute.count * attribute.divisor) {
+        this.instancedCount = Math.min(this.instancedCount, attribute.count * attribute.divisor);
         // eslint-disable-next-line max-len
         return console.warn('Geometry has multiple instanced buffers of different length - instancedCount: '.concat(String(this.instancedCount), ', count: ').concat(attribute.count, ', divisor: ').concat(attribute.divisor, ', attribute: ').concat(name));
       }
-      this.instancedCount = Math.min(this.instancedCount, attribute.count * attribute.divisor);
       this.instancedCount = attribute.count * attribute.divisor;
-    } else {
-      // eslint-disable-next-line max-len
-      name === 'index' ? this.drawRange.count = attribute.count : this.index || (this.drawRange.count = Math.max(this.drawRange.count, attribute.count));
+    } else if (name === 'index') {
+      this.drawRange.count = attribute.count;
+    } else if (!this.index) {
+      this.drawRange.count = Math.max(this.drawRange.count, attribute.count);
     }
   }
 

@@ -132,6 +132,10 @@ export default class State extends Base {
     return this.#state;
   }
 
+  get viewport() {
+    return this.#state.viewport;
+  }
+
   get textureUnits () {
     return this.#state.textureUnits;
   }
@@ -212,6 +216,22 @@ export default class State extends Base {
     if (this.#state[id] !== false) {
       this.gl.disable(id);
       this.#state[id] = false;
+    }
+  }
+
+  /**
+   * 设置 Viewport
+   * @param width
+   * @param height
+   * @param x
+   * @param y
+   */
+  setViewport(width, height, x = 0, y = 0) {
+    this.#state.viewport = {
+      width,
+      height,
+      x,
+      y,
     }
   }
 

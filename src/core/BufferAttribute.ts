@@ -27,13 +27,11 @@ export default class BufferAttribute {
 
   public count: number;
 
-  constructor(gl: WebGLRenderingContext | WebGL2RenderingContext, data, size, normalized = true, stride = 0, offset = 0, divisor = 0) {
-    this.size = 1;
+  public usage: GLenum;
+
+  constructor(gl: WebGLRenderingContext | WebGL2RenderingContext, data, size = 1, normalized = true, stride = 0, offset = 0, divisor = 0, usage = gl.STATIC_DRAW) {
     this.dynamic = false;
     this.instanced = false;
-    this.stride = 0;
-    this.offset = 0;
-    this.divisor = 0;
     this.needsUpdate = false;
     if (Array.isArray(data)) {
       throw new TypeError('BufferAttribute: array should be a typed array');
@@ -43,13 +41,14 @@ export default class BufferAttribute {
       count = stride ? data.byteLength / stride : data.length / size;
     }
     this.data = data;
-    this.size = size;
+    this.size = size || 1;
     this.type = getBufferType(gl, data);
-    this.normalized = normalized;
-    this.stride = stride;
-    this.offset = offset;
-    this.divisor = divisor;
+    this.normalized = normalized || false;
+    this.stride = stride || 0;
+    this.offset = offset || 0;
+    this.divisor = divisor || 0;
     this.instanced = divisor > 0;
+    this.usage = usage || gl.STATIC_DRAW;
     this.count = count;
   }
 }

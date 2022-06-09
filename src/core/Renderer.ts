@@ -155,10 +155,7 @@ export default class Renderer {
 
   setViewport(width, height, x = 0, y = 0) {
     if (this.#state.viewport.width === width && this.#state.viewport.height === height) return;
-    this.#state.viewport.width = width;
-    this.#state.viewport.height = height;
-    this.#state.viewport.x = x;
-    this.#state.viewport.y = y;
+    this.#state.setViewport(width, height, x, y);
     this.gl.viewport(x, y, width, height);
   }
 
@@ -179,7 +176,6 @@ export default class Renderer {
   getRenderList({ scene }) {
     let renderList: any[] = [];
 
-    // Get visible
     scene.traverse((node) => {
       if (!node.visible) return true;
       if (!node.draw) return;
@@ -205,7 +201,7 @@ export default class Renderer {
       this.#state.bindFramebuffer({
         buffer: null,
       });
-      // this.setViewport(this.width * this.dpr, this.height * this.dpr);
+      this.setViewport(this.width * this.#dpr, this.height * this.#dpr);
     } else {
       // bind supplied render target and update viewport
       target.bind();
@@ -213,7 +209,7 @@ export default class Renderer {
     }
 
     if (clear || (this.#autoClear && clear !== false)) {
-      // Ensure depth buffer writing is enabled so it can be cleared
+      // 确保深度缓冲区写入已启用，以便可以将其清除
       if (this.#depth && (!target || target.depth)) {
         this.#state.enable(this.gl.DEPTH_TEST);
         this.#state.setDepthMask(true);
@@ -225,13 +221,12 @@ export default class Renderer {
       );
     }
 
-    // updates all scene graph matrices
+    // 更新场景矩阵
     if (update) scene.updateMatrixWorld();
 
-    // Update camera separately, in case not in scene graph
+    // 单独更新相机矩阵
     if (camera) camera.updateMatrixWorld();
 
-    // Get render list - entails culling and sorting
     const renderList = this.getRenderList({ scene });
 
     renderList.forEach((node) => {

@@ -38,6 +38,7 @@ import Matrix from './Matrix';
 import Vector3 from './Vector3';
 import Vector4 from './Vector4';
 import Quaternion from './Quaternion';
+import {degToRad} from '../utils';
 
 const tempArray: number[] = [];
 
@@ -392,13 +393,13 @@ export default class Matrix4 extends Matrix {
 
   /**
    * 创建一个透视投影矩阵
-   * @param fovy
+   * @param fov
    * @param aspect
    * @param near
    * @param far
    */
-  fromPerspective(fovy, aspect, near, far) {
-    perspective(this.elements, fovy, aspect, near, far);
+  fromPerspective(fov, aspect, near, far) {
+    perspective(this.elements, degToRad(fov), aspect, near, far);
     return this;
   }
 
