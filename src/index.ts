@@ -4,8 +4,8 @@ import * as utils from './utils';
 import type { IRafOptions } from './animation/Raf';
 
 import Vector2 from './math/Vector2';
-import Vector3 from './math/Vector4';
-import Vector4 from './math/Vector3';
+import Vector3 from './math/Vector3';
+import Vector4 from './math/Vector4';
 import Matrix3 from './math/Matrix3';
 import Matrix4 from './math/Matrix4';
 import Euler from './math/Euler';
@@ -22,6 +22,7 @@ import BufferAttribute from './core/BufferAttribute';
 
 import Object3D from './objects/Object3D';
 import Geometry from './core/Geometry';
+import Plane from './geometries/Plane';
 import Program from './core/Program';
 
 import Texture from './core/Texture';
@@ -61,6 +62,8 @@ export {
   Program,
   Texture,
   DataTexture,
+
+  Plane,
 }
 
 export type {

@@ -33,22 +33,43 @@ export default class Camera extends Object3D {
    */
   public cameraType: CameraType;
 
+  /**
+   * 投影矩阵
+   */
   public projectionMatrix: ProjectionMatrix;
 
+  /**
+   * 视图矩阵
+   */
   public viewMatrix: Matrix4;
 
   public projectionViewMatrix: ProjectionMatrix;
 
   public worldPosition: Vector3;
 
+  /**
+   * 摄像机的近端面，默认值是0.1
+   */
   public near: number;
 
+  /**
+   * 摄像机的远端面，默认值是 100
+   */
   public far: number;
 
+  /**
+   * 摄像机视锥体垂直视野角度，从视图的底部到顶部，以角度来表示
+   */
   public fov: number;
 
+  /**
+   * 相机视锥体的纵横比
+   */
   public aspect: number;
 
+  /**
+   * 相机缩放倍数
+   */
   public zoom: number;
 
   public bounds: any;
@@ -62,6 +83,10 @@ export default class Camera extends Object3D {
     zoom = 1,
   }: CameraOptions = {} as CameraOptions) {
     super();
+
+    /**
+     * 相机类型
+     */
     this.cameraType = 'perspective';
     this.projectionMatrix = new ProjectionMatrix();
     this.viewMatrix = new Matrix4();

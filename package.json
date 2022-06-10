@@ -1,5 +1,5 @@
 {
-  "name": "vis-engine",
+  "name": "@sakitam-gis/vis-engine",
   "version": "1.0.0",
   "description": "A sample gl render engine toolkit.",
   "private": false,

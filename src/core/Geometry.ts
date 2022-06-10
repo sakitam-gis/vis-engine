@@ -7,7 +7,7 @@ import Vector3 from '../math/Vector3';
 
 const tempVec3 = new Vector3();
 
-interface Attribute {
+export interface Attribute {
   id: number;
   data: any;
   size: number;

@@ -42,6 +42,10 @@ const getShaderType = (ctx, type) => {
 export class Shader extends Resource<any> {
   #shaderType: ShaderType;
 
+  #includes: {
+    [key: string]: string;
+  }
+
   public sourceCode: string;
 
   constructor(renderer: Renderer, sourceCode, type, includes = {}) {
@@ -52,6 +56,7 @@ export class Shader extends Resource<any> {
     console.assert(
       typeof sourceCode === 'string', ERR_SOURCE
     );
+    this.#includes = includes;
     this.#shaderType = shaderType;
     this.sourceCode = this.injectShaderModule(sourceCode, includes || {})
       .replace(/\n\n+/gm, '\n\n');
@@ -73,7 +78,7 @@ export class Shader extends Resource<any> {
     source = this.source,
   ) {
     let s = source.replace(/#include </g, '#glsl_include <');
-    s = this.injectShaderModule(s, this.options || {})
+    s = this.injectShaderModule(s, this.#includes || {})
       .replace(/\n\n+/gm, '\n\n');
     this.gl.shaderSource(this.handle, s);
     this.gl.compileShader(this.handle);

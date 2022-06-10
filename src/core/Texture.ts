@@ -74,6 +74,20 @@ export default class Texture extends Resource<ITextureOptions> {
     this.update();
   }
 
+  setImage(image, width = this.width, height = this.height) {
+    this.image = image;
+    this.width = width;
+    this.height = height;
+    this.needsUpdate = true;
+  }
+
+  setOptions(options: Partial<ITextureOptions>) {
+    this.options = Object.assign(this.options, options);
+    this.width = this.options.width as number;
+    this.height = this.options.height as number;
+    this.needsUpdate = true;
+  }
+
   update(units = 0) {
     const needUpdate = !(this.image === this.#state.image && !this.needsUpdate);
     const checked = needUpdate || this.rendererState.textureUnits[units] !== this.id || this.rendererState.activeTextureUnit !== units;

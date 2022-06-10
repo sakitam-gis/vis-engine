@@ -279,7 +279,7 @@ export default class Program extends Resource<ProgramOptions> {
       if (v) {
         uniformData.value = uniforms[name].value;
       }
-      // this.uniforms[name] = uniformData;
+      this.uniforms[name] = uniformData;
       this.#uniformLocations.set(uniformInfo, uniformData);
     }
   }

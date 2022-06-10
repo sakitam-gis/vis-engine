@@ -23,7 +23,8 @@ type FBOData = {
 interface StateOptions {
   textureUnits: number[];
   activeTextureUnit: number;
-  activeGeometryId: string;
+  activeGeometryId: string | number;
+  currentProgramId: string | number;
 
   colorMask: boolean;
 
@@ -144,8 +145,24 @@ export default class State extends Base {
     return this.#state.activeTextureUnit;
   }
 
+  set activeTextureUnit (activeTextureUnit) {
+    this.#state.activeTextureUnit = activeTextureUnit;
+  }
+
+  get currentProgramId() {
+    return this.#state.currentProgramId;
+  }
+
+  set currentProgramId(id: string | number) {
+    this.#state.currentProgramId = id;
+  }
+
   get activeGeometryId () {
     return this.#state.activeGeometryId;
+  }
+
+  set activeGeometryId (id: string | number) {
+    this.#state.activeGeometryId = id;
   }
 
   /**
