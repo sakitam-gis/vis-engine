@@ -313,13 +313,14 @@ export default class Geometry extends Base {
       }
       program.renderer.bindVertexArray(this.#VAOs[program.attributeOrder]);
     }
-    // eslint-disable-next-line guard-for-in
-    for (const name in program.attributes) {
+
+    program.attributeLocations.forEach((location, { name }) => {
       const attribute = this.getAttribute(name);
       if (attribute && attribute.needsUpdate) {
         this.updateAttribute(attribute);
       }
-    }
+    })
+
     if (this.isInstanced) {
       if (this.index) {
         const offset = this.index.offset + 2 * start;

@@ -13,8 +13,23 @@ const getDefines = (t) => {
   return defines.map(t => '#define '.concat(t));
 };
 
+const arrayCacheF32 = {};
+
+function flatten(a) {
+  const arrayLen = a.length;
+  const valueLen = a[0].length;
+  if (valueLen === undefined) return a;
+  const length = arrayLen * valueLen;
+  let value = arrayCacheF32[length];
+  if (!value) arrayCacheF32[length] = value = new Float32Array(length);
+  for (let i = 0; i < arrayLen; i++) value.set(a[i], i * valueLen);
+  return value;
+}
+
 function setUniform(gl: WebGLRenderingContext, type: number, location: WebGLUniformLocation, value: any) {
+  value = value.length ? flatten(value) : value;
   const isArray = value.length;
+
   switch (type) {
     case WebGLRenderingContext.FLOAT: // 5126
       return isArray ? gl.uniform1fv(location, value) : gl.uniform1f(location, value); // FLOAT
@@ -24,25 +39,25 @@ function setUniform(gl: WebGLRenderingContext, type: number, location: WebGLUnif
       return gl.uniform3fv(location, value); // FLOAT_VEC3
     case WebGLRenderingContext.FLOAT_VEC4:
       return gl.uniform4fv(location, value); // FLOAT_VEC4
-    case 35670: // BOOL
-    case 5124: // INT
-    case 35678: // SAMPLER_2D
-    case 35680: // SAMPLER_CUBE
+    case WebGLRenderingContext.BOOL: // BOOL
+    case WebGLRenderingContext.INT: // INT
+    case WebGLRenderingContext.SAMPLER_2D: // SAMPLER_2D
+    case WebGLRenderingContext.SAMPLER_CUBE: // SAMPLER_CUBE
       return isArray ? gl.uniform1iv(location, value) : gl.uniform1i(location, value); // SAMPLER_CUBE
-    case 35671: // BOOL_VEC2
-    case 35667: // INT_VEC2
+    case WebGLRenderingContext.BOOL_VEC2: // BOOL_VEC2
+    case WebGLRenderingContext.INT_VEC2: // INT_VEC2
       return gl.uniform2iv(location, value); // INT_VEC2
-    case 35672: // BOOL_VEC3
-    case 35668: // INT_VEC3
+    case WebGLRenderingContext.BOOL_VEC3: // BOOL_VEC3
+    case WebGLRenderingContext.INT_VEC3: // INT_VEC3
       return gl.uniform3iv(location, value); // INT_VEC3
-    case 35673: // BOOL_VEC4
-    case 35669: // INT_VEC4
+    case WebGLRenderingContext.BOOL_VEC4: // BOOL_VEC4
+    case WebGLRenderingContext.INT_VEC4: // INT_VEC4
       return gl.uniform4iv(location, value); // INT_VEC4
-    case 35674: // FLOAT_MAT2
+    case WebGLRenderingContext.FLOAT_MAT2: // FLOAT_MAT2
       return gl.uniformMatrix2fv(location, false, value); // FLOAT_MAT2
-    case 35675: // FLOAT_MAT3
+    case WebGLRenderingContext.FLOAT_MAT3: // FLOAT_MAT3
       return gl.uniformMatrix3fv(location, false, value); // FLOAT_MAT3
-    case 35676: // FLOAT_MAT4
+    case WebGLRenderingContext.FLOAT_MAT4: // FLOAT_MAT4
       return gl.uniformMatrix4fv(location, false, value); // FLOAT_MAT4
   }
 }

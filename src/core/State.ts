@@ -101,7 +101,7 @@ export default class State extends Base {
         y: 0,
         width: 0,
         height: 0,
-      }
+      },
     } as IState;
     this.apply(options || {
       frontFace: gl.CCW,
