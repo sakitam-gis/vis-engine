@@ -6,8 +6,6 @@ import Matrix4 from './Matrix4';
 import Vector3 from './Vector3';
 
 export default class ProjectionMatrix extends Matrix4 {
-  elements = new Float32Array(16);
-
   frustum(left, right, top, bottom, near, far) {
     frustum(this.elements, left, right, bottom, top, near, far);
     return this;
