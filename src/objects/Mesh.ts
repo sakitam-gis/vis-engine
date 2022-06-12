@@ -5,6 +5,7 @@ import Matrix3 from '../math/Matrix3';
 import Matrix4 from '../math/Matrix4';
 import Geometry from '../core/Geometry';
 import Program from '../core/Program';
+import Renderer from '../core/Renderer';
 
 export interface MeshOptions {
   id?: string;
@@ -36,15 +37,18 @@ export default class Mesh extends Object3D {
 
   public mode: GLenum;
 
+  public renderer: Renderer;
+
   #id: string;
 
   #geometry: Geometry;
 
   #program: Program;
 
-  constructor(gl, { id, geometry, program, mode = gl.TRIANGLES, frustumCulled = true, renderOrder = 0 }: MeshOptions = {} as MeshOptions) {
+  constructor(renderer, { id, geometry, program, mode = renderer.gl.TRIANGLES, frustumCulled = true, renderOrder = 0 }: MeshOptions = {} as MeshOptions) {
     super();
-    this.gl = gl;
+    this.renderer = renderer;
+    this.gl = this.renderer.gl;
     this.modelViewMatrix = new Matrix4();
     this.normalMatrix = new Matrix3();
     this.renderOrder = renderOrder;
