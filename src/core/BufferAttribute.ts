@@ -1,3 +1,6 @@
+import { uid } from '../utils';
+import type { WithNull } from '../types';
+
 const getBufferType = (gl, data) => {
   if (data instanceof Float32Array || data instanceof Float64Array) {
     return gl.FLOAT;
@@ -9,6 +12,8 @@ const getBufferType = (gl, data) => {
 };
 
 export default class BufferAttribute {
+  public id: string;
+
   public data: Float32Array | Float64Array | Uint16Array | Uint8Array;
 
   public type: GLenum;
@@ -29,10 +34,15 @@ export default class BufferAttribute {
 
   public usage: GLenum;
 
+  public target: GLenum;
+
+  public buffer: WithNull<WebGLBuffer>;
+
   constructor(gl: WebGLRenderingContext | WebGL2RenderingContext, data, size = 1, normalized = true, stride = 0, offset = 0, divisor = 0, usage = gl.STATIC_DRAW) {
     this.dynamic = false;
     this.instanced = false;
     this.needsUpdate = false;
+    this.id = uid('attribute');
     if (Array.isArray(data)) {
       throw new TypeError('BufferAttribute: array should be a typed array');
     }

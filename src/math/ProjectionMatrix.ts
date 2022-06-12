@@ -22,7 +22,7 @@ export default class ProjectionMatrix extends Matrix4 {
   }
 
   lookAt(eye, center = new Vector3(0, 0, 0), up = new Vector3(0, 1, 0)) {
-    lookAt(this.elements, eye.value, center.elements, up.elements);
+    lookAt(this.elements, eye.elements, center.elements, up.elements);
     return this;
   }
 }

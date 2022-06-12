@@ -86,7 +86,7 @@ function getPlaneBuffer(
 }
 
 export default class Plane extends Geometry {
-  constructor(renderer: Renderer, { width = 1, height = 1, widthSegments = 1, heightSegments = 1, attributes = {} }: Partial<PlaneOptions>) {
+  constructor(renderer: Renderer, { width = 1, height = 1, widthSegments = 1, heightSegments = 1, attributes = {} }: Partial<PlaneOptions> = {}) {
     const gridX = Math.floor(widthSegments);
     const gridY = Math.floor(heightSegments);
 

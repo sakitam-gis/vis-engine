@@ -11,7 +11,6 @@ export interface Attribute {
   id: number;
   data: any;
   size: number;
-  instanced: any;
   type: any;
   normalized: boolean;
   divisor: number;
@@ -28,15 +27,14 @@ export interface Attribute {
 export default class Geometry extends Base {
   #id: string;
 
-  #attributes: Map<string, Attribute>;
+  #attributes: Map<string, BufferAttribute>;
 
   #VAOs: any;
 
   #bounds: any;
 
-  buffers: Map<BufferAttribute,Array<Attribute>>;
-
   drawRange: any;
+
   instancedCount: number;
 
   isInstanced: boolean;
@@ -106,10 +104,8 @@ export default class Geometry extends Base {
   }
 
   // eslint-disable-next-line consistent-return
-  addAttribute(name, attribute) {
-    attribute.id = uid('attribute');
+  addAttribute(name: string, attribute: BufferAttribute) {
     attribute.target = name === 'index' ? this.gl.ELEMENT_ARRAY_BUFFER : this.gl.ARRAY_BUFFER;
-    attribute.divisor = attribute.divisor || 0;
     attribute.needsUpdate = false;
     this.attributes.set(name, attribute);
     if (!attribute.buffer) {
@@ -121,7 +117,7 @@ export default class Geometry extends Base {
       if (this.instancedCount && this.instancedCount !== attribute.count * attribute.divisor) {
         this.instancedCount = Math.min(this.instancedCount, attribute.count * attribute.divisor);
         // eslint-disable-next-line max-len
-        return console.warn('Geometry has multiple instanced buffers of different length - instancedCount: '.concat(String(this.instancedCount), ', count: ').concat(attribute.count, ', divisor: ').concat(attribute.divisor, ', attribute: ').concat(name));
+        return console.warn(`Geometry has multiple instanced buffers of different length - instancedCount: ${this.instancedCount}, count: ${attribute.count}, divisor: ${attribute.divisor}, attribute: ${name}`);
       }
       this.instancedCount = attribute.count * attribute.divisor;
     } else if (name === 'index') {
@@ -256,7 +252,7 @@ export default class Geometry extends Base {
       offset = 0,
       stride,
       size,
-    } = this.attributes.get('position') as Attribute;
+    } = this.attributes.get('position') as BufferAttribute;
     if (!this.#bounds) {
       this.#bounds = {
         min: new Vector3(),
@@ -291,7 +287,7 @@ export default class Geometry extends Base {
       offset = 0,
       stride,
       size,
-    } = this.attributes.get('position') as Attribute;
+    } = this.attributes.get('position') as BufferAttribute;
     if (!this.#bounds) {
       this.computeBoundingBox();
     }
