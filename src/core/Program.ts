@@ -179,7 +179,7 @@ export default class Program extends Resource<ProgramOptions> {
     this.#assignUniforms(uniforms);
 
     this.#assignAttributes();
-    if (transparent && blendFunc?.src) {
+    if (transparent && !blendFunc?.src) {
       if (this.renderer.premultipliedAlpha) {
         this.#renderState.blendFunc = {
           ...blendFunc,
@@ -291,44 +291,7 @@ export default class Program extends Resource<ProgramOptions> {
   }
 
   applyState() {
-    if (this.#renderState.depthTest) {
-      this.rendererState.enable(this.gl.DEPTH_TEST);
-    } else {
-      this.rendererState.disable(this.gl.DEPTH_TEST);
-    }
-
-    this.rendererState.setCullFace(this.#renderState.cullFace);
-
-    if (this.#renderState.blendFunc?.src) {
-      this.rendererState.enable(this.gl.BLEND);
-    } else {
-      this.rendererState.disable(this.gl.BLEND);
-    }
-
-    if (!isUndef(this.#renderState.frontFace) && !isNull(this.#renderState.frontFace)) {
-      this.rendererState.setFrontFace(this.#renderState.frontFace);
-    }
-
-    if (!isUndef(this.#renderState.depthWrite) && !isNull(this.#renderState.depthWrite)) {
-      this.rendererState.setDepthMask(this.#renderState.depthWrite);
-    }
-
-    if (!isUndef(this.#renderState.depthFunc) && !isNull(this.#renderState.depthFunc)) {
-      this.rendererState.setDepthFunc(this.#renderState.depthFunc);
-    }
-
-    if (this.#renderState.blendFunc?.src) {
-      this.rendererState.setBlendFunc(
-        this.#renderState.blendFunc.src,
-        this.#renderState.blendFunc.dst,
-        this.#renderState.blendFunc?.srcAlpha,
-        this.#renderState.blendFunc?.dstAlpha
-      );
-    }
-
-    if (this.#renderState.blendEquation?.modeRGB) {
-      this.rendererState.setBlendEquation(this.#renderState.blendEquation.modeRGB, this.#renderState.blendEquation?.modeAlpha);
-    }
+    this.rendererState.apply(this.#renderState);
   }
 
   setUniform(key, value) {

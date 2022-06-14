@@ -211,6 +211,10 @@ export default class State extends Base {
       this.setDepthMask(options.depthMask);
     }
 
+    if (!isUndef(options.depthWrite) && !isNull(options.depthWrite)) {
+      this.setDepthMask(options.depthWrite);
+    }
+
     if (!isUndef(options.depthFunc) && !isNull(options.depthFunc)) {
       this.setDepthFunc(options.depthFunc);
     }
