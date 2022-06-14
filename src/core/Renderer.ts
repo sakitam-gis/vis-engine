@@ -32,6 +32,7 @@ export interface RendererOptions {
   autoClear: boolean;
   depth: boolean;
   stencil: boolean;
+  premultipliedAlpha: boolean;
 }
 
 /**
@@ -56,6 +57,8 @@ export default class Renderer {
 
   #dpr: number;
 
+  #premultipliedAlpha: boolean;
+
   public vertexAttribDivisor: any;
   public drawArraysInstanced: any;
   public drawElementsInstanced: any;
@@ -67,7 +70,11 @@ export default class Renderer {
 
   public height: number;
 
-  constructor(gl: WebGLRenderingContext | WebGL2RenderingContext, options: Partial<RendererOptions> = {}) {
+  constructor(gl: WebGLRenderingContext | WebGL2RenderingContext, options: Partial<RendererOptions> = {
+    autoClear: true,
+    depth: true,
+    premultipliedAlpha: false,
+  }) {
     this.#gl = gl;
 
     this.#state = new State(this);
@@ -77,6 +84,8 @@ export default class Renderer {
     this.#depth = Boolean(options.depth);
 
     this.#stencil = Boolean(options.stencil);
+
+    this.#premultipliedAlpha = !!options.premultipliedAlpha;
 
     this.#color = true;
 
@@ -143,6 +152,10 @@ export default class Renderer {
 
   get state () {
     return this.#state;
+  }
+
+  get premultipliedAlpha() {
+    return this.#premultipliedAlpha;
   }
 
   setSize(width: number, height: number) {

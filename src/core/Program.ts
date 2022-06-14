@@ -75,7 +75,26 @@ export interface UniformData {
   structProperty?: string;
 }
 
-export interface ProgramOptions {
+export interface IProgramRenderState {
+  cullFace: GLenum,
+  frontFace: GLenum,
+  depthTest: boolean;
+  depthWrite: boolean;
+  depthFunc: GLenum;
+  blendFunc: {
+    src: number;
+    dst: number;
+    srcAlpha?: number;
+    dstAlpha?: number;
+  };
+
+  blendEquation: {
+    modeRGB: number;
+    modeAlpha?: number;
+  };
+}
+
+export interface ProgramOptions extends IProgramRenderState {
   id: string;
   vertexShader: string | VertexShader;
   fragmentShader: string | FragmentShader;
@@ -85,7 +104,7 @@ export interface ProgramOptions {
   defines: string[];
   includes: {
     [key: string]: string;
-  }
+  },
 }
 
 export default class Program extends Resource<ProgramOptions> {
@@ -103,6 +122,8 @@ export default class Program extends Resource<ProgramOptions> {
 
   #fs: FragmentShader;
 
+  #renderState: Partial<IProgramRenderState>;
+
   constructor(renderer, options: ProgramOptions = {} as ProgramOptions) {
     super(renderer, options);
     const {
@@ -113,6 +134,13 @@ export default class Program extends Resource<ProgramOptions> {
       transparent = false,
       defines = [],
       includes = {},
+      cullFace,
+      frontFace = renderer.gl.CCW,
+      depthTest = true,
+      depthWrite = true,
+      depthFunc = renderer.gl.LESS,
+      blendFunc,
+      blendEquation,
     } = options;
     this.id = id || uid('program');
     const defs: string[] = [
@@ -135,19 +163,36 @@ export default class Program extends Resource<ProgramOptions> {
 
     this.uniforms = uniforms;
 
+    this.#renderState = {
+      cullFace,
+      frontFace,
+      depthTest,
+      depthWrite,
+      depthFunc,
+      blendFunc,
+      blendEquation,
+    };
+
     this.#uniformLocations = new Map();
     this.#attributeLocations = new Map();
 
     this.#assignUniforms(uniforms);
 
     this.#assignAttributes();
-    if (transparent) {
-      this.rendererState.apply({
-        transparent: true,
-      });
-      this.rendererState.setBlendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA);
-      this.rendererState.setBlendEquation(this.gl.FUNC_ADD);
-      this.rendererState.setDepthMask(false);
+    if (transparent && blendFunc?.src) {
+      if (this.renderer.premultipliedAlpha) {
+        this.#renderState.blendFunc = {
+          ...blendFunc,
+          src: this.gl.ONE,
+          dst: this.gl.ONE_MINUS_SRC_ALPHA,
+        };
+      } else {
+        this.#renderState.blendFunc = {
+          ...blendFunc,
+          src: this.gl.SRC_ALPHA,
+          dst: this.gl.ONE_MINUS_SRC_ALPHA,
+        };
+      }
     }
   }
 
@@ -221,30 +266,69 @@ export default class Program extends Resource<ProgramOptions> {
     this.applyState();
   }
 
+  /**
+   * 设置 Program 的 render state
+   * @param states
+   * @param merge 是否使用合并模式，如果为 `false` 则直接替换
+   */
+  setStates(states: Partial<IProgramRenderState>, merge = true) {
+    if (!merge) {
+      this.#renderState = states;
+    } else {
+      this.#renderState = {
+        ...this.#renderState,
+        ...states,
+        blendFunc: {
+          ...this.#renderState.blendFunc,
+          ...states.blendFunc,
+        },
+        blendEquation: {
+          ...this.#renderState.blendEquation,
+          ...states.blendEquation,
+        }
+      } as IProgramRenderState;
+    }
+  }
+
   applyState() {
-    // if (this.depthTest) {
-    //   this.renderer.enable(this.gl.DEPTH_TEST);
-    // } else {
-    //   this.renderer.disable(this.gl.DEPTH_TEST);
-    // }
-    //
-    // if (this.blendFunc.src) {
-    //   this.renderer.enable(this.gl.BLEND);
-    // } else {
-    //   this.renderer.disable(this.gl.BLEND);
-    // }
-    //
-    // this.renderer.setDepthMask(this.depthWrite);
-    // this.renderer.setDepthFunc(this.depthFunc);
-    //
-    // if (this.blendFunc.src)
-    //   this.renderer.setBlendFunc(
-    //     this.blendFunc.src,
-    //     this.blendFunc.dst,
-    //     this.blendFunc.srcAlpha,
-    //     this.blendFunc.dstAlpha
-    //   );
-    // this.renderer.setBlendEquation(this.blendEquation.modeRGB, this.blendEquation.modeAlpha);
+    if (this.#renderState.depthTest) {
+      this.rendererState.enable(this.gl.DEPTH_TEST);
+    } else {
+      this.rendererState.disable(this.gl.DEPTH_TEST);
+    }
+
+    this.rendererState.setCullFace(this.#renderState.cullFace);
+
+    if (this.#renderState.blendFunc?.src) {
+      this.rendererState.enable(this.gl.BLEND);
+    } else {
+      this.rendererState.disable(this.gl.BLEND);
+    }
+
+    if (!isUndef(this.#renderState.frontFace) && !isNull(this.#renderState.frontFace)) {
+      this.rendererState.setFrontFace(this.#renderState.frontFace);
+    }
+
+    if (!isUndef(this.#renderState.depthWrite) && !isNull(this.#renderState.depthWrite)) {
+      this.rendererState.setDepthMask(this.#renderState.depthWrite);
+    }
+
+    if (!isUndef(this.#renderState.depthFunc) && !isNull(this.#renderState.depthFunc)) {
+      this.rendererState.setDepthFunc(this.#renderState.depthFunc);
+    }
+
+    if (this.#renderState.blendFunc?.src) {
+      this.rendererState.setBlendFunc(
+        this.#renderState.blendFunc.src,
+        this.#renderState.blendFunc.dst,
+        this.#renderState.blendFunc?.srcAlpha,
+        this.#renderState.blendFunc?.dstAlpha
+      );
+    }
+
+    if (this.#renderState.blendEquation?.modeRGB) {
+      this.rendererState.setBlendEquation(this.#renderState.blendEquation.modeRGB, this.#renderState.blendEquation?.modeAlpha);
+    }
   }
 
   setUniform(key, value) {
