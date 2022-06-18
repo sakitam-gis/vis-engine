@@ -67,7 +67,13 @@ export default class Color {
     return this.setRGBA(color.r, color.g, color.b, color.a);
   }
 
-  setRGB (r, g, b) {
+  /**
+   * 设置 rgb 数值
+   * @param r r 值，一般为 0-255
+   * @param g g 值，一般为 0-255
+   * @param b b 值，一般为 0-255
+   */
+  setRGB (r: number, g: number, b: number) {
     this.setRGBA(r, g, b, this.a);
     return this;
   }
@@ -101,6 +107,10 @@ export default class Color {
     return tinycolor(this.toObject()).toHsv();
   }
 
+  /**
+   * 将颜色转换为对象
+   * @param isNormalization 是否进行归一化，默认采用 0-255
+   */
   toObject (isNormalization = false) {
     const m = !isNormalization ? 1 : 255;
     return {
@@ -111,10 +121,16 @@ export default class Color {
     };
   }
 
+  /**
+   * 转换为数组
+   */
   toArray () {
     return [this.r, this.g, this.b, this.a];
   }
 
+  /**
+   * 转换为 Vector4
+   */
   toVector () {
     return new Vector4().fromArray(this.toArray());
   }

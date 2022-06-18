@@ -26,10 +26,10 @@ import Geometry from './core/Geometry';
 import Plane from './geometries/Plane';
 import Program from './core/Program';
 
-import Texture from './core/Texture';
+import Texture, { ITextureOptions } from './core/Texture';
 import DataTexture from './core/DataTexture';
 
-import Camera from './cameras/Camera';
+import Camera, { CameraOptions, CameraType, Bounds } from './cameras/Camera';
 import PerspectiveCamera from './cameras/PerspectiveCamera';
 import OrthographicCamera from './cameras/OrthographicCamera';
 
@@ -70,4 +70,8 @@ export {
 
 export type {
   IRafOptions,
+  ITextureOptions,
+  Bounds,
+  CameraType,
+  CameraOptions,
 }

@@ -82,14 +82,6 @@ export default class Resource<T> extends Base {
     throw new Error(ERR_RESOURCE_METHOD_UNDEFINED);
   }
 
-  getParameter() {
-    throw new Error(ERR_RESOURCE_METHOD_UNDEFINED);
-  }
-
-  setParameter() {
-    throw new Error(ERR_RESOURCE_METHOD_UNDEFINED);
-  }
-
   createHandle() {
     throw new Error(ERR_RESOURCE_METHOD_UNDEFINED);
   }

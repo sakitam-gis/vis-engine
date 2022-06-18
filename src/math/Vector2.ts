@@ -26,6 +26,8 @@ import Matrix4 from './Matrix4';
 
 /**
  * 二维向量
+ *
+ * 代码示例:
  * ```ts
  * const a = new Vector2(0, 1);
  *

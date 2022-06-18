@@ -5,10 +5,20 @@ import Vector3 from '../math/Vector3';
 import ProjectionMatrix from '../math/ProjectionMatrix';
 
 export default class Object3D {
+
+  /**
+   * 是否可见
+   */
   public visible: boolean;
 
+  /**
+   * 局部变换矩阵
+   */
   public localMatrix: ProjectionMatrix;
 
+  /**
+   * 物体的世界变换矩阵
+   */
   public worldMatrix: ProjectionMatrix;
 
   public matrixAutoUpdate: boolean;

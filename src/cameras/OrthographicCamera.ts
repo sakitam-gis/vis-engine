@@ -1,4 +1,5 @@
 import Camera from './Camera';
+import type { Bounds } from './Camera';
 
 /**
  * 正交相机（在这种投影模式下，无论物体距离相机距离远或者近，在最终渲染的图片中物体的大小都保持不变）
@@ -31,7 +32,7 @@ export default class OrthographicCamera extends Camera {
       right,
       top,
       bottom,
-    } = this.bounds;
+    } = this.bounds as Bounds;
     const { zoom } = this;
     this.projectionMatrix.orthographic(
       left / zoom,

@@ -3,20 +3,84 @@ import Resource from './Resource';
 import Renderer from './Renderer';
 
 export interface ITextureOptions {
-  width: number; // 纹理宽度，默认为	0
-  height: number; // 纹理高度，默认为	0
-  magFilter: number; //	Sets magnification filter (see table)	'nearest'
-  minFilter: number; //	Sets minification filter (see table)	'nearest'
-  wrapS: number; //	Sets wrap mode on S axis (see table)	'clamp'
-  wrapT: number; //	Sets wrap mode on T axis (see table)	'clamp'
-  format: number; //	Texture format (see table)	'rgba'
-  internalFormat: number; //	Texture format (see table)	'rgba'
-  type: number; //	Texture type (see table)	'uint8'
-  generateMipmaps: boolean; //	See below for a description	false
-  flipY: boolean; //	Flips textures vertically when uploading	false
-  unpackAlignment: number;
-  premultiplyAlpha: boolean; //	Premultiply alpha when unpacking	false
+  /**
+   * 纹理宽度，默认为 0
+   */
+  width: number;
 
+  /**
+   * 纹理高度，默认为 0
+   */
+  height: number;
+
+  /**
+   * 纹理放大时使用的过滤类型。
+   * 可能的值：`gl.NEAREST`，`gl.LINEAR`
+   */
+  magFilter: number;
+
+  /**
+   * 纹理缩小时使用的过滤类型。
+   * 可能的值：`gl.NEAREST`，`gl.LINEAR`
+   */
+  minFilter: number;
+
+  /**
+   * 水平采样纹理时使用的行为。
+   * 可能的值：`gl.REPEAT`，`gl.MIRRORED_REPEAT`，`gl.CLAMP_TO_EDGE`
+   */
+  wrapS: number;
+
+  /**
+   * 垂直采样纹理时使用的行为。
+   * 可能的值：`gl.REPEAT`，`gl.MIRRORED_REPEAT`，`gl.CLAMP_TO_EDGE`
+   */
+  wrapT: number;
+
+  /**
+   * 纹理数据的格式，在 WebGL 1 中，它必须与 internalformat 相同。
+   * 可能的值：`gl.RGBA`，`gl.RGB`，`gl.LUMINANCE`，`gl.LUMINANCE_ALPHA`
+   */
+  format: number;
+
+  /**
+   * 用于指定纹理图像的内部格式
+   * 可能的值：`gl.RGBA`，`gl.RGB`，`gl.ALPHA` 等等
+   */
+  internalFormat: number;
+
+  /**
+   * 指定纹理数据的数据类型。
+   * 可能的值：`gl.UNSIGNED_BYTE`，`gl.FLOAT`，`gl.UNSIGNED_SHORT`，`gl.UNSIGNED_INT` 等等
+   */
+  type: number;
+
+  /**
+   * 配置是否启用 `mipmap`，默认为`true`
+   * `generateMipmaps`会自动生成若干小尺寸的纹理，根据当前三维物体在屏幕上的大小来自动选择最合适的尺寸。
+   * 使用`mipmap`要求纹理的长度和宽度必须是2的整数次幂。
+   */
+  generateMipmaps: boolean;
+
+  /**
+   * 设置纹理上传时是否翻转 Y 轴，默认为 `false`
+   */
+  flipY: boolean;
+
+  /**
+   * 指定内存中每个像素行起点的对齐要求。
+   * 可能的值: 1, 2, 4, 8 (see http://www.khronos.org/opengles/sdk/docs/man/xhtml/glPixelStorei.xml)
+   */
+  unpackAlignment: number;
+
+  /**
+   * 设置纹理上传时是否预乘 `alpha` 值，默认为 `false`
+   */
+  premultiplyAlpha: boolean;
+
+  /**
+   * 纹理数据
+   */
   image: any;
 }
 
@@ -32,19 +96,58 @@ interface IState {
   premultiplyAlpha: boolean;
 }
 
+/**
+ * 纹理
+ * 一般在 `webgl` 中会将纹理用于贴图，或者作为 `renderTarget`
+ * 代码示例：
+ * ```ts
+ * const texture = new ve.Texture(renderer, {
+ *   generateMipmaps: true,
+ *   flipY: true,
+ * });
+ *
+ * const image = new Image();
+ *
+ * image.onload = () => {
+ *   texture.setImage(image, image.width, image.height);
+ * };
+ *
+ * image.src = './assets/posx.jpg';
+ * ```
+ */
 export default class Texture extends Resource<ITextureOptions> {
+  /**
+   * 设置纹理是否需要更新，一般我们会在纹理数据或者配置变更时将此配置项设置为 `true`
+   * 这样会在下一次渲染时应用对应的纹理数据和配置。
+   */
   public needsUpdate = false;
 
+  /**
+   * 设置纹理单位
+   */
   public textureUnit = 0;
 
+  /**
+   * 纹理数据
+   */
   public image: any;
 
+  /**
+   * 纹理宽度
+   */
   public width: number;
 
+  /**
+   * 纹理高度
+   */
   public height: number;
 
   #state: IState = {} as IState;
 
+  /**
+   * @param renderer Renderer 对象
+   * @param options 配置项
+   */
   constructor(renderer: Renderer, options: Partial<ITextureOptions> = {}) {
     const { gl } = renderer;
     const defaultOptions = {
@@ -57,7 +160,7 @@ export default class Texture extends Resource<ITextureOptions> {
       minFilter: gl.LINEAR,
       magFilter: gl.LINEAR,
       premultiplyAlpha: false,
-      unpackAlignment: 4, // valid values: 1, 2, 4, 8 (see http://www.khronos.org/opengles/sdk/docs/man/xhtml/glPixelStorei.xml)
+      unpackAlignment: 4,
       flipY: false,
       level: 0,
     };
@@ -74,6 +177,12 @@ export default class Texture extends Resource<ITextureOptions> {
     this.update();
   }
 
+  /**
+   * 设置纹理数据
+   * @param image 纹理数据
+   * @param width 纹理宽度，默认为原始宽度
+   * @param height 纹理高度，默认为原始高度
+   */
   setImage(image, width = this.width, height = this.height) {
     this.image = image;
     this.width = width;
@@ -81,6 +190,10 @@ export default class Texture extends Resource<ITextureOptions> {
     this.needsUpdate = true;
   }
 
+  /**
+   * 设置纹理配置（默认进行合并）
+   * @param options 配置项
+   */
   setOptions(options: Partial<ITextureOptions>) {
     this.options = Object.assign(this.options, options);
     this.width = this.options.width as number;
@@ -88,6 +201,10 @@ export default class Texture extends Resource<ITextureOptions> {
     this.needsUpdate = true;
   }
 
+  /**
+   * 更新纹理数据或者纹理相关配置
+   * @param units 纹理单位，默认为 0
+   */
   update(units = 0) {
     const needUpdate = !(this.image === this.#state.image && !this.needsUpdate);
     const checked = needUpdate || this.rendererState.textureUnits[units] !== this.id || this.rendererState.activeTextureUnit !== units;
@@ -197,33 +314,53 @@ export default class Texture extends Resource<ITextureOptions> {
     this.#state.version += 1;
   }
 
+  /**
+   * 绑定纹理
+   * @param unit 纹理单位，默认为 `this.textureUnit`
+   */
   bind(unit = this.textureUnit) {
     this.textureUnit = unit;
     this.rendererState.textureUnits[this.textureUnit] = this.id;
     this.gl.bindTexture(this.gl.TEXTURE_2D, this.handle);
   }
 
+  /**
+   * 解绑纹理
+   */
   unbind() {
     this.gl.activeTexture(this.gl.TEXTURE0 + this.textureUnit);
     this.gl.bindTexture(this.gl.TEXTURE_2D, null);
     delete this.rendererState.textureUnits[this.textureUnit];
   }
 
+  /**
+   * 销毁纹理
+   */
   destroy() {
     this.unbind();
     super.destroy();
   }
 
+  /**
+   * @private
+   * 创建纹理对象
+   */
   createHandle() {
     return this.gl.createTexture();
   }
 
+  /**
+   * @private
+   */
   deleteHandle() {
     if (this.handle) {
       this.gl.deleteTexture(this.handle);
     }
   }
 
+  /**
+   * 获取字符串数据
+   */
   toString(): string {
     return `Texture(${this.id},${this.width}x${this.height})`;
   }
