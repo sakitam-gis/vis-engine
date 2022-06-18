@@ -1,28 +1,8 @@
 import State from './State';
 import RenderTarget from './RenderTarget';
 import Scene from '../objects/Scene';
-
-/** Check if supplied parameter is a WebGLRenderingContext */
-export function isWebGL(gl: any): boolean {
-  if (typeof WebGLRenderingContext !== 'undefined' && gl instanceof WebGLRenderingContext) {
-    return true;
-  }
-  if (typeof WebGL2RenderingContext !== 'undefined' && gl instanceof WebGL2RenderingContext) {
-    return true;
-  }
-  // Look for debug contexts, headless gl etc
-  return Boolean(gl && Number.isFinite(gl._version));
-}
-
-
-/** Check if supplied parameter is a WebGL2RenderingContext */
-export function isWebGL2(gl: any): boolean {
-  if (typeof WebGL2RenderingContext !== 'undefined' && gl instanceof WebGL2RenderingContext) {
-    return true;
-  }
-  // Look for debug contexts, headless gl etc
-  return Boolean(gl && gl._version === 2);
-}
+import { isWebGL, isWebGL2, getContext } from '../utils';
+import type { WithUndef } from '../types';
 
 export type ExtensionKeys = 'ANGLE_instanced_arrays' | 'OES_vertex_array_object';
 export type Extensions = ANGLE_instanced_arrays | OES_vertex_array_object;
@@ -31,33 +11,44 @@ export interface RendererOptions {
   dpr: number;
   autoClear: boolean;
   depth: boolean;
+  alpha: boolean;
+  antialias: boolean;
   stencil: boolean;
+  powerPreference: WebGLPowerPreference;
   premultipliedAlpha: boolean;
+  preserveDrawingBuffer: boolean;
+  requestWebGl2: boolean;
 }
 
 /**
  * 这是一个基类，
  */
 export default class Renderer {
-  #gl: WebGLRenderingContext | WebGL2RenderingContext;
+  readonly #gl: WebGLRenderingContext | WebGL2RenderingContext;
 
-  #state: any;
+  readonly #state: any;
 
-  #extensions: {
+  readonly #extensions: {
     [key in ExtensionKeys]: Extensions;
   };
 
-  #autoClear: boolean;
+  readonly #autoClear: boolean;
 
-  #depth: boolean;
+  readonly #depth: WithUndef<boolean>;
 
-  #stencil: boolean;
+  readonly #alpha: WithUndef<boolean>;
 
-  #color: boolean;
+  readonly #stencil: WithUndef<boolean>;
 
-  #dpr: number;
+  readonly #antialias: WithUndef<boolean>;
 
-  #premultipliedAlpha: boolean;
+  readonly #premultipliedAlpha: WithUndef<boolean>;
+
+  readonly #preserveDrawingBuffer: WithUndef<boolean>;
+
+  readonly #color: boolean;
+
+  readonly #dpr: number;
 
   public vertexAttribDivisor: any;
   public drawArraysInstanced: any;
@@ -70,22 +61,41 @@ export default class Renderer {
 
   public height: number;
 
-  constructor(gl: WebGLRenderingContext | WebGL2RenderingContext, options: Partial<RendererOptions> = {
-    autoClear: true,
-    depth: true,
-    premultipliedAlpha: false,
-  }) {
-    this.#gl = gl;
-
-    this.#state = new State(this);
+  constructor(gl: WebGLRenderingContext | WebGL2RenderingContext | HTMLCanvasElement, opts: Partial<RendererOptions> = {}) {
+    const options = Object.assign({}, {
+      autoClear: true,
+      depth: true,
+      alpha: false,
+      stencil: false,
+      antialias: false,
+      premultipliedAlpha: false,
+      preserveDrawingBuffer: false,
+      requestWebGl2: true,
+    }, opts);
 
     this.#autoClear = Boolean(options.autoClear);
 
-    this.#depth = Boolean(options.depth);
+    this.#depth = options.depth;
 
-    this.#stencil = Boolean(options.stencil);
+    this.#alpha = options.alpha;
 
-    this.#premultipliedAlpha = !!options.premultipliedAlpha;
+    this.#stencil = options.stencil;
+
+    this.#premultipliedAlpha = options.premultipliedAlpha;
+
+    this.#preserveDrawingBuffer = options.preserveDrawingBuffer;
+
+    this.#gl = ((isWebGL(gl) || isWebGL2(gl)) ? gl : getContext(gl as HTMLCanvasElement, {
+      alpha: this.#alpha,
+      depth: this.#depth,
+      stencil: this.#stencil,
+      antialias: this.#antialias,
+      powerPreference: options.powerPreference,
+      premultipliedAlpha: this.#premultipliedAlpha,
+      preserveDrawingBuffer: this.#preserveDrawingBuffer,
+    }, options.requestWebGl2)) as WebGLRenderingContext | WebGL2RenderingContext;
+
+    this.#state = new State(this);
 
     this.#color = true;
 

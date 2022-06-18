@@ -1,5 +1,6 @@
 export * from './shader';
 export * from './math';
+export * from './gl';
 
 /**
  * 获取当前秒数，自动回退

@@ -9,6 +9,7 @@ import Vector4 from './math/Vector4';
 import Matrix3 from './math/Matrix3';
 import Matrix4 from './math/Matrix4';
 import Euler from './math/Euler';
+import Color from './math/Color';
 import Quaternion from './math/Quaternion';
 import ProjectionMatrix from './math/ProjectionMatrix';
 
@@ -36,6 +37,7 @@ export {
   utils,
   Raf,
   Clock,
+  Color,
   Euler,
   Vector2,
   Vector3,
