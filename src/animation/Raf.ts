@@ -45,7 +45,7 @@ export default class Raf {
       const time = this.#clock.getElapsedTime();
       cb && cb(time);
     };
-    if (options.autoStart) {
+    if (this.options.autoStart) {
       this.start();
     }
   }
