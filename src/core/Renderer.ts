@@ -4,24 +4,67 @@ import Scene from '../objects/Scene';
 import { isWebGL, isWebGL2, getContext } from '../utils';
 import type { WithUndef } from '../types';
 
-export type ExtensionKeys = 'ANGLE_instanced_arrays' | 'OES_vertex_array_object';
-export type Extensions = ANGLE_instanced_arrays | OES_vertex_array_object;
+type ExtensionKeys = 'ANGLE_instanced_arrays' | 'OES_vertex_array_object';
+type Extensions = ANGLE_instanced_arrays | OES_vertex_array_object;
 
 export interface RendererOptions {
+  /**
+   * 指定 `devicePixelRatio`
+   */
   dpr: number;
+
+  /**
+   * 指定是否开启自动清除
+   */
   autoClear: boolean;
+
+  /**
+   * 指定是否开启深度检测
+   */
   depth: boolean;
+
+  /**
+   * 指定画布是否包含alpha缓冲区，仅在传入的是 `canvas` 对象时有用
+   */
   alpha: boolean;
+
+  /**
+   * 指定是否开启抗锯齿，仅在传入的是 `canvas` 对象时有用
+   */
   antialias: boolean;
+
+  /**
+   * 指定是否开启模板缓冲区
+   */
   stencil: boolean;
+
+  /**
+   * 指定GPU的性能配置，仅在传入的是 `canvas` 对象时有用
+   */
   powerPreference: WebGLPowerPreference;
+
+  /**
+   * 指定是否开启预乘alpha
+   */
   premultipliedAlpha: boolean;
+
+  /**
+   * 是否开启绘制缓冲区，仅在传入的是 `canvas` 对象时有用
+   */
   preserveDrawingBuffer: boolean;
+
+  /**
+   * 获取 `webgl2` 实例，仅在传入的是 `canvas` 对象时有用
+   */
   requestWebGl2: boolean;
+  /**
+   * 是否开启视锥剔除，默认不开启
+   */
+  frustumCull: boolean;
 }
 
 /**
- * 这是一个基类，
+ * Renderer
  */
 export default class Renderer {
   readonly #gl: WebGLRenderingContext | WebGL2RenderingContext;
@@ -49,6 +92,8 @@ export default class Renderer {
   readonly #color: boolean;
 
   readonly #dpr: number;
+
+  readonly #frustumCull: boolean;
 
   public vertexAttribDivisor: any;
   public drawArraysInstanced: any;
@@ -101,6 +146,8 @@ export default class Renderer {
 
     this.#dpr = options.dpr || 1;
 
+    this.#frustumCull = !!options.frustumCull;
+
     this.#extensions = {} as {
       [key in ExtensionKeys]: Extensions;
     };
@@ -137,22 +184,37 @@ export default class Renderer {
     );
   }
 
+  /**
+   * 获取 gl 实例
+   */
   get gl() {
     return this.#gl;
   }
 
+  /**
+   * 获取 canvas 实例
+   */
   get canvas () {
     return this.#gl.canvas;
   }
 
+  /**
+   * 判断是否是 `webgl1`
+   */
   get isWebGL() {
     return isWebGL(this.gl);
   }
 
+  /**
+   * 判断是否是 `webgl2`
+   */
   get isWebGL2() {
     return isWebGL2(this.gl);
   }
 
+  /**
+   * 获取 canvas 画布大小
+   */
   get size () {
     return {
       width: 'clientWidth' in this.canvas ? this.canvas.clientWidth : this.canvas.width,
@@ -160,14 +222,25 @@ export default class Renderer {
     };
   }
 
+  /**
+   * 获取 `renderState`
+   */
   get state () {
     return this.#state;
   }
 
+  /**
+   * 获取 `premultipliedAlpha` 配置
+   */
   get premultipliedAlpha() {
     return this.#premultipliedAlpha;
   }
 
+  /**
+   * 设置画布宽高
+   * @param width 宽
+   * @param height 高
+   */
   setSize(width: number, height: number) {
     this.width = width;
     this.height = height;
@@ -176,12 +249,24 @@ export default class Renderer {
     this.gl.canvas.height = height * this.#dpr;
   }
 
+  /**
+   * 设置 `webgl` 的 `viewport`
+   * @param width
+   * @param height
+   * @param x
+   * @param y
+   */
   setViewport(width, height, x = 0, y = 0) {
-    if (this.#state.viewport.width === width && this.#state.viewport.height === height) return;
     this.#state.setViewport(width, height, x, y);
-    this.gl.viewport(x, y, width, height);
   }
 
+  /**
+   * @private
+   * 获取扩展
+   * @param extension
+   * @param method
+   * @param extFunc
+   */
   getExtension (extension, method, extFunc) {
     const func = this.gl[method];
     if (method && func) return func.bind(this.gl);
@@ -195,13 +280,18 @@ export default class Renderer {
   /**
    * 获取渲染列表（排序先不实现）
    * @param scene
+   * @param camera
    */
-  getRenderList({ scene }) {
+  getRenderList({ scene, camera }) {
     let renderList: any[] = [];
 
     scene.traverse((node) => {
       if (!node.visible) return true;
       if (!node.draw) return;
+
+      if (this.#frustumCull && node.frustumCulled && camera) {
+        if (!camera.frustumIntersectsMesh(node)) return;
+      }
 
       renderList.push(node);
     });
@@ -209,6 +299,10 @@ export default class Renderer {
     return renderList;
   }
 
+  /**
+   * 渲染函数，一般会在每一帧中调用此方法
+   * @param params
+   */
   render(params: {
     scene: Scene;
     camera: any;
@@ -250,7 +344,7 @@ export default class Renderer {
     // 单独更新相机矩阵
     if (camera) camera.updateMatrixWorld();
 
-    const renderList = this.getRenderList({ scene });
+    const renderList = this.getRenderList({ scene, camera });
 
     renderList.forEach((node) => {
       node.draw({ camera });

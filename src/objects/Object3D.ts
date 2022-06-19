@@ -78,10 +78,19 @@ export default class Object3D {
     }
   }
 
+  /**
+   * 判断此渲染对象的子集是否包含传入的渲染对象
+   * @param object
+   */
   contains(object) {
     return this.children.includes(object);
   }
 
+  /**
+   * 设置此渲染对象的父集
+   * @param object 渲染对象
+   * @param notifyParent 设置是否将此渲染对象添加到传入的渲染对象中
+   */
   setParent(object, notifyParent = true) {
     if (this.parent && object !== this.parent) {
       this.parent.remove(this, false);
@@ -110,6 +119,10 @@ export default class Object3D {
     this.rotation.fromQuaternion(this.quaternion);
   }
 
+  /**
+   * 更新渲染对象的世界矩阵
+   * @param force 是否更新次渲染对象的子集
+   */
   updateMatrixWorld(force?: boolean) {
     let f = force;
     if (this.matrixAutoUpdate) {
@@ -132,6 +145,9 @@ export default class Object3D {
     }
   }
 
+  /**
+   * 更新局部变换矩阵
+   */
   updateMatrix() {
     this.localMatrix.compose(this.position, this.quaternion, this.scale);
     this.worldMatrixNeedsUpdate = true;
@@ -144,10 +160,18 @@ export default class Object3D {
     this.rotation.fromQuaternion(this.quaternion);
   }
 
+  /**
+   * 克隆次渲染对象
+   */
   clone() {
     return new Object3D().copy(this, false);
   }
 
+  /**
+   * 复制给定的对象到这个对象中
+   * @param object 渲染对象
+   * @param recursive 设置是否复制子对象
+   */
   copy(object: Object3D, recursive?: boolean) {
     this.visible = object.visible;
     this.position.copy(object.position);

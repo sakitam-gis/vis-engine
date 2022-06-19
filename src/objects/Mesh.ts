@@ -113,8 +113,8 @@ export default class Mesh extends Object3D {
     if (target) target.unbind();
   }
 
-  updateGeometry(geometry, dispose) {
-    if (dispose && this.#geometry) {
+  updateGeometry(geometry, destroy) {
+    if (destroy && this.#geometry) {
       this.#geometry.destroy();
     }
     this.#geometry = geometry;

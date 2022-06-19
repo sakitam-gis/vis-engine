@@ -61,6 +61,8 @@ export interface CameraOptions {
 }
 
 const tempMat4 = new Matrix4();
+const tempVec3a = new Vector3();
+const tempVec3b = new Vector3();
 
 const ERR_CAMERA_METHOD_UNDEFINED = 'Camera subclass must define virtual methods';
 
@@ -124,6 +126,8 @@ export default class Camera extends Object3D {
    */
   public bounds: WithUndef<Bounds>;
 
+  public frustum: Matrix4;
+
   constructor({
     near = 0.1,
     far = 100,
@@ -142,6 +146,7 @@ export default class Camera extends Object3D {
     this.viewMatrix = new Matrix4();
     this.projectionViewMatrix = new ProjectionMatrix();
     this.worldPosition = new Vector3();
+    this.frustum = new Matrix4();
     this.near = near;
     this.far = far;
     this.fov = fov;
@@ -176,6 +181,7 @@ export default class Camera extends Object3D {
     this.far = far;
     this.projectionMatrix.fromPerspective(fov, aspect, near, far);
     this.cameraType = 'perspective';
+    // this.projectionMatrix.frustum(this.frustum, this.bounds.left, this.bounds.right, this.bounds.top, this.bounds.bottom, this.near, this.far);
   }
 
   /**
@@ -206,6 +212,7 @@ export default class Camera extends Object3D {
       far,
     );
     this.cameraType = 'orthographic';
+    this.projectionMatrix.frustum(this.frustum, this.bounds.left, this.bounds.right, this.bounds.top, this.bounds.bottom, this.near, this.far);
   }
 
   /**
@@ -228,6 +235,43 @@ export default class Camera extends Object3D {
     this.worldMatrix.getTranslation(this.worldPosition);
     this.projectionViewMatrix.multiply(this.projectionMatrix, this.viewMatrix);
     return this;
+  }
+
+  /**
+   * 判断 mesh 是否在相机视椎体内
+   * @param node
+   * @param worldMatrix
+   */
+  frustumIntersectsMesh(node, worldMatrix = node.worldMatrix) {
+    if (!node.geometry.attributes.position) return true;
+
+    if (!node.geometry.bounds || node.geometry.bounds.radius === Infinity) node.geometry.computeBoundingSphere();
+
+    if (!node.geometry.bounds) return true;
+
+    const center = tempVec3a;
+    center.copy(node.geometry.bounds.center);
+    center.applyMatrix4(worldMatrix);
+
+    const radius = node.geometry.bounds.radius * worldMatrix.getMaxScaleOnAxis();
+
+    return this.frustumIntersectsSphere(center, radius);
+  }
+
+  /**
+   * @private
+   * @param center
+   * @param radius
+   */
+  frustumIntersectsSphere(center, radius) {
+    const normal = tempVec3b;
+
+    for (let i = 0; i < 6; i++) {
+      const plane = this.frustum[i];
+      const distance = normal.copy(plane).dot(center) + plane.constant;
+      if (distance < -radius) return false;
+    }
+    return true;
   }
 
   /**

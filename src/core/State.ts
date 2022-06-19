@@ -248,6 +248,8 @@ export default class State extends Base {
    * @param y
    */
   setViewport(width, height, x = 0, y = 0) {
+    if (this.#state.viewport.width === width && this.#state.viewport.height === height) return;
+    this.gl.viewport(x, y, width, height);
     this.#state.viewport = {
       width,
       height,
@@ -401,7 +403,7 @@ export default class State extends Base {
   }
 
   /**
-   * 设置北面剔除方式
+   * 设置背面剔除方式
    * @param cullFace
    */
   setCullFace (cullFace: GLenum) {

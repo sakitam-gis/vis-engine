@@ -246,6 +246,9 @@ export default class Geometry extends Base {
     }
   }
 
+  /**
+   * 计算当前几何体的的边界矩形
+   */
   computeBoundingBox() {
     const {
       data,
@@ -281,6 +284,9 @@ export default class Geometry extends Base {
     return this.#bounds;
   }
 
+  /**
+   * 计算当前几何体的的边界球形
+   */
   computeBoundingSphere() {
     const {
       data,

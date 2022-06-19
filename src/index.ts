@@ -16,7 +16,7 @@ import ProjectionMatrix from './math/ProjectionMatrix';
 import Mesh from './objects/Mesh';
 import Scene from './objects/Scene';
 import State from './core/State';
-import Renderer from './core/Renderer';
+import Renderer, { RendererOptions } from './core/Renderer';
 import RenderBuffer from './core/RenderBuffer';
 import RenderTarget from './core/RenderTarget';
 import BufferAttribute from './core/BufferAttribute';
@@ -74,4 +74,5 @@ export type {
   Bounds,
   CameraType,
   CameraOptions,
+  RendererOptions,
 }
