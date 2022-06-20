@@ -27,6 +27,7 @@ import Plane from './geometries/Plane';
 import Program from './core/Program';
 
 import Texture, { ITextureOptions } from './core/Texture';
+import Texture3D , { ITexture3DOptions } from './core/Texture3D';
 import DataTexture from './core/DataTexture';
 
 import Camera, { CameraOptions, CameraType, Bounds } from './cameras/Camera';
@@ -63,6 +64,7 @@ export {
   Geometry,
   Program,
   Texture,
+  Texture3D,
   DataTexture,
 
   Plane,
@@ -71,6 +73,7 @@ export {
 export type {
   IRafOptions,
   ITextureOptions,
+  ITexture3DOptions,
   Bounds,
   CameraType,
   CameraOptions,
