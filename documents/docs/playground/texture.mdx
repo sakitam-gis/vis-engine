@@ -1,37 +1,9 @@
 ---
-id: try
-title: Try vis-engine
+id: texture
+title: Draw Texture
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-### Using an ES6 Module Bundler
-
-Install the package.
-
-<Tabs
-  defaultValue='yarn'
-  values={[
-    { label: 'Yarn', value: 'yarn', },
-    { label: 'pnpm', value: 'pnpm', },
-  ]
-}>
-<TabItem value='yarn'>
-
-```zsh
-yarn add @sakitam-gis/vis-engine
-```
-
-</TabItem>
-<TabItem value='pnpm'>
-
-```zsh
-pnpm i @sakitam-gis/vis-engine
-```
-
-</TabItem>
-</Tabs>
+这个实例主要展示了引擎 [Texture](/api/classes/Texture.md) 纹理的使用。
 
 ### 一个简单的示例
 
@@ -42,27 +14,25 @@ function render(props) {
     attribute vec3 position;
     uniform mat4 modelViewMatrix;
     uniform mat4 projectionMatrix;
-
     varying vec2 vUv;
 
     void main() {
         vUv = uv;
 
         gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-
-        // gl_PointSize only applicable for gl.POINTS draw mode
-        gl_PointSize = 5.0;
     }
     `;
 
   const drawModelFragment = `
     precision highp float;
 
-    uniform float uTime;
+    uniform sampler2D texture;
+
     varying vec2 vUv;
 
     void main() {
-        gl_FragColor.rgb = 0.5 + 0.3 * sin(vUv.yxx + uTime) + vec3(0.2, 0.0, 0.1);
+        vec3 tex = texture2D(texture, vUv).rgb;
+        gl_FragColor.rgb = tex;
         gl_FragColor.a = 1.0;
     }
     `;
@@ -71,7 +41,14 @@ function render(props) {
 
   const store = leva.useCreateStore();
 
-  const { name, aNumber } = leva.useControls({ name: 'World1', aNumber: 2 }, { store });
+  const fov = 15;
+  const nearZ = 0.1;
+
+  const farZ = 100;
+
+  // const { name, aNumber } = leva.useControls({ name: 'World1', aNumber: 2 }, { store });
+
+  const image = useBaseUrl('/assets/posx.jpg');
 
   const init = () => {
     const canvas = refDom.current;
@@ -82,10 +59,6 @@ function render(props) {
       alpha: true,
     });
 
-    const fov = 15;
-    const nearZ = 0.1;
-
-    const farZ = 100;
     const camera = new PerspectiveCamera(fov, canvas.width / canvas.height, nearZ, farZ);
     camera.position.z = 15;
 
@@ -102,10 +75,10 @@ function render(props) {
       position: {
         size: 3,
         data: new Float32Array([
-          -0.5, 0.5, 0,
-          -0.5, -0.5, 0,
-          0.5, 0.5, 0,
-          0.5, -0.5, 0
+          -1, 1, 0,
+          -1, -1, 0,
+          1, 1, 0,
+          1, -1, 0
         ])
       },
       uv: {
@@ -117,32 +90,29 @@ function render(props) {
       },
     });
 
+    const texture = new Texture(renderer, {
+      generateMipmaps: false,
+      flipY: true,
+    });
+
+    texture.fromSrc(image);
+
     const program = new Program(renderer, {
       vertexShader: drawModelVertex,
       fragmentShader: drawModelFragment,
       uniforms: {
-        uTime: { value: 0 },
+        texture: {
+          value: texture,
+        },
       },
     });
 
-    const points = new Mesh(renderer, { mode: renderer.gl.POINTS, geometry, program });
-    points.setParent(scene);
-    points.position.set(-1, 1, 0);
-
-    const lineStrip = new Mesh(renderer, { mode: renderer.gl.LINES, geometry, program });
-    lineStrip.setParent(scene);
-    lineStrip.position.set(1, 1, 0);
-
-    const lineLoop = new Mesh(renderer, { mode: renderer.gl.LINE_LOOP, geometry, program });
-    lineLoop.setParent(scene);
-    lineLoop.position.set(-1, -1, 0);
-
     const triangles = new Mesh(renderer, { mode: renderer.gl.TRIANGLES, geometry, program });
     triangles.setParent(scene);
-    triangles.position.set(1, -1, 0);
+    triangles.position.set(0, 0, 0);
 
     const raf = new Raf((t) => {
-      program.setUniform('uTime', t);
+      triangles.rotation.y -= 0.02;
       renderer.render({ scene, camera });
     });
 
@@ -175,14 +145,3 @@ function render(props) {
   );
 }
 ```
-
-import CodeBlock from '@theme/CodeBlock';
-import DrawModel from '@site/src/components/draw-model';
-import DrawModelString from '!!raw-loader!@site/src/components/draw-model';
-
-<Tabs>
-  <TabItem value="tsx" label="React Components">
-    <DrawModel></DrawModel>
-    <CodeBlock language="tsx">{DrawModelString}</CodeBlock>
-  </TabItem>
-</Tabs>

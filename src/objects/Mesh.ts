@@ -45,7 +45,7 @@ export default class Mesh extends Object3D {
 
   #program: Program;
 
-  constructor(renderer, { id, geometry, program, mode = renderer.gl.TRIANGLES, frustumCulled = true, renderOrder = 0 }: MeshOptions = {} as MeshOptions) {
+  constructor(renderer, { id, geometry, program, mode = renderer.gl.TRIANGLES, frustumCulled = true, renderOrder = 0 }: Partial<MeshOptions> = {} as MeshOptions) {
     super();
     this.renderer = renderer;
     this.gl = this.renderer.gl;

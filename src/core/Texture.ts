@@ -218,6 +218,25 @@ export default class Texture extends Resource<ITextureOptions> {
   }
 
   /**
+   * 从 Url 创建 Texture
+   * @param url
+   */
+  fromSrc(url: string) {
+    return new Promise((resolve, reject) => {
+      const image = new Image();
+      image.onload = () => {
+        this.setImage(image, image.width, image.height);
+        resolve(this);
+      };
+      image.onerror = (e) => {
+        reject(e);
+      };
+      image.crossOrigin = '*';
+      image.src = url;
+    });
+  }
+
+  /**
    * 更新纹理数据或者纹理相关配置
    * @param units 纹理单位，默认为 0
    */

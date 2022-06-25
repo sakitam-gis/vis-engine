@@ -61,3 +61,22 @@
 .example-editor-toolbar .button-scale.selected:hover {
   background-color: #1ed36f;
 }
+
+.live-wrap {
+  position: relative;
+  width: 100%;
+  height: 350px;
+}
+
+.leva-wrap {
+  position: absolute;
+  width: 280px;
+  right: 10px;
+  top: 10px;
+  z-index: 999;
+}
+
+.scene-canvas {
+  width: 100%;
+  height: 100%;
+}

@@ -1,10 +1,10 @@
 import Resource from './Resource';
 import Vector4 from '../math/Vector4';
-import Texture from './Texture';
+import Texture, { ITextureOptions } from './Texture';
 import DataTexture from './DataTexture';
 import Renderbuffer from './RenderBuffer';
 import Renderer from './Renderer';
-import { isNumber } from '../utils';
+import { isNumber, omit } from '../utils';
 
 export interface RenderTargetOptions {
   data: any;
@@ -63,7 +63,7 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
     const attachments = this.options.attachments || [];
     if (attachments.length === 0) {
       for (let i = 0; i < this.options.color!; i++) {
-        const opt = {
+        const opt: any = {
           wrapS: this.gl.CLAMP_TO_EDGE,
           wrapT: this.gl.CLAMP_TO_EDGE,
           minFilter: this.gl.LINEAR,
@@ -78,7 +78,12 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
         if (opt.data) {
           texture = new DataTexture(renderer, opt.data, opt.width, opt.height, opt);
         } else {
-          texture = new Texture(renderer, opt);
+          texture = new Texture(renderer, omit<ITextureOptions & RenderTargetOptions, keyof RenderTargetOptions>(opt, [
+            'data',
+            'name',
+            'attachments',
+            'depthTexture',
+          ]));
         }
         attachments.push([
           this.gl.COLOR_ATTACHMENT0 + i,

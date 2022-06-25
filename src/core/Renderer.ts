@@ -63,6 +63,16 @@ export interface RendererOptions {
   frustumCull: boolean;
 }
 
+export interface RenderParams {
+  scene: Scene;
+  camera: any;
+  target?: RenderTarget;
+  update?: boolean;
+  sort?: boolean;
+  frustumCull?: boolean;
+  clear?: boolean;
+}
+
 /**
  * Renderer
  */
@@ -303,15 +313,7 @@ export default class Renderer {
    * 渲染函数，一般会在每一帧中调用此方法
    * @param params
    */
-  render(params: {
-    scene: Scene;
-    camera: any;
-    target: RenderTarget;
-    update: boolean;
-    sort: boolean;
-    frustumCull: boolean;
-    clear: boolean;
-  }) {
+  render(params: RenderParams) {
     const { scene, camera, target = null, update = true, clear } = params;
     if (target === null) {
       // make sure no render target bound so draws to canvas

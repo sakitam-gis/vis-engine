@@ -41,7 +41,7 @@ module.exports = {
        * The position of the live playground, above or under the editor
        * Possible values: "top" | "bottom"
        */
-      playgroundPosition: 'bottom',
+      playgroundPosition: 'top',
     },
     navbar: {
       hideOnScroll: true,
@@ -89,7 +89,7 @@ module.exports = {
             },
             {
               label: 'Playground',
-              to: 'playground',
+              to: 'docs/playground/draw',
             },
           ],
         },

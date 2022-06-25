@@ -98,11 +98,11 @@ export interface ProgramOptions extends IProgramRenderState {
   id: string;
   vertexShader: string | VertexShader;
   fragmentShader: string | FragmentShader;
-  uniforms: Uniforms;
-  transparent: boolean;
+  uniforms?: Uniforms;
+  transparent?: boolean;
 
-  defines: string[];
-  includes: {
+  defines?: string[];
+  includes?: {
     [key: string]: string;
   },
 }
@@ -124,7 +124,7 @@ export default class Program extends Resource<ProgramOptions> {
 
   #renderState: Partial<IProgramRenderState>;
 
-  constructor(renderer, options: ProgramOptions = {} as ProgramOptions) {
+  constructor(renderer, options: Partial<ProgramOptions> = {} as ProgramOptions) {
     super(renderer, options);
     const {
       id,
@@ -150,6 +150,11 @@ export default class Program extends Resource<ProgramOptions> {
       }),
       ...defines,
     ].map((str) => (!str.startsWith('#define ') ? '#define '.concat(str) : str));
+
+    if (!vertexShader || !fragmentShader) {
+      throw new Error(`Program: ${this.id}：must provide vertexShader and fragmentShader`);
+    }
+
     this.#vs = typeof vertexShader === 'string' ? new VertexShader(renderer, parseShader(vertexShader, defs), includes) : vertexShader;
     this.#fs = typeof fragmentShader === 'string' ? new FragmentShader(renderer, parseShader(fragmentShader, defs), includes) : fragmentShader;
 

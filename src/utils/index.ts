@@ -97,3 +97,16 @@ export function uid(id: string = 'id'): string {
   const count = uidCounters[id]++;
   return `${id}-${count}`;
 }
+
+/**
+ * 排除对象的 key
+ * @param obj
+ * @param keys
+ */
+export function omit<T, K extends keyof T>(obj: T, keys: K[] = []): Omit<T, K> {
+  return Object.keys(obj as any)
+    .filter((key: any) => keys.indexOf(key) < 0)
+    .reduce((newObj: Omit<T, K>, key) => Object.assign(newObj, {
+      [key]: obj[key],
+    }), {} as Omit<T, K>)
+}

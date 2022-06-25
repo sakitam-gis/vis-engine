@@ -2,3 +2,4 @@
 /// <reference types="@docusaurus/theme-classic" />
 
 declare module '*.module.css';
+declare module '*.glsl';

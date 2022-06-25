@@ -27,15 +27,42 @@ export function isWebGL2(gl: any): boolean {
 }
 
 export interface GlOptions {
-  alpha: boolean; // 指定画布是否包含alpha缓冲区。
-  antialias: boolean; // 指定是否开启抗锯齿。
-  depth: boolean; // 指定是否开启深度检测。
-  desynchronized: boolean; // Boolean类型，表示绘图缓冲区的深度缓冲区至少为16位。
-  stencil: boolean; // 指定是否开启模板缓冲区。
-  failIfMajorPerformanceCaveat: boolean; // 指定如果系统性能较低，是否创建上下文。
-  premultipliedAlpha: boolean; // 指定是否开启预乘alpha。
-  preserveDrawingBuffer: boolean; // 是否开启绘制缓冲区
-  powerPreference: WebGLPowerPreference; // 指定GPU的性能配置
+  /**
+   * 指定画布是否包含alpha缓冲区
+   */
+  alpha: boolean;
+  /**
+   * 指定是否开启抗锯齿。
+   */
+  antialias: boolean;
+  /**
+   * 指定是否开启深度检测。
+   */
+  depth: boolean;
+  /**
+   *  表示绘图缓冲区的深度缓冲区至少为16位。
+   */
+  desynchronized: boolean;
+  /**
+   * 指定是否开启模板缓冲区。
+   */
+  stencil: boolean;
+  /**
+   * 指定如果系统性能较低，是否创建上下文。
+   */
+  failIfMajorPerformanceCaveat: boolean;
+  /**
+   * 指定是否开启预乘alpha。
+   */
+  premultipliedAlpha: boolean;
+  /**
+   * 是否开启绘制缓冲区。
+   */
+  preserveDrawingBuffer: boolean;
+  /**
+   * 指定GPU的性能配置。
+   */
+  powerPreference: WebGLPowerPreference;
 
 }
 
