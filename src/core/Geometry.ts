@@ -3,27 +3,18 @@ import Program from '../core/Program';
 import Base from './Base';
 import Renderer from './Renderer';
 import BufferAttribute from './BufferAttribute';
+import type { Attribute } from './BufferAttribute';
 import Vector3 from '../math/Vector3';
 
 const tempVec3 = new Vector3();
 
-export interface Attribute {
-  id: number;
-  data: any;
-  size: number;
-  type: any;
-  normalized: boolean;
-  divisor: number;
-  buffer: BufferAttribute;
-  stride: number;
-  offset: number;
-  count: number;
-  min: number;
-  max: number;
-  target: number;
-  needsUpdate?: boolean;
+export interface Attributes {
+  [key: string]: Attribute;
 }
 
+/**
+ * 几何体对象
+ */
 export default class Geometry extends Base {
   #id: string;
 
@@ -41,7 +32,11 @@ export default class Geometry extends Base {
 
   drawMode: number;
 
-  constructor(renderer: Renderer, attributes = {}) {
+  /**
+   * @param renderer 渲染器
+   * @param attributes 顶点数据
+   */
+  constructor(renderer: Renderer, attributes: Attributes = {}) {
     super(renderer);
     this.drawRange = {
       start: 0,
@@ -66,17 +61,8 @@ export default class Geometry extends Base {
           this.addAttribute(t, attribute);
         }
       } else {
-        const {
-          size,
-          data,
-          normalized,
-          stride,
-          offset,
-          divisor,
-          usage,
-        } = attribute;
-        if (data) {
-          const n = new BufferAttribute(this.gl, data, size, normalized, stride, offset, divisor, usage);
+        if (attribute.data) {
+          const n = new BufferAttribute(this.renderer, attribute);
           if (t === 'index') {
             this.setIndex(n);
           } else {
@@ -105,7 +91,9 @@ export default class Geometry extends Base {
 
   // eslint-disable-next-line consistent-return
   addAttribute(name: string, attribute: BufferAttribute) {
-    attribute.target = name === 'index' ? this.gl.ELEMENT_ARRAY_BUFFER : this.gl.ARRAY_BUFFER;
+    if (!attribute.target) {
+      attribute.target = name === 'index' ? this.gl.ELEMENT_ARRAY_BUFFER : this.gl.ARRAY_BUFFER;
+    }
     attribute.needsUpdate = false;
     this.attributes.set(name, attribute);
     if (!attribute.buffer) {
@@ -144,7 +132,7 @@ export default class Geometry extends Base {
       this.gl.bindBuffer(attribute.target, attribute.buffer);
       this.rendererState.boundBuffer = attribute.buffer;
     }
-    this.gl.bufferData(attribute.target, attribute.data, this.gl.STATIC_DRAW);
+    this.gl.bufferData(attribute.target, attribute.data, attribute.usage);
     attribute.needsUpdate = false;
   }
 
@@ -155,7 +143,10 @@ export default class Geometry extends Base {
   setIndex(index) {
     if (Array.isArray(index)) {
       // eslint-disable-next-line max-len
-      const buffer = new BufferAttribute(this.gl, index.length > 65535 ? new Uint32Array(index) : new Uint16Array(index), 1);
+      const buffer = new BufferAttribute(this.renderer, {
+        data: index.length > 65535 ? new Uint32Array(index) : new Uint16Array(index),
+        size: 1,
+      });
       this.addAttribute('index', buffer);
     } else {
       index.size = 1;
@@ -171,15 +162,24 @@ export default class Geometry extends Base {
       const item: number[] = data[i];
       array.push(item[0], item[1], item[2]);
     }
-    this.addAttribute('position', new BufferAttribute(this.gl, new Float32Array(array), 3));
+    this.addAttribute('position', new BufferAttribute(this.renderer, {
+      data: new Float32Array(array),
+      size: 3,
+    }));
   }
 
   setNormals(data) {
-    this.addAttribute('normal', new BufferAttribute(this.gl, new Float32Array(data), 2));
+    this.addAttribute('normal', new BufferAttribute(this.renderer, {
+      data: new Float32Array(data),
+      size: 2,
+    }));
   }
 
   setUVs(data) {
-    this.addAttribute('uv', new BufferAttribute(this.gl, new Float32Array(data), 2));
+    this.addAttribute('uv', new BufferAttribute(this.renderer, {
+      data: new Float32Array(data),
+      size: 2,
+    }));
   }
 
   setColors(colors) {
@@ -191,7 +191,10 @@ export default class Geometry extends Base {
       }
       data.push(color[0], color[1], color[2], color[3]);
     }
-    this.addAttribute('color', new BufferAttribute(this.gl, new Float32Array(data), 4));
+    this.addAttribute('color', new BufferAttribute(this.renderer, {
+      data: new Float32Array(data),
+      size: 4,
+    }));
   }
 
   setDrawRange(start: number, count: number) {

@@ -1,15 +1,32 @@
 import Geometry from '../core/Geometry';
-import type { Attribute } from '../core/Geometry';
+import type { Attributes } from '../core/Geometry';
 import Renderer from '../core/Renderer';
 
 export interface PlaneOptions {
+  /**
+   * 平面几何体沿着`X`轴的宽度，默认值是`1`。
+   */
   width: number;
+
+  /**
+   * 平面几何体沿着`Y`轴的宽度，默认值是`1`。
+   */
   height: number;
+
+  /**
+   * 宽度分段数，默认值是`1`。
+   */
   widthSegments: number;
+
+  /**
+   * 高度分段数，默认值是`1`。
+   */
   heightSegments: number;
-  attributes: {
-    [key: string]: Partial<Attribute>;
-  };
+
+  /**
+   * 顶点数据
+   */
+  attributes: Attributes;
 }
 
 function getPlaneBuffer(
@@ -85,7 +102,26 @@ function getPlaneBuffer(
   }
 }
 
+/**
+ * 平面几何体
+ *
+ * 代码示例：
+ * ```ts
+ * const plane - new Plane(renderer);
+ *
+ * const plane = new Mesh(renderer, { geometry: planeGeometry, program });
+ * scene.add(plane);
+ * ```
+ */
 export default class Plane extends Geometry {
+  /**
+   * @param renderer 渲染器
+   * @param width 平面几何体沿着`X`轴的宽度，默认值是`1`。
+   * @param height 平面几何体沿着`Y`轴的宽度，默认值是`1`。
+   * @param widthSegments 宽度分段数，默认值是`1`。
+   * @param heightSegments 高度分段数，默认值是`1`。
+   * @param attributes 顶点数据
+   */
   constructor(renderer: Renderer, { width = 1, height = 1, widthSegments = 1, heightSegments = 1, attributes = {} }: Partial<PlaneOptions> = {}) {
     const gridX = Math.floor(widthSegments);
     const gridY = Math.floor(heightSegments);

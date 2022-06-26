@@ -2,6 +2,8 @@ import Camera from './Camera';
 
 /**
  * 透视相机
+ *
+ * 代码示例：
  * ```ts
  * const camera = new PerspectiveCamera(45, width / height, 1, 1000)
  * scene.add(camera);

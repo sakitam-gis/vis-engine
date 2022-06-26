@@ -2,13 +2,13 @@
 
 # Class: Vector4
 
-三维向量，三维向量表示的是一个有顺序的、三个为一组的数字组合，可以用来描述：
-- 一个位于三维空间中的点。
-- 一个在三维空间中的方向与长度的定义
+四维向量，四维向量表示的是一个有顺序的、四个为一组的数字组合，可以用来描述：
+- 一个位于四维空间中的点。
+- 一个在四维空间中的方向与长度的定义。
 ```ts
-const a = new Vector3(0, 1, 0);
+const a = new Vector4(0, 1, 0);
 
-const b = new Vector3(0, 0, 0);
+const b = new Vector4(0, 0, 0);
 
 const d = a.distanceTo(b);
 ```
@@ -25,9 +25,13 @@ const d = a.distanceTo(b);
 
 - [constructor](Vector4.md#constructor)
 
-### Accessors
+### Properties
 
 - [elements](Vector4.md#elements)
+
+### Accessors
+
+- [w](Vector4.md#w)
 - [x](Vector4.md#x)
 - [y](Vector4.md#y)
 - [z](Vector4.md#z)
@@ -36,10 +40,6 @@ const d = a.distanceTo(b);
 
 - [add](Vector4.md#add)
 - [addScalar](Vector4.md#addscalar)
-- [angle](Vector4.md#angle)
-- [angleTo](Vector4.md#angleto)
-- [applyEuler](Vector4.md#applyeuler)
-- [applyMatrix3](Vector4.md#applymatrix3)
 - [applyMatrix4](Vector4.md#applymatrix4)
 - [applyQuaternion](Vector4.md#applyquaternion)
 - [clone](Vector4.md#clone)
@@ -75,7 +75,7 @@ const d = a.distanceTo(b);
 
 ### constructor
 
-• **new Vector4**(`x?`, `y?`, `z?`)
+• **new Vector4**(`x?`, `y?`, `z?`, `w?`)
 
 #### Parameters
 
@@ -84,6 +84,7 @@ const d = a.distanceTo(b);
 | `x` | `number` | `0` | 向量的x值，默认为0 |
 | `y` | `number` | `0` | 向量的y值，默认为0 |
 | `z` | `number` | `0` | 向量的z值，默认为0 |
+| `w` | `number` | `0` | 向量的w值，默认为0 |
 
 #### Overrides
 
@@ -91,25 +92,57 @@ Vector.constructor
 
 #### Defined in
 
-[math/Vector3.ts:52](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;52)
+[math/Vector4.ts:49](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;49)
 
-## Accessors
+## Properties
 
 ### elements
 
-• `get` **elements**(): `Float32Array`
+• **elements**: `Float32Array`
 
-#### Returns
-
-`Float32Array`
-
-#### Inherited from
+#### Overrides
 
 Vector.elements
 
 #### Defined in
 
-[math/Vector.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;873d649#line&#x3D;8)
+[math/Vector4.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;41)
+
+## Accessors
+
+### w
+
+• `get` **w**(): `number`
+
+获取向量 w 值
+
+#### Returns
+
+`number`
+
+number;
+
+#### Defined in
+
+[math/Vector4.ts:110](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;110)
+
+• `set` **w**(`w`): `void`
+
+设置向量 w 值
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `w` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[math/Vector4.ts:118](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;118)
 
 ___
 
@@ -127,7 +160,7 @@ number;
 
 #### Defined in
 
-[math/Vector3.ts:64](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;64)
+[math/Vector4.ts:62](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;62)
 
 • `set` **x**(`x`): `void`
 
@@ -145,7 +178,7 @@ number;
 
 #### Defined in
 
-[math/Vector3.ts:72](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;72)
+[math/Vector4.ts:70](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;70)
 
 ___
 
@@ -163,7 +196,7 @@ number;
 
 #### Defined in
 
-[math/Vector3.ts:80](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;80)
+[math/Vector4.ts:78](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;78)
 
 • `set` **y**(`y`): `void`
 
@@ -181,7 +214,7 @@ number;
 
 #### Defined in
 
-[math/Vector3.ts:88](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;88)
+[math/Vector4.ts:86](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;86)
 
 ___
 
@@ -199,7 +232,7 @@ number;
 
 #### Defined in
 
-[math/Vector3.ts:96](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;96)
+[math/Vector4.ts:94](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;94)
 
 • `set` **z**(`z`): `void`
 
@@ -217,7 +250,7 @@ number;
 
 #### Defined in
 
-[math/Vector3.ts:105](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;105)
+[math/Vector4.ts:102](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;102)
 
 ## Methods
 
@@ -231,7 +264,7 @@ number;
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | [`Vector4`](Vector4.md) | 传入的 Vector3 |
+| `vec` | [`Vector4`](Vector4.md) | 传入的 Vector4 |
 
 #### Returns
 
@@ -239,7 +272,7 @@ number;
 
 #### Defined in
 
-[math/Vector3.ts:162](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;162)
+[math/Vector4.ts:171](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;171)
 
 ___
 
@@ -253,7 +286,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | `number` | 传入的 标量值 |
+| `v` | `any` | 传入的 标量值 |
 
 #### Returns
 
@@ -261,95 +294,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:171](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;171)
-
-___
-
-### angle
-
-▸ **angle**(`vector`): `any`
-
-计算此向量相对于正 x 轴的弧度角
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `vector` | [`Vector4`](Vector4.md) |
-
-#### Returns
-
-`any`
-
-#### Defined in
-
-[math/Vector3.ts:279](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;279)
-
-___
-
-### angleTo
-
-▸ **angleTo**(`vector`): `any`
-
-以弧度返回该向量与向量 v 之间的角度
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `vector` | [`Vector4`](Vector4.md) |
-
-#### Returns
-
-`any`
-
-#### Defined in
-
-[math/Vector3.ts:286](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;286)
-
-___
-
-### applyEuler
-
-▸ **applyEuler**(`euler`): [`Vector4`](Vector4.md)
-
-通过将Euler（欧拉）对象转换为Quaternion（四元数）并应用， 将欧拉变换应用到此向量上
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `euler` | `any` |
-
-#### Returns
-
-[`Vector4`](Vector4.md)
-
-#### Defined in
-
-[math/Vector3.ts:353](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;353)
-
-___
-
-### applyMatrix3
-
-▸ **applyMatrix3**(`matrix`): [`Vector4`](Vector4.md)
-
-将此向量乘以 Matrix3
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `matrix` | [`Matrix3`](Matrix3.md) |
-
-#### Returns
-
-[`Vector4`](Vector4.md)
-
-#### Defined in
-
-[math/Vector3.ts:362](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;362)
+[math/Vector4.ts:180](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;180)
 
 ___
 
@@ -371,7 +316,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:371](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;371)
+[math/Vector4.ts:354](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;354)
 
 ___
 
@@ -393,7 +338,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:380](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;380)
+[math/Vector4.ts:363](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;363)
 
 ___
 
@@ -409,21 +354,21 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:399](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;399)
+[math/Vector4.ts:383](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;383)
 
 ___
 
 ### copy
 
-▸ **copy**(`vec3`): [`Vector4`](Vector4.md)
+▸ **copy**(`vec4`): [`Vector4`](Vector4.md)
 
-将传递的 Vector3 的 x 和 y, z 属性的值复制到此 Vector3
+将传递的 Vector4 的 x 、y、 z、w 属性的值复制到此 Vector4
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `vec3` | [`Vector4`](Vector4.md) |
+| `vec4` | [`Vector4`](Vector4.md) |
 
 #### Returns
 
@@ -431,7 +376,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:389](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;389)
+[math/Vector4.ts:372](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;372)
 
 ___
 
@@ -453,7 +398,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:310](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;310)
+[math/Vector4.ts:311](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;311)
 
 ___
 
@@ -461,7 +406,7 @@ ___
 
 ▸ **distanceTo**(`vec`): `any`
 
-计算该向量到所传入的 vec 间的距离
+计算该向量到所传入的 v 间的距离
 
 #### Parameters
 
@@ -475,7 +420,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:263](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;263)
+[math/Vector4.ts:272](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;272)
 
 ___
 
@@ -483,7 +428,7 @@ ___
 
 ▸ **distanceToSquared**(`vec`): `any`
 
-计算两个 vec3 之间的平方距离
+计算两个 Vector4 之间的平方距离
 
 #### Parameters
 
@@ -497,7 +442,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:271](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;271)
+[math/Vector4.ts:280](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;280)
 
 ___
 
@@ -511,7 +456,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `vec` | `any` |
+| `vec` | [`Vector4`](Vector4.md) |
 
 #### Returns
 
@@ -519,7 +464,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:226](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;226)
+[math/Vector4.ts:235](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;235)
 
 ___
 
@@ -527,7 +472,7 @@ ___
 
 ▸ **divideScalar**(`v`): [`Vector4`](Vector4.md)
 
-从此向量各分量与标量 v 相除，默认构建一个三维向量 [v, v, v]
+从此向量各分量与标量 v 相除，默认构建一个四维向量 [v, v, v, v]
 
 #### Parameters
 
@@ -541,7 +486,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:235](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;235)
+[math/Vector4.ts:244](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;244)
 
 ___
 
@@ -563,7 +508,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:294](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;294)
+[math/Vector4.ts:295](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;295)
 
 ___
 
@@ -585,7 +530,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:302](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;302)
+[math/Vector4.ts:303](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;303)
 
 ___
 
@@ -612,7 +557,7 @@ Vector.fromArray
 
 #### Defined in
 
-[math/Vector.ts:17](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;873d649#line&#x3D;17)
+[math/Vector.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;01a57c5#line&#x3D;13)
 
 ___
 
@@ -620,7 +565,7 @@ ___
 
 ▸ **fromObject**(`object`): [`Vector4`](Vector4.md)
 
-从对象赋值 Vector3 的 x、y、z 值
+从对象赋值 Vector3 的 x、y、z、w 值
 
 #### Parameters
 
@@ -634,7 +579,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:113](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;113)
+[math/Vector4.ts:126](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;126)
 
 ___
 
@@ -650,23 +595,23 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:326](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;326)
+[math/Vector4.ts:327](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;327)
 
 ___
 
 ### length
 
-▸ **length**(): `number`
+▸ **length**(): `any`
 
-计算从 `[0, 0, 0]` 到此向量的直线距离
+计算从 `[0, 0, 0, 0]` 到此向量的直线距离
 
 #### Returns
 
-`number`
+`any`
 
 #### Defined in
 
-[math/Vector3.ts:154](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;154)
+[math/Vector4.ts:287](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;287)
 
 ___
 
@@ -689,7 +634,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:336](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;336)
+[math/Vector4.ts:337](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;337)
 
 ___
 
@@ -711,7 +656,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:208](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;208)
+[math/Vector4.ts:217](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;217)
 
 ___
 
@@ -719,7 +664,7 @@ ___
 
 ▸ **multiplyScalar**(`v`): [`Vector4`](Vector4.md)
 
-从此向量各分量与标量 v 相乘，默认构建一个三维向量 [v, v, v]
+从此向量各分量与标量 v 相乘，默认构建一个四维向量 [v, v, v, v]
 
 #### Parameters
 
@@ -733,7 +678,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:217](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;217)
+[math/Vector4.ts:226](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;226)
 
 ___
 
@@ -749,7 +694,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:318](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;318)
+[math/Vector4.ts:319](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;319)
 
 ___
 
@@ -765,7 +710,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:344](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;344)
+[math/Vector4.ts:345](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;345)
 
 ___
 
@@ -787,7 +732,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:244](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;244)
+[math/Vector4.ts:253](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;253)
 
 ___
 
@@ -810,15 +755,15 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:254](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;254)
+[math/Vector4.ts:263](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;263)
 
 ___
 
 ### set
 
-▸ **set**(`x`, `y`, `z`): [`Vector4`](Vector4.md)
+▸ **set**(`x`, `y`, `z`, `w`): [`Vector4`](Vector4.md)
 
-设置向量的 x、y、z
+设置向量的 x、y、z、w
 
 #### Parameters
 
@@ -827,6 +772,7 @@ ___
 | `x` | `any` |
 | `y` | `any` |
 | `z` | `any` |
+| `w` | `any` |
 
 #### Returns
 
@@ -834,7 +780,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:138](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;138)
+[math/Vector4.ts:154](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;154)
 
 ___
 
@@ -856,7 +802,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:147](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;147)
+[math/Vector4.ts:163](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;163)
 
 ___
 
@@ -879,7 +825,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:199](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;199)
+[math/Vector4.ts:208](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;208)
 
 ___
 
@@ -887,13 +833,13 @@ ___
 
 ▸ **subtract**(`vec`): [`Vector4`](Vector4.md)
 
-从此向量减去 vec 三维向量
+从此向量减去 vec 四维向量
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | [`Vector4`](Vector4.md) | 传入的 Vector3 |
+| `vec` | [`Vector4`](Vector4.md) | 传入的 Vector4 |
 
 #### Returns
 
@@ -901,7 +847,7 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:180](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;180)
+[math/Vector4.ts:189](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;189)
 
 ___
 
@@ -909,13 +855,13 @@ ___
 
 ▸ **subtractScalar**(`v`): [`Vector4`](Vector4.md)
 
-从此向量各分量减去标量 v，默认构建一个三维向量 [v, v, v]
+从此向量各分量减去标量 v，默认构建一个四维向量 [v, v, v, v]
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | `number` | 标量值 |
+| `v` | `any` | 标量值 |
 
 #### Returns
 
@@ -923,13 +869,13 @@ ___
 
 #### Defined in
 
-[math/Vector3.ts:189](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;189)
+[math/Vector4.ts:198](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;198)
 
 ___
 
 ### toArray
 
-▸ **toArray**(`out?`, `offset?`): `Float32Array` \| `number`[]
+▸ **toArray**(`out?`, `offset?`): `number`[] \| `Float32Array`
 
 从向量转换到数组
 
@@ -937,12 +883,12 @@ ___
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `out` | `Float32Array` \| `number`[] | `[]` | 输出数据 |
+| `out` | `number`[] \| `Float32Array` | `[]` | 输出数据 |
 | `offset` | `number` | `0` | 偏移量 |
 
 #### Returns
 
-`Float32Array` \| `number`[]
+`number`[] \| `Float32Array`
 
 #### Inherited from
 
@@ -950,7 +896,7 @@ Vector.toArray
 
 #### Defined in
 
-[math/Vector.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;873d649#line&#x3D;30)
+[math/Vector.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;01a57c5#line&#x3D;26)
 
 ___
 
@@ -966,26 +912,27 @@ ___
 
 | Name | Type |
 | :------ | :------ |
+| `w` | `number` |
 | `x` | `number` |
 | `y` | `number` |
 | `z` | `number` |
 
 #### Defined in
 
-[math/Vector3.ts:124](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;124)
+[math/Vector4.ts:138](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;138)
 
 ___
 
 ### toString
 
-▸ **toString**(): `string`
+▸ **toString**(): `any`
 
 转换为字符串
 
 #### Returns
 
-`string`
+`any`
 
 #### Defined in
 
-[math/Vector3.ts:406](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector3.ts?at&#x3D;873d649#line&#x3D;406)
+[math/Vector4.ts:390](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector4.ts?at&#x3D;01a57c5#line&#x3D;390)

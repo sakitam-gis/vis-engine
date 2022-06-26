@@ -76,11 +76,47 @@ export interface UniformData {
 }
 
 export interface IProgramRenderState {
+
+  /**
+   * 指定正面或背面多边形是否可以剔除
+   * 可能的值：`gl.FRONT`、`gl.FRONT_AND_BACK` 和 `gl.BACK`
+   */
   cullFace: GLenum,
+
+  /**
+   * 指定图形顶点以顺时针是正面还是逆时针方向是正面：
+   * 可能的值：`gl.CW` 和 `gl.CCW`
+   */
   frontFace: GLenum,
+
+  /**
+   * 是否启用深度测试，默认启用
+   */
   depthTest: boolean;
+
+  /**
+   * 是否开启深度值写入
+   */
   depthWrite: boolean;
+
+  /**
+   * 指定深度检测的参数，即什么情况算失败、什么情况算作通过，默认是 `gl.LESS`。
+   * 可能的值：
+   * - gl.NEVER （总不通过）
+   * - gl.LESS（如果新值小于缓冲区中的值则通过）
+   * - gl.EQUAL（如果新值等于缓冲区中的值则通过）
+   * - gl.LEQUAL（如果新值小于等于缓冲区中的值则通过）
+   * - gl.GREATER（如果新值大于缓冲区中的值则通过）
+   * - gl.NOTEQUAL（如果新值不等于缓冲区中的值则通过）
+   * - gl.GEQUAL（如果新值大于等于缓冲区中的值则通过）
+   * - gl.ALWAYS（总通过）
+   */
   depthFunc: GLenum;
+
+  /**
+   * 指定颜色混合算法
+   * 可能的值可以参考：https://developer.mozilla.org/zh-CN/docs/Web/API/WebGLRenderingContext/blendFunc 和 https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFuncSeparate
+   */
   blendFunc: {
     src: number;
     dst: number;
@@ -88,6 +124,10 @@ export interface IProgramRenderState {
     dstAlpha?: number;
   };
 
+  /**
+   * 指定颜色混合方程式
+   * 可能的值可以参考：https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquation 和 https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquationSeparate
+   */
   blendEquation: {
     modeRGB: number;
     modeAlpha?: number;
@@ -95,21 +135,45 @@ export interface IProgramRenderState {
 }
 
 export interface ProgramOptions extends IProgramRenderState {
+  /**
+   * 指定 `id`
+   */
   id: string;
+
+  /**
+   * 顶点着色器
+   */
   vertexShader: string | VertexShader;
+
+  /**
+   * 片段着色器
+   */
   fragmentShader: string | FragmentShader;
+
+  /**
+   * uniform
+   */
   uniforms?: Uniforms;
+
+  /**
+   * 配置是否是透明渲染
+   */
   transparent?: boolean;
 
+  /**
+   * 指定着色的宏定义
+   */
   defines?: string[];
+
+  /**
+   * 着色器模块，会在着色器中遇到 `#include <xxx>` 会自动替换此配置项对应的着色器片段。
+   */
   includes?: {
     [key: string]: string;
   },
 }
 
 export default class Program extends Resource<ProgramOptions> {
-  public wireframe: boolean;
-
   public attributeOrder: string;
 
   public uniforms: Uniforms;
@@ -209,14 +273,23 @@ export default class Program extends Resource<ProgramOptions> {
     return this.#attributeLocations;
   }
 
+  /**
+   * 获取 `VertexShader` 对象
+   */
   get vertexShader() {
     return this.#vs;
   }
 
+  /**
+   * 获取 `FragmentShader` 对象
+   */
   get fragmentShader() {
     return this.#fs;
   }
 
+  /**
+   *
+   */
   use() {
     const programActive = this.rendererState.currentProgram === this.id;
     let textureUnit = -1;
@@ -299,16 +372,27 @@ export default class Program extends Resource<ProgramOptions> {
     this.rendererState.apply(this.#renderState);
   }
 
+  /**
+   * 设置对应的 Uniform 值
+   * @param key
+   * @param value
+   */
   setUniform(key, value) {
     if (this.uniforms[key]) {
       this.uniforms[key].value = value;
     }
   }
 
+  /**
+   * 使用此 Program
+   */
   bind() {
     this.gl.useProgram(this.handle);
   }
 
+  /**
+   * 取消使用此 `Program`
+   */
   unbind() {
     this.gl.useProgram(null);
   }
@@ -364,6 +448,9 @@ export default class Program extends Resource<ProgramOptions> {
     this.attributeOrder = locations.join('');
   }
 
+  /**
+   * 销毁此`Program`
+   */
   destroy() {
     this.unbind();
     this.deleteHandle();

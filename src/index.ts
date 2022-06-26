@@ -1,5 +1,6 @@
 import Clock from './animation/Clock';
 import Raf from './animation/Raf';
+import EventEmitter from './core/Event';
 import * as utils from './utils';
 import type { IRafOptions } from './animation/Raf';
 
@@ -13,17 +14,17 @@ import Color from './math/Color';
 import Quaternion from './math/Quaternion';
 import ProjectionMatrix from './math/ProjectionMatrix';
 
-import Mesh from './objects/Mesh';
+import Mesh, { MeshOptions, MeshDrawOptions } from './objects/Mesh';
 import Scene from './objects/Scene';
 import State from './core/State';
 import Renderer, { RendererOptions } from './core/Renderer';
 import RenderBuffer from './core/RenderBuffer';
 import RenderTarget from './core/RenderTarget';
-import BufferAttribute from './core/BufferAttribute';
+import BufferAttribute, { Attribute, DataType } from './core/BufferAttribute';
 
 import Object3D from './objects/Object3D';
-import Geometry from './core/Geometry';
-import Plane from './geometries/Plane';
+import Geometry, { Attributes } from './core/Geometry';
+import Plane, { PlaneOptions } from './geometries/Plane';
 import Program from './core/Program';
 
 import Texture, { ITextureOptions } from './core/Texture';
@@ -40,6 +41,7 @@ export {
   Clock,
   Color,
   Euler,
+  EventEmitter,
   Vector2,
   Vector3,
   Vector4,
@@ -71,11 +73,17 @@ export {
 }
 
 export type {
+  Attribute,
+  Attributes,
+  DataType,
   IRafOptions,
   ITextureOptions,
   ITexture3DOptions,
   Bounds,
   CameraType,
   CameraOptions,
+  MeshOptions,
+  MeshDrawOptions,
   RendererOptions,
+  PlaneOptions,
 }

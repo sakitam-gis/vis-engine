@@ -87,6 +87,9 @@ interface IState extends StateOptions {
   framebuffer: WithNull<WebGLFramebuffer>;
 }
 
+/**
+ * 渲染状态管理，目的是减少CPU与GPU的交互，一般我们不需要主动创建，它默认包含在 `Renderer` 实例中。
+ */
 export default class State extends Base {
   #state: IState;
 
@@ -226,6 +229,10 @@ export default class State extends Base {
     this.#state = Object.assign(this.#state, options);
   }
 
+  /**
+   * 开启诸如 `DEPTH_TEST`、`BLEND` 等功能
+   * @param id
+   */
   enable (id) {
     if (this.#state[id] !== true) {
       this.gl.enable(id);
@@ -233,6 +240,10 @@ export default class State extends Base {
     }
   }
 
+  /**
+   * 关闭诸如 `DEPTH_TEST`、`BLEND` 等功能
+   * @param id
+   */
   disable (id) {
     if (this.#state[id] !== false) {
       this.gl.disable(id);

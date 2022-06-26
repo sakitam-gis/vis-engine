@@ -4,6 +4,9 @@ import Quaternion from '../math/Quaternion';
 import Vector3 from '../math/Vector3';
 import ProjectionMatrix from '../math/ProjectionMatrix';
 
+/**
+ * 三维物体，是大部分对象的基类，提供了一系列的属性和方法来对三维空间中的物体进行操作
+ */
 export default class Object3D {
 
   /**
@@ -161,7 +164,7 @@ export default class Object3D {
   }
 
   /**
-   * 克隆次渲染对象
+   * 克隆此渲染对象
    */
   clone() {
     return new Object3D().copy(this, false);

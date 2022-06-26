@@ -17,6 +17,9 @@ export default class Base {
     return this.renderer.gl;
   }
 
+  /**
+   * 获取渲染状态
+   */
   get rendererState() {
     return this.renderer.state;
   }

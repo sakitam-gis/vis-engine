@@ -16,6 +16,7 @@ vis-engine - v1.0.0
 - [Color](classes/Color.md)
 - [DataTexture](classes/DataTexture.md)
 - [Euler](classes/Euler.md)
+- [EventEmitter](classes/EventEmitter.md)
 - [Geometry](classes/Geometry.md)
 - [Matrix3](classes/Matrix3.md)
 - [Matrix4](classes/Matrix4.md)
@@ -41,16 +42,22 @@ vis-engine - v1.0.0
 
 ### Interfaces
 
+- [Attribute](interfaces/Attribute.md)
+- [Attributes](interfaces/Attributes.md)
 - [CameraOptions](interfaces/CameraOptions.md)
 - [IRafOptions](interfaces/IRafOptions.md)
 - [ITexture3DOptions](interfaces/ITexture3DOptions.md)
 - [ITextureOptions](interfaces/ITextureOptions.md)
+- [MeshDrawOptions](interfaces/MeshDrawOptions.md)
+- [MeshOptions](interfaces/MeshOptions.md)
+- [PlaneOptions](interfaces/PlaneOptions.md)
 - [RendererOptions](interfaces/RendererOptions.md)
 
 ### Type Aliases
 
 - [Bounds](index.md#bounds)
 - [CameraType](index.md#cameratype)
+- [DataType](index.md#datatype)
 
 ## Type Aliases
 
@@ -69,7 +76,7 @@ vis-engine - v1.0.0
 
 #### Defined in
 
-[cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;5de764f#line&#x3D;12)
+[cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;01a57c5#line&#x3D;12)
 
 ___
 
@@ -81,4 +88,16 @@ ___
 
 #### Defined in
 
-[cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;5de764f#line&#x3D;10)
+[cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;01a57c5#line&#x3D;10)
+
+___
+
+### DataType
+
+Ƭ **DataType**: `Float32Array` \| `Float64Array` \| `Uint32Array` \| `Uint16Array` \| `Uint8Array` \| `Int32Array` \| `Int16Array` \| `Int8Array`
+
+`attribute` 支持的数据类型
+
+#### Defined in
+
+[core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;01a57c5#line&#x3D;8)

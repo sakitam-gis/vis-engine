@@ -64,17 +64,44 @@ export interface RendererOptions {
 }
 
 export interface RenderParams {
+  /**
+   * 场景对象
+   */
   scene: Scene;
+
+  /**
+   * 相机对象
+   */
   camera: any;
+
+  /**
+   * 指定渲染目标 `RenderTarget`，常用于在多个 `RenderPass` 做流转，用来实现诸如后处理 `PostProcessing`。
+   */
   target?: RenderTarget;
+
+  /**
+   * 指定是否强制更新
+   */
   update?: boolean;
+
+  /**
+   * 指定是否进行渲染对象的排序
+   */
   sort?: boolean;
+
+  /**
+   * 是否开启进行视锥剔除（通过计算各渲染对象的包围盒，完全在视锥外的排除在`RendererList` 之外）。
+   */
   frustumCull?: boolean;
+
+  /**
+   * 指定是否进行（颜色、深度、模版）缓冲区清除
+   */
   clear?: boolean;
 }
 
 /**
- * Renderer
+ * 渲染器
  */
 export default class Renderer {
   readonly #gl: WebGLRenderingContext | WebGL2RenderingContext;

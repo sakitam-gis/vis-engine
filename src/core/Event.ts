@@ -3,10 +3,13 @@ import { isString, isRegexp } from '../utils';
 type Keys<T> = Extract<keyof T, string>;
 
 export type IOptions = {
+  /**
+  * 指定事件名称的合法值的正则表达式
+  */
   validEventTypes?: RegExp[];
 }
 
-export class Event {
+class Event {
   public readonly type: string
 
   constructor (type: string, params = {}) {
@@ -17,6 +20,28 @@ export class Event {
   }
 }
 
+/**
+ * 事件中心（实现的发布订阅者模式）
+ *
+ * 简单使用：
+ * ```
+ * const e = new EventEmitter();
+ *
+ * const handler = (data) => {
+ *   console.log(data);
+ * };
+ *
+ * e.on('eventName', handler);
+ *
+ * e.emit('eventName', { data: 'data' });
+ *
+ * // 取消订阅
+ * e.off('eventName', handler);
+ *
+ * // 清除所有的订阅者
+ * e.clear();
+ * ```
+ */
 export default class EventEmitter<EventsMap extends Record<string, any> = Event> {
   private fns: Map<Keys<EventsMap>, any>;
   private readonly validateEventTypes: RegExp[];
@@ -57,15 +82,17 @@ export default class EventEmitter<EventsMap extends Record<string, any> = Event>
   on(type, handler, context?: any) {
     this.validateEventType(type);
     if (isString(type)) {
-      type.split(' ').forEach(t => {
-        this.on(t, handler, context);
-      });
-      return this;
+      const names = type.split(' ');
+      if (names.length > 1) {
+        names.forEach(t => {
+          this.on(t, handler, context);
+        });
+        return this;
+      }
     }
     if (!this.has(type)) {
       this.fns.set(type, []);
     }
-    this.validateEventType(type);
     this.fns.get(type).push(handler);
     return this;
   }
@@ -79,12 +106,14 @@ export default class EventEmitter<EventsMap extends Record<string, any> = Event>
   once(type, handler, context?: any) {
     this.validateEventType(type);
     if (isString(type)) {
-      type.split(' ').forEach(t => {
-        this.once(t, handler, context);
-      });
-      return this;
+      const names = type.split(' ');
+      if (names.length > 1) {
+        names.forEach(t => {
+          this.once(t, handler, context);
+        });
+        return this;
+      }
     }
-    this.validateEventType(type);
     const onceHandler = (...args) => {
       this.off(type, onceHandler);
       handler.call(context || this, ...args);
@@ -98,18 +127,21 @@ export default class EventEmitter<EventsMap extends Record<string, any> = Event>
    * @param handler
    * @param context
    */
-  off(type, handler, context?: any) {
+  off(type, handler?: any, context?: any) {
     this.validateEventType(type);
     if (isString(type)) {
-      type.split(' ').forEach(t => {
-        this.off(t, handler, context);
-      });
-      return this;
+      const names = type.split(' ');
+      if (names.length > 1) {
+        names.forEach(t => {
+          this.off(t, handler, context);
+        });
+        return this;
+      }
     }
     const handlers = this.has(type);
     if (handlers) {
       if (handler) {
-        const fns = handlers.filter((h) => h !== handlers);
+        const fns = handlers.filter((h) => h !== handler);
         this.fns.set(type, fns);
       } else {
         this.fns.delete(type);
@@ -123,7 +155,7 @@ export default class EventEmitter<EventsMap extends Record<string, any> = Event>
    * @param type
    * @param args
    */
-  emit(type, args) {
+  emit(type, args?: any) {
     const eventObject = type instanceof Event
       ? type
       : new Event(type, args);

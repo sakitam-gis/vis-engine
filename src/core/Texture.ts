@@ -218,7 +218,7 @@ export default class Texture extends Resource<ITextureOptions> {
   }
 
   /**
-   * 从 Url 创建 Texture
+   * 从 Url 设置纹理对象的数据，会默认标记为需要更新 `needsUpdate = true`
    * @param url
    */
   fromSrc(url: string) {
