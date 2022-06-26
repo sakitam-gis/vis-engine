@@ -1,0 +1,240 @@
+[vis-engine - v1.0.0](../index.md) / Texture3DOptions
+
+# Interface: Texture3DOptions
+
+## Table of contents
+
+### Properties
+
+- [depth](Texture3DOptions.md#depth)
+- [flipY](Texture3DOptions.md#flipy)
+- [format](Texture3DOptions.md#format)
+- [generateMipmaps](Texture3DOptions.md#generatemipmaps)
+- [height](Texture3DOptions.md#height)
+- [image](Texture3DOptions.md#image)
+- [internalFormat](Texture3DOptions.md#internalformat)
+- [level](Texture3DOptions.md#level)
+- [magFilter](Texture3DOptions.md#magfilter)
+- [minFilter](Texture3DOptions.md#minfilter)
+- [premultiplyAlpha](Texture3DOptions.md#premultiplyalpha)
+- [type](Texture3DOptions.md#type)
+- [unpackAlignment](Texture3DOptions.md#unpackalignment)
+- [width](Texture3DOptions.md#width)
+- [wrapR](Texture3DOptions.md#wrapr)
+- [wrapS](Texture3DOptions.md#wraps)
+- [wrapT](Texture3DOptions.md#wrapt)
+
+## Properties
+
+### depth
+
+• **depth**: `number`
+
+指定纹理深度，默认为`0`
+
+#### Defined in
+
+[core/Texture3D.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;95)
+
+___
+
+### flipY
+
+• **flipY**: `boolean`
+
+设置纹理上传时是否翻转 Y 轴，默认为 `false`
+
+#### Defined in
+
+[core/Texture3D.ts:74](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;74)
+
+___
+
+### format
+
+• **format**: `number`
+
+纹理数据的格式，在 WebGL 1 中，它必须与 internalformat 相同。
+可能的值：`gl.RGBA`，`gl.RGB`，`gl.LUMINANCE`，`gl.LUMINANCE_ALPHA`
+
+#### Defined in
+
+[core/Texture3D.ts:50](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;50)
+
+___
+
+### generateMipmaps
+
+• **generateMipmaps**: `boolean`
+
+配置是否启用 `mipmap`，默认为`true`
+`generateMipmaps`会自动生成若干小尺寸的纹理，根据当前三维物体在屏幕上的大小来自动选择最合适的尺寸。
+使用`mipmap`要求纹理的长度和宽度必须是2的整数次幂。
+
+#### Defined in
+
+[core/Texture3D.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;69)
+
+___
+
+### height
+
+• **height**: `number`
+
+纹理高度，默认为 0
+
+#### Defined in
+
+[core/Texture3D.ts:14](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;14)
+
+___
+
+### image
+
+• **image**: `any`
+
+纹理数据
+
+#### Defined in
+
+[core/Texture3D.ts:100](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;100)
+
+___
+
+### internalFormat
+
+• **internalFormat**: `number`
+
+用于指定纹理图像的内部格式
+可能的值：`gl.RGBA`，`gl.RGB`，`gl.ALPHA` 等等
+
+#### Defined in
+
+[core/Texture3D.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;56)
+
+___
+
+### level
+
+• **level**: `number`
+
+指定mipmap的精细度，级别 0 是基础图像级别，级别 n 是第 n 个 mipmap 缩减级别。默认为 `0`。
+
+#### Defined in
+
+[core/Texture3D.ts:90](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;90)
+
+___
+
+### magFilter
+
+• **magFilter**: `number`
+
+纹理放大时使用的过滤类型。
+可能的值：`gl.NEAREST`，`gl.LINEAR`
+
+#### Defined in
+
+[core/Texture3D.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;20)
+
+___
+
+### minFilter
+
+• **minFilter**: `number`
+
+纹理缩小时使用的过滤类型。
+可能的值：`gl.NEAREST`，`gl.LINEAR`
+
+#### Defined in
+
+[core/Texture3D.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;26)
+
+___
+
+### premultiplyAlpha
+
+• **premultiplyAlpha**: `boolean`
+
+设置纹理上传时是否预乘 `alpha` 值，默认为 `false`
+
+#### Defined in
+
+[core/Texture3D.ts:85](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;85)
+
+___
+
+### type
+
+• **type**: `number`
+
+指定纹理数据的数据类型。
+可能的值：`gl.UNSIGNED_BYTE`，`gl.FLOAT`，`gl.UNSIGNED_SHORT`，`gl.UNSIGNED_INT` 等等
+
+#### Defined in
+
+[core/Texture3D.ts:62](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;62)
+
+___
+
+### unpackAlignment
+
+• **unpackAlignment**: `number`
+
+指定内存中每个像素行起点的对齐要求。
+可能的值: 1, 2, 4, 8 (see http://www.khronos.org/opengles/sdk/docs/man/xhtml/glPixelStorei.xml)
+
+#### Defined in
+
+[core/Texture3D.ts:80](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;80)
+
+___
+
+### width
+
+• **width**: `number`
+
+纹理宽度，默认为 0
+
+#### Defined in
+
+[core/Texture3D.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;9)
+
+___
+
+### wrapR
+
+• **wrapR**: `number`
+
+深度采样纹理时使用的行为。
+可能的值：`gl.REPEAT`，`gl.MIRRORED_REPEAT`，`gl.CLAMP_TO_EDGE`
+
+#### Defined in
+
+[core/Texture3D.ts:44](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;44)
+
+___
+
+### wrapS
+
+• **wrapS**: `number`
+
+水平采样纹理时使用的行为。
+可能的值：`gl.REPEAT`，`gl.MIRRORED_REPEAT`，`gl.CLAMP_TO_EDGE`
+
+#### Defined in
+
+[core/Texture3D.ts:32](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;32)
+
+___
+
+### wrapT
+
+• **wrapT**: `number`
+
+垂直采样纹理时使用的行为。
+可能的值：`gl.REPEAT`，`gl.MIRRORED_REPEAT`，`gl.CLAMP_TO_EDGE`
+
+#### Defined in
+
+[core/Texture3D.ts:38](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;38)

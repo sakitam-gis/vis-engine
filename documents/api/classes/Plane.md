@@ -26,6 +26,7 @@ scene.add(plane);
 
 ### Properties
 
+- [attributesConfig](Plane.md#attributesconfig)
 - [drawMode](Plane.md#drawmode)
 - [drawRange](Plane.md#drawrange)
 - [instancedCount](Plane.md#instancedcount)
@@ -82,9 +83,23 @@ scene.add(plane);
 
 #### Defined in
 
-[geometries/Plane.ts:125](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Plane.ts?at&#x3D;01a57c5#line&#x3D;125)
+[geometries/Plane.ts:134](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Plane.ts?at&#x3D;8558d24#line&#x3D;134)
 
 ## Properties
+
+### attributesConfig
+
+• **attributesConfig**: [`Attributes`](../interfaces/Attributes.md)
+
+#### Inherited from
+
+[Geometry](Geometry.md).[attributesConfig](Geometry.md#attributesconfig)
+
+#### Defined in
+
+[core/Geometry.ts:58](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;58)
+
+___
 
 ### drawMode
 
@@ -96,7 +111,7 @@ scene.add(plane);
 
 #### Defined in
 
-[core/Geometry.ts:33](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;33)
+[core/Geometry.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;56)
 
 ___
 
@@ -110,7 +125,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:27](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;27)
+[core/Geometry.ts:50](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;50)
 
 ___
 
@@ -124,7 +139,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;29)
+[core/Geometry.ts:52](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;52)
 
 ___
 
@@ -138,7 +153,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:31](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;31)
+[core/Geometry.ts:54](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;54)
 
 ___
 
@@ -152,7 +167,7 @@ ___
 
 #### Defined in
 
-[core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;01a57c5#line&#x3D;7)
+[core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;7)
 
 ## Accessors
 
@@ -170,7 +185,7 @@ Geometry.attributes
 
 #### Defined in
 
-[core/Geometry.ts:80](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;80)
+[core/Geometry.ts:106](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;106)
 
 ___
 
@@ -188,7 +203,7 @@ Geometry.bounds
 
 #### Defined in
 
-[core/Geometry.ts:88](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;88)
+[core/Geometry.ts:114](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;114)
 
 ___
 
@@ -208,7 +223,7 @@ Geometry.gl
 
 #### Defined in
 
-[core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;01a57c5#line&#x3D;16)
+[core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;16)
 
 ___
 
@@ -226,7 +241,7 @@ Geometry.id
 
 #### Defined in
 
-[core/Geometry.ts:76](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;76)
+[core/Geometry.ts:102](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;102)
 
 ___
 
@@ -244,7 +259,7 @@ Geometry.index
 
 #### Defined in
 
-[core/Geometry.ts:84](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;84)
+[core/Geometry.ts:110](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;110)
 
 ___
 
@@ -264,7 +279,7 @@ Geometry.rendererState
 
 #### Defined in
 
-[core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;01a57c5#line&#x3D;23)
+[core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;23)
 
 ## Methods
 
@@ -289,13 +304,16 @@ Geometry.rendererState
 
 #### Defined in
 
-[core/Geometry.ts:93](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;93)
+[core/Geometry.ts:119](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;119)
 
 ___
 
 ### bindAttributes
 
 ▸ **bindAttributes**(`program`): `void`
+
+绑定顶点数据
+https://devdocs.io/dom/webgl2renderingcontext/vertexattribipointer
 
 #### Parameters
 
@@ -313,13 +331,15 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:217](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;217)
+[core/Geometry.ts:268](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;268)
 
 ___
 
 ### clone
 
 ▸ **clone**(): [`Geometry`](Geometry.md)
+
+克隆此几何体对象
 
 #### Returns
 
@@ -331,7 +351,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:346](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;346)
+[core/Geometry.ts:405](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;405)
 
 ___
 
@@ -351,7 +371,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:255](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;255)
+[core/Geometry.ts:306](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;306)
 
 ___
 
@@ -371,13 +391,15 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:293](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;293)
+[core/Geometry.ts:344](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;344)
 
 ___
 
 ### createVAO
 
 ▸ **createVAO**(`program`): `void`
+
+创建 Vao
 
 #### Parameters
 
@@ -395,13 +417,15 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:209](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;209)
+[core/Geometry.ts:255](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;255)
 
 ___
 
 ### destroy
 
 ▸ **destroy**(): `void`
+
+销毁几何体对象
 
 #### Returns
 
@@ -413,7 +437,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:356](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;356)
+[core/Geometry.ts:418](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;418)
 
 ___
 
@@ -421,12 +445,14 @@ ___
 
 ▸ **draw**(`program`, `drawMode?`): `void`
 
+执行绘制
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `program` | `any` |
-| `drawMode` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `program` | `any` | Program 对象 |
+| `drawMode` | `number` | 绘制模式 |
 
 #### Returns
 
@@ -438,7 +464,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:312](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;312)
+[core/Geometry.ts:368](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;368)
 
 ___
 
@@ -462,7 +488,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:118](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;118)
+[core/Geometry.ts:144](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;144)
 
 ___
 
@@ -486,7 +512,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:139](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;139)
+[core/Geometry.ts:165](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;165)
 
 ___
 
@@ -511,13 +537,15 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:122](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;122)
+[core/Geometry.ts:148](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;148)
 
 ___
 
 ### setColors
 
 ▸ **setColors**(`colors`): `void`
+
+设置顶点颜色
 
 #### Parameters
 
@@ -535,7 +563,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:185](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;185)
+[core/Geometry.ts:223](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;223)
 
 ___
 
@@ -560,7 +588,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:200](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;200)
+[core/Geometry.ts:238](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;238)
 
 ___
 
@@ -584,7 +612,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:143](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;143)
+[core/Geometry.ts:169](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;169)
 
 ___
 
@@ -592,11 +620,13 @@ ___
 
 ▸ **setInstancedCount**(`count`): `void`
 
+设置实例化渲染的数量
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `count` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `count` | `number` | 数量 |
 
 #### Returns
 
@@ -608,7 +638,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:205](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;205)
+[core/Geometry.ts:247](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;247)
 
 ___
 
@@ -632,13 +662,15 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:171](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;171)
+[core/Geometry.ts:201](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;201)
 
 ___
 
 ### setUVs
 
 ▸ **setUVs**(`data`): `void`
+
+设置纹理 UV
 
 #### Parameters
 
@@ -656,13 +688,15 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:178](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;178)
+[core/Geometry.ts:212](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;212)
 
 ___
 
 ### setVertices
 
 ▸ **setVertices**(`data`): `void`
+
+设置顶点数据
 
 #### Parameters
 
@@ -680,7 +714,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:158](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;158)
+[core/Geometry.ts:188](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;188)
 
 ___
 
@@ -704,4 +738,4 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:130](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;01a57c5#line&#x3D;130)
+[core/Geometry.ts:156](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;156)

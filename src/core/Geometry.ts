@@ -13,7 +13,30 @@ export interface Attributes {
 }
 
 /**
- * 几何体对象
+ * 几何体对象，包含了顶点位置，面片索引、法相量、颜色值、UV 坐标和自定义缓存属性值等，这些数据最终会上传到`GPU`中。
+ *
+ * 示例代码：
+ *
+ * ```ts
+ * const geometry = new ve.Geometry(renderer, {
+ *     position: {
+ *       size: 3,
+ *       data: new Float32Array([
+ *         -0.5, 0.5, 0,
+ *         -0.5, -0.5, 0,
+ *         0.5, 0.5, 0,
+ *         0.5, -0.5, 0
+ *       ])
+ *     },
+ *     uv: {
+ *       size: 2,
+ *       data: new Float32Array([0, 1, 1, 1, 0, 0, 1, 0])
+ *     },
+ *     index: {
+ *       data: new Uint16Array([0, 1, 2, 1, 3, 2])
+ *     },
+ *   });
+ * ```
  */
 export default class Geometry extends Base {
   #id: string;
@@ -32,6 +55,8 @@ export default class Geometry extends Base {
 
   drawMode: number;
 
+  attributesConfig: Attributes;
+
   /**
    * @param renderer 渲染器
    * @param attributes 顶点数据
@@ -42,6 +67,7 @@ export default class Geometry extends Base {
       start: 0,
       count: 0,
     };
+    this.attributesConfig = attributes;
     this.instancedCount = 0;
     this.isInstanced = false;
     this.#attributes = new Map();
@@ -52,21 +78,21 @@ export default class Geometry extends Base {
     renderer.bindVertexArray(null);
     renderer.state.setActiveGeometry(null);
     // eslint-disable-next-line guard-for-in
-    for (const t in attributes) {
-      const attribute = attributes[t];
+    for (const name in attributes) {
+      const attribute = attributes[name];
       if (attribute instanceof BufferAttribute) {
-        if (t === 'index') {
+        if (name === 'index') {
           this.setIndex(attribute);
         } else {
-          this.addAttribute(t, attribute);
+          this.addAttribute(name, attribute);
         }
       } else {
         if (attribute.data) {
           const n = new BufferAttribute(this.renderer, attribute);
-          if (t === 'index') {
+          if (name === 'index') {
             this.setIndex(n);
           } else {
-            this.addAttribute(t, n);
+            this.addAttribute(name, n);
           }
         }
       }
@@ -141,20 +167,24 @@ export default class Geometry extends Base {
   }
 
   setIndex(index) {
-    if (Array.isArray(index)) {
+    if (index instanceof BufferAttribute) {
+      index.size = 1;
+      this.addAttribute('index', index);
+    } else {
       // eslint-disable-next-line max-len
       const buffer = new BufferAttribute(this.renderer, {
         data: index.length > 65535 ? new Uint32Array(index) : new Uint16Array(index),
         size: 1,
       });
       this.addAttribute('index', buffer);
-    } else {
-      index.size = 1;
-      this.addAttribute('index', index);
     }
     this.drawRange.count = this.index?.count;
   }
 
+  /**
+   * 设置顶点数据
+   * @param data
+   */
   setVertices(data) {
     const array: number[] = [];
     const len = data.length;
@@ -175,6 +205,10 @@ export default class Geometry extends Base {
     }));
   }
 
+  /**
+   * 设置纹理 UV
+   * @param data
+   */
   setUVs(data) {
     this.addAttribute('uv', new BufferAttribute(this.renderer, {
       data: new Float32Array(data),
@@ -182,6 +216,10 @@ export default class Geometry extends Base {
     }));
   }
 
+  /**
+   * 设置顶点颜色
+   * @param colors
+   */
   setColors(colors) {
     const data: number[] = [];
     for (let i = 0; i < colors.length; i++) {
@@ -202,10 +240,18 @@ export default class Geometry extends Base {
     this.drawRange.count = count;
   }
 
+  /**
+   * 设置实例化渲染的数量
+   * @param count 数量
+   */
   setInstancedCount(count: number) {
     this.instancedCount = count;
   }
 
+  /**
+   * 创建 Vao
+   * @param program
+   */
   createVAO(program: Program) {
     const { attributeOrder } = program;
     const vao = this.renderer.createVertexArray();
@@ -214,6 +260,11 @@ export default class Geometry extends Base {
     this.bindAttributes(program);
   }
 
+  /**
+   * 绑定顶点数据
+   * https://devdocs.io/dom/webgl2renderingcontext/vertexattribipointer
+   * @param program
+   */
   bindAttributes(program: Program) {
     program.attributeLocations.forEach((location, { name, type }) => {
       const attributes = this.attributes.get(name);
@@ -309,10 +360,15 @@ export default class Geometry extends Base {
     this.#bounds.radius = Math.sqrt(len);
   }
 
+  /**
+   * 执行绘制
+   * @param program Program 对象
+   * @param drawMode 绘制模式
+   */
   draw(program, drawMode = this.drawMode) {
     const { start, count } = this.drawRange;
-    const a = ''.concat(this.id, '_').concat(program.attributeOrder);
-    if (this.rendererState.activeGeometryId !== a) {
+    const activeGeometryId = `${this.id}_${program.attributeOrder}`;
+    if (this.rendererState.activeGeometryId !== activeGeometryId) {
       if (!this.#VAOs[program.attributeOrder]) {
         this.createVAO(program);
       }
@@ -343,6 +399,9 @@ export default class Geometry extends Base {
     }
   }
 
+  /**
+   * 克隆此几何体对象
+   */
   clone() {
     const attributes = {};
     this.attributes.forEach((item, index) => {
@@ -353,6 +412,9 @@ export default class Geometry extends Base {
     return geometry;
   }
 
+  /**
+   * 销毁几何体对象
+   */
   destroy() {
     Object.keys(this.#VAOs).forEach((t) => {
       this.renderer.deleteVertexArray(this.#VAOs[t]);

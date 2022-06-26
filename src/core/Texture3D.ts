@@ -2,7 +2,7 @@ import { isPowerOfTwo } from '../utils/math';
 import Texture from './Texture';
 import Renderer from './Renderer';
 
-export interface ITexture3DOptions {
+export interface Texture3DOptions {
   /**
    * 纹理宽度，默认为 0
    */
@@ -170,7 +170,7 @@ export default class Texture3D extends Texture {
    * @param renderer Renderer 对象
    * @param options 配置项
    */
-  constructor(renderer: Renderer, options: Partial<ITexture3DOptions> = {}) {
+  constructor(renderer: Renderer, options: Partial<Texture3DOptions> = {}) {
     const { gl } = renderer;
     const defaultOptions = {
       type: gl.UNSIGNED_BYTE,
@@ -225,7 +225,7 @@ export default class Texture3D extends Texture {
    * 设置纹理配置（默认进行合并）
    * @param options 配置项
    */
-  setOptions(options: Partial<ITexture3DOptions>) {
+  setOptions(options: Partial<Texture3DOptions>) {
     this.options = Object.assign(this.options, options);
     this.width = this.options.width as number;
     this.height = this.options.height as number;

@@ -2,7 +2,7 @@ import { isPowerOfTwo } from '../utils/math';
 import Resource from './Resource';
 import Renderer from './Renderer';
 
-export interface ITextureOptions {
+export interface TextureOptions {
   /**
    * 纹理宽度，默认为 0
    */
@@ -131,7 +131,7 @@ interface IState {
  * image.src = './assets/posx.jpg';
  * ```
  */
-export default class Texture extends Resource<ITextureOptions> {
+export default class Texture extends Resource<TextureOptions> {
   /**
    * 设置纹理是否需要更新，一般我们会在纹理数据或者配置变更时将此配置项设置为 `true`
    * 这样会在下一次渲染时应用对应的纹理数据和配置。
@@ -164,7 +164,7 @@ export default class Texture extends Resource<ITextureOptions> {
    * @param renderer Renderer 对象
    * @param options 配置项
    */
-  constructor(renderer: Renderer, options: Partial<ITextureOptions > = {}) {
+  constructor(renderer: Renderer, options: Partial<TextureOptions > = {}) {
     const { gl } = renderer;
     const defaultOptions = {
       type: gl.UNSIGNED_BYTE,
@@ -210,7 +210,7 @@ export default class Texture extends Resource<ITextureOptions> {
    * 设置纹理配置（默认进行合并）
    * @param options 配置项
    */
-  setOptions(options: Partial<ITextureOptions>) {
+  setOptions(options: Partial<TextureOptions>) {
     this.options = Object.assign(this.options, options);
     this.width = this.options.width as number;
     this.height = this.options.height as number;

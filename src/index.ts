@@ -2,7 +2,7 @@ import Clock from './animation/Clock';
 import Raf from './animation/Raf';
 import EventEmitter from './core/Event';
 import * as utils from './utils';
-import type { IRafOptions } from './animation/Raf';
+import type { RafOptions } from './animation/Raf';
 
 import Vector2 from './math/Vector2';
 import Vector3 from './math/Vector3';
@@ -18,18 +18,20 @@ import Mesh, { MeshOptions, MeshDrawOptions } from './objects/Mesh';
 import Scene from './objects/Scene';
 import State from './core/State';
 import Renderer, { RendererOptions } from './core/Renderer';
-import RenderBuffer from './core/RenderBuffer';
-import RenderTarget from './core/RenderTarget';
+import RenderBuffer, { RenderBufferOptions } from './core/RenderBuffer';
+import RenderTarget, { RenderTargetOptions, Attachment } from './core/RenderTarget';
 import BufferAttribute, { Attribute, DataType } from './core/BufferAttribute';
 
 import Object3D from './objects/Object3D';
 import Geometry, { Attributes } from './core/Geometry';
 import Plane, { PlaneOptions } from './geometries/Plane';
-import Program from './core/Program';
+import Box, { BoxOptions } from './geometries/Box';
+import Program, { ProgramOptions, ProgramRenderState, Uniforms, UniformData } from './core/Program';
 
-import Texture, { ITextureOptions } from './core/Texture';
-import Texture3D , { ITexture3DOptions } from './core/Texture3D';
-import DataTexture from './core/DataTexture';
+import Resource, { ResourceOptions } from './core/Resource';
+import Texture, { TextureOptions } from './core/Texture';
+import Texture3D, { Texture3DOptions } from './core/Texture3D';
+import DataTexture, { DataTextureOptions } from './core/DataTexture';
 
 import Camera, { CameraOptions, CameraType, Bounds } from './cameras/Camera';
 import PerspectiveCamera from './cameras/PerspectiveCamera';
@@ -58,6 +60,7 @@ export {
 
   Mesh,
   Scene,
+  Resource,
   Renderer,
   RenderBuffer,
   RenderTarget,
@@ -69,21 +72,32 @@ export {
   Texture3D,
   DataTexture,
 
+  Box,
   Plane,
 }
 
 export type {
   Attribute,
   Attributes,
+  Attachment,
+  BoxOptions,
   DataType,
-  IRafOptions,
-  ITextureOptions,
-  ITexture3DOptions,
+  RafOptions,
+  TextureOptions,
+  Texture3DOptions,
   Bounds,
   CameraType,
   CameraOptions,
+  DataTextureOptions,
   MeshOptions,
   MeshDrawOptions,
+  ResourceOptions,
   RendererOptions,
+  RenderBufferOptions,
+  RenderTargetOptions,
   PlaneOptions,
+  ProgramOptions,
+  ProgramRenderState,
+  Uniforms,
+  UniformData,
 }

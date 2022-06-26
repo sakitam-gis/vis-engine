@@ -12,6 +12,7 @@
 - [mode](MeshOptions.md#mode)
 - [program](MeshOptions.md#program)
 - [renderOrder](MeshOptions.md#renderorder)
+- [wireframe](MeshOptions.md#wireframe)
 
 ## Properties
 
@@ -23,7 +24,7 @@
 
 #### Defined in
 
-[objects/Mesh.ts:46](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;01a57c5#line&#x3D;46)
+[objects/Mesh.ts:46](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;46)
 
 ___
 
@@ -35,7 +36,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;01a57c5#line&#x3D;23)
+[objects/Mesh.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;23)
 
 ___
 
@@ -47,7 +48,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:18](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;01a57c5#line&#x3D;18)
+[objects/Mesh.ts:18](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;18)
 
 ___
 
@@ -67,7 +68,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;01a57c5#line&#x3D;41)
+[objects/Mesh.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;41)
 
 ___
 
@@ -79,7 +80,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;01a57c5#line&#x3D;28)
+[objects/Mesh.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;28)
 
 ___
 
@@ -91,4 +92,16 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:51](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;01a57c5#line&#x3D;51)
+[objects/Mesh.ts:51](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;51)
+
+___
+
+### wireframe
+
+• `Optional` **wireframe**: `boolean`
+
+设置是否是网格渲染，默认是 `false`。当此值为 `true` 时，会去构建 `wireframeIndex` 索引。
+
+#### Defined in
+
+[objects/Mesh.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;56)

@@ -77,7 +77,7 @@ image.src = './assets/posx.jpg';
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `renderer` | [`Renderer`](Renderer.md) | Renderer 对象 |
-| `options` | `Partial`<[`ITexture3DOptions`](../interfaces/ITexture3DOptions.md)\> | 配置项 |
+| `options` | `Partial`<[`Texture3DOptions`](../interfaces/Texture3DOptions.md)\> | 配置项 |
 
 #### Overrides
 
@@ -85,7 +85,7 @@ image.src = './assets/posx.jpg';
 
 #### Defined in
 
-[core/Texture3D.ts:173](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;173)
+[core/Texture3D.ts:173](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;173)
 
 ## Properties
 
@@ -99,7 +99,7 @@ image.src = './assets/posx.jpg';
 
 #### Defined in
 
-[core/Resource.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;26)
+[core/Resource.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;26)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[core/Texture3D.ts:165](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;165)
+[core/Texture3D.ts:165](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;165)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[core/Texture3D.ts:160](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;160)
+[core/Texture3D.ts:160](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;160)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;19)
+[core/Resource.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;19)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[core/Texture3D.ts:150](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;150)
+[core/Texture3D.ts:150](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;150)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;21)
+[core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;21)
 
 ___
 
@@ -188,13 +188,13 @@ ___
 
 #### Defined in
 
-[core/Texture3D.ts:140](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;140)
+[core/Texture3D.ts:140](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;140)
 
 ___
 
 ### options
 
-• **options**: `Partial`<`IResourceOptions` & [`ITextureOptions`](../interfaces/ITextureOptions.md)\>
+• **options**: `Partial`<[`ResourceOptions`](../interfaces/ResourceOptions.md) & [`TextureOptions`](../interfaces/TextureOptions.md)\>
 
 #### Inherited from
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;28)
+[core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;28)
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;01a57c5#line&#x3D;7)
+[core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;7)
 
 ___
 
@@ -232,7 +232,7 @@ ___
 
 #### Defined in
 
-[core/Texture3D.ts:145](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;145)
+[core/Texture3D.ts:145](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;145)
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;23)
+[core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;23)
 
 ___
 
@@ -262,7 +262,7 @@ ___
 
 #### Defined in
 
-[core/Texture3D.ts:155](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;155)
+[core/Texture3D.ts:155](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;155)
 
 ## Accessors
 
@@ -282,7 +282,7 @@ Texture.gl
 
 #### Defined in
 
-[core/Texture3D.ts:207](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;207)
+[core/Texture3D.ts:207](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;207)
 
 ___
 
@@ -300,7 +300,7 @@ Texture.handle
 
 #### Defined in
 
-[core/Resource.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;45)
+[core/Resource.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;45)
 
 ___
 
@@ -320,7 +320,7 @@ Texture.rendererState
 
 #### Defined in
 
-[core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;01a57c5#line&#x3D;23)
+[core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;23)
 
 ## Methods
 
@@ -346,7 +346,7 @@ Texture.rendererState
 
 #### Defined in
 
-[core/Texture3D.ts:363](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;363)
+[core/Texture3D.ts:363](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;363)
 
 ___
 
@@ -371,7 +371,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;56)
+[core/Resource.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;56)
 
 ___
 
@@ -391,7 +391,7 @@ ___
 
 #### Defined in
 
-[core/Texture3D.ts:381](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;381)
+[core/Texture3D.ts:381](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;381)
 
 ___
 
@@ -417,7 +417,7 @@ ___
 
 #### Defined in
 
-[core/Texture.ts:224](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;01a57c5#line&#x3D;224)
+[core/Texture.ts:224](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;8558d24#line&#x3D;224)
 
 ___
 
@@ -435,7 +435,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:81](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;81)
+[core/Resource.ts:81](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;81)
 
 ___
 
@@ -463,7 +463,7 @@ ___
 
 #### Defined in
 
-[core/Texture3D.ts:217](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;217)
+[core/Texture3D.ts:217](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;217)
 
 ___
 
@@ -477,7 +477,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | `Partial`<[`ITexture3DOptions`](../interfaces/ITexture3DOptions.md)\> | 配置项 |
+| `options` | `Partial`<[`Texture3DOptions`](../interfaces/Texture3DOptions.md)\> | 配置项 |
 
 #### Returns
 
@@ -489,7 +489,7 @@ ___
 
 #### Defined in
 
-[core/Texture3D.ts:228](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;228)
+[core/Texture3D.ts:228](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;228)
 
 ___
 
@@ -509,7 +509,7 @@ ___
 
 #### Defined in
 
-[core/Texture3D.ts:406](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;406)
+[core/Texture3D.ts:406](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;406)
 
 ___
 
@@ -529,7 +529,7 @@ ___
 
 #### Defined in
 
-[core/Texture3D.ts:372](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;372)
+[core/Texture3D.ts:372](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;372)
 
 ___
 
@@ -555,4 +555,4 @@ ___
 
 #### Defined in
 
-[core/Texture3D.ts:239](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;01a57c5#line&#x3D;239)
+[core/Texture3D.ts:239](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture3D.ts?at&#x3D;8558d24#line&#x3D;239)

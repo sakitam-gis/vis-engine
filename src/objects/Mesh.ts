@@ -1,4 +1,4 @@
-import { uid } from '../utils';
+import { getWireframeIndex, uid } from '../utils';
 import Object3D from './Object3D';
 import Vector2 from '../math/Vector2';
 import Matrix3 from '../math/Matrix3';
@@ -49,6 +49,11 @@ export interface MeshOptions {
    * 指定`Mesh` 的渲染顺序值
    */
   renderOrder?: number;
+
+  /**
+   * 设置是否是网格渲染，默认是 `false`。当此值为 `true` 时，会去构建 `wireframeIndex` 索引。
+   */
+  wireframe?: boolean;
 }
 
 export interface MeshDrawOptions {
@@ -72,6 +77,7 @@ export interface MeshDrawOptions {
  * 网格渲染对象
  *
  * 代码示例：
+ *
  * ```ts
  * const points = new Mesh(renderer, { mode: renderer.gl.POINTS, geometry, program });
  * points.setParent(scene);
@@ -97,11 +103,15 @@ export default class Mesh extends Object3D {
 
   #id: string;
 
+  #lastMode: GLenum;
+
   #geometry: Geometry;
 
   #program: Program;
 
   #wireframe: boolean;
+
+  #wireframeGeometry: Geometry;
 
   /**
    * @param renderer 渲染器
@@ -124,7 +134,14 @@ export default class Mesh extends Object3D {
     this.#id = opts.id || uid('mesh');
     this.#geometry = opts.geometry;
     this.#program = opts.program;
+    this.#wireframe = Boolean(opts.wireframe);
     this.mode = opts.mode;
+    this.#lastMode = opts.mode;
+
+    if (this.#wireframe) {
+      this.mode = this.gl.LINES;
+      this.updateWireframeGeometry(this.#wireframe);
+    }
   }
 
   /**
@@ -138,7 +155,7 @@ export default class Mesh extends Object3D {
    * 获取当前 `Mesh` 的几何体信息
    */
   get geometry() {
-    return this.#geometry;
+    return this.#wireframe ? this.#wireframeGeometry : this.#geometry;
   }
 
   /**
@@ -153,8 +170,11 @@ export default class Mesh extends Object3D {
    * @param wireframe
    */
   set wireframe(wireframe: boolean) {
-    this.mode = wireframe ? this.gl.LINE_STRIP : this.gl.TRIANGLES;
+    this.mode = wireframe ? this.gl.LINES : this.#lastMode;
+
     this.#wireframe = wireframe;
+
+    this.updateWireframeGeometry(this.#wireframe);
   }
 
   /**
@@ -202,7 +222,45 @@ export default class Mesh extends Object3D {
   }
 
   /**
-   * 更新几何体信息
+   * 更新网格几何体数据，主要是顶点索引数据
+   * @param wireframe 是否更新索引数据为网格数据
+   * @param force 是否强制更新
+   */
+  updateWireframeGeometry(wireframe, force = false) {
+    if (this.#geometry && (force || !this.#wireframeGeometry)) {
+      if (this.#wireframeGeometry) {
+        this.#wireframeGeometry.destroy();
+      }
+
+      const attributesConfig = this.#geometry.attributesConfig;
+
+      const positionArray = attributesConfig.position.data;
+      const numIndices = attributesConfig.index?.data ? attributesConfig.index?.data.length : Math.floor(positionArray.length / 3);
+      const index = [];
+
+      if (attributesConfig.index) {
+        const data = attributesConfig.index?.data;
+
+        if (data) {
+          getWireframeIndex(positionArray, index, numIndices, data as (Uint32Array | Uint16Array));
+        }
+      } else {
+        getWireframeIndex(positionArray, index, numIndices);
+      }
+
+      const indices = index.length > 65536 ? new Uint32Array(index) : new Uint16Array(index);
+
+      this.#wireframeGeometry = new Geometry(this.renderer, {
+        ...this.#geometry.attributesConfig,
+        index: {
+          data: indices,
+        }
+      });
+    }
+  }
+
+  /**
+   * 更新几何体信息，如果开启了 `wireframe` 还需要更新 `WireframeGeometry`
    * @param geometry 几何体
    * @param destroy 是否销毁上一个几何体
    */
@@ -211,6 +269,7 @@ export default class Mesh extends Object3D {
       this.#geometry.destroy();
     }
     this.#geometry = geometry;
+    this.updateWireframeGeometry(this.#wireframe, true);
   }
 
   /**

@@ -2,9 +2,29 @@
 
 # Class: RenderTarget
 
+`RenderTarget` 是一种用于将场景渲染到纹理的方法，主要用于做离屏渲染和后处理等效果。
+
+示例代码：
+```ts
+const options = {
+  width: 256,
+  height: 256,
+  minFilter: renderer.gl.NEAREST,
+  magFilter: renderer.gl.NEAREST
+};
+const current = new RenderTarget(renderer, options);
+
+current.resize(width, height);
+current.bind();
+renderer.viewport(0, 0, width, height);
+mesh.updateMatrixWorld();
+mesh.draw();
+current.unbind();
+```
+
 ## Hierarchy
 
-- `default`<`RenderTargetOptions`\>
+- [`Resource`](Resource.md)<[`RenderTargetOptions`](../interfaces/RenderTargetOptions.md)\>
 
   ↳ **`RenderTarget`**
 
@@ -17,9 +37,6 @@
 ### Properties
 
 - [byteLength](RenderTarget.md#bytelength)
-- [clearColors](RenderTarget.md#clearcolors)
-- [clearDepth](RenderTarget.md#cleardepth)
-- [clearStencil](RenderTarget.md#clearstencil)
 - [depth](RenderTarget.md#depth)
 - [drawBuffers](RenderTarget.md#drawbuffers)
 - [drawBuffersChanged](RenderTarget.md#drawbufferschanged)
@@ -34,6 +51,9 @@
 
 ### Accessors
 
+- [clearColors](RenderTarget.md#clearcolors)
+- [clearDepth](RenderTarget.md#cleardepth)
+- [clearStencil](RenderTarget.md#clearstencil)
 - [gl](RenderTarget.md#gl)
 - [handle](RenderTarget.md#handle)
 - [rendererState](RenderTarget.md#rendererstate)
@@ -62,18 +82,18 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderer` | [`Renderer`](Renderer.md) |
-| `options` | `Partial`<`RenderTargetOptions`\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `renderer` | [`Renderer`](Renderer.md) | `Renderer` 对象 |
+| `options` | `Partial`<[`RenderTargetOptions`](../interfaces/RenderTargetOptions.md)\> | 配置项，详见 #RenderTargetOptions |
 
 #### Overrides
 
-Resource&lt;RenderTargetOptions\&gt;.constructor
+[Resource](Resource.md).[constructor](Resource.md#constructor)
 
 #### Defined in
 
-[core/RenderTarget.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;45)
+[core/RenderTarget.ts:131](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;131)
 
 ## Properties
 
@@ -83,41 +103,11 @@ Resource&lt;RenderTargetOptions\&gt;.constructor
 
 #### Inherited from
 
-Resource.byteLength
+[Resource](Resource.md).[byteLength](Resource.md#bytelength)
 
 #### Defined in
 
-[core/Resource.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;26)
-
-___
-
-### clearColors
-
-• **clearColors**: [`number`, `number`, `number`, `number`][]
-
-#### Defined in
-
-[core/RenderTarget.ts:39](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;39)
-
-___
-
-### clearDepth
-
-• **clearDepth**: `number`
-
-#### Defined in
-
-[core/RenderTarget.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;41)
-
-___
-
-### clearStencil
-
-• **clearStencil**: `number`
-
-#### Defined in
-
-[core/RenderTarget.ts:43](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;43)
+[core/Resource.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;26)
 
 ___
 
@@ -127,7 +117,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:27](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;27)
+[core/RenderTarget.ts:85](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;85)
 
 ___
 
@@ -135,9 +125,11 @@ ___
 
 • **drawBuffers**: `number`[]
 
+绘制缓存(绘制缓存设置了上一次绑定帧缓存状态，如果没有帧缓存可用的话，则用绘制缓存)
+
 #### Defined in
 
-[core/RenderTarget.ts:37](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;37)
+[core/RenderTarget.ts:110](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;110)
 
 ___
 
@@ -145,9 +137,11 @@ ___
 
 • **drawBuffersChanged**: `boolean`
 
+绘制对象是否变化
+
 #### Defined in
 
-[core/RenderTarget.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;35)
+[core/RenderTarget.ts:105](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;105)
 
 ___
 
@@ -155,9 +149,11 @@ ___
 
 • **height**: `number`
 
+`RenderTarget` 高度
+
 #### Defined in
 
-[core/RenderTarget.ts:31](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;31)
+[core/RenderTarget.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;95)
 
 ___
 
@@ -167,11 +163,11 @@ ___
 
 #### Inherited from
 
-Resource.id
+[Resource](Resource.md).[id](Resource.md#id)
 
 #### Defined in
 
-[core/Resource.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;19)
+[core/Resource.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;19)
 
 ___
 
@@ -181,25 +177,25 @@ ___
 
 #### Inherited from
 
-Resource.name
+[Resource](Resource.md).[name](Resource.md#name)
 
 #### Defined in
 
-[core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;21)
+[core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;21)
 
 ___
 
 ### options
 
-• **options**: `Partial`<`IResourceOptions` & `RenderTargetOptions`\>
+• **options**: `Partial`<[`ResourceOptions`](../interfaces/ResourceOptions.md) & [`RenderTargetOptions`](../interfaces/RenderTargetOptions.md)\>
 
 #### Inherited from
 
-Resource.options
+[Resource](Resource.md).[options](Resource.md#options)
 
 #### Defined in
 
-[core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;28)
+[core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;28)
 
 ___
 
@@ -209,11 +205,11 @@ ___
 
 #### Inherited from
 
-Resource.renderer
+[Resource](Resource.md).[renderer](Resource.md#renderer)
 
 #### Defined in
 
-[core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;01a57c5#line&#x3D;7)
+[core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;7)
 
 ___
 
@@ -223,11 +219,11 @@ ___
 
 #### Inherited from
 
-Resource.userData
+[Resource](Resource.md).[userData](Resource.md#userdata)
 
 #### Defined in
 
-[core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;23)
+[core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;23)
 
 ___
 
@@ -235,9 +231,11 @@ ___
 
 • **viewport**: [`Vector4`](Vector4.md)
 
+`RenderTarget` 视图大小，默认是一个四维向量
+
 #### Defined in
 
-[core/RenderTarget.ts:33](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;33)
+[core/RenderTarget.ts:100](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;100)
 
 ___
 
@@ -245,11 +243,115 @@ ___
 
 • **width**: `number`
 
+`RenderTarget` 宽度
+
 #### Defined in
 
-[core/RenderTarget.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;29)
+[core/RenderTarget.ts:90](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;90)
 
 ## Accessors
+
+### clearColors
+
+• `get` **clearColors**(): [`number`, `number`, `number`, `number`][]
+
+获取清屏颜色值
+
+#### Returns
+
+[`number`, `number`, `number`, `number`][]
+
+#### Defined in
+
+[core/RenderTarget.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;241)
+
+• `set` **clearColors**(`colors`): `void`
+
+设置清屏颜色值
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `colors` | [`number`, `number`, `number`, `number`][] |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[core/RenderTarget.ts:234](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;234)
+
+___
+
+### clearDepth
+
+• `get` **clearDepth**(): `number`
+
+获取深度缓冲区的深度值
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[core/RenderTarget.ts:256](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;256)
+
+• `set` **clearDepth**(`depth`): `void`
+
+设置清除深度缓冲区的深度值
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `depth` | `number` | 深度值 |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[core/RenderTarget.ts:249](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;249)
+
+___
+
+### clearStencil
+
+• `get` **clearStencil**(): `number`
+
+获取缓冲区的默认值
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[core/RenderTarget.ts:271](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;271)
+
+• `set` **clearStencil**(`stencil`): `void`
+
+设置清除模版缓冲区的默认值
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `stencil` | `number` | 模版缓冲区默认值 |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[core/RenderTarget.ts:264](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;264)
+
+___
 
 ### gl
 
@@ -267,7 +369,7 @@ Resource.gl
 
 #### Defined in
 
-[core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;01a57c5#line&#x3D;16)
+[core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;16)
 
 ___
 
@@ -285,7 +387,7 @@ Resource.handle
 
 #### Defined in
 
-[core/Resource.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;45)
+[core/Resource.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;45)
 
 ___
 
@@ -305,7 +407,7 @@ Resource.rendererState
 
 #### Defined in
 
-[core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;01a57c5#line&#x3D;23)
+[core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;23)
 
 ___
 
@@ -319,7 +421,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:133](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;133)
+[core/RenderTarget.ts:226](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;226)
 
 ## Methods
 
@@ -327,11 +429,13 @@ ___
 
 ▸ **bind**(`fbo?`): `void`
 
+绑定帧缓冲区
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `fbo` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `fbo` | `number` | 如果未传入 `fbo`，默认是此 `RenderTarget` 创建的帧缓冲 |
 
 #### Returns
 
@@ -339,11 +443,11 @@ ___
 
 #### Overrides
 
-Resource.bind
+[Resource](Resource.md).[bind](Resource.md#bind)
 
 #### Defined in
 
-[core/RenderTarget.ts:215](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;215)
+[core/RenderTarget.ts:397](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;397)
 
 ___
 
@@ -351,13 +455,15 @@ ___
 
 ▸ **clear**(): `void`
 
+清空此帧缓冲区
+
 #### Returns
 
 `void`
 
 #### Defined in
 
-[core/RenderTarget.ts:170](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;170)
+[core/RenderTarget.ts:341](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;341)
 
 ___
 
@@ -365,11 +471,13 @@ ___
 
 ▸ **create**(`attachments`): `any`
 
+创建帧缓冲关联对象
+
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `attachments` | `any` |
+| `attachments` | [`Attachment`](../index.md#attachment)[] |
 
 #### Returns
 
@@ -377,7 +485,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:137](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;137)
+[core/RenderTarget.ts:279](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;279)
 
 ___
 
@@ -385,17 +493,19 @@ ___
 
 ▸ **createHandle**(): ``null`` \| `WebGLFramebuffer`
 
+创建帧缓冲区
+
 #### Returns
 
 ``null`` \| `WebGLFramebuffer`
 
 #### Overrides
 
-Resource.createHandle
+[Resource](Resource.md).[createHandle](Resource.md#createhandle)
 
 #### Defined in
 
-[core/RenderTarget.ts:233](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;233)
+[core/RenderTarget.ts:428](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;428)
 
 ___
 
@@ -416,11 +526,11 @@ ___
 
 #### Inherited from
 
-Resource.delete
+[Resource](Resource.md).[delete](Resource.md#delete)
 
 #### Defined in
 
-[core/Resource.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;56)
+[core/Resource.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;56)
 
 ___
 
@@ -428,17 +538,19 @@ ___
 
 ▸ **deleteHandle**(): `void`
 
+移除帧缓冲区
+
 #### Returns
 
 `void`
 
 #### Overrides
 
-Resource.deleteHandle
+[Resource](Resource.md).[deleteHandle](Resource.md#deletehandle)
 
 #### Defined in
 
-[core/RenderTarget.ts:237](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;237)
+[core/RenderTarget.ts:435](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;435)
 
 ___
 
@@ -446,17 +558,22 @@ ___
 
 ▸ **destroy**(): `void`
 
+销毁此 `RenderTarget`
+- 销毁关联的纹理缓冲区
+- 销毁关联的渲染缓冲区
+- 销毁帧缓冲区
+
 #### Returns
 
 `void`
 
 #### Overrides
 
-Resource.destroy
+[Resource](Resource.md).[destroy](Resource.md#destroy)
 
 #### Defined in
 
-[core/RenderTarget.ts:223](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;223)
+[core/RenderTarget.ts:415](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;415)
 
 ___
 
@@ -476,7 +593,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:194](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;194)
+[core/RenderTarget.ts:365](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;365)
 
 ___
 
@@ -490,11 +607,11 @@ ___
 
 #### Inherited from
 
-Resource.removeStats
+[Resource](Resource.md).[removeStats](Resource.md#removestats)
 
 #### Defined in
 
-[core/Resource.ts:81](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;01a57c5#line&#x3D;81)
+[core/Resource.ts:81](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;81)
 
 ___
 
@@ -502,12 +619,14 @@ ___
 
 ▸ **resize**(`width`, `height`): `void`
 
+重新设置此帧缓冲区的大小
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `width` | `any` |
-| `height` | `any` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `width` | `number` | 宽度 |
+| `height` | `number` | 高度 |
 
 #### Returns
 
@@ -515,7 +634,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:198](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;198)
+[core/RenderTarget.ts:374](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;374)
 
 ___
 
@@ -523,17 +642,19 @@ ___
 
 ▸ **toString**(): `string`
 
+将此实例转换为字符串标识
+
 #### Returns
 
 `string`
 
 #### Overrides
 
-Resource.toString
+[Resource](Resource.md).[toString](Resource.md#tostring)
 
 #### Defined in
 
-[core/RenderTarget.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;241)
+[core/RenderTarget.ts:442](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;442)
 
 ___
 
@@ -541,11 +662,13 @@ ___
 
 ▸ **unbind**(`fbo?`): `void`
 
+解绑帧缓冲区
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `fbo` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `fbo` | `number` | 如果未传入 `fbo`，默认是此 `RenderTarget` 创建的帧缓冲 |
 
 #### Returns
 
@@ -553,8 +676,8 @@ ___
 
 #### Overrides
 
-Resource.unbind
+[Resource](Resource.md).[unbind](Resource.md#unbind)
 
 #### Defined in
 
-[core/RenderTarget.ts:219](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;01a57c5#line&#x3D;219)
+[core/RenderTarget.ts:405](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;405)

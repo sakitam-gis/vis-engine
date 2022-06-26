@@ -5,7 +5,7 @@ import Renderer from './Renderer';
 /**
  * `attribute` 支持的数据类型
  */
-export type DataType = Float32Array | Float64Array | Uint32Array | Uint16Array | Uint8Array | Int32Array | Int16Array | Int8Array;
+export type DataType = Float32Array | Float64Array | Uint32Array | Uint16Array | Uint8Array | Uint8ClampedArray | Int32Array | Int16Array | Int8Array;
 
 export interface Attribute {
 
@@ -89,7 +89,7 @@ const getBufferType = (gl, data) => {
     return gl.UNSIGNED_SHORT;
   }
 
-  if (data instanceof Uint8Array) {
+  if (data instanceof Uint8Array || data instanceof Uint8ClampedArray) {
     return gl.UNSIGNED_BYTE;
   }
 

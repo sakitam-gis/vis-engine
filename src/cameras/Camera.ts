@@ -70,7 +70,6 @@ const ERR_CAMERA_METHOD_UNDEFINED = 'Camera subclass must define virtual methods
  * 相机基类
  */
 export default class Camera extends Object3D {
-
   /**
    * 相机类型（默认有两种相机：perspective和orthographic）
    */
@@ -99,32 +98,32 @@ export default class Camera extends Object3D {
   /**
    * 像机的近端面，默认值是0.1
    */
-  public near: number;
+  #near: number;
 
   /**
    * 像机的远端面，默认值是 100
    */
-  public far: number;
+  #far: number;
 
   /**
    * 摄像机视锥体垂直视野角度，从视图的底部到顶部，以角度来表示
    */
-  public fov: number;
+  #fov: number;
 
   /**
    * 相机视锥体的纵横比
    */
-  public aspect: number;
+  #aspect: number;
 
   /**
    * 相机缩放倍数
    */
-  public zoom: number;
+  #zoom: number;
 
   /**
    * 像机视锥体配置
    */
-  public bounds: WithUndef<Bounds>;
+  #bounds: WithUndef<Bounds>;
 
   public frustum: Matrix4;
 
@@ -147,12 +146,12 @@ export default class Camera extends Object3D {
     this.projectionViewMatrix = new ProjectionMatrix();
     this.worldPosition = new Vector3();
     this.frustum = new Matrix4();
-    this.near = near;
-    this.far = far;
-    this.fov = fov;
-    this.aspect = aspect;
-    this.bounds = bounds;
-    this.zoom = zoom;
+    this.#near = near;
+    this.#far = far;
+    this.#fov = fov;
+    this.#aspect = aspect;
+    this.#bounds = bounds;
+    this.#zoom = zoom;
     const {
       left,
       right,
@@ -168,6 +167,102 @@ export default class Camera extends Object3D {
   }
 
   /**
+   * 获取像机的近端面
+   */
+  get near() {
+    return this.#near;
+  }
+
+  /**
+   * 设置像机的近端面，并更新摄像机投影矩阵
+   * @param n near
+   */
+  set near(n: number) {
+    this.#near = n;
+    this.updateProjectionMatrix();
+  }
+
+  /**
+   * 获取像机的远端面
+   */
+  get far() {
+    return this.#far;
+  }
+
+  /**
+   * 设置像机的远端面，并更新摄像机投影矩阵
+   * @param f
+   */
+  set far(f: number) {
+    this.#far = f;
+    this.updateProjectionMatrix();
+  }
+
+  /**
+   * 获取摄像机视锥体垂直视野角度
+   */
+  get fov() {
+    return this.#fov;
+  }
+
+  /**
+   * 设置摄像机视锥体垂直视野角度，并更新摄像机投影矩阵
+   * @param f 角度值
+   */
+  set fov(f: number) {
+    this.#fov = f;
+    this.updateProjectionMatrix();
+  }
+
+  /**
+   * 获取相机视锥体的纵横比
+   */
+  get aspect() {
+    return this.#aspect;
+  }
+
+  /**
+   * 设置相机视锥体的纵横比，并更新摄像机投影矩阵
+   * @param aspect
+   */
+  set aspect(aspect: number) {
+    this.#aspect = aspect;
+    this.updateProjectionMatrix();
+  }
+
+  /**
+   * 获取相机的缩放倍数
+   */
+  get zoom() {
+    return this.#zoom;
+  }
+
+  /**
+   * 设置相机的缩放倍数，并更新摄像机投影矩阵
+   * @param zoom
+   */
+  set zoom(zoom: number) {
+    this.#zoom = zoom;
+    this.updateProjectionMatrix();
+  }
+
+  /**
+   * 获取像机视锥体的范围
+   */
+  get bounds() {
+    return this.#bounds;
+  }
+
+  /**
+   * 设置相机像机视锥体的范围，并更新摄像机投影矩阵
+   * @param bounds
+   */
+  set bounds(bounds: WithUndef<Bounds>) {
+    this.#bounds = bounds;
+    this.updateProjectionMatrix();
+  }
+
+  /**
    * 创建或者更新 `projectionMatrix` 透视相机矩阵
    * @param fov
    * @param aspect
@@ -175,10 +270,10 @@ export default class Camera extends Object3D {
    * @param far
    */
   perspective(fov = this.fov, aspect = this.aspect, near = this.near, far = this.far) {
-    this.fov = fov;
-    this.aspect = aspect;
-    this.near = near;
-    this.far = far;
+    this.#fov = fov;
+    this.#aspect = aspect;
+    this.#near = near;
+    this.#far = far;
     this.projectionMatrix.fromPerspective(fov, aspect, near, far);
     this.cameraType = 'perspective';
     // this.projectionMatrix.frustum(this.frustum, this.bounds.left, this.bounds.right, this.bounds.top, this.bounds.bottom, this.near, this.far);
@@ -195,7 +290,7 @@ export default class Camera extends Object3D {
    * @param zoom
    */
   orthographic(left, right, top, bottom, near = this.near, far = this.far, zoom = 1) {
-    this.bounds = {
+    this.#bounds = {
       left,
       right,
       top,
@@ -212,7 +307,7 @@ export default class Camera extends Object3D {
       far,
     );
     this.cameraType = 'orthographic';
-    this.projectionMatrix.frustum(this.frustum, this.bounds.left, this.bounds.right, this.bounds.top, this.bounds.bottom, this.near, this.far);
+    this.projectionMatrix.frustum(this.frustum, this.#bounds.left, this.#bounds.right, this.#bounds.top, this.#bounds.bottom, this.#near, this.#far);
   }
 
   /**

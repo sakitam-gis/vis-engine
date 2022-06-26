@@ -3,14 +3,14 @@ import Clock from './Clock';
 /**
  * Raf 配置项
  */
-export interface IRafOptions {
+export interface RafOptions {
   /**
    * @defaultValue `true`, 是否在创建 raf 实例后自动启动
    */
   autoStart: boolean;
 }
 
-const defaultOptions: Partial<IRafOptions> = {
+const defaultOptions: Partial<RafOptions> = {
   autoStart: true,
 };
 
@@ -21,7 +21,7 @@ const defaultOptions: Partial<IRafOptions> = {
  * ```
  */
 export default class Raf {
-  public options: Partial<IRafOptions>;
+  public options: Partial<RafOptions>;
   #raf: number;
   #animating: boolean;
   #isVisible: boolean;
@@ -30,7 +30,7 @@ export default class Raf {
 
   #callback: () => void;
 
-  constructor (cb, options: Partial<IRafOptions> = {}) {
+  constructor (cb, options: Partial<RafOptions> = {}) {
     this.options = {
       ...options,
       ...defaultOptions,

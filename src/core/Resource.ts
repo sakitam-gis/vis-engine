@@ -6,7 +6,7 @@ import Renderer from './Renderer';
 
 const ERR_RESOURCE_METHOD_UNDEFINED = 'Resource subclass must define virtual methods';
 
-export interface IResourceOptions {
+export interface ResourceOptions {
   id: string;
   name: string;
   handle: any;
@@ -25,9 +25,9 @@ export default class Resource<T> extends Base {
   // Only meaningful for resources that allocate GPU memory
   byteLength: number;
 
-  options: Partial<IResourceOptions & T>;
+  options: Partial<ResourceOptions & T>;
 
-  constructor(renderer: Renderer, options: Partial<IResourceOptions & T> = {}) {
+  constructor(renderer: Renderer, options: Partial<ResourceOptions & T> = {}) {
     super(renderer);
     this.id = options?.id || uid(this.constructor.name);
     this.name = options?.name;
