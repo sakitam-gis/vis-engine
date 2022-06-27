@@ -73,12 +73,14 @@ export default class Box extends Geometry {
   }: Partial<BoxOptions> = {}) {
     const gridX = Math.floor(widthSegments);
     const gridY = Math.floor(heightSegments);
+    const gridZ = Math.floor(depthSegments);
 
     const gridX1 = gridX + 1;
     const gridY1 = gridY + 1;
+    const gridZ1 = gridZ + 1;
 
-    const num = gridX1 * gridY1;
-    const numIndices = gridX * gridY * 6;
+    const num = gridX1 * gridY1 * 2 + gridX1 * gridZ1 * 2 + gridY1 * gridZ1 * 2;
+    const numIndices = (gridX * gridY * 2 + gridX * gridZ * 2 + gridY * gridZ * 2) * 6;
 
     const position = new Float32Array(num * 3);
     const normal = new Float32Array(num * 3);
@@ -87,12 +89,12 @@ export default class Box extends Geometry {
 
     let i = 0;
     let ii = 0;
-    const d = (depthSegments + 1) * (heightSegments + 1);
-    const w = (widthSegments + 1) * (depthSegments + 1);
-    const h = (widthSegments + 1) * (heightSegments + 1);
-    const dt = depthSegments * heightSegments;
-    const wt = widthSegments * depthSegments;
-    const ht = widthSegments * heightSegments;
+    const d = gridZ1 * gridY1;
+    const w = gridX1 * gridZ1;
+    const h = gridX1 * gridY1;
+    const dt = gridZ * gridY;
+    const wt = gridX * gridZ;
+    const ht = gridX * gridY;
     // left plane
     getPlaneBuffer(position, normal, uv, index, depth, height, width, depthSegments, heightSegments, 2, 1, 0, -1, -1, i, ii);
 

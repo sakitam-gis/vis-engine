@@ -1,0 +1,251 @@
+---
+id: plane
+title: Draw Plane Geometry
+---
+
+这个实例主要展示了几何体对象 [Plane](/api/classes/Plane.md) 的使用。
+
+### 一个简单的示例
+
+```jsx live
+function render(props) {
+  const drawPlaneVertex = `
+    attribute vec2 uv;
+    attribute vec3 position;
+    uniform mat4 modelViewMatrix;
+    uniform mat4 projectionMatrix;
+    varying vec2 vUv;
+
+    void main() {
+        vUv = uv;
+
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+    `;
+
+  const drawPlaneFragment = `
+    precision highp float;
+
+    uniform sampler2D texture;
+
+    varying vec2 vUv;
+
+    void main() {
+        vec3 tex = texture2D(texture, vUv).rgb;
+        gl_FragColor.rgb = tex;
+        gl_FragColor.a = 1.0;
+    }
+    `;
+
+  const refDom = useRef(null);
+  const meshRef = useRef(null);
+  const cameraRef = useRef(null);
+  const renderRef = useRef(null);
+
+  const store = leva.useCreateStore();
+
+  const fov = 15;
+  const nearZ = 0.1;
+
+  const farZ = 100;
+
+  const updateGeometry = () => {
+    if (!renderRef.current) return;
+    const geometry = new Plane(renderRef.current, {
+      width: store.get('width'),
+      height: store.get('height'),
+
+      widthSegments: store.get('widthSegments'),
+      heightSegments: store.get('heightSegments'),
+    });
+
+    if (meshRef.current) {
+      meshRef.current.updateGeometry(geometry);
+    }
+  }
+
+  const config = {
+    fov: {
+      value: fov,
+      min: -50,
+      max: 50,
+      step: 1,
+      onChange: (fov) => {
+        if (cameraRef.current) {
+          cameraRef.current.fov = fov;
+          cameraRef.current.updateProjectionMatrix();
+        }
+      },
+    },
+    nearZ: {
+      value: nearZ,
+      min: -50,
+      max: 50,
+      step: 0.1,
+      onChange: (nearZ) => {
+        if (cameraRef.current) {
+          cameraRef.current.nearZ = nearZ;
+          cameraRef.current.updateProjectionMatrix();
+        }
+      },
+    },
+    farZ: {
+      value: farZ,
+      min: -500,
+      max: 500,
+      step: 1,
+      onChange: (farZ) => {
+        if (cameraRef.current) {
+          cameraRef.current.farZ = farZ;
+          cameraRef.current.updateProjectionMatrix();
+        }
+      },
+    },
+    cameraPosition: {
+      value: [0, 0, 15],
+      onChange: (p) => {
+        if (cameraRef.current) {
+          cameraRef.current.position.set(...p);
+        }
+      },
+    },
+    width: {
+      value: 2,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: () => {
+        updateGeometry();
+      },
+    },
+    height: {
+      value: 2,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    widthSegments: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    heightSegments: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    wireframe: {
+      value: false,
+      onChange: (p) => {
+        if (meshRef.current) {
+          meshRef.current.wireframe = p;
+        }
+      },
+    }
+  };
+
+  leva.useControls(config, {
+    store: store,
+  });
+
+  const image = useBaseUrl('/assets/posx.jpg');
+
+  const init = () => {
+    const canvas = refDom.current;
+
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    const renderer = new Renderer(canvas, {
+      alpha: true,
+    });
+
+    renderRef.current = renderer;
+
+    const camera = new PerspectiveCamera(fov, canvas.width / canvas.height, nearZ, farZ);
+    camera.position.z = fov;
+    cameraRef.current = camera;
+
+    function resize(target) {
+      const { width, height } = target.getBoundingClientRect();
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+    }
+
+    const scene = new Scene();
+
+    const geometry = new Plane(renderer, {
+      width: 2,
+      height: 2,
+
+      widthSegments: 1,
+      heightSegments: 1,
+    });
+
+    const texture = new Texture(renderer, {
+      generateMipmaps: false,
+      flipY: true,
+    });
+
+    texture.fromSrc(image);
+
+    const program = new Program(renderer, {
+      vertexShader: drawPlaneVertex,
+      fragmentShader: drawPlaneFragment,
+      uniforms: {
+        texture: {
+          value: texture,
+        },
+      },
+    });
+
+    const plane = new Mesh(renderer, { geometry, program, wireframe: false });
+    plane.setParent(scene);
+    plane.position.set(0, 0, 0);
+
+    meshRef.current = plane;
+
+    const raf = new Raf((t) => {
+      plane.rotation.y -= 0.02;
+      renderer.render({ scene, camera });
+    });
+
+    return {
+      canvas,
+      resize,
+    }
+  }
+
+  useEffect(() => {
+    const { canvas, resize } = init();
+
+    observe(canvas, resize);
+
+    return () => {
+      unobserve(canvas, resize);
+    };
+  }, []);
+
+  return (
+    <div className="live-wrap">
+      <div className="leva-wrap">
+        <Leva
+          fill
+        ></Leva>
+        <LevaPanel collapsed store={store} fill></LevaPanel>
+      </div>
+      <canvas className="scene-canvas" ref={refDom}></canvas>
+    </div>
+  );
+}
+```

@@ -1,0 +1,262 @@
+---
+id: box
+title: Draw Box Geometry
+---
+
+这个实例主要展示了几何体对象 [Box](/api/classes/Box.md) 的使用。
+
+### 一个简单的示例
+
+```jsx live
+function render(props) {
+  const drawBoxVertex = `
+    attribute vec2 uv;
+    attribute vec3 position;
+    uniform mat4 modelViewMatrix;
+    uniform mat4 projectionMatrix;
+    varying vec2 vUv;
+
+    void main() {
+        vUv = uv;
+
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+    `;
+
+  const drawBoxFragment = `
+    precision highp float;
+    uniform float uTime;
+    varying vec2 vUv;
+    void main() {
+        gl_FragColor.rgb = 0.5 + 0.3 * sin(vUv.yxx + uTime) + vec3(0.2, 0.0, 0.1);
+        gl_FragColor.a = 1.0;
+    }
+    `;
+
+  const refDom = useRef(null);
+  const meshRef = useRef(null);
+  const cameraRef = useRef(null);
+  const renderRef = useRef(null);
+
+  const store = leva.useCreateStore();
+
+  const fov = 15;
+  const nearZ = 0.1;
+
+  const farZ = 100;
+
+  const updateGeometry = () => {
+    if (!renderRef.current) return;
+    const geometry = new Box(renderRef.current, {
+      width: store.get('width'),
+      height: store.get('height'),
+      depth: store.get('depth'),
+
+      widthSegments: store.get('widthSegments'),
+      heightSegments: store.get('heightSegments'),
+      depthSegments: store.get('depthSegments'),
+    });
+
+    if (meshRef.current) {
+      meshRef.current.updateGeometry(geometry);
+    }
+  }
+
+  const config = {
+    fov: {
+      value: fov,
+      min: -50,
+      max: 50,
+      step: 1,
+      onChange: (fov) => {
+        if (cameraRef.current) {
+          cameraRef.current.fov = fov;
+          cameraRef.current.updateProjectionMatrix();
+        }
+      },
+    },
+    nearZ: {
+      value: nearZ,
+      min: -50,
+      max: 50,
+      step: 0.1,
+      onChange: (nearZ) => {
+        if (cameraRef.current) {
+          cameraRef.current.nearZ = nearZ;
+          cameraRef.current.updateProjectionMatrix();
+        }
+      },
+    },
+    farZ: {
+      value: farZ,
+      min: -500,
+      max: 500,
+      step: 1,
+      onChange: (farZ) => {
+        if (cameraRef.current) {
+          cameraRef.current.farZ = farZ;
+          cameraRef.current.updateProjectionMatrix();
+        }
+      },
+    },
+    cameraPosition: {
+      value: [0, 0, 15],
+      onChange: (p) => {
+        if (cameraRef.current) {
+          cameraRef.current.position.set(...p);
+        }
+      },
+    },
+    width: {
+      value: 2,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: () => {
+        updateGeometry();
+      },
+    },
+    height: {
+      value: 2,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    depth: {
+      value: 2,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    widthSegments: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    heightSegments: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    depthSegments: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    wireframe: {
+      value: false,
+      onChange: (p) => {
+        if (meshRef.current) {
+          meshRef.current.wireframe = p;
+        }
+      },
+    }
+  };
+
+  leva.useControls(config, {
+    store: store,
+  });
+
+  const init = () => {
+    const canvas = refDom.current;
+
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    const renderer = new Renderer(canvas, {
+      alpha: true,
+    });
+
+    renderRef.current = renderer;
+
+    const camera = new PerspectiveCamera(fov, canvas.width / canvas.height, nearZ, farZ);
+    camera.position.z = fov;
+    cameraRef.current = camera;
+
+    function resize(target) {
+      const { width, height } = target.getBoundingClientRect();
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+    }
+
+    const scene = new Scene();
+
+    const geometry = new Box(renderer, {
+      width: 2,
+      height: 2,
+      depth: 2,
+
+      widthSegments: 1,
+      heightSegments: 1,
+      depthSegments: 1,
+    });
+
+
+    const program = new Program(renderer, {
+      vertexShader: drawBoxVertex,
+      fragmentShader: drawBoxFragment,
+      uniforms: {
+        uTime: { value: 0 },
+      },
+    });
+
+    const box = new Mesh(renderer, { geometry, program, wireframe: false });
+    box.setParent(scene);
+    box.position.set(0, 0, 0);
+
+    meshRef.current = box;
+
+    const raf = new Raf((t) => {
+      box.rotation.y -= 0.02;
+      box.rotation.z -= 0.02;
+      program.setUniform('uTime', t);
+      renderer.render({ scene, camera });
+    });
+
+    return {
+      canvas,
+      resize,
+    }
+  }
+
+  useEffect(() => {
+    const { canvas, resize } = init();
+
+    observe(canvas, resize);
+
+    return () => {
+      unobserve(canvas, resize);
+    };
+  }, []);
+
+  return (
+    <div className="live-wrap">
+      <div className="leva-wrap">
+        <Leva
+          collapsed
+          fill
+        ></Leva>
+        <LevaPanel collapsed store={store} fill></LevaPanel>
+      </div>
+      <canvas className="scene-canvas" ref={refDom}></canvas>
+    </div>
+  );
+}
+```

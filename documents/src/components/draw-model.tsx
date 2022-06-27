@@ -120,7 +120,6 @@ export default function DrawModel(props) {
       const { width, height } = target.getBoundingClientRect();
       renderer.setSize(width, height);
       camera.aspect = width / height;
-      camera.updateProjectionMatrix();
     }
 
     const scene = new Scene();

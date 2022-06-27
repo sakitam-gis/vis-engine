@@ -567,7 +567,7 @@ export default class Program extends Resource<ProgramOptions> {
         uniformData.structProperty = split[1];
       }
       const v = uniforms[name]?.value;
-      if (v) {
+      if (!isUndef(v) && !isNull(v)) {
         uniformData.value = uniforms[name].value;
       }
       this.uniforms[name] = uniformData;

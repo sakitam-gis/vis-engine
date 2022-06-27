@@ -55,7 +55,7 @@ export function getPlaneBuffer(
   index: Uint32Array | Uint16Array,
   width = 1,
   height = 1,
-  depth = 1,
+  depth = 0,
   widthSegments = 1,
   heightSegments = 1,
   u = 0,
@@ -93,6 +93,9 @@ export function getPlaneBuffer(
       uv[i * 2] = ix / gridX;
       uv[i * 2 + 1] = 1 - iy / gridY;
 
+      i++;
+      if (iy === gridY || ix === gridX) continue;
+
       const a = consti + ix + gridX1 * iy;
       const b = consti + ix + gridX1 * (iy + 1);
       const c = consti + ix + 1 + gridX1 * (iy + 1);
@@ -105,7 +108,6 @@ export function getPlaneBuffer(
       index[ii * 6 + 4] = c;
       index[ii * 6 + 5] = d;
 
-      i++;
       ii++;
     }
   }
