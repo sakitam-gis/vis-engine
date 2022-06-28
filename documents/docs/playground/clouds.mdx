@@ -1,0 +1,296 @@
+---
+id: clouds
+title: Draw Cloud
+---
+
+云渲染
+
+### 一个简单的示例
+
+```jsx live
+function render(props) {
+  const drawPlaneVertex = `
+    attribute vec2 uv;
+    attribute vec3 position;
+    uniform mat4 modelViewMatrix;
+    uniform mat4 projectionMatrix;
+    varying vec2 vUv;
+
+    void main() {
+        vUv = uv;
+
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+    `;
+
+  const drawPlaneFragment = `
+    precision highp float;
+
+    uniform sampler2D texture;
+    uniform vec3 u_fogColor;
+    uniform float u_fogNear;
+    uniform float u_fogFar;
+
+    varying vec2 vUv;
+
+    void main() {
+      float depth = gl_FragCoord.z / gl_FragCoord.w;
+      float fogFactor = smoothstep(u_fogNear, u_fogFar, depth);
+      vec4 tex = texture2D(texture, vUv);
+      gl_FragColor = tex;
+      gl_FragColor.w *= pow(gl_FragCoord.z, 20.0);
+			gl_FragColor = mix(gl_FragColor, vec4(u_fogColor, gl_FragColor.w), fogFactor);
+    }
+    `;
+
+  const refDom = useRef(null);
+  const meshRef = useRef(null);
+  const cameraRef = useRef(null);
+  const renderRef = useRef(null);
+
+  const store = leva.useCreateStore();
+
+  const fov = 30;
+  const nearZ = 1;
+
+  const farZ = 3000;
+
+  const updateGeometry = () => {
+    if (!renderRef.current) return;
+    const geometry = new Plane(renderRef.current, {
+      width: store.get('width'),
+      height: store.get('height'),
+
+      widthSegments: store.get('widthSegments'),
+      heightSegments: store.get('heightSegments'),
+    });
+
+    if (meshRef.current) {
+      meshRef.current.updateGeometry(geometry);
+    }
+  }
+
+  const config = {
+    fov: {
+      value: fov,
+      min: -50,
+      max: 50,
+      step: 1,
+      onChange: (fov) => {
+        if (cameraRef.current) {
+          cameraRef.current.fov = fov;
+        }
+      },
+    },
+    nearZ: {
+      value: nearZ,
+      min: -50,
+      max: 50,
+      step: 0.1,
+      onChange: (nearZ) => {
+        if (cameraRef.current) {
+          cameraRef.current.nearZ = nearZ;
+        }
+      },
+    },
+    farZ: {
+      value: farZ,
+      min: -500,
+      max: 500,
+      step: 1,
+      onChange: (farZ) => {
+        if (cameraRef.current) {
+          cameraRef.current.farZ = farZ;
+        }
+      },
+    },
+    cameraPosition: {
+      value: [0, 0, 15],
+      onChange: (p) => {
+        if (cameraRef.current) {
+          cameraRef.current.position.set(...p);
+        }
+      },
+    },
+    width: {
+      value: 2,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: () => {
+        updateGeometry();
+      },
+    },
+    height: {
+      value: 2,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    widthSegments: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    heightSegments: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    wireframe: {
+      value: false,
+      onChange: (p) => {
+        if (meshRef.current) {
+          meshRef.current.wireframe = p;
+        }
+      },
+    }
+  };
+
+  leva.useControls(config, {
+    store: store,
+  });
+
+  const image = useBaseUrl('/assets/cloud.png');
+
+  const init = () => {
+    const canvas = refDom.current;
+
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    const renderer = new Renderer(canvas, {
+      alpha: true,
+      antialias: true,
+    });
+
+    renderRef.current = renderer;
+
+    const camera = new PerspectiveCamera(fov, canvas.width / canvas.height, nearZ, farZ);
+    camera.position.z = fov;
+    cameraRef.current = camera;
+
+    function resize(target) {
+      const { width, height } = target.getBoundingClientRect();
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+    }
+
+    const scene = new Scene();
+
+    const planeGeometry = new Plane(renderer, {
+      width: 64,
+      height: 64,
+
+      widthSegments: 1,
+      heightSegments: 1,
+    });
+
+    const texture = new Texture(renderer, {
+      flipY: true,
+    });
+
+    texture.fromSrc(image);
+
+    const program = new Program(renderer, {
+      vertexShader: drawPlaneVertex,
+      fragmentShader: drawPlaneFragment,
+      uniforms: {
+        texture: {
+          value: texture,
+        },
+        u_fogColor: {
+            value: [0.27058823529411763, 0.5176470588235295, 0.7058823529411765],
+        },
+        u_fogNear: {
+            value: -100,
+        },
+        u_fogFar: {
+            value: 3000,
+        }
+      },
+      depthTest: false,
+      depthWrite: false,
+      transparent: true,
+    });
+
+    const num = 60;
+    let offset = new Float32Array(num * 3);
+    let random = new Float32Array(num * 3);
+    for (let i = 0; i < num; i++) {
+      offset.set([Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1], i * 3);
+
+      // unique random values are always handy for instances.
+      // Here they will be used for rotation, scale and movement.
+      random.set([Math.random(), Math.random(), Math.random()], i * 3);
+    }
+
+    const geometry = new Geometry(renderer, {
+      position: { size: 3, data: new Float32Array(planeGeometry.position) },
+      uv: { size: 2, data: new Float32Array(planeGeometry.uv) },
+      normal: { size: 3, data: new Float32Array(planeGeometry.normal) },
+      offset: { divisor: 1, size: 3, data: offset },
+      random: { divisor: 1, size: 3, data: random },
+    });
+
+    const mesh = new Mesh(renderer, {
+      mode: renderer.gl.TRIANGLES,
+      geometry,
+      program,
+    });
+    mesh.setParent(scene);
+
+    const plane = new Mesh(renderer, {
+      geometry,
+      program,
+      wireframe: false,
+    });
+    plane.setParent(scene);
+    plane.position.set(0, 0, 0);
+
+    meshRef.current = plane;
+
+    const raf = new Raf((t) => {
+      plane.rotation.y -= 0.02;
+      renderer.render({ scene, camera });
+    });
+
+    return {
+      canvas,
+      resize,
+    }
+  }
+
+  useEffect(() => {
+    const { canvas, resize } = init();
+
+    observe(canvas, resize);
+
+    return () => {
+      unobserve(canvas, resize);
+    };
+  }, []);
+
+  return (
+    <div className="live-wrap">
+      <div className="leva-wrap">
+        <Leva
+          fill
+        ></Leva>
+        <LevaPanel collapsed store={store} fill></LevaPanel>
+      </div>
+      <canvas className="scene-canvas" ref={refDom}></canvas>
+    </div>
+  );
+}
+```

@@ -39,6 +39,14 @@ const getShaderType = (ctx, type) => {
   }
 };
 
+function addLineNumbers(string: string) {
+  let lines = string.split('\n');
+  for (let i = 0; i < lines.length; i++) {
+    lines[i] = i + 1 + ': ' + lines[i];
+  }
+  return lines.join('\n');
+}
+
 export class Shader extends Resource<any> {
   #shaderType: ShaderType;
 
@@ -83,8 +91,9 @@ export class Shader extends Resource<any> {
     this.gl.shaderSource(this.handle, s);
     this.gl.compileShader(this.handle);
     if (!this.gl.getShaderParameter(this.handle, this.gl.COMPILE_STATUS)) {
+      const log = this.gl.getShaderInfoLog(this.handle) || '';
       this.gl.deleteShader(this.handle);
-      throw new Error(this.gl.getShaderInfoLog(this.handle) || '');
+      throw new Error(`${this.toString()}\n${log}\n${addLineNumbers(s)}`);
     }
   }
 

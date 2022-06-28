@@ -115,6 +115,7 @@ interface IState {
 /**
  * 纹理
  * 一般在 `webgl` 中会将纹理用于贴图，或者作为 `renderTarget`
+ *
  * 代码示例：
  * ```ts
  * const texture = new ve.Texture(renderer, {
@@ -125,7 +126,7 @@ interface IState {
  * const image = new Image();
  *
  * image.onload = () => {
- *   texture.setImage(image, image.width, image.height);
+ *   texture.setData(image, image.width, image.height);
  * };
  *
  * image.src = './assets/posx.jpg';
@@ -163,8 +164,9 @@ export default class Texture extends Resource<TextureOptions> {
   /**
    * @param renderer Renderer 对象
    * @param options 配置项
+   * @param needsUpdate 是否需要`update`
    */
-  constructor(renderer: Renderer, options: Partial<TextureOptions > = {}) {
+  constructor(renderer: Renderer, options: Partial<TextureOptions > = {}, needsUpdate = true) {
     const { gl } = renderer;
     const defaultOptions = {
       type: gl.UNSIGNED_BYTE,
@@ -189,8 +191,10 @@ export default class Texture extends Resource<TextureOptions> {
     this.width = this.options.width as number;
     this.height = this.options.height as number;
     this.#state.version = -1;
-    this.needsUpdate = true;
-    this.update();
+    this.needsUpdate = Boolean(needsUpdate);
+    if (this.needsUpdate) {
+      this.update();
+    }
   }
 
   /**
@@ -199,7 +203,7 @@ export default class Texture extends Resource<TextureOptions> {
    * @param width 纹理宽度，默认为原始宽度
    * @param height 纹理高度，默认为原始高度
    */
-  setImage(image, width = this.width, height = this.height) {
+  setData(image, width = this.width, height = this.height) {
     this.image = image;
     this.width = width;
     this.height = height;
@@ -225,7 +229,7 @@ export default class Texture extends Resource<TextureOptions> {
     return new Promise((resolve, reject) => {
       const image = new Image();
       image.onload = () => {
-        this.setImage(image, image.width, image.height);
+        this.setData(image, image.width, image.height);
         resolve(this);
       };
       image.onerror = (e) => {
@@ -354,6 +358,7 @@ export default class Texture extends Resource<TextureOptions> {
    * @param unit 纹理单位，默认为 `this.textureUnit`
    */
   bind(unit = this.textureUnit) {
+    if (this.rendererState.textureUnits[this.rendererState.activeTextureUnit] === this.id) return;
     this.textureUnit = unit;
     this.rendererState.textureUnits[this.textureUnit] = this.id;
     this.gl.bindTexture(this.gl.TEXTURE_2D, this.handle);

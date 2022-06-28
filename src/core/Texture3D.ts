@@ -126,7 +126,7 @@ interface IState {
  * const image = new Image();
  *
  * image.onload = () => {
- *   texture.setImage(image, image.width, image.height);
+ *   texture.setData(image, image.width, image.height);
  * };
  *
  * image.src = './assets/posx.jpg';
@@ -143,21 +143,6 @@ export default class Texture3D extends Texture {
    * 设置纹理单位
    */
   public textureUnit = 0;
-
-  /**
-   * 纹理数据
-   */
-  public image: any;
-
-  /**
-   * 纹理宽度
-   */
-  public width: number;
-
-  /**
-   * 纹理高度
-   */
-  public height: number;
 
   /**
    * 纹理深度
@@ -178,6 +163,7 @@ export default class Texture3D extends Texture {
       internalFormat: options.format || gl.RGBA,
       wrapS: gl.CLAMP_TO_EDGE,
       wrapT: gl.CLAMP_TO_EDGE,
+      wrapR: gl.CLAMP_TO_EDGE,
       generateMipmaps: true,
       minFilter: gl.LINEAR,
       magFilter: gl.LINEAR,
@@ -189,15 +175,10 @@ export default class Texture3D extends Texture {
     };
 
     const opt = Object.assign({}, defaultOptions, options);
-    super(renderer, opt);
-    this.needsUpdate = false;
-    this.textureUnit = 0;
-    this.image = this.options.image;
-    this.width = this.options.width as number;
-    this.height = this.options.height as number;
+    super(renderer, opt, false);
+    this.needsUpdate = true;
     this.depth = this.options.depth as number;
     this.#state.version = -1;
-    this.needsUpdate = true;
     this.update();
   }
 
@@ -213,11 +194,13 @@ export default class Texture3D extends Texture {
    * @param image 纹理数据
    * @param width 纹理宽度，默认为原始宽度
    * @param height 纹理高度，默认为原始高度
+   * @param depth
    */
-  setImage(image, width = this.width, height = this.height) {
+  setData(image, width = this.width, height = this.height, depth = this.depth) {
     this.image = image;
     this.width = width;
     this.height = height;
+    this.depth = depth;
     this.needsUpdate = true;
   }
 
@@ -229,6 +212,7 @@ export default class Texture3D extends Texture {
     this.options = Object.assign(this.options, options);
     this.width = this.options.width as number;
     this.height = this.options.height as number;
+    this.depth = this.options.depth as number;
     this.needsUpdate = true;
   }
 
@@ -361,6 +345,7 @@ export default class Texture3D extends Texture {
    * @param unit 纹理单位，默认为 `this.textureUnit`
    */
   bind(unit = this.textureUnit) {
+    if (this.rendererState.textureUnits[this.rendererState.activeTextureUnit] === this.id) return;
     this.textureUnit = unit;
     this.rendererState.textureUnits[this.textureUnit] = this.id;
     this.gl.bindTexture(this.gl.TEXTURE_3D, this.handle);
@@ -381,23 +366,6 @@ export default class Texture3D extends Texture {
   destroy() {
     this.unbind();
     super.destroy();
-  }
-
-  /**
-   * @private
-   * 创建纹理对象
-   */
-  createHandle() {
-    return this.gl.createTexture();
-  }
-
-  /**
-   * @private
-   */
-  deleteHandle() {
-    if (this.handle) {
-      this.gl.deleteTexture(this.handle);
-    }
   }
 
   /**

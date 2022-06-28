@@ -73,7 +73,6 @@ function render(props) {
       onChange: (fov) => {
         if (cameraRef.current) {
           cameraRef.current.fov = fov;
-          cameraRef.current.updateProjectionMatrix();
         }
       },
     },
@@ -85,7 +84,6 @@ function render(props) {
       onChange: (nearZ) => {
         if (cameraRef.current) {
           cameraRef.current.nearZ = nearZ;
-          cameraRef.current.updateProjectionMatrix();
         }
       },
     },
@@ -97,7 +95,6 @@ function render(props) {
       onChange: (farZ) => {
         if (cameraRef.current) {
           cameraRef.current.farZ = farZ;
-          cameraRef.current.updateProjectionMatrix();
         }
       },
     },

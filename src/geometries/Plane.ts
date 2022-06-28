@@ -69,6 +69,7 @@ export function getPlaneBuffer(
   const consti = i;
   const widthHalf = width / 2;
   const heightHalf = height / 2;
+  const depthHalf = depth / 2;
 
   const gridX = Math.floor(widthSegments);
   const gridY = Math.floor(heightSegments);
@@ -84,7 +85,7 @@ export function getPlaneBuffer(
     for (let ix = 0; ix < gridX1; ix++) {
       position[i * 3 + u] = (ix * segmentWidth - widthHalf) * uDir;
       position[i * 3 + v] = y * vDir;
-      position[i * 3 + w] = depth / 2;
+      position[i * 3 + w] = depthHalf;
 
       normal[i * 3 + u] = 0;
       normal[i * 3 + v] = 0;
