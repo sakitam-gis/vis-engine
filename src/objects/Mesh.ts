@@ -10,6 +10,7 @@ import RenderTarget from '../core/RenderTarget';
 
 import PerspectiveCamera from '../cameras/PerspectiveCamera';
 import OrthographicCamera from '../cameras/OrthographicCamera';
+import type { DataType } from '../core/BufferAttribute';
 
 export interface MeshOptions {
   /**
@@ -232,17 +233,16 @@ export default class Mesh extends Object3D {
         this.#wireframeGeometry.destroy();
       }
 
-      const attributesConfig = this.#geometry.attributesConfig;
+      const attributes = this.#geometry.attributes;
 
-      const positionArray = attributesConfig.position.data;
-      const numIndices = attributesConfig.index?.data ? attributesConfig.index?.data.length : Math.floor(positionArray.length / 3);
+      const positionArray = attributes.get('position')?.data as DataType;
+      const indexAttribute = this.#geometry.index?.data;
+      const numIndices = indexAttribute ? indexAttribute.length : Math.floor(positionArray.length / 3);
       const index = [];
 
-      if (attributesConfig.index) {
-        const data = attributesConfig.index?.data;
-
-        if (data) {
-          getWireframeIndex(positionArray, index, numIndices, data as (Uint32Array | Uint16Array));
+      if (this.#geometry.index) {
+        if (indexAttribute) {
+          getWireframeIndex(positionArray, index, numIndices, indexAttribute as (Uint32Array | Uint16Array));
         }
       } else {
         getWireframeIndex(positionArray, index, numIndices);
@@ -251,7 +251,7 @@ export default class Mesh extends Object3D {
       const indices = index.length > 65536 ? new Uint32Array(index) : new Uint16Array(index);
 
       this.#wireframeGeometry = new Geometry(this.renderer, {
-        ...this.#geometry.attributesConfig,
+        ...this.#geometry.attributesData,
         index: {
           data: indices,
         }

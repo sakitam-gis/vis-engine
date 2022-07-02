@@ -375,8 +375,11 @@ export default class Renderer {
 
     const renderList = this.getRenderList({ scene, camera });
 
-    renderList.forEach((node) => {
+    let i = 0;
+    const len = renderList.length;
+    for (; i < len; i++) {
+      const node = renderList[i];
       node.draw({ camera });
-    });
+    }
   }
 }

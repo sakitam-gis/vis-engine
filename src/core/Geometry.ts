@@ -1,19 +1,22 @@
-import { uid } from '../utils';
+import {omit, uid} from '../utils';
 import Program from '../core/Program';
 import Base from './Base';
 import Renderer from './Renderer';
 import BufferAttribute from './BufferAttribute';
 import type { Attribute } from './BufferAttribute';
 import Vector3 from '../math/Vector3';
+import Vector4 from '../math/Vector4';
 
 const tempVec3 = new Vector3();
+
+type AttributesOmitKeys = 'id' | 'buffer';
 
 export interface Attributes {
   [key: string]: Attribute;
 }
 
 /**
- * 几何体对象，包含了顶点位置，面片索引、法相量、颜色值、UV 坐标和自定义缓存属性值等，这些数据最终会上传到`GPU`中。
+ * 几何体对象，包含了顶点位置，面片索引、法向量、颜色值、UV 坐标和自定义缓存属性值等，这些数据最终会上传到`GPU`中。
  *
  * 示例代码：
  *
@@ -43,7 +46,7 @@ export default class Geometry extends Base {
 
   #attributes: Map<string, BufferAttribute>;
 
-  #VAOs: any;
+  #VAOs: Map<string, any>;
 
   #bounds: any;
 
@@ -55,11 +58,9 @@ export default class Geometry extends Base {
 
   drawMode: number;
 
-  attributesConfig: Attributes;
-
   /**
    * @param renderer 渲染器
-   * @param attributes 顶点数据
+   * @param attributes 属性信息（顶点数据）
    */
   constructor(renderer: Renderer, attributes: Attributes = {}) {
     super(renderer);
@@ -67,11 +68,10 @@ export default class Geometry extends Base {
       start: 0,
       count: 0,
     };
-    this.attributesConfig = attributes;
     this.instancedCount = 0;
     this.isInstanced = false;
     this.#attributes = new Map();
-    this.#VAOs = {};
+    this.#VAOs = new Map();
 
     this.#id = uid('geometry');
     this.drawMode = this.gl.TRIANGLES;
@@ -99,23 +99,61 @@ export default class Geometry extends Base {
     }
   }
 
+  /**
+   * 获取当前几何体数据的唯一标识
+   */
   get id() {
     return this.#id;
   }
 
+  /**
+   * 获取全部的属性信息
+   */
   get attributes() {
     return this.#attributes;
   }
 
+  /**
+   * 获取属性数据
+   */
+  get attributesData(): Attributes {
+    const attributes: Attributes = {};
+    const iterator = this.#attributes.entries();
+    for (let i = 0; i < this.#attributes.size; i++) {
+      const entry = iterator.next().value;
+      attributes[entry[0]] = omit<Attribute & { id: string }, AttributesOmitKeys>(entry[1], ['id', 'buffer']);
+    }
+
+    return attributes;
+  }
+
+  /**
+   * 获取顶点索引属性
+   */
   get index() {
     return this.attributes.get('index');
   }
 
+  /**
+   * 获取当前几何体的包围盒
+   */
   get bounds() {
     return this.#bounds;
   }
 
-  // eslint-disable-next-line consistent-return
+  /**
+   * 手动设置包围盒，一般我们只需要内部计算
+   * @param bounds
+   */
+  set bounds(bounds) {
+    this.#bounds = bounds;
+  }
+
+  /**
+   * 添加对应的属性信息（顶点数据）
+   * @param name
+   * @param attribute
+   */
   addAttribute(name: string, attribute: BufferAttribute) {
     if (!attribute.target) {
       attribute.target = name === 'index' ? this.gl.ELEMENT_ARRAY_BUFFER : this.gl.ARRAY_BUFFER;
@@ -141,10 +179,19 @@ export default class Geometry extends Base {
     }
   }
 
+  /**
+   * 获取对应的属性信息（顶点数据）
+   * @param name
+   */
   getAttribute(name) {
     return this.attributes.get(name);
   }
 
+  /**
+   * 设置对应的属性数据
+   * @param name
+   * @param data
+   */
   setAttributeData(name, data) {
     const attribute = this.getAttribute(name);
     if (attribute) {
@@ -153,6 +200,10 @@ export default class Geometry extends Base {
     }
   }
 
+  /**
+   * 更新顶点属性数据
+   * @param attribute
+   */
   updateAttribute(attribute) {
     if (this.rendererState.boundBuffer !== attribute.buffer) {
       this.gl.bindBuffer(attribute.target, attribute.buffer);
@@ -162,10 +213,18 @@ export default class Geometry extends Base {
     attribute.needsUpdate = false;
   }
 
+  /**
+   * 移除属性信息
+   * @param attribute
+   */
   removeAttribute(attribute) {
     this.attributes.delete(attribute);
   }
 
+  /**
+   * 设置顶点索引数据
+   * @param index
+   */
   setIndex(index) {
     if (index instanceof BufferAttribute) {
       index.size = 1;
@@ -198,6 +257,10 @@ export default class Geometry extends Base {
     }));
   }
 
+  /**
+   * 设置顶点法向量数据
+   * @param data
+   */
   setNormals(data) {
     this.addAttribute('normal', new BufferAttribute(this.renderer, {
       data: new Float32Array(data),
@@ -206,7 +269,7 @@ export default class Geometry extends Base {
   }
 
   /**
-   * 设置纹理 UV
+   * 设置纹理 UV 数据
    * @param data
    */
   setUVs(data) {
@@ -217,17 +280,17 @@ export default class Geometry extends Base {
   }
 
   /**
-   * 设置顶点颜色
+   * 设置顶点颜色数据
    * @param colors
    */
-  setColors(colors) {
+  setColors(colors: (Vector4 | Vector3 | number[] | Float32Array)[]) {
     const data: number[] = [];
     for (let i = 0; i < colors.length; i++) {
       let color = colors[i];
-      if (!Array.isArray(color) && color) {
-        color = color.toVector().toArray();
+      if (color && (color instanceof Vector3 || color instanceof Vector4)) {
+        color = color.toArray();
       }
-      data.push(color[0], color[1], color[2], color[3]);
+      data.push(color[0], color[1], color[2], color[3] || 1);
     }
     this.addAttribute('color', new BufferAttribute(this.renderer, {
       data: new Float32Array(data),
@@ -235,6 +298,11 @@ export default class Geometry extends Base {
     }));
   }
 
+  /**
+   * 设置顶点渲染的开始索引和数量
+   * @param start 开始索引
+   * @param count 数量
+   */
   setDrawRange(start: number, count: number) {
     this.drawRange.start = start;
     this.drawRange.count = count;
@@ -256,12 +324,12 @@ export default class Geometry extends Base {
     const { attributeOrder } = program;
     const vao = this.renderer.createVertexArray();
     this.renderer.bindVertexArray(vao);
-    this.#VAOs[attributeOrder] = vao;
+    this.#VAOs.set(attributeOrder, vao);
     this.bindAttributes(program);
   }
 
   /**
-   * 绑定顶点数据
+   * 绑定顶点属性数据
    * https://devdocs.io/dom/webgl2renderingcontext/vertexattribipointer
    * @param program
    */
@@ -301,7 +369,7 @@ export default class Geometry extends Base {
   }
 
   /**
-   * 计算当前几何体的的边界矩形
+   * 计算当前几何体的的矩形边界（立方体包围盒）
    */
   computeBoundingBox() {
     const {
@@ -339,7 +407,7 @@ export default class Geometry extends Base {
   }
 
   /**
-   * 计算当前几何体的的边界球形
+   * 计算当前几何体的的球形边界（球形包围盒）
    */
   computeBoundingSphere() {
     const {
@@ -369,10 +437,11 @@ export default class Geometry extends Base {
     const { start, count } = this.drawRange;
     const activeGeometryId = `${this.id}_${program.attributeOrder}`;
     if (this.rendererState.activeGeometryId !== activeGeometryId) {
-      if (!this.#VAOs[program.attributeOrder]) {
+      const vao = this.#VAOs.get(program.attributeOrder);
+      if (!vao) {
         this.createVAO(program);
       }
-      program.renderer.bindVertexArray(this.#VAOs[program.attributeOrder]);
+      program.renderer.bindVertexArray(this.#VAOs.get(program.attributeOrder));
     }
 
     program.attributeLocations.forEach((location, { name }) => {
@@ -400,14 +469,49 @@ export default class Geometry extends Base {
   }
 
   /**
+   * 将传入的几何体对象的属性值拷贝到此对象
+   * @param source 源几何体对象
+   */
+  copy(source: Geometry) {
+    const attributes = source.attributesData;
+    for (const name in attributes) {
+      const attribute = attributes[name];
+      if (attribute instanceof BufferAttribute) {
+        if (name === 'index') {
+          this.setIndex(attribute);
+        } else {
+          this.addAttribute(name, attribute);
+        }
+      } else {
+        if (attribute.data) {
+          const n = new BufferAttribute(this.renderer, attribute);
+          if (name === 'index') {
+            this.setIndex(n);
+          } else {
+            this.addAttribute(name, n);
+          }
+        }
+      }
+    }
+
+    if (source.bounds) {
+      this.bounds = {
+        min: new Vector3().copy(source.bounds.min),
+        max: new Vector3().copy(source.bounds.max),
+        center: new Vector3().copy(source.bounds.center),
+        scale: new Vector3().copy(source.bounds.scale),
+        radius: source.bounds.radius,
+      };
+    }
+
+    return this;
+  }
+
+  /**
    * 克隆此几何体对象
    */
   clone() {
-    const attributes = {};
-    this.attributes.forEach((item, index) => {
-      attributes[index] = item;
-    });
-    const geometry = new Geometry(this.renderer, attributes);
+    const geometry = new Geometry(this.renderer, {}).copy(this);
     geometry.drawMode = this.drawMode;
     return geometry;
   }
@@ -416,13 +520,13 @@ export default class Geometry extends Base {
    * 销毁几何体对象
    */
   destroy() {
-    Object.keys(this.#VAOs).forEach((t) => {
-      this.renderer.deleteVertexArray(this.#VAOs[t]);
-      delete this.#VAOs[t];
+    this.#VAOs.forEach((t) => {
+      this.renderer.deleteVertexArray(t);
     });
-    this.attributes.forEach((t) => {
+    this.#VAOs.clear();
+    this.#attributes.forEach((t) => {
       this.gl.deleteBuffer(t.buffer);
     });
-    this.attributes.clear();
+    this.#attributes.clear();
   }
 }
