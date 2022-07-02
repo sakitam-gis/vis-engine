@@ -1,0 +1,422 @@
+---
+id: box-volume
+title: Draw Box Volume Geometry
+---
+
+体渲染在此引擎的实现。
+具体请参考以下实现：
+
+- https://www.willusher.io/webgl/2019/01/13/volume-rendering-with-webgl
+- https://juejin.cn/post/6844904056872239117
+
+### 一个简单的示例
+
+```jsx live
+function render(props) {
+  const drawVolumeVertex = `#version 300 es
+    layout(location=0) in vec3 position;
+    uniform mat4 modelViewMatrix;
+    uniform mat4 projectionMatrix;
+    uniform mat4 viewMatrix;
+    uniform mat4 modelMatrix;
+    uniform vec3 cameraPosition;
+    uniform vec3 volume_scale;
+
+    out vec3 v_modelPos;
+
+    void main(void) {
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      v_modelPos = (modelMatrix * vec4(position, 1.0)).xyz;
+    }
+    `;
+
+  const drawVolumeFragment = `#version 300 es
+    precision highp int;
+    precision highp float;
+    uniform highp sampler3D volume;
+    uniform highp sampler2D colormap;
+    uniform ivec3 volume_dims;
+    uniform float dt_scale;
+    uniform vec3 cameraPosition;
+    uniform mat4 uInvTransform;
+    uniform float u_alpha;
+
+    in vec3 v_modelPos;
+    out vec4 color;
+
+    const float STEP = 1.73205081 / 256.0;
+    vec2 boxIntersection(vec3 ro, vec3 rd, vec3 boxSize) {
+        vec3 m = 1.0 / rd;
+        vec3 n = m * ro;
+        vec3 k = abs(m) * boxSize;
+        vec3 t1 = -n - k;
+        vec3 t2 = -n + k;
+        float tN = max(max(t1.x, t1.y), t1.z);
+        float tF = min(min(t2.x, t2.y), t2.z);
+        if( tN > tF || tF < 0.0) return vec2(-1.0);
+        return vec2( tN, tF );
+    }
+
+    vec4 getColor(float intensity) {
+        intensity = min(0.46, intensity) / 0.46;
+        vec2 _uv = vec2(intensity, 0);
+        vec4 color = texture(colormap, _uv);
+        float alpha = intensity;
+        if (alpha < 0.03) {
+            alpha = 0.01;
+        }
+        return vec4(color.r, color.g, color.b, alpha);
+    }
+
+    vec4 sampleAs3DTexture(vec3 texCoord) {
+        texCoord += vec3(0.5);
+        return getColor(texture(volume, texCoord).r);
+    }
+
+    vec4 shade(in vec3 P, in vec3 V) {
+      vec3 frontPos = (uInvTransform * vec4(P.xyz, 1.0)).xyz;
+      vec3 cameraPos = (uInvTransform * vec4(cameraPosition.xyz, 1.0)).xyz;
+      vec3 rayDir = normalize(frontPos - cameraPos);
+      vec3 backPos = frontPos;
+      vec2 t = boxIntersection(cameraPos, rayDir, vec3(0.5));
+      if (t.x > -1.0 && t.y > -1.0) {
+          backPos = cameraPos + rayDir * t.y;
+      }
+      float rayLength = length(backPos - frontPos);
+      int steps = int(max(1.0, floor(rayLength / STEP)));
+      float delta = rayLength / float(steps);
+      vec3 deltaDirection = rayDir * delta;
+      vec3 currentPosition = frontPos;
+      vec4 accumulatedColor = vec4(0.0);
+      float accumulatedAlpha = 0.0;
+      vec4 colorSample;
+      float alphaSample;
+      for (int i = 0; i < steps; i++) {
+          colorSample = sampleAs3DTexture(currentPosition);
+          alphaSample = colorSample.a * u_alpha;
+          alphaSample *= (1.0 - accumulatedAlpha);
+          accumulatedColor += colorSample * alphaSample;
+          accumulatedAlpha += alphaSample;
+          currentPosition += deltaDirection;
+      }
+      float transparent = accumulatedAlpha;
+      return vec4(accumulatedColor.xyz, transparent);
+    }
+
+    float linear_to_srgb(float x) {
+      if (x <= 0.0031308f) {
+          return 12.92f * x;
+      }
+      return 1.055f * pow(x, 1.f / 2.4f) - 0.055f;
+    }
+
+    void main() {
+      vec3 V = normalize(v_modelPos - cameraPosition);
+      vec3 P = v_modelPos;
+      color = shade(P, V);
+
+      color.r = linear_to_srgb(color.r);
+      color.g = linear_to_srgb(color.g);
+      color.b = linear_to_srgb(color.b);
+    }
+    `;
+
+  const refDom = useRef(null);
+  const meshRef = useRef(null);
+  const cameraRef = useRef(null);
+  const renderRef = useRef(null);
+
+  const store = leva.useCreateStore();
+
+  const fov = 60;
+  const nearZ = 0.1;
+
+  const farZ = 100;
+
+  const updateGeometry = () => {
+    if (!renderRef.current) return;
+    const geometry = new Box(renderRef.current, {
+      width: store.get('width'),
+      height: store.get('height'),
+      depth: store.get('depth'),
+
+      widthSegments: store.get('widthSegments'),
+      heightSegments: store.get('heightSegments'),
+      depthSegments: store.get('depthSegments'),
+    });
+
+    if (meshRef.current) {
+      meshRef.current.updateGeometry(geometry);
+    }
+  }
+
+  const config = {
+    fov: {
+      value: fov,
+      min: -50,
+      max: 90,
+      step: 1,
+      onChange: (fov) => {
+        if (cameraRef.current) {
+          cameraRef.current.fov = fov;
+        }
+      },
+    },
+    nearZ: {
+      value: nearZ,
+      min: -50,
+      max: 50,
+      step: 0.1,
+      onChange: (nearZ) => {
+        if (cameraRef.current) {
+          cameraRef.current.nearZ = nearZ;
+        }
+      },
+    },
+    farZ: {
+      value: farZ,
+      min: -500,
+      max: 500,
+      step: 1,
+      onChange: (farZ) => {
+        if (cameraRef.current) {
+          cameraRef.current.farZ = farZ;
+        }
+      },
+    },
+    cameraPosition: {
+      value: [0, 0, 1.5],
+      onChange: (p) => {
+        if (cameraRef.current) {
+          cameraRef.current.position.set(...p);
+        }
+      },
+    },
+    width: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: () => {
+        updateGeometry();
+      },
+    },
+    height: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    depth: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    widthSegments: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    heightSegments: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    depthSegments: {
+      value: 1,
+      min: 1,
+      max: 100,
+      step: 1,
+      onChange: (p) => {
+        updateGeometry();
+      },
+    },
+    wireframe: {
+      value: false,
+      onChange: (p) => {
+        if (meshRef.current) {
+          meshRef.current.wireframe = p;
+        }
+      },
+    }
+  };
+
+  leva.useControls(config, {
+    store: store,
+  });
+
+  const image = useBaseUrl('/assets/rainbow.png');
+  const volume = useBaseUrl('/assets/bonsai_256x256x256_uint8.raw');
+
+  const init = () => {
+    const canvas = refDom.current;
+
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    const renderer = new Renderer(canvas);
+
+    renderRef.current = renderer;
+
+    const camera = new PerspectiveCamera(fov, canvas.width / canvas.height, nearZ, farZ);
+    camera.position.z = 1.5;
+    cameraRef.current = camera;
+
+    function resize(target) {
+      const { width, height } = target.getBoundingClientRect();
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+    }
+
+    const scene = new Scene();
+
+    const geometry = new Box(renderer, {
+      width: 1,
+      height: 1,
+      depth: 1,
+
+      widthSegments: 1,
+      heightSegments: 1,
+      depthSegments: 1,
+    });
+
+    const texture = new Texture3D(renderer, {
+      width: 256,
+      height: 256,
+      depth: 256,
+      format: renderer.gl.RED,
+      type: renderer.gl.UNSIGNED_BYTE,
+      internalFormat: renderer.gl.R8,
+    });
+
+    const colormap = new Texture(renderer, {
+      width: 180,
+      height: 1,
+    });
+
+    colormap.fromSrc(image);
+
+    const invTransform = new ProjectionMatrix();
+
+    const program = new Program(renderer, {
+      vertexShader: drawVolumeVertex,
+      fragmentShader: drawVolumeFragment,
+      uniforms: {
+        volume: { value: texture },
+        colormap: { value: colormap },
+        volume_dims: { value: new ve.Vector3() },
+        volume_scale: { value: new ve.Vector3() },
+        u_alpha: { value: 0.6 },
+        u_invTransform: { value: invTransform },
+      },
+      cullFace: renderer.gl.FRONT,
+      // depthTest: true,
+      blendFunc: {
+        src: renderer.gl.ONE,
+        dst: renderer.gl.ONE_MINUS_SRC_ALPHA,
+        srcAlpha: renderer.gl.ONE,
+        dstAlpha: renderer.gl.ONE_MINUS_SRC_ALPHA,
+      },
+      blendEquation: {
+        modeRGB: renderer.gl.FUNC_ADD,
+        modeAlpha: renderer.gl.FUNC_ADD,
+      },
+    });
+
+    function loadVolume(url) {
+      const fileRegex = /.*\/(\w+)_(\d+)x(\d+)x(\d+)_(\w+)\.*/;
+      const m = url.match(fileRegex);
+		  const volDims = [parseInt(m[2]), parseInt(m[3]), parseInt(m[4])];
+      const req = new XMLHttpRequest();
+
+      req.open("GET", url, true);
+      req.responseType = "arraybuffer";
+
+      req.onerror = function(evt) {
+        console.error(evt);
+      };
+      req.onload = function() {
+        const dataBuffer = req.response;
+        if (dataBuffer) {
+          const d = new Uint8Array(dataBuffer);
+          const longestAxis = Math.max(volDims[0], Math.max(volDims[1], volDims[2]));
+          const volScale = [
+            volDims[0] / longestAxis,
+            volDims[1] / longestAxis,
+            volDims[2] / longestAxis,
+          ];
+          texture.setData(d, volDims[0], volDims[1], volDims[2]);
+          program.setUniform('volume_dims', new Vector3().fromArray(volDims));
+          program.setUniform('volume_scale', new Vector3().fromArray(volScale));
+        } else {
+          console.log("无数据");
+        }
+      };
+      req.send();
+    }
+
+    const box = new Mesh(renderer, {
+      geometry,
+      program,
+      mode: renderer.gl.TRIANGLE_STRIP,
+      // wireframe: true,
+    });
+    box.setParent(scene);
+    box.position.set(0, 0, 0);
+
+    meshRef.current = box;
+
+    loadVolume(volume);
+
+    const raf = new Raf((t) => {
+      box.rotation.y -= 0.01;
+      box.rotation.z -= 0.01;
+      invTransform.copy(box.localMatrix).invert()
+      program.setUniform('uInvTransform', invTransform);
+      renderer.render({ scene, camera });
+    });
+
+    return {
+      canvas,
+      resize,
+    }
+  }
+
+  useEffect(() => {
+    const { canvas, resize } = init();
+
+    observe(canvas, resize);
+
+    return () => {
+      unobserve(canvas, resize);
+    };
+  }, []);
+
+  return (
+    <div className="live-wrap">
+      <div className="leva-wrap">
+        <Leva
+          collapsed
+          fill
+        ></Leva>
+        <LevaPanel collapsed store={store} fill></LevaPanel>
+      </div>
+      <canvas className="scene-canvas" ref={refDom}></canvas>
+    </div>
+  );
+}
+```
