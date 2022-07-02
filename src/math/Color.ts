@@ -144,3 +144,10 @@ export default class Color {
       .concat(String(this.a), '})');
   }
 }
+
+export type ColorLike = Color | {
+  r: number;
+  g: number;
+  b: number;
+  a?: number;
+}

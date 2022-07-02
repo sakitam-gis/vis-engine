@@ -1,6 +1,6 @@
 import type { WithNull } from '../types';
 import { isNull, isUndef } from '../utils';
-import Color from '../math/Color';
+import Color, { ColorLike } from '../math/Color';
 import Base from './Base';
 import Renderer from './Renderer';
 
@@ -52,7 +52,7 @@ interface StateOptions {
 
   clearAlpha: number;
 
-  clearColor: Color;
+  clearColor: ColorLike;
 
   cullFace: GLenum;
 
@@ -399,7 +399,9 @@ export default class State extends Base {
    * @param alpha
    */
   setClearAlpha (alpha: number) {
-    this.#state.clearAlpha = alpha;
+    if (this.#state.clearAlpha !== alpha) {
+      this.#state.clearAlpha = alpha;
+    }
   }
 
   /**
@@ -407,10 +409,14 @@ export default class State extends Base {
    * @param color 颜色
    * @param alpha 透明度
    */
-  setClearColor (color: Color, alpha: number) {
-    this.#state.clearColor = color;
-    this.#state.clearAlpha = alpha;
-    this.gl.clearColor(color.r, color.g, color.b, alpha);
+  setClearColor (color: ColorLike, alpha?: number) {
+    if (this.#state.clearAlpha !== alpha || this.#state.clearColor !== color) {
+      this.#state.clearColor = color;
+      if (!isUndef(alpha) && !isNull(alpha)) {
+        this.#state.clearAlpha = alpha;
+      }
+      this.gl.clearColor(color.r, color.g, color.b, (!isUndef(this.#state.clearAlpha) && !isNull(this.#state.clearAlpha) ? this.#state.clearAlpha : color.a) as number);
+    }
   }
 
   /**
