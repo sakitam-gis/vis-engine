@@ -1,6 +1,10 @@
-[vis-engine - v1.0.0](../index.md) / Box
-
-# Class: Box
+---
+id: "Box"
+title: "Class: Box"
+sidebar_label: "Box"
+sidebar_position: 0
+custom_edit_url: null
+---
 
 立方体，通常用来创建立方体或者不规则四边形。
 
@@ -17,53 +21,6 @@ scene.add(box);
 - [`Geometry`](Geometry.md)
 
   ↳ **`Box`**
-
-## Table of contents
-
-### Constructors
-
-- [constructor](Box.md#constructor)
-
-### Properties
-
-- [drawMode](Box.md#drawmode)
-- [drawRange](Box.md#drawrange)
-- [instancedCount](Box.md#instancedcount)
-- [isInstanced](Box.md#isinstanced)
-- [renderer](Box.md#renderer)
-
-### Accessors
-
-- [attributes](Box.md#attributes)
-- [attributesData](Box.md#attributesdata)
-- [bounds](Box.md#bounds)
-- [gl](Box.md#gl)
-- [id](Box.md#id)
-- [index](Box.md#index)
-- [rendererState](Box.md#rendererstate)
-
-### Methods
-
-- [addAttribute](Box.md#addattribute)
-- [bindAttributes](Box.md#bindattributes)
-- [clone](Box.md#clone)
-- [computeBoundingBox](Box.md#computeboundingbox)
-- [computeBoundingSphere](Box.md#computeboundingsphere)
-- [copy](Box.md#copy)
-- [createVAO](Box.md#createvao)
-- [destroy](Box.md#destroy)
-- [draw](Box.md#draw)
-- [getAttribute](Box.md#getattribute)
-- [removeAttribute](Box.md#removeattribute)
-- [setAttributeData](Box.md#setattributedata)
-- [setColors](Box.md#setcolors)
-- [setDrawRange](Box.md#setdrawrange)
-- [setIndex](Box.md#setindex)
-- [setInstancedCount](Box.md#setinstancedcount)
-- [setNormals](Box.md#setnormals)
-- [setUVs](Box.md#setuvs)
-- [setVertices](Box.md#setvertices)
-- [updateAttribute](Box.md#updateattribute)
 
 ## Constructors
 

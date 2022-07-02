@@ -12,6 +12,7 @@ custom_edit_url: null
 
 ## Classes
 
+- [Box](classes/Box.md)
 - [BufferAttribute](classes/BufferAttribute.md)
 - [Camera](classes/Camera.md)
 - [Clock](classes/Clock.md)
@@ -47,19 +48,21 @@ custom_edit_url: null
 
 - [Attribute](interfaces/Attribute.md)
 - [Attributes](interfaces/Attributes.md)
+- [BoxOptions](interfaces/BoxOptions.md)
 - [CameraOptions](interfaces/CameraOptions.md)
-- [IRafOptions](interfaces/IRafOptions.md)
-- [ITexture3DOptions](interfaces/ITexture3DOptions.md)
-- [ITextureOptions](interfaces/ITextureOptions.md)
+- [DataTextureOptions](interfaces/DataTextureOptions.md)
 - [MeshDrawOptions](interfaces/MeshDrawOptions.md)
 - [MeshOptions](interfaces/MeshOptions.md)
 - [PlaneOptions](interfaces/PlaneOptions.md)
 - [ProgramOptions](interfaces/ProgramOptions.md)
 - [ProgramRenderState](interfaces/ProgramRenderState.md)
+- [RafOptions](interfaces/RafOptions.md)
 - [RenderBufferOptions](interfaces/RenderBufferOptions.md)
 - [RenderTargetOptions](interfaces/RenderTargetOptions.md)
 - [RendererOptions](interfaces/RendererOptions.md)
 - [ResourceOptions](interfaces/ResourceOptions.md)
+- [Texture3DOptions](interfaces/Texture3DOptions.md)
+- [TextureOptions](interfaces/TextureOptions.md)
 - [UniformData](interfaces/UniformData.md)
 
 ## Type Aliases
@@ -70,7 +73,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;9)
+[core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;9)
 
 ___
 
@@ -89,7 +92,7 @@ ___
 
 #### Defined in
 
-[cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;8558d24#line&#x3D;12)
+[cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;92e1850#line&#x3D;12)
 
 ___
 
@@ -101,7 +104,7 @@ ___
 
 #### Defined in
 
-[cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;8558d24#line&#x3D;10)
+[cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;92e1850#line&#x3D;10)
 
 ___
 
@@ -113,7 +116,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;8558d24#line&#x3D;8)
+[core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;92e1850#line&#x3D;8)
 
 ___
 
@@ -123,4 +126,4 @@ ___
 
 #### Defined in
 
-[core/Program.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;8558d24#line&#x3D;65)
+[core/Program.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;92e1850#line&#x3D;65)

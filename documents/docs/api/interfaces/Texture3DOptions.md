@@ -1,28 +1,10 @@
-[vis-engine - v1.0.0](../index.md) / Texture3DOptions
-
-# Interface: Texture3DOptions
-
-## Table of contents
-
-### Properties
-
-- [depth](Texture3DOptions.md#depth)
-- [flipY](Texture3DOptions.md#flipy)
-- [format](Texture3DOptions.md#format)
-- [generateMipmaps](Texture3DOptions.md#generatemipmaps)
-- [height](Texture3DOptions.md#height)
-- [image](Texture3DOptions.md#image)
-- [internalFormat](Texture3DOptions.md#internalformat)
-- [level](Texture3DOptions.md#level)
-- [magFilter](Texture3DOptions.md#magfilter)
-- [minFilter](Texture3DOptions.md#minfilter)
-- [premultiplyAlpha](Texture3DOptions.md#premultiplyalpha)
-- [type](Texture3DOptions.md#type)
-- [unpackAlignment](Texture3DOptions.md#unpackalignment)
-- [width](Texture3DOptions.md#width)
-- [wrapR](Texture3DOptions.md#wrapr)
-- [wrapS](Texture3DOptions.md#wraps)
-- [wrapT](Texture3DOptions.md#wrapt)
+---
+id: "Texture3DOptions"
+title: "Interface: Texture3DOptions"
+sidebar_label: "Texture3DOptions"
+sidebar_position: 0
+custom_edit_url: null
+---
 
 ## Properties
 

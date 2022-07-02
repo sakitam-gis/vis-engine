@@ -1,18 +1,10 @@
-[vis-engine - v1.0.0](../index.md) / BoxOptions
-
-# Interface: BoxOptions
-
-## Table of contents
-
-### Properties
-
-- [attributes](BoxOptions.md#attributes)
-- [depth](BoxOptions.md#depth)
-- [depthSegments](BoxOptions.md#depthsegments)
-- [height](BoxOptions.md#height)
-- [heightSegments](BoxOptions.md#heightsegments)
-- [width](BoxOptions.md#width)
-- [widthSegments](BoxOptions.md#widthsegments)
+---
+id: "BoxOptions"
+title: "Interface: BoxOptions"
+sidebar_label: "BoxOptions"
+sidebar_position: 0
+custom_edit_url: null
+---
 
 ## Properties
 

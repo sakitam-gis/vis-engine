@@ -1,14 +1,12 @@
-[vis-engine - v1.0.0](../index.md) / RafOptions
-
-# Interface: RafOptions
+---
+id: "RafOptions"
+title: "Interface: RafOptions"
+sidebar_label: "RafOptions"
+sidebar_position: 0
+custom_edit_url: null
+---
 
 Raf 配置项
-
-## Table of contents
-
-### Properties
-
-- [autoStart](RafOptions.md#autostart)
 
 ## Properties
 

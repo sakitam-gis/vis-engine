@@ -8,6 +8,24 @@ custom_edit_url: null
 
 `RenderTarget` 是一种用于将场景渲染到纹理的方法，主要用于做离屏渲染和后处理等效果。
 
+示例代码：
+```ts
+const options = {
+  width: 256,
+  height: 256,
+  minFilter: renderer.gl.NEAREST,
+  magFilter: renderer.gl.NEAREST
+};
+const current = new RenderTarget(renderer, options);
+
+current.resize(width, height);
+current.bind();
+renderer.viewport(0, 0, width, height);
+mesh.updateMatrixWorld();
+mesh.draw();
+current.unbind();
+```
+
 ## Hierarchy
 
 - [`Resource`](Resource.md)<[`RenderTargetOptions`](../interfaces/RenderTargetOptions.md)\>
@@ -33,7 +51,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/RenderTarget.ts:113](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;113)
+[core/RenderTarget.ts:131](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;131)
 
 ## Properties
 
@@ -47,7 +65,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/Resource.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;26)
+[core/Resource.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;92e1850#line&#x3D;26)
 
 ___
 
@@ -57,7 +75,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:67](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;67)
+[core/RenderTarget.ts:85](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;85)
 
 ___
 
@@ -69,7 +87,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:92](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;92)
+[core/RenderTarget.ts:110](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;110)
 
 ___
 
@@ -81,7 +99,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:87](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;87)
+[core/RenderTarget.ts:105](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;105)
 
 ___
 
@@ -93,7 +111,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:77](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;77)
+[core/RenderTarget.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;95)
 
 ___
 
@@ -107,7 +125,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;19)
+[core/Resource.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;92e1850#line&#x3D;19)
 
 ___
 
@@ -121,7 +139,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;21)
+[core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;92e1850#line&#x3D;21)
 
 ___
 
@@ -135,7 +153,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;28)
+[core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;92e1850#line&#x3D;28)
 
 ___
 
@@ -149,7 +167,7 @@ ___
 
 #### Defined in
 
-[core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;7)
+[core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;92e1850#line&#x3D;7)
 
 ___
 
@@ -163,7 +181,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;23)
+[core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;92e1850#line&#x3D;23)
 
 ___
 
@@ -175,7 +193,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:82](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;82)
+[core/RenderTarget.ts:100](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;100)
 
 ___
 
@@ -187,7 +205,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:72](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;72)
+[core/RenderTarget.ts:90](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;90)
 
 ## Accessors
 
@@ -203,7 +221,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:223](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;223)
+[core/RenderTarget.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;241)
 
 • `set` **clearColors**(`colors`): `void`
 
@@ -221,7 +239,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:216](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;216)
+[core/RenderTarget.ts:234](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;234)
 
 ___
 
@@ -237,7 +255,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:238](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;238)
+[core/RenderTarget.ts:256](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;256)
 
 • `set` **clearDepth**(`depth`): `void`
 
@@ -255,7 +273,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:231](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;231)
+[core/RenderTarget.ts:249](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;249)
 
 ___
 
@@ -271,7 +289,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:253](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;253)
+[core/RenderTarget.ts:271](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;271)
 
 • `set` **clearStencil**(`stencil`): `void`
 
@@ -289,7 +307,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:246](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;246)
+[core/RenderTarget.ts:264](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;264)
 
 ___
 
@@ -309,7 +327,7 @@ Resource.gl
 
 #### Defined in
 
-[core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;16)
+[core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;92e1850#line&#x3D;16)
 
 ___
 
@@ -327,7 +345,7 @@ Resource.handle
 
 #### Defined in
 
-[core/Resource.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;45)
+[core/Resource.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;92e1850#line&#x3D;45)
 
 ___
 
@@ -347,7 +365,7 @@ Resource.rendererState
 
 #### Defined in
 
-[core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;23)
+[core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;92e1850#line&#x3D;23)
 
 ___
 
@@ -361,7 +379,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:208](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;208)
+[core/RenderTarget.ts:226](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;226)
 
 ## Methods
 
@@ -387,7 +405,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:379](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;379)
+[core/RenderTarget.ts:397](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;397)
 
 ___
 
@@ -403,7 +421,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:323](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;323)
+[core/RenderTarget.ts:341](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;341)
 
 ___
 
@@ -425,7 +443,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:261](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;261)
+[core/RenderTarget.ts:279](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;279)
 
 ___
 
@@ -445,7 +463,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:410](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;410)
+[core/RenderTarget.ts:428](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;428)
 
 ___
 
@@ -470,7 +488,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;56)
+[core/Resource.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;92e1850#line&#x3D;56)
 
 ___
 
@@ -490,7 +508,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:417](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;417)
+[core/RenderTarget.ts:435](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;435)
 
 ___
 
@@ -513,7 +531,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:397](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;397)
+[core/RenderTarget.ts:415](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;415)
 
 ___
 
@@ -533,7 +551,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:347](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;347)
+[core/RenderTarget.ts:365](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;365)
 
 ___
 
@@ -551,7 +569,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:81](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;8558d24#line&#x3D;81)
+[core/Resource.ts:81](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;92e1850#line&#x3D;81)
 
 ___
 
@@ -574,7 +592,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:356](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;356)
+[core/RenderTarget.ts:374](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;374)
 
 ___
 
@@ -594,7 +612,7 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:424](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;424)
+[core/RenderTarget.ts:442](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;442)
 
 ___
 
@@ -620,4 +638,4 @@ ___
 
 #### Defined in
 
-[core/RenderTarget.ts:387](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;8558d24#line&#x3D;387)
+[core/RenderTarget.ts:405](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;92e1850#line&#x3D;405)

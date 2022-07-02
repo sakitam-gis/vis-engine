@@ -1,35 +1,16 @@
-[vis-engine - v1.0.0](../index.md) / DataTextureOptions
-
-# Interface: DataTextureOptions
+---
+id: "DataTextureOptions"
+title: "Interface: DataTextureOptions"
+sidebar_label: "DataTextureOptions"
+sidebar_position: 0
+custom_edit_url: null
+---
 
 ## Hierarchy
 
 - [`TextureOptions`](TextureOptions.md)
 
   ↳ **`DataTextureOptions`**
-
-## Table of contents
-
-### Properties
-
-- [data](DataTextureOptions.md#data)
-- [depth](DataTextureOptions.md#depth)
-- [flipY](DataTextureOptions.md#flipy)
-- [format](DataTextureOptions.md#format)
-- [generateMipmaps](DataTextureOptions.md#generatemipmaps)
-- [height](DataTextureOptions.md#height)
-- [image](DataTextureOptions.md#image)
-- [internalFormat](DataTextureOptions.md#internalformat)
-- [level](DataTextureOptions.md#level)
-- [magFilter](DataTextureOptions.md#magfilter)
-- [minFilter](DataTextureOptions.md#minfilter)
-- [premultiplyAlpha](DataTextureOptions.md#premultiplyalpha)
-- [type](DataTextureOptions.md#type)
-- [unpackAlignment](DataTextureOptions.md#unpackalignment)
-- [width](DataTextureOptions.md#width)
-- [wrapR](DataTextureOptions.md#wrapr)
-- [wrapS](DataTextureOptions.md#wraps)
-- [wrapT](DataTextureOptions.md#wrapt)
 
 ## Properties
 

@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[objects/Mesh.ts:46](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;4193568#line&#x3D;46)
+[objects/Mesh.ts:47](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;47)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;4193568#line&#x3D;23)
+[objects/Mesh.ts:24](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;24)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:18](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;4193568#line&#x3D;18)
+[objects/Mesh.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;19)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;4193568#line&#x3D;41)
+[objects/Mesh.ts:42](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;42)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;4193568#line&#x3D;28)
+[objects/Mesh.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;29)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:51](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;4193568#line&#x3D;51)
+[objects/Mesh.ts:52](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;52)
 
 ___
 
@@ -104,4 +104,4 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;4193568#line&#x3D;56)
+[objects/Mesh.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;57)

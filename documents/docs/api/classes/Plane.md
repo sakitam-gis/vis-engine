@@ -41,7 +41,7 @@ scene.add(plane);
 
 #### Defined in
 
-[geometries/Plane.ts:122](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Plane.ts?at&#x3D;8558d24#line&#x3D;122)
+[geometries/Plane.ts:137](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Plane.ts?at&#x3D;92e1850#line&#x3D;137)
 
 ## Properties
 
@@ -55,7 +55,7 @@ scene.add(plane);
 
 #### Defined in
 
-[core/Geometry.ts:33](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;33)
+[core/Geometry.ts:59](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;59)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:27](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;27)
+[core/Geometry.ts:53](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;53)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;29)
+[core/Geometry.ts:55](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;55)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:31](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;31)
+[core/Geometry.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;57)
 
 ___
 
@@ -111,13 +111,15 @@ ___
 
 #### Defined in
 
-[core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;7)
+[core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;92e1850#line&#x3D;7)
 
 ## Accessors
 
 ### attributes
 
 • `get` **attributes**(): `Map`<`string`, [`BufferAttribute`](BufferAttribute.md)\>
+
+获取全部的属性信息
 
 #### Returns
 
@@ -129,13 +131,35 @@ Geometry.attributes
 
 #### Defined in
 
-[core/Geometry.ts:80](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;80)
+[core/Geometry.ts:112](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;112)
+
+___
+
+### attributesData
+
+• `get` **attributesData**(): [`Attributes`](../interfaces/Attributes.md)
+
+获取属性数据
+
+#### Returns
+
+[`Attributes`](../interfaces/Attributes.md)
+
+#### Inherited from
+
+Geometry.attributesData
+
+#### Defined in
+
+[core/Geometry.ts:119](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;119)
 
 ___
 
 ### bounds
 
 • `get` **bounds**(): `any`
+
+获取当前几何体的包围盒
 
 #### Returns
 
@@ -147,7 +171,29 @@ Geometry.bounds
 
 #### Defined in
 
-[core/Geometry.ts:88](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;88)
+[core/Geometry.ts:140](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;140)
+
+• `set` **bounds**(`bounds`): `void`
+
+手动设置包围盒，一般我们只需要内部计算
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `bounds` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Geometry.bounds
+
+#### Defined in
+
+[core/Geometry.ts:148](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;148)
 
 ___
 
@@ -167,13 +213,15 @@ Geometry.gl
 
 #### Defined in
 
-[core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;16)
+[core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;92e1850#line&#x3D;16)
 
 ___
 
 ### id
 
 • `get` **id**(): `string`
+
+获取当前几何体数据的唯一标识
 
 #### Returns
 
@@ -185,13 +233,15 @@ Geometry.id
 
 #### Defined in
 
-[core/Geometry.ts:76](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;76)
+[core/Geometry.ts:105](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;105)
 
 ___
 
 ### index
 
 • `get` **index**(): `undefined` \| [`BufferAttribute`](BufferAttribute.md)
+
+获取顶点索引属性
 
 #### Returns
 
@@ -203,7 +253,7 @@ Geometry.index
 
 #### Defined in
 
-[core/Geometry.ts:84](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;84)
+[core/Geometry.ts:133](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;133)
 
 ___
 
@@ -223,13 +273,15 @@ Geometry.rendererState
 
 #### Defined in
 
-[core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;8558d24#line&#x3D;23)
+[core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;92e1850#line&#x3D;23)
 
 ## Methods
 
 ### addAttribute
 
 ▸ **addAttribute**(`name`, `attribute`): `void`
+
+添加对应的属性信息（顶点数据）
 
 #### Parameters
 
@@ -248,7 +300,7 @@ Geometry.rendererState
 
 #### Defined in
 
-[core/Geometry.ts:93](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;93)
+[core/Geometry.ts:157](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;157)
 
 ___
 
@@ -256,7 +308,7 @@ ___
 
 ▸ **bindAttributes**(`program`): `void`
 
-绑定顶点数据
+绑定顶点属性数据
 https://devdocs.io/dom/webgl2renderingcontext/vertexattribipointer
 
 #### Parameters
@@ -275,7 +327,7 @@ https://devdocs.io/dom/webgl2renderingcontext/vertexattribipointer
 
 #### Defined in
 
-[core/Geometry.ts:242](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;242)
+[core/Geometry.ts:336](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;336)
 
 ___
 
@@ -295,7 +347,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:379](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;379)
+[core/Geometry.ts:513](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;513)
 
 ___
 
@@ -303,7 +355,7 @@ ___
 
 ▸ **computeBoundingBox**(): `any`
 
-计算当前几何体的的边界矩形
+计算当前几何体的的矩形边界（立方体包围盒）
 
 #### Returns
 
@@ -315,7 +367,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:280](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;280)
+[core/Geometry.ts:374](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;374)
 
 ___
 
@@ -323,7 +375,7 @@ ___
 
 ▸ **computeBoundingSphere**(): `void`
 
-计算当前几何体的的边界球形
+计算当前几何体的的球形边界（球形包围盒）
 
 #### Returns
 
@@ -335,7 +387,33 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:318](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;318)
+[core/Geometry.ts:412](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;412)
+
+___
+
+### copy
+
+▸ **copy**(`source`): [`Plane`](Plane.md)
+
+将传入的几何体对象的属性值拷贝到此对象
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | [`Geometry`](Geometry.md) | 源几何体对象 |
+
+#### Returns
+
+[`Plane`](Plane.md)
+
+#### Inherited from
+
+[Geometry](Geometry.md).[copy](Geometry.md#copy)
+
+#### Defined in
+
+[core/Geometry.ts:475](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;475)
 
 ___
 
@@ -361,7 +439,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:229](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;229)
+[core/Geometry.ts:323](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;323)
 
 ___
 
@@ -381,7 +459,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:392](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;392)
+[core/Geometry.ts:522](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;522)
 
 ___
 
@@ -408,13 +486,15 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:342](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;342)
+[core/Geometry.ts:436](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;436)
 
 ___
 
 ### getAttribute
 
 ▸ **getAttribute**(`name`): `undefined` \| [`BufferAttribute`](BufferAttribute.md)
+
+获取对应的属性信息（顶点数据）
 
 #### Parameters
 
@@ -432,13 +512,15 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:118](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;118)
+[core/Geometry.ts:186](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;186)
 
 ___
 
 ### removeAttribute
 
 ▸ **removeAttribute**(`attribute`): `void`
+
+移除属性信息
 
 #### Parameters
 
@@ -456,13 +538,15 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:139](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;139)
+[core/Geometry.ts:220](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;220)
 
 ___
 
 ### setAttributeData
 
 ▸ **setAttributeData**(`name`, `data`): `void`
+
+设置对应的属性数据
 
 #### Parameters
 
@@ -481,7 +565,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:122](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;122)
+[core/Geometry.ts:195](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;195)
 
 ___
 
@@ -489,13 +573,13 @@ ___
 
 ▸ **setColors**(`colors`): `void`
 
-设置顶点颜色
+设置顶点颜色数据
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `colors` | `any` |
+| `colors` | (`Float32Array` \| `number`[] \| [`Vector3`](Vector3.md) \| [`Vector4`](Vector4.md))[] |
 
 #### Returns
 
@@ -507,7 +591,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:197](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;197)
+[core/Geometry.ts:286](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;286)
 
 ___
 
@@ -515,12 +599,14 @@ ___
 
 ▸ **setDrawRange**(`start`, `count`): `void`
 
+设置顶点渲染的开始索引和数量
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `start` | `number` |
-| `count` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `start` | `number` | 开始索引 |
+| `count` | `number` | 数量 |
 
 #### Returns
 
@@ -532,13 +618,15 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:212](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;212)
+[core/Geometry.ts:306](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;306)
 
 ___
 
 ### setIndex
 
 ▸ **setIndex**(`index`): `void`
+
+设置顶点索引数据
 
 #### Parameters
 
@@ -556,7 +644,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:143](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;143)
+[core/Geometry.ts:228](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;228)
 
 ___
 
@@ -582,13 +670,15 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:221](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;221)
+[core/Geometry.ts:315](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;315)
 
 ___
 
 ### setNormals
 
 ▸ **setNormals**(`data`): `void`
+
+设置顶点法向量数据
 
 #### Parameters
 
@@ -606,7 +696,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:175](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;175)
+[core/Geometry.ts:264](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;264)
 
 ___
 
@@ -614,7 +704,7 @@ ___
 
 ▸ **setUVs**(`data`): `void`
 
-设置纹理 UV
+设置纹理 UV 数据
 
 #### Parameters
 
@@ -632,7 +722,7 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:186](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;186)
+[core/Geometry.ts:275](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;275)
 
 ___
 
@@ -658,13 +748,15 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:162](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;162)
+[core/Geometry.ts:247](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;247)
 
 ___
 
 ### updateAttribute
 
 ▸ **updateAttribute**(`attribute`): `void`
+
+更新顶点属性数据
 
 #### Parameters
 
@@ -682,4 +774,4 @@ ___
 
 #### Defined in
 
-[core/Geometry.ts:130](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;8558d24#line&#x3D;130)
+[core/Geometry.ts:207](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;92e1850#line&#x3D;207)

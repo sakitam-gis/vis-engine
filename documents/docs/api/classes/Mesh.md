@@ -9,6 +9,7 @@ custom_edit_url: null
 网格渲染对象
 
 代码示例：
+
 ```ts
 const points = new Mesh(renderer, { mode: renderer.gl.POINTS, geometry, program });
 points.setParent(scene);
@@ -40,7 +41,7 @@ points.position.set(-1, 1, 0);
 
 #### Defined in
 
-[objects/Mesh.ts:110](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;110)
+[objects/Mesh.ts:121](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;121)
 
 ## Properties
 
@@ -54,7 +55,7 @@ points.position.set(-1, 1, 0);
 
 #### Defined in
 
-[objects/Object3D.ts:39](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;39)
+[objects/Object3D.ts:39](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;39)
 
 ___
 
@@ -64,7 +65,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:92](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;92)
+[objects/Mesh.ts:99](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;99)
 
 ___
 
@@ -74,7 +75,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:82](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;82)
+[objects/Mesh.ts:89](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;89)
 
 ___
 
@@ -90,7 +91,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;20)
+[objects/Object3D.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;20)
 
 ___
 
@@ -104,7 +105,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:27](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;27)
+[objects/Object3D.ts:27](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;27)
 
 ___
 
@@ -114,7 +115,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:94](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;94)
+[objects/Mesh.ts:101](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;101)
 
 ___
 
@@ -124,7 +125,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:84](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;84)
+[objects/Mesh.ts:91](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;91)
 
 ___
 
@@ -134,7 +135,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:86](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;86)
+[objects/Mesh.ts:93](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;93)
 
 ___
 
@@ -148,7 +149,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;41)
+[objects/Object3D.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;41)
 
 ___
 
@@ -162,7 +163,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;29)
+[objects/Object3D.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;29)
 
 ___
 
@@ -176,7 +177,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;35)
+[objects/Object3D.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;35)
 
 ___
 
@@ -186,7 +187,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:88](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;88)
+[objects/Mesh.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;95)
 
 ___
 
@@ -196,7 +197,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:96](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;96)
+[objects/Mesh.ts:103](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;103)
 
 ___
 
@@ -210,7 +211,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:33](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;33)
+[objects/Object3D.ts:33](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;33)
 
 ___
 
@@ -224,7 +225,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:31](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;31)
+[objects/Object3D.ts:31](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;31)
 
 ___
 
@@ -238,7 +239,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:37](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;37)
+[objects/Object3D.ts:37](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;37)
 
 ___
 
@@ -254,7 +255,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;15)
+[objects/Object3D.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;15)
 
 ___
 
@@ -270,7 +271,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;25)
+[objects/Object3D.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;25)
 
 ___
 
@@ -284,7 +285,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:43](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;43)
+[objects/Object3D.ts:43](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;43)
 
 ___
 
@@ -294,7 +295,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:90](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;90)
+[objects/Mesh.ts:97](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;97)
 
 ## Accessors
 
@@ -310,7 +311,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:140](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;140)
+[objects/Mesh.ts:158](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;158)
 
 ___
 
@@ -326,7 +327,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:133](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;133)
+[objects/Mesh.ts:151](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;151)
 
 ___
 
@@ -342,7 +343,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:147](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;147)
+[objects/Mesh.ts:165](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;165)
 
 ___
 
@@ -358,7 +359,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:163](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;163)
+[objects/Mesh.ts:184](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;184)
 
 • `set` **wireframe**(`wireframe`): `void`
 
@@ -376,7 +377,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:155](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;155)
+[objects/Mesh.ts:173](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;173)
 
 ## Methods
 
@@ -401,7 +402,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:66](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;66)
+[objects/Object3D.ts:66](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;66)
 
 ___
 
@@ -421,7 +422,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:239](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;239)
+[objects/Mesh.ts:298](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;298)
 
 ___
 
@@ -447,7 +448,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:88](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;88)
+[objects/Object3D.ts:88](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;88)
 
 ___
 
@@ -474,7 +475,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:254](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;254)
+[objects/Mesh.ts:313](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;313)
 
 ___
 
@@ -492,7 +493,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:159](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;159)
+[objects/Object3D.ts:159](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;159)
 
 ___
 
@@ -508,7 +509,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:231](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;231)
+[objects/Mesh.ts:290](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;290)
 
 ___
 
@@ -530,7 +531,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:171](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;171)
+[objects/Mesh.ts:192](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;192)
 
 ___
 
@@ -555,7 +556,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:115](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;115)
+[objects/Object3D.ts:115](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;115)
 
 ___
 
@@ -580,7 +581,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:75](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;75)
+[objects/Object3D.ts:75](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;75)
 
 ___
 
@@ -607,7 +608,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:97](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;97)
+[objects/Object3D.ts:97](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;97)
 
 ___
 
@@ -631,7 +632,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:107](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;107)
+[objects/Object3D.ts:107](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;107)
 
 ___
 
@@ -639,7 +640,7 @@ ___
 
 ▸ **updateGeometry**(`geometry`, `destroy?`): `void`
 
-更新几何体信息
+更新几何体信息，如果开启了 `wireframe` 还需要更新 `WireframeGeometry`
 
 #### Parameters
 
@@ -654,7 +655,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:209](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;209)
+[objects/Mesh.ts:267](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;267)
 
 ___
 
@@ -674,7 +675,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:154](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;154)
+[objects/Object3D.ts:154](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;154)
 
 ___
 
@@ -700,7 +701,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:129](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;8558d24#line&#x3D;129)
+[objects/Object3D.ts:129](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;92e1850#line&#x3D;129)
 
 ___
 
@@ -723,4 +724,27 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:221](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;8558d24#line&#x3D;221)
+[objects/Mesh.ts:280](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;280)
+
+___
+
+### updateWireframeGeometry
+
+▸ **updateWireframeGeometry**(`wireframe`, `force?`): `void`
+
+更新网格几何体数据，主要是顶点索引数据
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `wireframe` | `any` | `undefined` | 是否更新索引数据为网格数据 |
+| `force` | `boolean` | `false` | 是否强制更新 |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[objects/Mesh.ts:230](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;92e1850#line&#x3D;230)
