@@ -3,28 +3,48 @@ id: clouds
 title: Draw Cloud
 ---
 
-云渲染
+一个简单的云体渲染示例，这里主要用到了实例化渲染技术。
 
 ### 一个简单的示例
 
 ```jsx live
 function render(props) {
-  const drawPlaneVertex = `
-    attribute vec2 uv;
+  const drawVertex = `attribute vec2 uv;
     attribute vec3 position;
+
+    attribute vec3 offset;
+    attribute vec3 random;
+
     uniform mat4 modelViewMatrix;
     uniform mat4 projectionMatrix;
     varying vec2 vUv;
 
+    void rotate2d(inout vec2 v, float a){
+        mat2 m = mat2(cos(a), -sin(a), sin(a),  cos(a));
+        v = m * v;
+    }
+
     void main() {
         vUv = uv;
 
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        // copy position so that we can modify the instances
+        vec3 pos = position;
+
+        pos *= 0.5 + random.z * random.z * 1.5;
+
+        // rotate around y axis
+        rotate2d(pos.xz, random.y / 2.0);
+
+        // rotate around x axis just to add some extra variation
+        rotate2d(pos.zy, random.x * 3.14);
+
+        pos += offset;
+
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
     }
     `;
 
-  const drawPlaneFragment = `
-    precision highp float;
+  const drawFragment = `precision highp float;
 
     uniform sampler2D texture;
     uniform vec3 u_fogColor;
@@ -40,6 +60,7 @@ function render(props) {
       gl_FragColor = tex;
       gl_FragColor.w *= pow(gl_FragCoord.z, 20.0);
 			gl_FragColor = mix(gl_FragColor, vec4(u_fogColor, gl_FragColor.w), fogFactor);
+			// gl_FragColor = vec4(0.5, 1.0, 0.5, 1.0);
     }
     `;
 
@@ -47,6 +68,7 @@ function render(props) {
   const meshRef = useRef(null);
   const cameraRef = useRef(null);
   const renderRef = useRef(null);
+  const mousePos = useRef([0, 0]);
 
   const store = leva.useCreateStore();
 
@@ -54,21 +76,6 @@ function render(props) {
   const nearZ = 1;
 
   const farZ = 3000;
-
-  const updateGeometry = () => {
-    if (!renderRef.current) return;
-    const geometry = new Plane(renderRef.current, {
-      width: store.get('width'),
-      height: store.get('height'),
-
-      widthSegments: store.get('widthSegments'),
-      heightSegments: store.get('heightSegments'),
-    });
-
-    if (meshRef.current) {
-      meshRef.current.updateGeometry(geometry);
-    }
-  }
 
   const config = {
     fov: {
@@ -112,42 +119,6 @@ function render(props) {
         }
       },
     },
-    width: {
-      value: 2,
-      min: 1,
-      max: 100,
-      step: 1,
-      onChange: () => {
-        updateGeometry();
-      },
-    },
-    height: {
-      value: 2,
-      min: 1,
-      max: 100,
-      step: 1,
-      onChange: (p) => {
-        updateGeometry();
-      },
-    },
-    widthSegments: {
-      value: 1,
-      min: 1,
-      max: 100,
-      step: 1,
-      onChange: (p) => {
-        updateGeometry();
-      },
-    },
-    heightSegments: {
-      value: 1,
-      min: 1,
-      max: 100,
-      step: 1,
-      onChange: (p) => {
-        updateGeometry();
-      },
-    },
     wireframe: {
       value: false,
       onChange: (p) => {
@@ -172,12 +143,14 @@ function render(props) {
     const renderer = new Renderer(canvas, {
       alpha: true,
       antialias: true,
+      premultipliedAlpha: true,
     });
+
+    renderer.state.setClearColor(new Color(0), 0);
 
     renderRef.current = renderer;
 
     const camera = new PerspectiveCamera(fov, canvas.width / canvas.height, nearZ, farZ);
-    camera.position.z = fov;
     cameraRef.current = camera;
 
     function resize(target) {
@@ -198,37 +171,51 @@ function render(props) {
 
     const texture = new Texture(renderer, {
       flipY: true,
+      width: 256,
+      height: 256,
+      minFilter: renderer.gl.LINEAR_MIPMAP_LINEAR
     });
 
     texture.fromSrc(image);
 
     const program = new Program(renderer, {
-      vertexShader: drawPlaneVertex,
-      fragmentShader: drawPlaneFragment,
+      vertexShader: drawVertex,
+      fragmentShader: drawFragment,
       uniforms: {
         texture: {
           value: texture,
         },
         u_fogColor: {
-            value: [0.27058823529411763, 0.5176470588235295, 0.7058823529411765],
+          value: [0.27058823529411763, 0.5176470588235295, 0.7058823529411765],
         },
         u_fogNear: {
-            value: -100,
+          value: -100,
         },
         u_fogFar: {
-            value: 3000,
-        }
+          value: 3000,
+        },
       },
+      cullFace: renderer.gl.BACK,
       depthTest: false,
       depthWrite: false,
       transparent: true,
+      blendFunc: {
+        src: renderer.gl.SRC_ALPHA,
+        dst: renderer.gl.ONE_MINUS_SRC_ALPHA,
+        srcAlpha: renderer.gl.ONE,
+        dstAlpha: renderer.gl.ONE_MINUS_SRC_ALPHA,
+      },
+      blendEquation: {
+        modeRGB: renderer.gl.FUNC_ADD,
+        modeAlpha: renderer.gl.FUNC_ADD,
+      },
     });
 
-    const num = 60;
+    const num = 1000;
     let offset = new Float32Array(num * 3);
     let random = new Float32Array(num * 3);
     for (let i = 0; i < num; i++) {
-      offset.set([Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1], i * 3);
+      offset.set([Math.random() * 1000 - 500, -Math.random() * Math.random() * 200 - 15, i], i * 3);
 
       // unique random values are always handy for instances.
       // Here they will be used for rotation, scale and movement.
@@ -236,9 +223,10 @@ function render(props) {
     }
 
     const geometry = new Geometry(renderer, {
-      position: { size: 3, data: new Float32Array(planeGeometry.position) },
-      uv: { size: 2, data: new Float32Array(planeGeometry.uv) },
-      normal: { size: 3, data: new Float32Array(planeGeometry.normal) },
+      position: planeGeometry.attributesData.position,
+      uv: planeGeometry.attributesData.uv,
+      normal: planeGeometry.attributesData.normal,
+      index: planeGeometry.attributesData.index,
       offset: { divisor: 1, size: 3, data: offset },
       random: { divisor: 1, size: 3, data: random },
     });
@@ -256,12 +244,17 @@ function render(props) {
       wireframe: false,
     });
     plane.setParent(scene);
-    plane.position.set(0, 0, 0);
 
     meshRef.current = plane;
 
     const raf = new Raf((t) => {
-      plane.rotation.y -= 0.02;
+      const position = t * 30 % 1000;
+      const [mouseX, mouseY] = mousePos.current;
+
+      camera.position.x += (mouseX - camera.position.x) * 0.01;
+      camera.position.y += (-mouseY - camera.position.y) * 0.01;
+      camera.position.z = -position + 1000;
+
       renderer.render({ scene, camera });
     });
 
@@ -271,13 +264,41 @@ function render(props) {
     }
   }
 
+  function onDocumentMouseMove(event) {
+    if (!refDom.current) return;
+    const windowHalfX = refDom.current.clientWidth / 2;
+    const windowHalfY = refDom.current.clientHeight / 2;
+    const mouseX = (event.clientX - windowHalfX) * 0.25;
+    const mouseY = (event.clientY - windowHalfY) * 0.15;
+    mousePos.current = [mouseX, mouseY];
+  }
+
   useEffect(() => {
     const { canvas, resize } = init();
 
     observe(canvas, resize);
 
+    document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+    const cv = document.createElement('canvas');
+    cv.width = 32;
+    cv.height = window.innerHeight;
+
+    const ctx = cv.getContext('2d');
+
+    const gradient = ctx.createLinearGradient(0, 0, 0, cv.height);
+    gradient.addColorStop(0, '#1e4877');
+    gradient.addColorStop(0.5, '#4584b4');
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, cv.width, cv.height);
+
+    canvas.style.background = 'url(' + cv.toDataURL('image/png') + ')';
+    canvas.style.backgroundSize = '32px 100%';
+
     return () => {
       unobserve(canvas, resize);
+      document.removeEventListener('mousemove', onDocumentMouseMove, false);
     };
   }, []);
 

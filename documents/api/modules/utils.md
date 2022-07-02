@@ -48,7 +48,7 @@
 
 #### Defined in
 
-[utils/math.ts:1](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/math.ts?at&#x3D;92e1850#line&#x3D;1)
+[utils/math.ts:1](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/math.ts?at&#x3D;05b5687#line&#x3D;1)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[utils/math.ts:2](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/math.ts?at&#x3D;92e1850#line&#x3D;2)
+[utils/math.ts:2](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/math.ts?at&#x3D;05b5687#line&#x3D;2)
 
 ## Functions
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[utils/math.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/math.ts?at&#x3D;92e1850#line&#x3D;26)
+[utils/math.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/math.ts?at&#x3D;05b5687#line&#x3D;26)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[utils/shader.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/shader.ts?at&#x3D;92e1850#line&#x3D;7)
+[utils/shader.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/shader.ts?at&#x3D;05b5687#line&#x3D;7)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[utils/math.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/math.ts?at&#x3D;92e1850#line&#x3D;8)
+[utils/math.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/math.ts?at&#x3D;05b5687#line&#x3D;8)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[utils/gl.ts:76](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;92e1850#line&#x3D;76)
+[utils/gl.ts:76](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;05b5687#line&#x3D;76)
 
 ___
 
@@ -172,7 +172,7 @@ Extracts GLSLIFY style naming of shaders: `#define SHADER_NAME ...`
 
 #### Defined in
 
-[utils/shader.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/shader.ts?at&#x3D;92e1850#line&#x3D;12)
+[utils/shader.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/shader.ts?at&#x3D;05b5687#line&#x3D;12)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[utils/shader.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/shader.ts?at&#x3D;92e1850#line&#x3D;25)
+[utils/shader.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/shader.ts?at&#x3D;05b5687#line&#x3D;25)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[utils/index.ts:80](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;92e1850#line&#x3D;80)
+[utils/index.ts:80](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;05b5687#line&#x3D;80)
 
 ___
 
@@ -240,7 +240,7 @@ ___
 
 #### Defined in
 
-[utils/index.ts:42](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;92e1850#line&#x3D;42)
+[utils/index.ts:42](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;05b5687#line&#x3D;42)
 
 ___
 
@@ -262,7 +262,7 @@ ___
 
 #### Defined in
 
-[utils/index.ts:67](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;92e1850#line&#x3D;67)
+[utils/index.ts:67](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;05b5687#line&#x3D;67)
 
 ___
 
@@ -286,7 +286,7 @@ boolean
 
 #### Defined in
 
-[utils/index.ts:51](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;92e1850#line&#x3D;51)
+[utils/index.ts:51](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;05b5687#line&#x3D;51)
 
 ___
 
@@ -308,7 +308,7 @@ ___
 
 #### Defined in
 
-[utils/index.ts:75](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;92e1850#line&#x3D;75)
+[utils/index.ts:75](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;05b5687#line&#x3D;75)
 
 ___
 
@@ -330,7 +330,7 @@ ___
 
 #### Defined in
 
-[utils/math.ts:34](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/math.ts?at&#x3D;92e1850#line&#x3D;34)
+[utils/math.ts:34](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/math.ts?at&#x3D;05b5687#line&#x3D;34)
 
 ___
 
@@ -352,7 +352,7 @@ obj is RegExp
 
 #### Defined in
 
-[utils/index.ts:59](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;92e1850#line&#x3D;59)
+[utils/index.ts:59](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;05b5687#line&#x3D;59)
 
 ___
 
@@ -376,7 +376,7 @@ boolean
 
 #### Defined in
 
-[utils/index.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;92e1850#line&#x3D;25)
+[utils/index.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;05b5687#line&#x3D;25)
 
 ___
 
@@ -400,7 +400,7 @@ boolean
 
 #### Defined in
 
-[utils/index.ts:34](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;92e1850#line&#x3D;34)
+[utils/index.ts:34](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;05b5687#line&#x3D;34)
 
 ___
 
@@ -425,7 +425,7 @@ ___
 
 #### Defined in
 
-[utils/shader.ts:67](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/shader.ts?at&#x3D;92e1850#line&#x3D;67)
+[utils/shader.ts:67](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/shader.ts?at&#x3D;05b5687#line&#x3D;67)
 
 ___
 
@@ -447,7 +447,7 @@ ___
 
 #### Defined in
 
-[utils/gl.ts:5](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;92e1850#line&#x3D;5)
+[utils/gl.ts:5](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;05b5687#line&#x3D;5)
 
 ___
 
@@ -469,7 +469,7 @@ ___
 
 #### Defined in
 
-[utils/gl.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;92e1850#line&#x3D;21)
+[utils/gl.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;05b5687#line&#x3D;21)
 
 ___
 
@@ -487,7 +487,7 @@ number
 
 #### Defined in
 
-[utils/index.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;92e1850#line&#x3D;9)
+[utils/index.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;05b5687#line&#x3D;9)
 
 ___
 
@@ -517,7 +517,7 @@ ___
 
 #### Defined in
 
-[utils/index.ts:106](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;92e1850#line&#x3D;106)
+[utils/index.ts:106](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;05b5687#line&#x3D;106)
 
 ___
 
@@ -539,7 +539,7 @@ ___
 
 #### Defined in
 
-[utils/shader.ts:3](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/shader.ts?at&#x3D;92e1850#line&#x3D;3)
+[utils/shader.ts:3](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/shader.ts?at&#x3D;05b5687#line&#x3D;3)
 
 ___
 
@@ -561,7 +561,7 @@ ___
 
 #### Defined in
 
-[utils/math.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/math.ts?at&#x3D;92e1850#line&#x3D;16)
+[utils/math.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/math.ts?at&#x3D;05b5687#line&#x3D;16)
 
 ___
 
@@ -585,7 +585,7 @@ string
 
 #### Defined in
 
-[utils/index.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;92e1850#line&#x3D;16)
+[utils/index.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;05b5687#line&#x3D;16)
 
 ___
 
@@ -609,4 +609,4 @@ uid
 
 #### Defined in
 
-[utils/index.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;92e1850#line&#x3D;95)
+[utils/index.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/index.ts?at&#x3D;05b5687#line&#x3D;95)

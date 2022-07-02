@@ -268,7 +268,11 @@ function render(props) {
 
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
-    const renderer = new Renderer(canvas);
+    const renderer = new Renderer(canvas, {
+      alpha: false,
+      antialias: true,
+      premultipliedAlpha: true,
+    });
 
     renderRef.current = renderer;
 
