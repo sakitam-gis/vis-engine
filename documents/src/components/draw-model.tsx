@@ -26,7 +26,6 @@ export default function DrawModel(props) {
       onChange: (fov) => {
         if (cameraRef.current) {
           cameraRef.current.fov = fov;
-          cameraRef.current.updateProjectionMatrix();
         }
       },
     },
@@ -37,8 +36,7 @@ export default function DrawModel(props) {
       step: 0.1,
       onChange: (nearZ) => {
         if (cameraRef.current) {
-          cameraRef.current.nearZ = nearZ;
-          cameraRef.current.updateProjectionMatrix();
+          cameraRef.current.near = nearZ;
         }
       },
     },
@@ -49,8 +47,7 @@ export default function DrawModel(props) {
       step: 1,
       onChange: (farZ) => {
         if (cameraRef.current) {
-          cameraRef.current.farZ = farZ;
-          cameraRef.current.updateProjectionMatrix();
+          cameraRef.current.far = farZ;
         }
       },
     },

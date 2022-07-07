@@ -39,7 +39,7 @@ export default function DrawModel(props) {
       step: 0.1,
       onChange: (nearZ) => {
         if (cameraRef.current) {
-          cameraRef.current.nearZ = nearZ;
+          cameraRef.current.near = nearZ;
         }
       },
     },
@@ -50,7 +50,7 @@ export default function DrawModel(props) {
       step: 1,
       onChange: (farZ) => {
         if (cameraRef.current) {
-          cameraRef.current.farZ = farZ;
+          cameraRef.current.far = farZ;
         }
       },
     },

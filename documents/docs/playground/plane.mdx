@@ -83,7 +83,7 @@ function render(props) {
       step: 0.1,
       onChange: (nearZ) => {
         if (cameraRef.current) {
-          cameraRef.current.nearZ = nearZ;
+          cameraRef.current.near = nearZ;
         }
       },
     },

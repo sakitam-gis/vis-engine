@@ -16,7 +16,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[geometries/Box.ts:40](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;92e1850#line&#x3D;40)
+[geometries/Box.ts:40](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;444ba1d#line&#x3D;40)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[geometries/Box.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;92e1850#line&#x3D;20)
+[geometries/Box.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;444ba1d#line&#x3D;20)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[geometries/Box.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;92e1850#line&#x3D;35)
+[geometries/Box.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;444ba1d#line&#x3D;35)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[geometries/Box.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;92e1850#line&#x3D;15)
+[geometries/Box.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;444ba1d#line&#x3D;15)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[geometries/Box.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;92e1850#line&#x3D;30)
+[geometries/Box.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;444ba1d#line&#x3D;30)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[geometries/Box.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;92e1850#line&#x3D;10)
+[geometries/Box.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;444ba1d#line&#x3D;10)
 
 ___
 
@@ -88,4 +88,4 @@ ___
 
 #### Defined in
 
-[geometries/Box.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;92e1850#line&#x3D;25)
+[geometries/Box.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;444ba1d#line&#x3D;25)

@@ -42,7 +42,7 @@ Constructor
 
 #### Defined in
 
-[animation/Clock.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;05b5687#line&#x3D;35)
+[animation/Clock.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;444ba1d#line&#x3D;35)
 
 ## Properties
 
@@ -52,7 +52,7 @@ Constructor
 
 #### Defined in
 
-[animation/Clock.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;05b5687#line&#x3D;29)
+[animation/Clock.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;444ba1d#line&#x3D;29)
 
 ## Methods
 
@@ -68,7 +68,7 @@ Constructor
 
 #### Defined in
 
-[animation/Clock.ts:77](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;05b5687#line&#x3D;77)
+[animation/Clock.ts:77](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;444ba1d#line&#x3D;77)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[animation/Clock.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;05b5687#line&#x3D;69)
+[animation/Clock.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;444ba1d#line&#x3D;69)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[animation/Clock.ts:61](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;05b5687#line&#x3D;61)
+[animation/Clock.ts:61](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;444ba1d#line&#x3D;61)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[animation/Clock.ts:42](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;05b5687#line&#x3D;42)
+[animation/Clock.ts:42](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;444ba1d#line&#x3D;42)
 
 ___
 
@@ -132,4 +132,4 @@ ___
 
 #### Defined in
 
-[animation/Clock.ts:52](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;05b5687#line&#x3D;52)
+[animation/Clock.ts:52](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;444ba1d#line&#x3D;52)

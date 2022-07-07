@@ -4,7 +4,7 @@ node_modules
 
 # build
 coverage
-dist
+dist/
 
 # other
 .eslintrc.cjs
@@ -18,3 +18,4 @@ playground/lib
 # config
 
 rollup.config.ts
+playground/vite.config.ts
