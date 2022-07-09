@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;444ba1d#line&#x3D;12)
+[core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;566f929#line&#x3D;12)
 
 ___
 
@@ -24,7 +24,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;444ba1d#line&#x3D;10)
+[core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;566f929#line&#x3D;10)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:11](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;444ba1d#line&#x3D;11)
+[core/Resource.ts:11](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;566f929#line&#x3D;11)
 
 ___
 
@@ -44,4 +44,4 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;444ba1d#line&#x3D;13)
+[core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;566f929#line&#x3D;13)

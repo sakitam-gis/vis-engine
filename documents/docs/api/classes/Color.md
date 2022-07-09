@@ -23,7 +23,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[math/Color.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;21)
+[math/Color.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;21)
 
 ## Properties
 
@@ -33,7 +33,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[math/Color.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;19)
+[math/Color.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;19)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:18](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;18)
+[math/Color.ts:18](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;18)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:17](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;17)
+[math/Color.ts:17](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;17)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;16)
+[math/Color.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;16)
 
 ## Methods
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:50](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;50)
+[math/Color.ts:50](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;50)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:60](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;60)
+[math/Color.ts:60](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;60)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;45)
+[math/Color.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;45)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:89](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;89)
+[math/Color.ts:89](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;89)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:76](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;76)
+[math/Color.ts:76](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;76)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:81](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;81)
+[math/Color.ts:81](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;81)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:127](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;127)
+[math/Color.ts:127](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;127)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:102](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;102)
+[math/Color.ts:102](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;102)
 
 ___
 
@@ -241,7 +241,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:106](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;106)
+[math/Color.ts:106](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;106)
 
 ___
 
@@ -255,7 +255,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:98](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;98)
+[math/Color.ts:98](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;98)
 
 ___
 
@@ -284,7 +284,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:114](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;114)
+[math/Color.ts:114](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;114)
 
 ___
 
@@ -298,7 +298,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:138](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;138)
+[math/Color.ts:138](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;138)
 
 ___
 
@@ -314,4 +314,4 @@ ___
 
 #### Defined in
 
-[math/Color.ts:134](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;444ba1d#line&#x3D;134)
+[math/Color.ts:134](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;566f929#line&#x3D;134)

@@ -38,7 +38,7 @@ Vector.constructor
 
 #### Defined in
 
-[math/Quaternion.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;45)
+[math/Quaternion.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;45)
 
 ## Properties
 
@@ -52,7 +52,7 @@ Vector.elements
 
 #### Defined in
 
-[math/Quaternion.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;35)
+[math/Quaternion.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;35)
 
 ## Accessors
 
@@ -70,7 +70,7 @@ number;
 
 #### Defined in
 
-[math/Quaternion.ts:109](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;109)
+[math/Quaternion.ts:109](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;109)
 
 • `set` **w**(`w`): `void`
 
@@ -88,7 +88,7 @@ number;
 
 #### Defined in
 
-[math/Quaternion.ts:117](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;117)
+[math/Quaternion.ts:117](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;117)
 
 ___
 
@@ -106,7 +106,7 @@ number;
 
 #### Defined in
 
-[math/Quaternion.ts:58](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;58)
+[math/Quaternion.ts:58](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;58)
 
 • `set` **x**(`x`): `void`
 
@@ -124,7 +124,7 @@ number;
 
 #### Defined in
 
-[math/Quaternion.ts:66](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;66)
+[math/Quaternion.ts:66](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;66)
 
 ___
 
@@ -142,7 +142,7 @@ number;
 
 #### Defined in
 
-[math/Quaternion.ts:75](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;75)
+[math/Quaternion.ts:75](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;75)
 
 • `set` **y**(`y`): `void`
 
@@ -160,7 +160,7 @@ number;
 
 #### Defined in
 
-[math/Quaternion.ts:83](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;83)
+[math/Quaternion.ts:83](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;83)
 
 ___
 
@@ -178,7 +178,7 @@ number;
 
 #### Defined in
 
-[math/Quaternion.ts:92](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;92)
+[math/Quaternion.ts:92](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;92)
 
 • `set` **z**(`z`): `void`
 
@@ -196,7 +196,7 @@ number;
 
 #### Defined in
 
-[math/Quaternion.ts:100](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;100)
+[math/Quaternion.ts:100](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;100)
 
 ## Methods
 
@@ -218,7 +218,7 @@ number;
 
 #### Defined in
 
-[math/Quaternion.ts:268](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;268)
+[math/Quaternion.ts:268](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;268)
 
 ___
 
@@ -234,7 +234,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:275](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;275)
+[math/Quaternion.ts:275](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;275)
 
 ___
 
@@ -250,7 +250,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;241)
+[math/Quaternion.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;241)
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:283](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;283)
+[math/Quaternion.ts:283](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;283)
 
 ___
 
@@ -294,7 +294,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:260](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;260)
+[math/Quaternion.ts:260](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;260)
 
 ___
 
@@ -316,7 +316,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:293](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;293)
+[math/Quaternion.ts:293](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;293)
 
 ___
 
@@ -343,7 +343,7 @@ Vector.fromArray
 
 #### Defined in
 
-[math/Vector.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;444ba1d#line&#x3D;13)
+[math/Vector.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;566f929#line&#x3D;13)
 
 ___
 
@@ -366,7 +366,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:154](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;154)
+[math/Quaternion.ts:154](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;154)
 
 ___
 
@@ -388,7 +388,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;174)
+[math/Quaternion.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;174)
 
 ___
 
@@ -410,7 +410,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:184](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;184)
+[math/Quaternion.ts:184](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;184)
 
 ___
 
@@ -432,7 +432,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:126](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;126)
+[math/Quaternion.ts:126](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;126)
 
 ___
 
@@ -454,7 +454,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:164](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;164)
+[math/Quaternion.ts:164](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;164)
 
 ___
 
@@ -470,7 +470,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:232](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;232)
+[math/Quaternion.ts:232](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;232)
 
 ___
 
@@ -486,7 +486,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:198](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;198)
+[math/Quaternion.ts:198](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;198)
 
 ___
 
@@ -509,7 +509,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:207](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;207)
+[math/Quaternion.ts:207](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;207)
 
 ___
 
@@ -525,7 +525,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:250](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;250)
+[math/Quaternion.ts:250](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;250)
 
 ___
 
@@ -547,7 +547,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:301](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;301)
+[math/Quaternion.ts:301](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;301)
 
 ___
 
@@ -570,7 +570,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:189](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;189)
+[math/Quaternion.ts:189](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;189)
 
 ___
 
@@ -593,7 +593,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:223](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;223)
+[math/Quaternion.ts:223](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;223)
 
 ___
 
@@ -620,7 +620,7 @@ Vector.toArray
 
 #### Defined in
 
-[math/Vector.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;444ba1d#line&#x3D;26)
+[math/Vector.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;566f929#line&#x3D;26)
 
 ___
 
@@ -643,7 +643,7 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:140](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;140)
+[math/Quaternion.ts:140](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;140)
 
 ___
 
@@ -659,4 +659,4 @@ ___
 
 #### Defined in
 
-[math/Quaternion.ts:310](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;444ba1d#line&#x3D;310)
+[math/Quaternion.ts:310](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Quaternion.ts?at&#x3D;566f929#line&#x3D;310)

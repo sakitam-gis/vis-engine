@@ -2,26 +2,25 @@ import React, { useRef, useEffect } from 'react';
 import { useControls, Leva, useCreateStore, LevaPanel } from 'leva';
 import { load } from '@loaders.gl/core';
 import { GLTFLoader } from '@loaders.gl/gltf';
-import vertex from './shaders/draw-modes.vert.glsl';
-import fragment from './shaders/draw-modes.frag.glsl';
+
+import { GLTFLoader as gltf } from './utils/GLTFLoader';
 import './styles/index.less';
 
 import { observe, unobserve } from './utils/observer';
 
-import { Renderer, Mesh, Raf, Scene, Program, PerspectiveCamera, Geometry } from '../../';
+import { Renderer, Raf, Scene, PerspectiveCamera } from '../../';
 
 export default function App() {
   const refDom = useRef<WithNull<HTMLCanvasElement>>(null);
-  const meshRef = useRef<WithNull<Mesh>>(null);
   const cameraRef = useRef<WithNull<PerspectiveCamera>>(null);
   const renderRef = useRef<WithNull<Renderer>>(null);
 
   const store = useCreateStore();
 
   const fov = 15;
-  const nearZ = 0.1;
+  const nearZ = 0.15587174047728183;
 
-  const farZ = 100;
+  const farZ = 155.87174047728183;
 
   const config: any = {
     fov: {
@@ -67,14 +66,6 @@ export default function App() {
         }
       },
     },
-    wireframe: {
-      value: false,
-      onChange: (p) => {
-        if (meshRef.current) {
-          meshRef.current.wireframe = p;
-        }
-      },
-    },
   };
 
   useControls(config, {
@@ -85,14 +76,17 @@ export default function App() {
     file = 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/DamagedHelmet/glTF-Binary/DamagedHelmet.glb',
   ) => {
     const rawGltf = await load(file, GLTFLoader);
+    const data = await gltf.load(renderRef.current as Renderer, file);
 
-    console.log(rawGltf);
+    console.log(data, rawGltf);
 
     // const {gltf, scenes, animator} = await createGLTFObjects(gl, rawGltf, this.gltfCreateOptions);
 
     // this.scenes = scenes;
     // this.animator = animator;
     // this.gltf = gltf;
+
+    return data;
   };
 
   const init = () => {
@@ -107,7 +101,7 @@ export default function App() {
     renderRef.current = renderer;
 
     const camera = new PerspectiveCamera(fov, canvas.width / canvas.height, nearZ, farZ);
-    camera.position.z = fov;
+    camera.position.set(52.94129948384166, 52.760833643707635, -52.560245559281114);
 
     cameraRef.current = camera;
 
@@ -118,50 +112,30 @@ export default function App() {
     }
 
     const scene = new Scene();
+    loadGLTF('https://oframe.github.io/ogl/examples/assets/gltf/hershel.glb').then((gltfObject) => {
+      scene.children.forEach((child) => child.setParent(null));
 
-    loadGLTF();
+      const s = gltfObject.scene || gltfObject.scenes[0];
+      s.forEach((root) => {
+        root.setParent(scene);
+      });
 
-    const geometry = new Geometry(renderer, {
-      position: {
-        size: 3,
-        data: new Float32Array([
-          -1.6, 1.5, 0, -1, -1, 0, 1, -1, 0, -1, -1, 0, 1, -1, 0, 1.6, 1.5, 0,
-        ]),
-      },
-    });
+      scene.updateMatrixWorld();
 
-    const program = new Program(renderer, {
-      vertexShader: vertex,
-      fragmentShader: fragment,
-      uniforms: {
-        uTime: { value: 0 },
-      },
-    });
-
-    const triangles = new Mesh(renderer, { mode: renderer.gl.TRIANGLES, geometry, program });
-    triangles.setParent(scene);
-    triangles.position.set(0, 0, 0);
-
-    meshRef.current = triangles;
-
-    const raf = new Raf((t) => {
-      program.setUniform('uTime', t);
-      renderer.render({ scene, camera });
+      const raf = new Raf(() => {
+        renderer.render({ scene, camera });
+      });
+      console.log(raf);
     });
 
     return {
       canvas,
       resize,
-      raf,
       destroy: () => {
-        triangles.destroy();
-        geometry.destroy();
-        program.destroy();
+        console.log('destroy');
       },
     };
   };
-
-  console.log('render');
 
   useEffect(() => {
     const { canvas, resize, destroy } = init();
