@@ -3,6 +3,8 @@
 #define varying out
 #define texture2D texture
 
+#defines
+
 attribute vec3 position;
 
 #ifdef UV

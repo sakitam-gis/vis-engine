@@ -1,7 +1,7 @@
 import { DataType } from '../core/BufferAttribute';
 
 export function parseShader(shader, defines: string[] = [], includes = []) {
-  return shader.replace(/<#defines>/, defines.join('\n')).replace(/<#includes>/, includes.join('\n'));
+  return shader.replace(/#defines/, defines.join('\n')).replace(/#includes/, includes.join('\n'));
 }
 
 export function defineShader(shader, defines = {}) {

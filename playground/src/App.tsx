@@ -17,7 +17,7 @@ export default function App() {
 
   const store = useCreateStore();
 
-  const fov = 15;
+  const fov = 45;
   const nearZ = 0.15587174047728183;
 
   const farZ = 155.87174047728183;
@@ -57,7 +57,7 @@ export default function App() {
       },
     },
     cameraPosition: {
-      value: [0, 0, 15],
+      value: [52.941299483841654, 52.76083364370763, -52.5602455592811],
       onChange: (p) => {
         if (cameraRef.current) {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -101,7 +101,14 @@ export default function App() {
     renderRef.current = renderer;
 
     const camera = new PerspectiveCamera(fov, canvas.width / canvas.height, nearZ, farZ);
-    camera.position.set(52.94129948384166, 52.760833643707635, -52.560245559281114);
+    camera.position.set(52.941299483841654, 52.76083364370763, -52.5602455592811);
+    camera.rotation.set(-0.3398369094541219, 2.356194490192345, 2.943923360032078e-17);
+    camera.quaternion.set(
+      -0.06471252563850327,
+      0.9105743365364627,
+      0.15622985705189124,
+      0.3771722397422858,
+    );
 
     cameraRef.current = camera;
 

@@ -16,6 +16,7 @@ import {
   Renderer,
   Texture,
   Vector3,
+  Vector4,
   BufferAttribute,
 } from '../../..';
 
@@ -56,15 +57,15 @@ const TRANSFORMS = {
   scale: 'scale',
 };
 
-function createProgram(renderer, geometry, material) {
+function createProgram(renderer, geometry, material, desc) {
 
   const defines: string[] = [];
 
-  if (geometry.attributes.uv) {
+  if (geometry.attributes.get('uv')) {
     defines.push('UV');
   }
 
-  if (geometry.attributes.normal) {
+  if (geometry.attributes.get('normal')) {
     defines.push('NORMAL');
   }
 
@@ -72,83 +73,99 @@ function createProgram(renderer, geometry, material) {
     defines.push('INSTANCED');
   }
 
-  // if (node.boneTexture) {
-  //   defines.push('SKINNING');
-  // }
-  //
-  // if (node.alphaMode === 'MASK') {
-  //   defines.push('ALPHA_MASK');
-  // }
-  //
-  // if (node.baseColorTexture) {
-  //   defines.push('COLOR_MAP');
-  // }
-  //
-  // if (node.normalTexture) {
-  //   defines.push('NORMAL_MAP');
-  // }
-  //
-  // if (node.metallicRoughnessTexture) {
-  //   defines.push('RM_MAP');
-  // }
-  //
-  // if (node.occlusionTexture) {
-  //   defines.push('OCC_MAP');
-  // }
-  //
-  // if (node.emissiveTexture) {
-  //   defines.push('EMISSIVE_MAP');
-  // }
+  if (material.boneTexture) {
+    defines.push('SKINNING');
+  }
+
+  if (material.alphaMode === 'MASK') {
+    defines.push('ALPHA_MASK');
+  }
+
+  if (material.baseColorTexture) {
+    defines.push('COLOR_MAP');
+  }
+
+  if (material.normalTexture) {
+    defines.push('NORMAL_MAP');
+  }
+
+  if (material.metallicRoughnessTexture) {
+    defines.push('RM_MAP');
+  }
+
+  if (material.occlusionTexture) {
+    defines.push('OCC_MAP');
+  }
+
+  if (material.emissiveTexture) {
+    defines.push('EMISSIVE_MAP');
+  }
+
+  const options = {
+    wrapS: renderer.gl.CLAMP_TO_EDGE,
+    wrapT: renderer.gl.CLAMP_TO_EDGE,
+    format: renderer.gl.RGBA,
+    internalFormat: renderer.gl.RGBA,
+    generateMipmaps: true,
+    minFilter: renderer.gl.NEAREST_MIPMAP_LINEAR,
+    magFilter: renderer.gl.LINEAR,
+    premultiplyAlpha: false,
+    unpackAlignment: 4,
+    flipY: true,
+  };
+
+  const lutTexture = new Texture(renderer, options);
+  const envDiffuseTexture = new Texture(renderer, options);
+  const envSpecularTexture = new Texture(renderer, options);
+
+  lutTexture.fromSrc(lut);
+  envDiffuseTexture.fromSrc(diffuse);
+  envSpecularTexture.fromSrc(specular);
 
   return new Program(renderer, {
     vertexShader: vertex,
     fragmentShader: fragment,
     uniforms: {
-      uBaseColorFactor: {value: material.baseColorFactor || [1, 1, 1, 1]},
+      uBaseColorFactor: { value: new Vector4().fromArray(material.baseColorFactor || [1, 1, 1, 1]) },
       tBaseColor: {
         value: material.baseColorTexture ? material.baseColorTexture.texture : null,
       },
 
       tRM: {
-        value: material.metallicRoughnessTexture
-          ? material.metallicRoughnessTexture.texture
-          : null,
+        value: material.metallicRoughnessTexture ? material.metallicRoughnessTexture.texture : null,
       },
       uRoughness: {
         value: material.roughnessFactor !== undefined ? material.roughnessFactor : 1,
       },
-      uMetallic: {value: material.metallicFactor !== undefined ? material.metallicFactor : 1},
+      uMetallic: { value: material.metallicFactor !== undefined ? material.metallicFactor : 1 },
 
-      tNormal: {value: material.normalTexture ? material.normalTexture.texture : null},
-      uNormalScale: {value: material.normalTexture ? material.normalTexture.scale || 1 : 1},
+      tNormal: { value: material.normalTexture ? material.normalTexture.texture : null },
+      uNormalScale: { value: material.normalTexture ? material.normalTexture.scale || 1 : 1 },
 
       tOcclusion: {
         value: material.occlusionTexture ? material.occlusionTexture.texture : null,
       },
 
-      tEmissive: {value: material.emissiveTexture ? material.emissiveTexture.texture : null},
-      uEmissive: {value: material.emissiveFactor || [0, 0, 0]},
+      tEmissive: { value: material.emissiveTexture ? material.emissiveTexture.texture : null },
+      uEmissive: { value: new Vector3().fromArray(material.emissiveFactor || [0, 0, 0]) },
 
-      tLUT: { value: new Texture(renderer, {
-          generateMipmaps: false,
-          flipY: true,
-        }).fromSrc(lut) },
-      tEnvDiffuse: { value: new Texture(renderer, {
-          generateMipmaps: false,
-          flipY: true,
-        }).fromSrc(diffuse) },
-      tEnvSpecular: { value: new Texture(renderer, {
-          generateMipmaps: false,
-          flipY: true,
-        }).fromSrc(specular) },
-      uEnvDiffuse: {value: 0.5},
-      uEnvSpecular: {value: 0.5},
+      tLUT: {
+        value: lutTexture,
+      },
+      tEnvDiffuse: {
+        value: envDiffuseTexture,
+      },
+      tEnvSpecular: {
+        value: envSpecularTexture,
+      },
+      uEnvDiffuse: { value: 0.5 },
+      uEnvSpecular: { value: 0.5 },
 
-      uLightDirection: {value: new Vector3(0, 1, 1)},
-      uLightColor: {value: new Vector3(2.5)},
+      uLightDirection: { value: new Vector3(0, 1, 1) },
+      uLightColor: { value: new Vector3(2.5) },
 
-      uAlpha: {value: 1},
-      uAlphaCutoff: {value: material.alphaCutoff},
+      uAlpha: { value: 1 },
+      uAlphaCutoff: { value: material.alphaCutoff },
     },
     defines,
     transparent: material.alphaMode === 'BLEND',
@@ -367,11 +384,11 @@ export class GLTFLoader {
 
         if (!isAttribute) return;
         // Create gl buffers for the bufferView, pushing it to the GPU
-        const buffer = renderer.gl.createBuffer();
-        renderer.gl.bindBuffer(target, buffer);
-        renderer.state.boundBuffer = buffer;
-        renderer.gl.bufferData(target, data, renderer.gl.STATIC_DRAW);
-        bufferViews[i].buffer = buffer;
+        // const buffer = renderer.gl.createBuffer();
+        // renderer.gl.bindBuffer(target, buffer);
+        // renderer.state.boundBuffer = buffer;
+        // renderer.gl.bufferData(target, data, renderer.gl.STATIC_DRAW);
+        // bufferViews[i].buffer = buffer;
       },
     );
 
@@ -403,8 +420,10 @@ export class GLTFLoader {
       ({ sampler: samplerIndex, source: sourceIndex, name, extensions, extras }) => {
         const options = {
           flipY: false,
-          wrapS: renderer.gl.REPEAT, // Repeat by default, opposed to OGL's clamp by default
+          generateMipmaps: true,
+          wrapS: renderer.gl.REPEAT,
           wrapT: renderer.gl.REPEAT,
+          minFilter: renderer.gl.NEAREST_MIPMAP_LINEAR,
         };
         const sampler = samplerIndex !== undefined ? desc.samplers[samplerIndex] : null;
         if (sampler) {
@@ -415,7 +434,9 @@ export class GLTFLoader {
         const texture = new Texture(renderer, options);
         texture.name = name;
         const image = images[sourceIndex];
-        image.ready.then(() => (texture.image = image));
+        image.ready.then(() => {
+          texture.setData(image, image.width, image.height);
+        });
 
         return texture;
       },
@@ -605,7 +626,7 @@ export class GLTFLoader {
           material = materials[materialIndex];
         }
 
-        const program = createProgram(renderer, geometry, material);
+        const program = createProgram(renderer, geometry, material, desc);
 
         return {
           geometry,
@@ -638,7 +659,7 @@ export class GLTFLoader {
     const {
       data, // attached in parseBufferViews
       originalBuffer, // attached in parseBufferViews
-      buffer, // replaced to be the actual GL buffer
+      // buffer, // replaced to be the actual GL buffer
       byteOffset: bufferByteOffset = 0,
       // byteLength, // applied in parseBufferViews
       byteStride = 0,
@@ -668,7 +689,7 @@ export class GLTFLoader {
       size,
       type: componentType,
       normalized,
-      buffer,
+      // buffer,
       stride: byteStride,
       offset: byteOffset,
       count,

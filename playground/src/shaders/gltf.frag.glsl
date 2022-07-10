@@ -5,6 +5,8 @@ precision highp float;
 #define gl_FragColor FragColor
 out vec4 FragColor;
 
+#defines
+
 uniform mat4 viewMatrix;
 uniform vec3 cameraPosition;
 
