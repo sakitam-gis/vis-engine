@@ -441,7 +441,8 @@ export default class Geometry extends Base {
       if (!vao) {
         this.createVAO(program);
       }
-      program.renderer.bindVertexArray(this.#VAOs.get(program.attributeOrder));
+      this.renderer.bindVertexArray(this.#VAOs.get(program.attributeOrder));
+      this.rendererState.activeGeometryId = activeGeometryId;
     }
 
     program.attributeLocations.forEach((location, { name }) => {

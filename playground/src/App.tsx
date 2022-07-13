@@ -18,15 +18,15 @@ export default function App() {
   const store = useCreateStore();
 
   const fov = 45;
-  const nearZ = 0.15587174047728183;
+  const nearZ = 0.006360928308397327;
 
-  const farZ = 155.87174047728183;
+  const farZ = 6.360928308397327;
 
   const config: any = {
     fov: {
       value: fov,
-      min: -50,
-      max: 50,
+      min: -180,
+      max: 180,
       step: 1,
       onChange: (f) => {
         if (cameraRef.current) {
@@ -47,9 +47,9 @@ export default function App() {
     },
     farZ: {
       value: farZ,
-      min: -500,
-      max: 500,
-      step: 1,
+      min: -10,
+      max: 10,
+      step: 0.01,
       onChange: (f) => {
         if (cameraRef.current) {
           cameraRef.current.far = f;
@@ -57,7 +57,7 @@ export default function App() {
       },
     },
     cameraPosition: {
-      value: [52.941299483841654, 52.76083364370763, -52.5602455592811],
+      value: [1.4605831301690517, 0.34327992612869196, 2.25837676990454],
       onChange: (p) => {
         if (cameraRef.current) {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -96,18 +96,20 @@ export default function App() {
     canvas.height = canvas.clientHeight;
     const renderer = new Renderer(canvas, {
       alpha: true,
+      antialias: false,
+      dpr: 2,
     });
 
     renderRef.current = renderer;
 
     const camera = new PerspectiveCamera(fov, canvas.width / canvas.height, nearZ, farZ);
-    camera.position.set(52.941299483841654, 52.76083364370763, -52.5602455592811);
-    camera.rotation.set(-0.3398369094541219, 2.356194490192345, 2.943923360032078e-17);
+    camera.position.set(1.4605831301690517, 0.34327992612869196, 2.25837676990454);
+    camera.rotation.set(-0.11987760646305476, 0.5391393785270148, -6.989052372931176e-18);
     camera.quaternion.set(
-      -0.06471252563850327,
-      0.9105743365364627,
-      0.15622985705189124,
-      0.3771722397422858,
+      -0.057739560789469936,
+      0.265838441571165,
+      0.0159531473635754,
+      0.9621546461936613,
     );
 
     cameraRef.current = camera;
@@ -119,7 +121,7 @@ export default function App() {
     }
 
     const scene = new Scene();
-    loadGLTF('https://oframe.github.io/ogl/examples/assets/gltf/hershel.glb').then((gltfObject) => {
+    loadGLTF().then((gltfObject) => {
       scene.children.forEach((child) => child.setParent(null));
 
       const s = gltfObject.scene || gltfObject.scenes[0];
@@ -130,6 +132,7 @@ export default function App() {
       scene.updateMatrixWorld();
 
       const raf = new Raf(() => {
+        scene.rotation.y -= 0.02;
         renderer.render({ scene, camera });
       });
       console.log(raf);

@@ -431,11 +431,11 @@ export default class Program extends Resource<ProgramOptions> {
    *
    */
   use() {
-    const programActive = this.rendererState.currentProgram === this.id;
+    const programActive = this.rendererState.currentProgramId === this.id;
     let textureUnit = -1;
     if (!programActive) {
       this.gl.useProgram(this.handle);
-      this.rendererState.currentProgram = this.id;
+      this.rendererState.currentProgramId = this.id;
     }
 
     this.#uniformLocations.forEach((location, activeUniform) => {

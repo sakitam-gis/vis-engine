@@ -132,40 +132,115 @@ export default class State extends Base {
     } as unknown as StateOptions);
   }
 
+  /**
+   * 获取所有状态
+   */
   get state () {
     return this.#state;
   }
 
+  /**
+   * 获取视图
+   */
   get viewport() {
     return this.#state.viewport;
   }
 
+  /**
+   * 获取当前 `gl` 的纹理单位
+   */
   get textureUnits () {
     return this.#state.textureUnits;
   }
 
+  /**
+   * 获取已激活的纹理
+   */
   get activeTextureUnit () {
     return this.#state.activeTextureUnit;
   }
 
+  /**
+   * 设置当前激活的纹理
+   * @param activeTextureUnit
+   */
   set activeTextureUnit (activeTextureUnit) {
     this.#state.activeTextureUnit = activeTextureUnit;
   }
 
+  /**
+   * 获取当前的 `Program` id
+   */
   get currentProgramId() {
     return this.#state.currentProgramId;
   }
 
+  /**
+   * 设置当前的 `Program` id
+   * @param id
+   */
   set currentProgramId(id: string | number) {
     this.#state.currentProgramId = id;
   }
 
+  /**
+   * 获取当前激活的几何体 id
+   */
   get activeGeometryId () {
     return this.#state.activeGeometryId;
   }
 
+  /**
+   * 设置当前激活的几何体 id
+   * @param id
+   */
   set activeGeometryId (id: string | number) {
     this.#state.activeGeometryId = id;
+  }
+
+  /**
+   * 设置 `flipY`
+   * @param flipY
+   */
+  set flipY(flipY: boolean) {
+    this.#state.flipY = flipY;
+  }
+
+  /**
+   * 获取 `flipY` 配置
+   */
+  get flipY(): boolean {
+    return this.#state.flipY;
+  }
+
+  /**
+   * 设置 `unpackAlignment`
+   * @param unpackAlignment
+   */
+  set unpackAlignment(unpackAlignment: number) {
+    this.#state.unpackAlignment = unpackAlignment;
+  }
+
+  /**
+   * 获取 `unpackAlignment` 配置
+   */
+  get unpackAlignment(): number {
+    return this.#state.unpackAlignment;
+  }
+
+  /**
+   * 设置 `premultipliedAlpha`
+   * @param premultiplyAlpha
+   */
+  set premultiplyAlpha(premultiplyAlpha: boolean) {
+    this.#state.premultiplyAlpha = premultiplyAlpha;
+  }
+
+  /**
+   * 获取 `premultipliedAlpha` 配置
+   */
+  get premultiplyAlpha(): boolean {
+    return this.#state.premultiplyAlpha;
   }
 
   /**

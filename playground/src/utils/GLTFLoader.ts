@@ -870,7 +870,7 @@ export class GLTFLoader {
         extensions,
         extras,
       }) =>
-        nodesIndices.reduce((map, i) => {
+        nodesIndices.reduce((map: any, i) => {
           // Don't add null nodes (instanced transforms)
           if (nodes[i]) map.push(nodes[i]);
           return map;

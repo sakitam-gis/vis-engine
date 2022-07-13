@@ -163,6 +163,8 @@ export default class Renderer {
 
     this.#stencil = options.stencil;
 
+    this.#antialias = options.antialias;
+
     this.#premultipliedAlpha = options.premultipliedAlpha;
 
     this.#preserveDrawingBuffer = options.preserveDrawingBuffer;

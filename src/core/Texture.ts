@@ -265,21 +265,21 @@ export default class Texture extends Resource<TextureOptions> {
       this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.options.minFilter as GLenum);
       this.#state.minFilter = this.options.minFilter as GLenum;
     }
-    if (this.options.magFilter !== this.#state.magFilter) {
+    if (this.options.magFilter !== this.rendererState.magFilter) {
       this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.options.magFilter as GLenum);
-      this.#state.magFilter = this.options.magFilter as GLenum;
+      this.rendererState.magFilter = this.options.magFilter as GLenum;
     }
-    if (this.options.flipY !== this.#state.flipY) {
+    if (this.options.flipY !== this.rendererState.flipY) {
       this.gl.pixelStorei(this.gl.UNPACK_FLIP_Y_WEBGL, this.options.flipY as boolean);
-      this.#state.flipY = this.options.flipY as boolean;
+      this.rendererState.flipY = this.options.flipY as boolean;
     }
-    if (this.options.premultiplyAlpha !== this.#state.premultiplyAlpha) {
+    if (this.options.premultiplyAlpha !== this.rendererState.premultiplyAlpha) {
       this.gl.pixelStorei(this.gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, this.options.premultiplyAlpha as boolean);
-      this.#state.premultiplyAlpha = this.options.premultiplyAlpha as boolean;
+      this.rendererState.premultiplyAlpha = this.options.premultiplyAlpha as boolean;
     }
-    if (this.options.unpackAlignment !== this.#state.unpackAlignment) {
+    if (this.options.unpackAlignment !== this.rendererState.unpackAlignment) {
       this.gl.pixelStorei(this.gl.UNPACK_ALIGNMENT, this.options.unpackAlignment as GLenum);
-      this.#state.unpackAlignment = this.options.unpackAlignment as number;
+      this.rendererState.unpackAlignment = this.options.unpackAlignment as number;
     }
     if (this.image) {
       if (this.image.width) {
