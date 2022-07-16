@@ -489,8 +489,10 @@ export default class State extends Base {
       this.#state.clearColor = color;
       if (!isUndef(alpha) && !isNull(alpha)) {
         this.#state.clearAlpha = alpha;
+      } else {
+        this.#state.clearAlpha = color.a as number;
       }
-      this.gl.clearColor(color.r, color.g, color.b, (!isUndef(this.#state.clearAlpha) && !isNull(this.#state.clearAlpha) ? this.#state.clearAlpha : color.a) as number);
+      this.gl.clearColor(color.r, color.g, color.b, this.#state.clearAlpha);
     }
   }
 

@@ -10,7 +10,7 @@ import Vector4 from './math/Vector4';
 import Matrix3 from './math/Matrix3';
 import Matrix4 from './math/Matrix4';
 import Euler from './math/Euler';
-import Color from './math/Color';
+import Color, { ColorLike } from './math/Color';
 import Quaternion from './math/Quaternion';
 import ProjectionMatrix from './math/ProjectionMatrix';
 
@@ -86,6 +86,7 @@ export type {
   TextureOptions,
   Texture3DOptions,
   Bounds,
+  ColorLike,
   CameraType,
   CameraOptions,
   DataTextureOptions,

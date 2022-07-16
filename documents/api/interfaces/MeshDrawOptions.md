@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[objects/Mesh.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;566f929#line&#x3D;69)
+[objects/Mesh.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;1dddf76#line&#x3D;69)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:64](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;566f929#line&#x3D;64)
+[objects/Mesh.ts:64](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;1dddf76#line&#x3D;64)
 
 ___
 
@@ -44,4 +44,4 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:74](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;566f929#line&#x3D;74)
+[objects/Mesh.ts:74](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;1dddf76#line&#x3D;74)

@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "gl-matrix": "^3.4.3",
-    "tinycolor2": "^1.4.2"
+    "colord": "^2.9.3"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
