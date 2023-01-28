@@ -55,7 +55,7 @@
     "build:minify": "rollup --config rollup.config.ts --configPlugin esbuild --environment MINIFY,NODE_ENV:production",
     "build:analyze": "cross-env BUILD_ANALYZER=true pnpm run build",
     "lint": "eslint src --ext js,jsx,ts,tsx",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build && npm run build:minify",
     "test": "npm run build && npm run test-only",
     "test-only": "vitest run",
     "coverage": "vitest run --coverage",
