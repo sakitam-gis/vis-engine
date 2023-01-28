@@ -22,6 +22,7 @@
   "dependencies": {
     "@loaders.gl/core": "^3.2.12",
     "@loaders.gl/gltf": "^3.2.12",
+    "@sakitam-gis/vis-engine": "workspace:*",
     "lodash": "^4.17.21",
     "resize-observer-polyfill": "^1.5.1",
     "leva": "^0.9.34",

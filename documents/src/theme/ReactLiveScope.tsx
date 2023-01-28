@@ -1,7 +1,7 @@
 import React from 'react';
 import * as leva from 'leva';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import * as ve from '../../../';
+import * as ve from '@sakitam-gis/vis-engine';
 
 import { observe, unobserve } from '../utils/observer';
 

@@ -137,6 +137,7 @@ importers:
       '@docusaurus/preset-classic': ^2.2.0
       '@docusaurus/theme-common': ^2.2.0
       '@docusaurus/theme-live-codeblock': ^2.2.0
+      '@sakitam-gis/vis-engine': workspace:*
       '@svgr/webpack': ^6.5.1
       '@tsconfig/docusaurus': ^1.0.6
       '@types/react': ^18.0.25
@@ -159,6 +160,7 @@ importers:
       '@docusaurus/preset-classic': 2.2.0_abd98dc70dfcbf4d0421fd33c4c2f711
       '@docusaurus/theme-common': 2.2.0_d01f422f683fef628aebe65173e01fe6
       '@docusaurus/theme-live-codeblock': 2.2.0_d01f422f683fef628aebe65173e01fe6
+      '@sakitam-gis/vis-engine': link:..
       clsx: 1.2.1
       leva: 0.9.34_react-dom@18.2.0+react@18.2.0
       prism-react-renderer: 1.3.5_react@18.2.0
@@ -180,6 +182,7 @@ importers:
     specifiers:
       '@loaders.gl/core': ^3.2.12
       '@loaders.gl/gltf': ^3.2.12
+      '@sakitam-gis/vis-engine': workspace:*
       '@types/lodash': ^4.14.189
       '@types/node': ^18.11.9
       '@vitejs/plugin-legacy': ^2.3.1
@@ -203,6 +206,7 @@ importers:
     dependencies:
       '@loaders.gl/core': 3.2.12
       '@loaders.gl/gltf': 3.2.12
+      '@sakitam-gis/vis-engine': link:..
       leva: 0.9.34_react-dom@18.2.0+react@18.2.0
       lodash: 4.17.21
       react: 18.2.0

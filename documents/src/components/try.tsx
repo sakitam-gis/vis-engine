@@ -5,7 +5,7 @@ import fragment from 'raw-loader!glslify-loader!./shaders/draw-modes.frag.glsl';
 
 import { observe, unobserve } from '../utils/observer';
 
-import { Renderer, Mesh, Raf, Scene, Program, PerspectiveCamera, Geometry } from '../../../';
+import { Renderer, Mesh, Raf, Scene, Program, PerspectiveCamera, Geometry } from '@sakitam-gis/vis-engine';
 
 export default function DrawModel(props) {
   const refDom = useRef(null);
