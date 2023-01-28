@@ -33,12 +33,6 @@ const getFileName = (name) => {
 
 const external = [
   ...Object.keys(pkg.dependencies),
-  'gl-matrix/mat4',
-  'gl-matrix/mat3',
-  'gl-matrix/quat',
-  'gl-matrix/vec2',
-  'gl-matrix/vec3',
-  'gl-matrix/vec4',
 ];
 
 const plugins = [
