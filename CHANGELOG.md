@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/sakitam-gis/vis-engine/compare/v1.0.3...v1.0.4) (2023-01-28)
+
+
+### Bug Fixes
+
+* fix actions ci build docs dep ([0a428ef](https://github.com/sakitam-gis/vis-engine/commit/0a428ef362883d05772843973baa1d1f480e5dd6))
+
 ## [1.0.3](https://github.com/sakitam-gis/vis-engine/compare/v1.0.2...v1.0.3) (2023-01-28)
 
 
