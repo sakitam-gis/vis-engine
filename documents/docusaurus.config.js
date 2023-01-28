@@ -9,8 +9,8 @@ module.exports = {
   title: 'vis-engine Documentation',
   tagline: 'A sample gl render engine toolkit.',
   url: 'https://sakitam-gis.github.io',
-  // baseUrl: `${BASE_URL}/`,
-  baseUrl: '/',
+  baseUrl: `${BASE_URL}/`,
+  // baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'images/logo.svg',
@@ -127,6 +127,7 @@ module.exports = {
     },
   },
   plugins: [
+    path.resolve(__dirname, './plugins/plugin-overwrite-webpack.js'),
     [
       'docusaurus-plugin-typedoc',
       {
