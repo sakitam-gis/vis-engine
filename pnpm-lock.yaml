@@ -23,6 +23,7 @@ importers:
       '@rollup/plugin-replace': ^5.0.1
       '@rollup/plugin-terser': ^0.1.0
       '@rollup/plugin-typescript': ^9.0.2
+      '@semantic-release/changelog': ^6.0.2
       '@semantic-release/commit-analyzer': ^9.0.2
       '@semantic-release/git': ^10.0.1
       '@semantic-release/github': ^8.0.5
@@ -86,6 +87,7 @@ importers:
       '@rollup/plugin-replace': 5.0.2_rollup@3.9.1
       '@rollup/plugin-terser': 0.1.0_rollup@3.9.1
       '@rollup/plugin-typescript': 9.0.2_rollup@3.9.1+typescript@4.9.4
+      '@semantic-release/changelog': 6.0.2_semantic-release@19.0.5
       '@semantic-release/commit-analyzer': 9.0.2_semantic-release@19.0.5
       '@semantic-release/git': 10.0.1_semantic-release@19.0.5
       '@semantic-release/github': 8.0.7_semantic-release@19.0.5
@@ -127,6 +129,7 @@ importers:
 
   documents:
     specifiers:
+      '@algolia/client-search': ^4.14.3
       '@docsearch/react': ^3.3.0
       '@docusaurus/core': ^2.2.0
       '@docusaurus/mdx-loader': ^2.2.0
@@ -149,10 +152,11 @@ importers:
       resize-observer-polyfill: ^1.5.1
       url-loader: ^4.1.1
     dependencies:
-      '@docsearch/react': 3.3.1_4076cec502acd4bd096bfc1f1d17cbac
+      '@algolia/client-search': 4.14.3
+      '@docsearch/react': 3.3.1_e32a18b20e9da872e6cb147d6e88b345
       '@docusaurus/core': 2.2.0_28a96582ca86a02893ccf11c5e51e337
       '@docusaurus/mdx-loader': 2.2.0_d01f422f683fef628aebe65173e01fe6
-      '@docusaurus/preset-classic': 2.2.0_da4cf6f3bd0f3725ffb31790fd874323
+      '@docusaurus/preset-classic': 2.2.0_abd98dc70dfcbf4d0421fd33c4c2f711
       '@docusaurus/theme-common': 2.2.0_d01f422f683fef628aebe65173e01fe6
       '@docusaurus/theme-live-codeblock': 2.2.0_d01f422f683fef628aebe65173e01fe6
       clsx: 1.2.1
@@ -229,13 +233,14 @@ packages:
       '@algolia/autocomplete-shared': 1.7.2
     dev: false
 
-  /@algolia/autocomplete-preset-algolia/1.7.2_algoliasearch@4.14.3:
+  /@algolia/autocomplete-preset-algolia/1.7.2_1ab829f75fa1bb6384ae53c805ead938:
     resolution: {integrity: sha512-+RYEG6B0QiGGfRb2G3MtPfyrl0dALF3cQNTWBzBX6p5o01vCCGTTinAm2UKG3tfc2CnOMAtnPLkzNZyJUpnVJw==}
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
     dependencies:
       '@algolia/autocomplete-shared': 1.7.2
+      '@algolia/client-search': 4.14.3
       algoliasearch: 4.14.3
     dev: false
 
@@ -283,6 +288,14 @@ packages:
 
   /@algolia/client-personalization/4.14.3:
     resolution: {integrity: sha512-UCX1MtkVNgaOL9f0e22x6tC9e2H3unZQlSUdnVaSKpZ+hdSChXGaRjp2UIT7pxmPqNCyv51F597KEX5WT60jNg==}
+    dependencies:
+      '@algolia/client-common': 4.14.3
+      '@algolia/requester-common': 4.14.3
+      '@algolia/transporter': 4.14.3
+    dev: false
+
+  /@algolia/client-search/4.14.3:
+    resolution: {integrity: sha512-I2U7xBx5OPFdPLA8AXKUPPxGY3HDxZ4r7+mlZ8ZpLbI8/ri6fnu6B4z3wcL7sgHhDYMwnAE8Xr0AB0h3Hnkp4A==}
     dependencies:
       '@algolia/client-common': 4.14.3
       '@algolia/requester-common': 4.14.3
@@ -1821,7 +1834,7 @@ packages:
     resolution: {integrity: sha512-nznHXeFHpAYjyaSNFNFpU+IJPjQA7AINM8ONjDx/Zx4O/pGAvqwgmcLNc7zR8qXRutqnzLo06yN63xFn36KFBw==}
     dev: false
 
-  /@docsearch/react/3.3.1_4076cec502acd4bd096bfc1f1d17cbac:
+  /@docsearch/react/3.3.1_e32a18b20e9da872e6cb147d6e88b345:
     resolution: {integrity: sha512-wdeQBODPkue6yVEEg4ntt+TiGJ6iXMBUNjBQJ0s1WVoc1OdcCnks/lkQ5LEfXETYR/q9QSbCCBnMjvnSoILaag==}
     peerDependencies:
       '@types/react': '>= 16.8.0 < 19.0.0'
@@ -1836,7 +1849,7 @@ packages:
         optional: true
     dependencies:
       '@algolia/autocomplete-core': 1.7.2
-      '@algolia/autocomplete-preset-algolia': 1.7.2_algoliasearch@4.14.3
+      '@algolia/autocomplete-preset-algolia': 1.7.2_1ab829f75fa1bb6384ae53c805ead938
       '@docsearch/css': 3.3.1
       '@types/react': 18.0.26
       algoliasearch: 4.14.3
@@ -2233,7 +2246,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/preset-classic/2.2.0_da4cf6f3bd0f3725ffb31790fd874323:
+  /@docusaurus/preset-classic/2.2.0_abd98dc70dfcbf4d0421fd33c4c2f711:
     resolution: {integrity: sha512-yKIWPGNx7BT8v2wjFIWvYrS+nvN04W+UameSFf8lEiJk6pss0kL6SG2MRvyULiI3BDxH+tj6qe02ncpSPGwumg==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2248,7 +2261,7 @@ packages:
       '@docusaurus/plugin-google-gtag': 2.2.0_d01f422f683fef628aebe65173e01fe6
       '@docusaurus/plugin-sitemap': 2.2.0_d01f422f683fef628aebe65173e01fe6
       '@docusaurus/theme-classic': 2.2.0_d01f422f683fef628aebe65173e01fe6
-      '@docusaurus/theme-search-algolia': 2.2.0_8e6808be72abbb631c3366bcc176823b
+      '@docusaurus/theme-search-algolia': 2.2.0_98c5004a6a56f4f878e8be31b78b6a38
       '@docusaurus/types': 2.2.0_d01f422f683fef628aebe65173e01fe6
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -2369,14 +2382,14 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/theme-search-algolia/2.2.0_8e6808be72abbb631c3366bcc176823b:
+  /@docusaurus/theme-search-algolia/2.2.0_98c5004a6a56f4f878e8be31b78b6a38:
     resolution: {integrity: sha512-2h38B0tqlxgR2FZ9LpAkGrpDWVdXZ7vltfmTdX+4RsDs3A7khiNsmZB+x/x6sA4+G2V2CvrsPMlsYBy5X+cY1w==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docsearch/react': 3.3.1_4076cec502acd4bd096bfc1f1d17cbac
+      '@docsearch/react': 3.3.1_e32a18b20e9da872e6cb147d6e88b345
       '@docusaurus/logger': 2.2.0
       '@docusaurus/plugin-content-docs': 2.2.0_d01f422f683fef628aebe65173e01fe6
       '@docusaurus/theme-translations': 2.2.0
@@ -3393,6 +3406,19 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
       rollup: 3.9.1
+    dev: true
+
+  /@semantic-release/changelog/6.0.2_semantic-release@19.0.5:
+    resolution: {integrity: sha512-jHqfTkoPbDEOAgAP18mGP53IxeMwxTISN+GwTRy9uLu58UjARoZU8ScCgWGeO2WPkEsm57H8AkyY02W2ntIlIw==}
+    engines: {node: '>=14.17'}
+    peerDependencies:
+      semantic-release: '>=18.0.0'
+    dependencies:
+      '@semantic-release/error': 3.0.0
+      aggregate-error: 3.1.0
+      fs-extra: 11.1.0
+      lodash: 4.17.21
+      semantic-release: 19.0.5
     dev: true
 
   /@semantic-release/commit-analyzer/9.0.2_semantic-release@19.0.5:
