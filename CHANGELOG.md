@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/sakitam-gis/vis-engine/compare/v1.0.2...v1.0.3) (2023-01-28)
+
+
+### Bug Fixes
+
+* **patch:** fix actions ci build docs and refix external gl-matrix ([5ca130c](https://github.com/sakitam-gis/vis-engine/commit/5ca130cfcceb3bc6c0c857921b7d906991c6fd21))
+
 ## [1.0.2](https://github.com/sakitam-gis/vis-engine/compare/v1.0.1...v1.0.2) (2023-01-28)
 
 
