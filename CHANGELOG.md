@@ -1,3 +1,24 @@
+# [1.1.0](https://github.com/sakitam-gis/vis-engine/compare/v1.0.4...v1.1.0) (2023-01-30)
+
+
+### Bug Fixes
+
+* **math:** Matrix3 subtract method and Matrix4 add/sub/multiply methods ([1f0fb3d](https://github.com/sakitam-gis/vis-engine/commit/1f0fb3d6065722a898ce3927626cffb3266d45dc))
+* **math:** Matrix4 fromScale method ([0b6e49c](https://github.com/sakitam-gis/vis-engine/commit/0b6e49c32f3e085058c23a091aabdaa6b6b76de4))
+* **no-release:** fix build docs script ([a04dd66](https://github.com/sakitam-gis/vis-engine/commit/a04dd66ce5270dce3e4eda5e4b14898da7a0cebd))
+* **no-release:** plugin docusaurus webpack config to fix js resolve [webpack issues](https://github.com/webpack/webpack/issues/11467) ([ad9dd6a](https://github.com/sakitam-gis/vis-engine/commit/ad9dd6aef5c7d721fedae83dc7ce7ca6ad1f247d))
+* **Renderer:** add initialize default width/height ([629c8a8](https://github.com/sakitam-gis/vis-engine/commit/629c8a80196b1701ae591d73c601272e87946259))
+
+
+### Features
+
+* **core:** add renderer resetState method ([4478e7f](https://github.com/sakitam-gis/vis-engine/commit/4478e7f98d8fb25d9bec41fc609e59f06ce00387))
+
+
+### Performance Improvements
+
+* **core:** initialize gl parameter with auto ([3d00ffd](https://github.com/sakitam-gis/vis-engine/commit/3d00ffd7b5b73ece2b7a2fc8e74dbdb48bf46318))
+
 ## [1.0.4](https://github.com/sakitam-gis/vis-engine/compare/v1.0.3...v1.0.4) (2023-01-28)
 
 
