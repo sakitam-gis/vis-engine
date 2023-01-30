@@ -8,7 +8,7 @@ import './styles/index.less';
 
 import { observe, unobserve } from './utils/observer';
 
-import { Renderer, Raf, Scene, PerspectiveCamera } from '../../';
+import { Renderer, Raf, Scene, PerspectiveCamera } from '@sakitam-gis/vis-engine';
 
 export default function App() {
   const refDom = useRef<WithNull<HTMLCanvasElement>>(null);

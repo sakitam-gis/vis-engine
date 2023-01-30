@@ -36,7 +36,6 @@ import {
 
 import Matrix from './Matrix';
 import Vector3 from './Vector3';
-import Vector4 from './Vector4';
 import Quaternion from './Quaternion';
 import {degToRad} from '../utils';
 
@@ -374,10 +373,10 @@ export default class Matrix4 extends Matrix {
 
   /**
    * 从缩放向量计算矩阵
-   * @param vec4
+   * @param vec
    */
-  fromScale(vec4: Vector4) {
-    fromScaling(this.elements, vec4.elements);
+  fromScale(vec: Vector3) {
+    fromScaling(this.elements, vec.elements);
     return this;
   }
 

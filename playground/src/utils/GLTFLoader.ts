@@ -18,7 +18,7 @@ import {
   Vector3,
   Vector4,
   BufferAttribute,
-} from '../../..';
+} from '@sakitam-gis/vis-engine';
 
 const TYPE_ARRAY = {
   5121: Uint8Array,
