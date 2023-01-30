@@ -47,7 +47,7 @@ module.exports = {
       hideOnScroll: true,
       logo: {
         alt: 'vis-engine',
-        src: `images/logo.svg`,
+        src: 'images/logo.svg',
       },
       items: [
         {
@@ -89,7 +89,7 @@ module.exports = {
             },
             {
               label: 'Playground',
-              to: 'docs/playground/draw',
+              to: 'docs/playground',
             },
           ],
         },
@@ -98,7 +98,7 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/sakitam-gis/vis-engine/changelog.md',
+              href: 'https://github.com/sakitam-gis/vis-engine/blob/master/CHANGELOG.md',
             },
           ],
         },

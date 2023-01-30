@@ -9,6 +9,8 @@ module.exports = {
       'playground/box',
       'playground/box-volume',
       'playground/clouds',
+      'playground/gltf',
+      'playground/mapbox-mesh',
     ],
   },
 };

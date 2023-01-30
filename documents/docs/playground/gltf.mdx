@@ -1,0 +1,157 @@
+---
+id: gltf
+title: Draw GLTF
+---
+
+展示 GLTF 模型，[GLTFLoader](https://github.com/sakitam-gis/vis-engine/blob/master/documents/src/components/GLTFLoader.ts) 实现在这里。
+
+### 示例
+
+```jsx live
+function render(props) {
+  const refDom = useRef(null);
+  const cameraRef = useRef(null);
+  const renderRef = useRef(null);
+
+  const store = leva.useCreateStore();
+
+  const fov = 45;
+  const nearZ = 0.006360928308397327;
+
+  const farZ = 6.360928308397327;
+
+  const config = {
+    fov: {
+      value: fov,
+      min: -180,
+      max: 180,
+      step: 1,
+      onChange: (f) => {
+        if (cameraRef.current) {
+          cameraRef.current.fov = f;
+        }
+      },
+    },
+    nearZ: {
+      value: nearZ,
+      min: -50,
+      max: 50,
+      step: 0.1,
+      onChange: (n) => {
+        if (cameraRef.current) {
+          cameraRef.current.near = n;
+        }
+      },
+    },
+    farZ: {
+      value: farZ,
+      min: -10,
+      max: 10,
+      step: 0.01,
+      onChange: (f) => {
+        if (cameraRef.current) {
+          cameraRef.current.far = f;
+        }
+      },
+    },
+    cameraPosition: {
+      value: [1.4605831301690517, 0.34327992612869196, 2.25837676990454],
+      onChange: (p) => {
+        if (cameraRef.current) {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          cameraRef.current.position.set(...p);
+        }
+      },
+    },
+  };
+
+  leva.useControls(config, {
+    store: store,
+  });
+
+  const loadGLTF = async (
+    file = 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/DamagedHelmet/glTF-Binary/DamagedHelmet.glb',
+  ) => {
+    const data = await GLTFLoader.load(renderRef.current, file);
+
+    return data;
+  };
+
+  const init = () => {
+    const canvas = refDom.current;
+
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    const renderer = new ve.Renderer(canvas, {
+      alpha: true,
+    });
+
+    renderRef.current = renderer;
+
+    const camera = new ve.PerspectiveCamera(fov, canvas.width / canvas.height, nearZ, farZ);
+    camera.position.set(1.4605831301690517, 0.34327992612869196, 2.25837676990454);
+    camera.rotation.set(-0.11987760646305476, 0.5391393785270148, -6.989052372931176e-18);
+    camera.quaternion.set(
+      -0.057739560789469936,
+      0.265838441571165,
+      0.0159531473635754,
+      0.9621546461936613,
+    );
+
+    cameraRef.current = camera;
+
+    function resize(target) {
+      const { width, height } = target.getBoundingClientRect();
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+    }
+
+    const scene = new ve.Scene();
+
+    loadGLTF().then((gltfObject) => {
+      scene.children.forEach((child) => child.setParent(null));
+
+      const s = gltfObject.scene || gltfObject.scenes[0];
+      s.forEach((root) => {
+        root.setParent(scene);
+      });
+
+      scene.updateMatrixWorld();
+
+      const raf = new ve.Raf(() => {
+        scene.rotation.y -= 0.02;
+        renderer.render({ scene, camera });
+      });
+    });
+
+    return {
+      canvas,
+      resize,
+    }
+  }
+
+  useEffect(() => {
+    const { canvas, resize } = init();
+
+    observe(canvas, resize);
+
+    return () => {
+      unobserve(canvas, resize);
+    };
+  }, []);
+
+  return (
+    <div className="live-wrap">
+      <div className="leva-wrap">
+        <Leva
+          collapsed
+          fill
+        ></Leva>
+        <LevaPanel collapsed store={store} fill></LevaPanel>
+      </div>
+      <canvas className="scene-canvas" ref={refDom}></canvas>
+    </div>
+  );
+}
+```
