@@ -216,6 +216,9 @@ export default class Renderer {
 
     this.#dpr = options.dpr || 1;
 
+    this.width = this.gl.canvas.width / this.#dpr;
+    this.height = this.gl.canvas.height / this.#dpr;
+
     this.#frustumCull = !!options.frustumCull;
 
     this.#extensions = {} as {

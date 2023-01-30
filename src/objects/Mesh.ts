@@ -254,7 +254,7 @@ export default class Mesh extends Object3D {
         ...this.#geometry.attributesData,
         index: {
           data: indices,
-        }
+        },
       });
     }
   }

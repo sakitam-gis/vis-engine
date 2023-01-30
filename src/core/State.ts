@@ -671,5 +671,8 @@ export default class State extends Base {
     this.#state.activeTextureUnit = -1;
     this.#state.textureUnits = [];
     this.#state.currentProgramId = -1;
+    this.bindFramebuffer({
+      buffer: null,
+    });
   }
 }
