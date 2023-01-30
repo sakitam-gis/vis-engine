@@ -143,17 +143,24 @@ export default class Renderer {
 
   public height: number;
 
-  constructor(gl: WebGLRenderingContext | WebGL2RenderingContext | HTMLCanvasElement, opts: Partial<RendererOptions> = {}) {
-    const options = Object.assign({}, {
-      autoClear: true,
-      depth: true,
-      alpha: false,
-      stencil: false,
-      antialias: false,
-      premultipliedAlpha: false,
-      preserveDrawingBuffer: false,
-      requestWebGl2: true,
-    }, opts);
+  constructor(
+    gl: WebGLRenderingContext | WebGL2RenderingContext | HTMLCanvasElement,
+    opts: Partial<RendererOptions> = {},
+  ) {
+    const options = Object.assign(
+      {},
+      {
+        autoClear: true,
+        depth: true,
+        alpha: false,
+        stencil: false,
+        antialias: false,
+        premultipliedAlpha: false,
+        preserveDrawingBuffer: false,
+        requestWebGl2: true,
+      },
+      opts,
+    );
 
     this.#autoClear = Boolean(options.autoClear);
 
@@ -169,17 +176,41 @@ export default class Renderer {
 
     this.#preserveDrawingBuffer = options.preserveDrawingBuffer;
 
-    this.#gl = ((isWebGL(gl) || isWebGL2(gl)) ? gl : getContext(gl as HTMLCanvasElement, {
-      alpha: this.#alpha,
-      depth: this.#depth,
-      stencil: this.#stencil,
-      antialias: this.#antialias,
-      powerPreference: options.powerPreference,
-      premultipliedAlpha: this.#premultipliedAlpha,
-      preserveDrawingBuffer: this.#preserveDrawingBuffer,
-    }, options.requestWebGl2)) as WebGLRenderingContext | WebGL2RenderingContext;
+    this.#gl = (
+      isWebGL(gl) || isWebGL2(gl)
+        ? gl
+        : getContext(
+            gl as HTMLCanvasElement,
+            {
+              alpha: this.#alpha,
+              depth: this.#depth,
+              stencil: this.#stencil,
+              antialias: this.#antialias,
+              powerPreference: options.powerPreference,
+              premultipliedAlpha: this.#premultipliedAlpha,
+              preserveDrawingBuffer: this.#preserveDrawingBuffer,
+            },
+            options.requestWebGl2,
+          )
+    ) as WebGLRenderingContext | WebGL2RenderingContext;
+
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const attrs = this.#gl.getContextAttributes()!;
+
+    const viewport = this.#gl.getParameter(this.#gl.VIEWPORT);
 
     this.#state = new State(this);
+
+    if (attrs) {
+      this.#depth = Boolean(attrs.depth);
+      this.#antialias = Boolean(attrs.antialias);
+      this.#alpha = Boolean(attrs.alpha);
+      this.#premultipliedAlpha = Boolean(attrs.premultipliedAlpha);
+      this.#preserveDrawingBuffer = Boolean(attrs.preserveDrawingBuffer);
+    }
+
+    this.#state.setViewport(viewport[2], viewport[3], viewport[0], viewport[1]);
+    this.#state.premultiplyAlpha = this.#premultipliedAlpha;
 
     this.#color = true;
 
@@ -194,7 +225,7 @@ export default class Renderer {
     this.vertexAttribDivisor = this.getExtension(
       'ANGLE_instanced_arrays',
       'vertexAttribDivisor',
-      'vertexAttribDivisorANGLE'
+      'vertexAttribDivisorANGLE',
     );
     this.drawArraysInstanced = this.getExtension(
       'ANGLE_instanced_arrays',
@@ -233,7 +264,7 @@ export default class Renderer {
   /**
    * 获取 canvas 实例
    */
-  get canvas () {
+  get canvas() {
     return this.#gl.canvas;
   }
 
@@ -254,7 +285,7 @@ export default class Renderer {
   /**
    * 获取 canvas 画布大小
    */
-  get size () {
+  get size() {
     return {
       width: 'clientWidth' in this.canvas ? this.canvas.clientWidth : this.canvas.width,
       height: 'clientHeight' in this.canvas ? this.canvas.clientHeight : this.canvas.height,
@@ -264,7 +295,7 @@ export default class Renderer {
   /**
    * 获取 `renderState`
    */
-  get state () {
+  get state() {
     return this.#state;
   }
 
@@ -306,14 +337,14 @@ export default class Renderer {
    * @param method
    * @param extFunc
    */
-  getExtension (extension, method, extFunc) {
+  getExtension(extension, method, extFunc) {
     const func = this.gl[method];
     if (method && func) return func.bind(this.gl);
     if (!this.#extensions[extension]) {
       this.#extensions[extension] = this.gl.getExtension(extension);
     }
     const ef = this.#extensions[extension];
-    return method ? ef ? ef[extFunc].bind(ef) : null : ef;
+    return method ? (ef ? ef[extFunc].bind(ef) : null) : ef;
   }
 
   /**
@@ -322,7 +353,7 @@ export default class Renderer {
    * @param camera
    */
   getRenderList({ scene, camera }) {
-    let renderList: any[] = [];
+    const renderList: any[] = [];
 
     scene.traverse((node) => {
       if (!node.visible) return true;
@@ -364,8 +395,8 @@ export default class Renderer {
       }
       this.gl.clear(
         (this.#color ? this.gl.COLOR_BUFFER_BIT : 0) |
-        (this.#depth ? this.gl.DEPTH_BUFFER_BIT : 0) |
-        (this.#stencil ? this.gl.STENCIL_BUFFER_BIT : 0)
+          (this.#depth ? this.gl.DEPTH_BUFFER_BIT : 0) |
+          (this.#stencil ? this.gl.STENCIL_BUFFER_BIT : 0),
       );
     }
 
@@ -383,5 +414,12 @@ export default class Renderer {
       const node = renderList[i];
       node.draw({ camera });
     }
+  }
+
+  /**
+   * 重置内部 `WebGL` 状态
+   */
+  resetState() {
+    this.#state.reset();
   }
 }

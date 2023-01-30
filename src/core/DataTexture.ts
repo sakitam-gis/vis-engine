@@ -21,7 +21,7 @@ export default class DataTexture extends Texture {
       image: options.data,
       premultiplyAlpha: true,
       flipY: false,
-      unpackAlignment: 1
+      unpackAlignment: 1,
     });
     this.needsUpdate = true;
   }

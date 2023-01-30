@@ -13,7 +13,6 @@ export function isWebGL(gl: any): boolean {
   return Boolean(gl && Number.isFinite(gl._version));
 }
 
-
 /**
  * 判断是否是 webgl2
  * @param gl
@@ -63,7 +62,6 @@ export interface GlOptions {
    * 指定GPU的性能配置。
    */
   powerPreference: WebGLPowerPreference;
-
 }
 
 /**
@@ -73,7 +71,11 @@ export interface GlOptions {
  * @param requestWebGl2
  * @returns {null}
  */
-export function getContext(canvas: HTMLCanvasElement, glOptions: Partial<GlOptions> = {}, requestWebGl2 = false) {
+export function getContext(
+  canvas: HTMLCanvasElement,
+  glOptions: Partial<GlOptions> = {},
+  requestWebGl2 = false,
+) {
   const names = ['webgl2', 'webgl', 'experimental-webgl'];
   if (!requestWebGl2) {
     names.shift();
@@ -84,28 +86,17 @@ export function getContext(canvas: HTMLCanvasElement, glOptions: Partial<GlOptio
     console.error(error.statusMessage);
   }
 
-  canvas.addEventListener(
-    'webglcontextcreationerror',
-    onContextCreationError,
-    false,
-  );
+  canvas.addEventListener('webglcontextcreationerror', onContextCreationError, false);
   for (let ii = 0; ii < names.length; ++ii) {
     try {
-      context = canvas.getContext(
-        names[ii],
-        glOptions,
-      ) as WebGLRenderingContext;
+      context = canvas.getContext(names[ii], glOptions) as WebGLRenderingContext;
     } catch (e) {} // eslint-disable-line
     if (context) {
       break;
     }
   }
 
-  canvas.removeEventListener(
-    'webglcontextcreationerror',
-    onContextCreationError,
-    false,
-  );
+  canvas.removeEventListener('webglcontextcreationerror', onContextCreationError, false);
 
   return context;
 }

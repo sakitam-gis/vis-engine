@@ -71,7 +71,7 @@ export interface RenderTargetOptions {
  *
  * current.resize(width, height);
  * current.bind();
- * renderer.viewport(0, 0, width, height);
+ * renderer.setViewport(0, 0, width, height);
  * mesh.updateMatrixWorld();
  * mesh.draw();
  * current.unbind();

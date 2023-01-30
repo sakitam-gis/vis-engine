@@ -92,7 +92,7 @@ const uidCounters: Record<string, number> = {};
  * @param id= - Identifier base name
  * @return uid
  **/
-export function uid(id: string = 'id'): string {
+export function uid(id = 'id'): string {
   uidCounters[id] = uidCounters[id] || 1;
   const count = uidCounters[id]++;
   return `${id}-${count}`;
@@ -106,7 +106,11 @@ export function uid(id: string = 'id'): string {
 export function omit<T, K extends keyof T>(obj: T, keys: K[] = []): Omit<T, K> {
   return Object.keys(obj as any)
     .filter((key: any) => keys.indexOf(key) < 0)
-    .reduce((newObj: Omit<T, K>, key) => Object.assign(newObj, {
-      [key]: obj[key],
-    }), {} as Omit<T, K>);
+    .reduce(
+      (newObj: Omit<T, K>, key) =>
+        Object.assign(newObj, {
+          [key]: obj[key],
+        }),
+      {} as Omit<T, K>,
+    );
 }

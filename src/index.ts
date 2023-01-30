@@ -51,13 +51,10 @@ export {
   Matrix4,
   Quaternion,
   ProjectionMatrix,
-
   Camera,
   PerspectiveCamera,
   OrthographicCamera,
-
   State,
-
   Mesh,
   Scene,
   Resource,
@@ -71,10 +68,9 @@ export {
   Texture,
   Texture3D,
   DataTexture,
-
   Box,
   Plane,
-}
+};
 
 export type {
   Attribute,
@@ -101,4 +97,4 @@ export type {
   ProgramRenderState,
   Uniforms,
   UniformData,
-}
+};
