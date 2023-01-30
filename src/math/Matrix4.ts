@@ -222,11 +222,11 @@ export default class Matrix4 extends Matrix {
    * @param {Matrix4} [b] 如果不传，计算 this 和 a 的和
    * @return {Matrix4} this
    */
-  add(a, b) {
+  add(a: Matrix4, b?: Matrix4) {
     if (b) {
       add(this.elements, a.elements, b.elements);
     } else {
-      add(this.elements, a.elements, b.elements);
+      add(this.elements, this.elements, a.elements);
     }
 
     return this;
@@ -238,11 +238,11 @@ export default class Matrix4 extends Matrix {
    * @param {Matrix4} [b] 如果不传，计算 this 和 a 的差
    * @return {Matrix4} this
    */
-  subtract(a, b) {
+  subtract(a: Matrix4, b?: Matrix4) {
     if (b) {
       subtract(this.elements, a.elements, b.elements);
     } else {
-      subtract(this.elements, a.elements, b.elements);
+      subtract(this.elements, this.elements, a.elements);
     }
     return this;
   }
@@ -253,7 +253,7 @@ export default class Matrix4 extends Matrix {
    * @param  {Matrix4} [b] 如果不传，计算 this 和 a 的乘积
    * @return {Matrix4} this
    */
-  multiply(a: Matrix4, b: Matrix4) {
+  multiply(a: Matrix4, b?: Matrix4) {
     if (b) {
       multiply(this.elements, a.elements, b.elements);
     } else {
@@ -278,7 +278,7 @@ export default class Matrix4 extends Matrix {
    * @param  {Matrix4} b 如果不传，计算 this 和 a 的左乘
    * @return {Matrix4}  this
    */
-  premultiply(a: Matrix4, b: Matrix4) {
+  premultiply(a: Matrix4, b?: Matrix4) {
     if (b) {
       multiply(this.elements, b.elements, a.elements);
     } else {

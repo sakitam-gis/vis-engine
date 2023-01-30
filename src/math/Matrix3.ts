@@ -307,7 +307,7 @@ export default class Matrix3 extends Matrix {
    * @param {Matrix3} [b] 如果不传，计算 this 和 a 的差
    * @return {Matrix3} this
    */
-  subtract(a: Matrix3, b: Matrix3) {
+  subtract(a: Matrix3, b?: Matrix3) {
     if (b) {
       subtract(this.elements, a.elements, b.elements);
     } else {
