@@ -18,7 +18,7 @@ type IBlendType = blendType;
 type FBOData = {
   target?: GLenum;
   buffer: WithNull<WebGLFramebuffer>;
-}
+};
 
 interface StateOptions {
   textureUnits: number[];
@@ -80,7 +80,7 @@ interface StateOptions {
 
   framebuffer: WithNull<WebGLFramebuffer>;
 
-  viewport: { x: number, y: number, width: number, height: number }
+  viewport: { x: number; y: number; width: number; height: number };
 }
 
 interface IState extends StateOptions {
@@ -95,7 +95,7 @@ export default class State extends Base {
 
   public locked: boolean;
 
-  constructor (renderer: Renderer, options?: Partial<StateOptions>) {
+  constructor(renderer: Renderer, options?: Partial<StateOptions>) {
     super(renderer);
     const { gl } = renderer;
     this.#state = {
@@ -106,36 +106,39 @@ export default class State extends Base {
         height: 0,
       },
     } as IState;
-    this.apply(options || {
-      frontFace: gl.CCW,
-      depthTest: false,
-      depthWrite: true,
-      depthMask: true,
-      depthFunc: gl.LESS,
-      blending: blendType.NormalBlending,
-      blendFunc: {
-        src: gl.ONE,
-        dst: gl.ZERO
-      },
-      blendEquation: {
-        modeRGB: gl.FUNC_ADD
-      },
-      premultiplyAlpha: false,
-      unpackAlignment: 4,
-      flipY: false,
-      framebuffer: null,
-      textureUnits: [],
-      activeTextureUnit: -1,
-      activeGeometryId: null,
-      clearAlpha: 1,
-      clearColor: new Color(0)
-    } as unknown as StateOptions);
+    this.apply(
+      options ||
+        ({
+          frontFace: gl.CCW,
+          depthTest: false,
+          depthWrite: true,
+          depthMask: true,
+          depthFunc: gl.LESS,
+          blending: blendType.NormalBlending,
+          blendFunc: {
+            src: gl.ONE,
+            dst: gl.ZERO,
+          },
+          blendEquation: {
+            modeRGB: gl.FUNC_ADD,
+          },
+          premultiplyAlpha: false,
+          unpackAlignment: 4,
+          flipY: false,
+          framebuffer: null,
+          textureUnits: [],
+          activeTextureUnit: -1,
+          activeGeometryId: null,
+          clearAlpha: 1,
+          clearColor: new Color(0),
+        } as unknown as StateOptions),
+    );
   }
 
   /**
    * 获取所有状态
    */
-  get state () {
+  get state() {
     return this.#state;
   }
 
@@ -149,14 +152,14 @@ export default class State extends Base {
   /**
    * 获取当前 `gl` 的纹理单位
    */
-  get textureUnits () {
+  get textureUnits() {
     return this.#state.textureUnits;
   }
 
   /**
    * 获取已激活的纹理
    */
-  get activeTextureUnit () {
+  get activeTextureUnit() {
     return this.#state.activeTextureUnit;
   }
 
@@ -164,7 +167,7 @@ export default class State extends Base {
    * 设置当前激活的纹理
    * @param activeTextureUnit
    */
-  set activeTextureUnit (activeTextureUnit) {
+  set activeTextureUnit(activeTextureUnit) {
     this.#state.activeTextureUnit = activeTextureUnit;
   }
 
@@ -186,7 +189,7 @@ export default class State extends Base {
   /**
    * 获取当前激活的几何体 id
    */
-  get activeGeometryId () {
+  get activeGeometryId() {
     return this.#state.activeGeometryId;
   }
 
@@ -194,7 +197,7 @@ export default class State extends Base {
    * 设置当前激活的几何体 id
    * @param id
    */
-  set activeGeometryId (id: string | number) {
+  set activeGeometryId(id: string | number) {
     this.#state.activeGeometryId = id;
   }
 
@@ -247,27 +250,19 @@ export default class State extends Base {
    * apply options 并且更新状态
    * @param options
    */
-  apply (options: Partial<StateOptions>) {
+  apply(options: Partial<StateOptions>) {
     if (options.blending) {
       this.setBlending(options.blending);
     } else {
       if (options.blendFunc) {
-        const {
-          src,
-          dst,
-          srcAlpha,
-          dstAlpha
-        } = options.blendFunc;
+        const { src, dst, srcAlpha, dstAlpha } = options.blendFunc;
         this.setBlendFunc(src, dst, srcAlpha, dstAlpha);
         this.enable(this.gl.BLEND);
       } else {
         this.disable(this.gl.BLEND);
       }
       if (options.blendEquation) {
-        const {
-          modeRGB,
-          modeAlpha
-        } = options.blendEquation;
+        const { modeRGB, modeAlpha } = options.blendEquation;
         this.setBlendEquation(modeRGB, modeAlpha);
       }
     }
@@ -308,7 +303,7 @@ export default class State extends Base {
    * 开启诸如 `DEPTH_TEST`、`BLEND` 等功能
    * @param id
    */
-  enable (id) {
+  enable(id) {
     if (this.#state[id] !== true) {
       this.gl.enable(id);
       this.#state[id] = true;
@@ -319,7 +314,7 @@ export default class State extends Base {
    * 关闭诸如 `DEPTH_TEST`、`BLEND` 等功能
    * @param id
    */
-  disable (id) {
+  disable(id) {
     if (this.#state[id] !== false) {
       this.gl.disable(id);
       this.#state[id] = false;
@@ -341,7 +336,7 @@ export default class State extends Base {
       height,
       x,
       y,
-    }
+    };
   }
 
   /**
@@ -360,7 +355,7 @@ export default class State extends Base {
    * @param colorMask
    */
   setMask(colorMask: boolean) {
-      if (this.#state.colorMask !== colorMask && !this.locked) {
+    if (this.#state.colorMask !== colorMask && !this.locked) {
       this.gl.colorMask(colorMask, colorMask, colorMask, colorMask);
       this.#state.colorMask = colorMask;
     }
@@ -371,7 +366,7 @@ export default class State extends Base {
    * https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
    * @param blending
    */
-  setBlending (blending: IBlendType) {
+  setBlending(blending: IBlendType) {
     this.#state.blending = blending;
     if (blending === blendType.NoBlending) {
       this.disable(this.gl.BLEND);
@@ -389,7 +384,12 @@ export default class State extends Base {
     } else if (blending === blendType.SubtractiveBlending) {
       if (this.#state.premultiplyAlpha) {
         this.setBlendEquation(this.gl.FUNC_ADD, this.gl.FUNC_ADD);
-        this.setBlendFunc(this.gl.ZERO, this.gl.ZERO, this.gl.ONE_MINUS_SRC_COLOR, this.gl.ONE_MINUS_SRC_ALPHA);
+        this.setBlendFunc(
+          this.gl.ZERO,
+          this.gl.ZERO,
+          this.gl.ONE_MINUS_SRC_COLOR,
+          this.gl.ONE_MINUS_SRC_ALPHA,
+        );
       } else {
         this.setBlendEquation(this.gl.FUNC_ADD);
         this.setBlendFunc(this.gl.ZERO, this.gl.ONE_MINUS_SRC_COLOR);
@@ -405,10 +405,20 @@ export default class State extends Base {
     } else if (blending === blendType.NormalBlending) {
       if (this.#state.premultiplyAlpha) {
         this.setBlendEquation(this.gl.FUNC_ADD, this.gl.FUNC_ADD);
-        this.setBlendFunc(this.gl.ONE, this.gl.ONE_MINUS_SRC_ALPHA, this.gl.ONE, this.gl.ONE_MINUS_SRC_ALPHA);
+        this.setBlendFunc(
+          this.gl.ONE,
+          this.gl.ONE_MINUS_SRC_ALPHA,
+          this.gl.ONE,
+          this.gl.ONE_MINUS_SRC_ALPHA,
+        );
       } else {
         this.setBlendEquation(this.gl.FUNC_ADD, this.gl.FUNC_ADD);
-        this.setBlendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA, this.gl.ONE, this.gl.ONE_MINUS_SRC_ALPHA);
+        this.setBlendFunc(
+          this.gl.SRC_ALPHA,
+          this.gl.ONE_MINUS_SRC_ALPHA,
+          this.gl.ONE,
+          this.gl.ONE_MINUS_SRC_ALPHA,
+        );
       }
     } else if (blending === blendType.CustomBlending) {
       console.info('TODO: 需要实现');
@@ -424,18 +434,18 @@ export default class State extends Base {
    * @param srcAlpha
    * @param dstAlpha
    */
-  setBlendFunc (src: number, dst: number, srcAlpha?: number, dstAlpha?: number) {
+  setBlendFunc(src: number, dst: number, srcAlpha?: number, dstAlpha?: number) {
     if (
-      src !== this.#state.blendFunc?.src
-      || dst !== this.#state.blendFunc?.dst
-      || srcAlpha !== this.#state.blendFunc?.srcAlpha
-      || dstAlpha !== this.#state.blendFunc?.dstAlpha
+      src !== this.#state.blendFunc?.src ||
+      dst !== this.#state.blendFunc?.dst ||
+      srcAlpha !== this.#state.blendFunc?.srcAlpha ||
+      dstAlpha !== this.#state.blendFunc?.dstAlpha
     ) {
       this.#state.blendFunc = {
         src,
         dst,
         srcAlpha,
-        dstAlpha
+        dstAlpha,
       };
       if (!isUndef(srcAlpha) && !isNull(srcAlpha) && !isUndef(dstAlpha) && !isNull(dstAlpha)) {
         this.gl.blendFuncSeparate(src, dst, srcAlpha, dstAlpha);
@@ -454,8 +464,11 @@ export default class State extends Base {
    * @param modeRGB
    * @param modeAlpha
    */
-  setBlendEquation (modeRGB: number, modeAlpha?: number) {
-    if(modeRGB !== this.#state.blendEquation?.modeRGB || modeAlpha !== this.#state.blendEquation?.modeAlpha) {
+  setBlendEquation(modeRGB: number, modeAlpha?: number) {
+    if (
+      modeRGB !== this.#state.blendEquation?.modeRGB ||
+      modeAlpha !== this.#state.blendEquation?.modeAlpha
+    ) {
       this.#state.blendEquation = {
         modeRGB,
         modeAlpha,
@@ -473,7 +486,7 @@ export default class State extends Base {
    * 设置当前 State 下的清屏的透明度
    * @param alpha
    */
-  setClearAlpha (alpha: number) {
+  setClearAlpha(alpha: number) {
     if (this.#state.clearAlpha !== alpha) {
       this.#state.clearAlpha = alpha;
     }
@@ -484,7 +497,7 @@ export default class State extends Base {
    * @param color 颜色
    * @param alpha 透明度
    */
-  setClearColor (color: ColorLike, alpha?: number) {
+  setClearColor(color: ColorLike, alpha?: number) {
     if (this.#state.clearAlpha !== alpha || this.#state.clearColor !== color) {
       this.#state.clearColor = color;
       if (!isUndef(alpha) && !isNull(alpha)) {
@@ -500,7 +513,7 @@ export default class State extends Base {
    * 设置背面剔除方式
    * @param cullFace
    */
-  setCullFace (cullFace: GLenum) {
+  setCullFace(cullFace: GLenum) {
     if (this.#state.cullFace !== cullFace) {
       if (cullFace) {
         this.gl.enable(this.gl.CULL_FACE);
@@ -518,7 +531,7 @@ export default class State extends Base {
    * 绘制立体图形时会使用三角形的顶点顺序来决定三角形的面是否朝向观察者，背向观察者的三角形一般不进行光栅化处理，绘制时会被剔除
    * @param frontFace
    */
-  setFrontFace (frontFace: GLenum) {
+  setFrontFace(frontFace: GLenum) {
     if (this.#state.frontFace !== frontFace) {
       this.#state.frontFace = frontFace;
       this.gl.frontFace(frontFace);
@@ -529,7 +542,7 @@ export default class State extends Base {
    * 设置深度缓冲区的写入操作方式（只读或者可写）
    * @param mask
    */
-  setDepthMask (mask: boolean) {
+  setDepthMask(mask: boolean) {
     if (this.#state.depthMask !== mask) {
       this.#state.depthMask = mask;
       this.gl.depthMask(mask);
@@ -540,7 +553,7 @@ export default class State extends Base {
    * 指定将输入像素深度与当前深度缓冲区值进行比较的函数
    * @param func
    */
-  setDepthFunc (func: GLenum) {
+  setDepthFunc(func: GLenum) {
     if (this.#state.depthFunc !== func) {
       this.#state.depthFunc = func;
       this.gl.depthFunc(func);
@@ -551,7 +564,7 @@ export default class State extends Base {
    * 设置是否开启深度测试
    * @param state
    */
-  setDepthTest (state: boolean) {
+  setDepthTest(state: boolean) {
     if (this.#state.depthTest !== state) {
       this.#state.depthTest = state;
       if (state) {
@@ -569,7 +582,11 @@ export default class State extends Base {
    * @param mask
    */
   setStencil(func: GLenum, ref: GLenum, mask: GLenum) {
-    if (this.#state.stencil.func !== func || this.#state.stencil.ref !== ref || this.#state.stencil.mask !== mask) {
+    if (
+      this.#state.stencil.func !== func ||
+      this.#state.stencil.ref !== ref ||
+      this.#state.stencil.mask !== mask
+    ) {
       this.#state.stencil = {
         func,
         ref,
@@ -583,7 +600,7 @@ export default class State extends Base {
    * 设置当前激活的纹理单位
    * @param unit
    */
-  setActiveTexture (unit) {
+  setActiveTexture(unit) {
     if (this.#state.activeTextureUnit !== unit) {
       this.#state.activeTextureUnit = unit;
       this.gl.activeTexture(this.gl.TEXTURE0 + unit);
@@ -630,11 +647,8 @@ export default class State extends Base {
    * 绑定或者解绑 FBO
    * @param v
    */
-  bindFramebuffer (v: FBOData = {} as FBOData) {
-    const {
-      target = this.gl.FRAMEBUFFER,
-      buffer = null
-    } = v;
+  bindFramebuffer(v: FBOData = {} as FBOData) {
+    const { target = this.gl.FRAMEBUFFER, buffer = null } = v;
     if (this.#state.framebuffer !== buffer) {
       this.#state.framebuffer = buffer;
       this.gl.bindFramebuffer(target, buffer);
@@ -645,7 +659,17 @@ export default class State extends Base {
    * 设置当前激活的 Geometry
    * @param id
    */
-  setActiveGeometry (id) {
+  setActiveGeometry(id) {
     this.#state.activeGeometryId = id;
   }
-};
+
+  /**
+   * 重置 `State`
+   */
+  reset() {
+    this.#state.activeGeometryId = -1;
+    this.#state.activeTextureUnit = -1;
+    this.#state.textureUnits = [];
+    this.#state.currentProgramId = -1;
+  }
+}
