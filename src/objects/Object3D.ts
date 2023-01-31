@@ -8,7 +8,6 @@ import ProjectionMatrix from '../math/ProjectionMatrix';
  * 三维物体，是大部分对象的基类，提供了一系列的属性和方法来对三维空间中的物体进行操作
  */
 export default class Object3D {
-
   /**
    * 是否可见
    */
@@ -20,26 +19,53 @@ export default class Object3D {
   public localMatrix: ProjectionMatrix;
 
   /**
-   * 物体的世界变换矩阵
+   * 物体的世界变换矩阵 (如果没有父级，那么他和局部变化矩阵相同)
    */
   public worldMatrix: ProjectionMatrix;
 
+  /**
+   * 当这个属性设置了之后，它将计算每一帧的位移、旋转（四元变换）和缩放矩阵，并重新计算 `worldMatrix` 属性
+   */
   public matrixAutoUpdate: boolean;
 
+  /**
+   * 物体局部位置
+   */
   public position: Vector3;
 
+  /**
+   * 物体的局部缩放
+   */
   public scale: Vector3;
 
+  /**
+   * 物体的局部旋转
+   */
   public rotation: Euler;
 
+  /**
+   * 物体的局部旋转
+   */
   public quaternion: Quaternion;
 
+  /**
+   * 物体的朝向
+   */
   public up: Vector3;
 
+  /**
+   * 对象子级
+   */
   public children: Object3D[];
 
+  /**
+   * 对象父级
+   */
   public parent: WithNull<Object3D>;
 
+  /**
+   * 当这个属性设置了之后，它将计算在那一帧中的 `worldMatrix`，并将这个值重置为false。默认值为false
+   */
   public worldMatrixNeedsUpdate: boolean;
 
   constructor() {
@@ -63,20 +89,30 @@ export default class Object3D {
     });
   }
 
-  add(object, p = true) {
+  /**
+   * 添加对象到这个对象的子级
+   * @param object
+   * @param notifyChild
+   */
+  add(object: Object3D, notifyChild = true) {
     if (!this.contains(object)) {
       this.children.push(object);
     }
-    if (p) {
+    if (notifyChild) {
       object.setParent(this, false);
     }
   }
 
-  remove(object, p = true) {
+  /**
+   * 从此对象移除传入的对象（如果存在）
+   * @param object
+   * @param notifyChild
+   */
+  remove(object: Object3D, notifyChild = true) {
     if (this.contains(object)) {
       this.children.splice(this.children.indexOf(object), 1);
     }
-    if (p) {
+    if (notifyChild) {
       object.setParent(null, false);
     }
   }
@@ -85,7 +121,7 @@ export default class Object3D {
    * 判断此渲染对象的子集是否包含传入的渲染对象
    * @param object
    */
-  contains(object) {
+  contains(object: Object3D) {
     return this.children.includes(object);
   }
 
@@ -104,6 +140,10 @@ export default class Object3D {
     }
   }
 
+  /**
+   * 遍历此对象（包含子对象）
+   * @param callback 回调函数
+   */
   traverse(callback) {
     if (!callback(this)) {
       for (let i = 0, l = this.children.length; i < l; i++) {
@@ -112,13 +152,18 @@ export default class Object3D {
     }
   }
 
-  lookAt(eye: Vector3, isCamera?: boolean) {
-    if (isCamera) {
+  /**
+   * 旋转物体使其在世界空间中面朝一个点
+   * @param eye 朝向位置
+   * @param invert 是否反转
+   */
+  lookAt(eye: Vector3, invert?: boolean) {
+    if (invert) {
       this.localMatrix.lookAt(this.position, eye, this.up);
     } else {
       this.localMatrix.lookAt(eye, this.position, this.up);
     }
-    this.quaternion = this.localMatrix.getRotation();
+    this.localMatrix.getRotation(this.quaternion);
     this.rotation.fromQuaternion(this.quaternion);
   }
 
@@ -136,9 +181,10 @@ export default class Object3D {
         this.worldMatrix.copy(this.localMatrix);
       } else {
         this.worldMatrix.multiply(this.parent.worldMatrix, this.localMatrix);
-        this.worldMatrixNeedsUpdate = false;
-        f = true;
       }
+
+      this.worldMatrixNeedsUpdate = false;
+      f = true;
     }
 
     for (let i = 0, l = this.children.length; i < l; i++) {
@@ -156,6 +202,9 @@ export default class Object3D {
     this.worldMatrixNeedsUpdate = true;
   }
 
+  /**
+   * 从局部矩阵计算位置，旋转和缩放
+   */
   decompose() {
     this.localMatrix.getTranslation(this.position);
     this.localMatrix.getRotation(this.quaternion);

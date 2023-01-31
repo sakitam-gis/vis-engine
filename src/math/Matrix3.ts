@@ -75,7 +75,7 @@ export default class Matrix3 extends Matrix {
    * @return number;
    */
   get x() {
-    return this.elements[12];
+    return this.elements[2];
   }
 
   /**
@@ -83,7 +83,7 @@ export default class Matrix3 extends Matrix {
    * @return number;
    */
   get y() {
-    return this.elements[13];
+    return this.elements[5];
   }
 
   /**
@@ -91,14 +91,14 @@ export default class Matrix3 extends Matrix {
    * @return number;
    */
   get z() {
-    return this.elements[14];
+    return this.elements[8];
   }
 
   /**
    * 获取单位矩阵
    */
   static get identity() {
-    return new Matrix3().fromArray(identity());
+    return new Matrix3().fromArray(identity([]));
   }
 
   /**
@@ -362,7 +362,7 @@ export default class Matrix3 extends Matrix {
    * @param  {Matrix3} m 源矩阵
    * @return {Matrix3} this
    */
-  copy(m) {
+  copy(m: Matrix3) {
     copy(this.elements, m.elements);
     return this;
   }

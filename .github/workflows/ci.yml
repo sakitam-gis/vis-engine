@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [windows-latest, ubuntu-latest]
         node-version: [16.x, 18.x]
 
     runs-on: ${{ matrix.os }}
@@ -48,6 +48,8 @@ jobs:
         run: pnpm test && pnpm coverage
       - name: Coveralls
         uses: coverallsapp/github-action@master
+        env:
+          NODE_COVERALLS_DEBUG: 1
         with:
           # https://github.com/coverallsapp/github-action/issues/81
           # https://docs.github.com/en/actions/security-guides/automatic-token-authentication

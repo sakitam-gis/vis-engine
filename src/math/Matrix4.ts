@@ -153,7 +153,7 @@ export default class Matrix4 extends Matrix {
    * 获取单位矩阵
    */
   static get identity() {
-    return new Matrix4().fromArray(identity());
+    return new Matrix4().fromArray(identity([]));
   }
 
   /**
@@ -267,7 +267,7 @@ export default class Matrix4 extends Matrix {
    * @param a 如果不传，计算 this 和 b 的乘积
    * @param b
    */
-  multiplyScalar(a: Matrix4 = this, b: number) {
+  multiplyScalar(a: Matrix4 = this, b?: number) {
     multiplyScalar(this.elements, a.elements, b);
     return this;
   }
@@ -339,7 +339,7 @@ export default class Matrix4 extends Matrix {
    * @param rad 弧度
    * @param axis 轴
    */
-  fromRotation(rad, axis) {
+  fromRotation(rad: number, axis) {
     fromRotation(this.elements, rad, axis);
     return this;
   }
@@ -348,7 +348,7 @@ export default class Matrix4 extends Matrix {
    * 从绕 X 轴的给定角度创建矩阵
    * @param rad
    */
-  fromRotationX(rad) {
+  fromRotationX(rad: number) {
     fromXRotation(this.elements, rad);
     return this;
   }
@@ -357,7 +357,7 @@ export default class Matrix4 extends Matrix {
    * 从绕 Y 轴的给定角度创建矩阵
    * @param rad
    */
-  fromRotationY(rad) {
+  fromRotationY(rad: number) {
     fromYRotation(this.elements, rad);
     return this;
   }
