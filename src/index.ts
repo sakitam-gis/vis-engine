@@ -2,6 +2,7 @@ import Clock from './animation/Clock';
 import Raf from './animation/Raf';
 import EventEmitter from './core/Event';
 import * as utils from './utils';
+import { highPrecision } from './utils/math';
 import type { RafOptions } from './animation/Raf';
 
 import Vector2 from './math/Vector2';
@@ -39,6 +40,7 @@ import OrthographicCamera from './cameras/OrthographicCamera';
 
 export {
   utils,
+  highPrecision,
   Raf,
   Clock,
   Color,

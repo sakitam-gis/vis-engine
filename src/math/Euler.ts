@@ -1,4 +1,4 @@
-import { clamp } from '../utils/math';
+import { clamp, getFloatArrayConstructor } from '../utils/math';
 
 import Vector from './Vector';
 import Vector3 from './Vector3';
@@ -17,7 +17,7 @@ export type ANGLE_ORDER = 'zyx' | 'xyz' | 'yxz' | 'yzx' | 'zxy' | 'xzy';
  * ```
  */
 export default class Euler extends Vector {
-  elements = new Float32Array(3);
+  elements = new (getFloatArrayConstructor())(3);
 
   #changeCallbacks: ICallback[] = [];
 

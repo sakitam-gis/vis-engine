@@ -27,6 +27,7 @@ import Matrix from './Matrix';
 import Matrix4 from './Matrix4';
 import Vector2 from './Vector2';
 import Quaternion from './Quaternion';
+import { getFloatArrayConstructor } from '../utils';
 
 /**
  * 一个表示 3*3 的矩阵
@@ -40,7 +41,7 @@ import Quaternion from './Quaternion';
  * ```
  */
 export default class Matrix3 extends Matrix {
-  elements = new Float32Array(9);
+  elements = new (getFloatArrayConstructor())(9);
 
   /**
    * @param m00 第一行第一列，默认是 1
@@ -55,7 +56,7 @@ export default class Matrix3 extends Matrix {
    */
   constructor(m00 = 1, m01 = 0, m02 = 0, m10 = 0, m11 = 1, m12 = 0, m20 = 0, m21 = 0, m22 = 1) {
     super();
-    const e: Float32Array = this.elements;
+    const e: Float32Array | Float64Array = this.elements;
 
     e[0] = m00;
     e[1] = m01;

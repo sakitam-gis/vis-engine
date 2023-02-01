@@ -1,9 +1,11 @@
+import { getFloatArrayConstructor } from '../utils';
+
 export default class Matrix {
   /**
    * 矩阵数据
    * @private
    */
-  elements = new Float32Array(16);
+  elements = new (getFloatArrayConstructor())(16);
 
   /**
    * 从数组构建矩阵
@@ -23,7 +25,7 @@ export default class Matrix {
    * @param out 输出数据
    * @param offset 偏移量
    */
-  toArray(out: number[] | Float32Array = [], offset = 0) {
+  toArray(out: number[] | Float32Array | Float64Array = [], offset = 0) {
     let i = 0;
     for (; i < this.elements.length; i++) {
       out[offset + i] = this.elements[i];

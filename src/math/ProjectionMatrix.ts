@@ -1,6 +1,4 @@
-import {
-  frustum, lookAt, perspective, ortho,
-} from 'gl-matrix/mat4';
+import { frustum, lookAt, perspective, ortho } from 'gl-matrix/mat4';
 
 import Matrix4 from './Matrix4';
 import Vector3 from './Vector3';

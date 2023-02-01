@@ -24,6 +24,7 @@ import {
 import Vector from './Vector';
 import Quaternion from './Quaternion';
 import Matrix4 from './Matrix4';
+import { getFloatArrayConstructor } from '../utils';
 
 /**
  * 四维向量，四维向量表示的是一个有顺序的、四个为一组的数字组合，可以用来描述：
@@ -38,7 +39,7 @@ import Matrix4 from './Matrix4';
  * ```
  */
 export default class Vector4 extends Vector {
-  elements = new Float32Array(4);
+  elements = new (getFloatArrayConstructor())(4);
 
   /**
    * @param x 向量的x值，默认为0

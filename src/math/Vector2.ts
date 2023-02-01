@@ -23,6 +23,7 @@ import {
 import Vector from './Vector';
 import Matrix3 from './Matrix3';
 import Matrix4 from './Matrix4';
+import { getFloatArrayConstructor } from '../utils';
 
 /**
  * 二维向量
@@ -37,7 +38,7 @@ import Matrix4 from './Matrix4';
  * ```
  */
 export default class Vector2 extends Vector {
-  elements = new Float32Array(2);
+  elements = new (getFloatArrayConstructor())(2);
 
   /**
    * @param x 向量的x值，默认为0

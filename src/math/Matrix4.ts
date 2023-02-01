@@ -37,7 +37,7 @@ import {
 import Matrix from './Matrix';
 import Vector3 from './Vector3';
 import Quaternion from './Quaternion';
-import {degToRad} from '../utils';
+import { degToRad, getFloatArrayConstructor } from '../utils';
 
 const tempArray: number[] = [];
 
@@ -55,7 +55,7 @@ const tempArray: number[] = [];
  * ```
  */
 export default class Matrix4 extends Matrix {
-  elements = new Float32Array(16);
+  elements = new (getFloatArrayConstructor())(16);
 
   /**
    * @param m00 第一行第一列，默认是 1
@@ -94,7 +94,7 @@ export default class Matrix4 extends Matrix {
     m33 = 1,
   ) {
     super();
-    const e: Float32Array = this.elements;
+    const e: Float32Array | Float64Array = this.elements;
 
     e[0] = m00;
     e[1] = m01;

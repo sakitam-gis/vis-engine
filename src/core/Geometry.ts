@@ -1,4 +1,4 @@
-import {omit, uid} from '../utils';
+import { omit, uid } from '../utils';
 import Program from '../core/Program';
 import Base from './Base';
 import Renderer from './Renderer';
@@ -121,7 +121,10 @@ export default class Geometry extends Base {
     const iterator = this.#attributes.entries();
     for (let i = 0; i < this.#attributes.size; i++) {
       const entry = iterator.next().value;
-      attributes[entry[0]] = omit<Attribute & { id: string }, AttributesOmitKeys>(entry[1], ['id', 'buffer']);
+      attributes[entry[0]] = omit<Attribute & { id: string }, AttributesOmitKeys>(entry[1], [
+        'id',
+        'buffer',
+      ]);
     }
 
     return attributes;
@@ -169,7 +172,9 @@ export default class Geometry extends Base {
       if (this.instancedCount && this.instancedCount !== attribute.count * attribute.divisor) {
         this.instancedCount = Math.min(this.instancedCount, attribute.count * attribute.divisor);
         // eslint-disable-next-line max-len
-        return console.warn(`Geometry has multiple instanced buffers of different length - instancedCount: ${this.instancedCount}, count: ${attribute.count}, divisor: ${attribute.divisor}, attribute: ${name}`);
+        return console.warn(
+          `Geometry has multiple instanced buffers of different length - instancedCount: ${this.instancedCount}, count: ${attribute.count}, divisor: ${attribute.divisor}, attribute: ${name}`,
+        );
       }
       this.instancedCount = attribute.count * attribute.divisor;
     } else if (name === 'index') {
@@ -251,10 +256,13 @@ export default class Geometry extends Base {
       const item: number[] = data[i];
       array.push(item[0], item[1], item[2]);
     }
-    this.addAttribute('position', new BufferAttribute(this.renderer, {
-      data: new Float32Array(array),
-      size: 3,
-    }));
+    this.addAttribute(
+      'position',
+      new BufferAttribute(this.renderer, {
+        data: new Float32Array(array),
+        size: 3,
+      }),
+    );
   }
 
   /**
@@ -262,10 +270,13 @@ export default class Geometry extends Base {
    * @param data
    */
   setNormals(data) {
-    this.addAttribute('normal', new BufferAttribute(this.renderer, {
-      data: new Float32Array(data),
-      size: 2,
-    }));
+    this.addAttribute(
+      'normal',
+      new BufferAttribute(this.renderer, {
+        data: new Float32Array(data),
+        size: 2,
+      }),
+    );
   }
 
   /**
@@ -273,17 +284,20 @@ export default class Geometry extends Base {
    * @param data
    */
   setUVs(data) {
-    this.addAttribute('uv', new BufferAttribute(this.renderer, {
-      data: new Float32Array(data),
-      size: 2,
-    }));
+    this.addAttribute(
+      'uv',
+      new BufferAttribute(this.renderer, {
+        data: new Float32Array(data),
+        size: 2,
+      }),
+    );
   }
 
   /**
    * 设置顶点颜色数据
    * @param colors
    */
-  setColors(colors: (Vector4 | Vector3 | number[] | Float32Array)[]) {
+  setColors(colors: (Vector4 | Vector3 | number[] | Float32Array | Float64Array)[]) {
     const data: number[] = [];
     for (let i = 0; i < colors.length; i++) {
       let color = colors[i];
@@ -292,10 +306,13 @@ export default class Geometry extends Base {
       }
       data.push(color[0], color[1], color[2], color[3] || 1);
     }
-    this.addAttribute('color', new BufferAttribute(this.renderer, {
-      data: new Float32Array(data),
-      size: 4,
-    }));
+    this.addAttribute(
+      'color',
+      new BufferAttribute(this.renderer, {
+        data: new Float32Array(data),
+        size: 4,
+      }),
+    );
   }
 
   /**
@@ -372,12 +389,7 @@ export default class Geometry extends Base {
    * 计算当前几何体的的矩形边界（立方体包围盒）
    */
   computeBoundingBox() {
-    const {
-      data,
-      offset = 0,
-      stride,
-      size,
-    } = this.attributes.get('position') as BufferAttribute;
+    const { data, offset = 0, stride, size } = this.attributes.get('position') as BufferAttribute;
     if (!this.#bounds) {
       this.#bounds = {
         min: new Vector3(),
@@ -410,12 +422,7 @@ export default class Geometry extends Base {
    * 计算当前几何体的的球形边界（球形包围盒）
    */
   computeBoundingSphere() {
-    const {
-      data,
-      offset = 0,
-      stride,
-      size,
-    } = this.attributes.get('position') as BufferAttribute;
+    const { data, offset = 0, stride, size } = this.attributes.get('position') as BufferAttribute;
     if (!this.#bounds) {
       this.computeBoundingBox();
     }
@@ -450,13 +457,17 @@ export default class Geometry extends Base {
       if (attribute && attribute.needsUpdate) {
         this.updateAttribute(attribute);
       }
-    })
+    });
 
     if (this.isInstanced) {
       if (this.index) {
         const offset = this.index.offset + 2 * start;
         this.renderer.drawElementsInstanced(
-          drawMode, count, this.index.type, offset, this.instancedCount,
+          drawMode,
+          count,
+          this.index.type,
+          offset,
+          this.instancedCount,
         );
       } else {
         this.renderer.drawArraysInstanced(drawMode, start, count, this.instancedCount);

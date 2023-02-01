@@ -28,6 +28,7 @@ import Vector from './Vector';
 import Quaternion from './Quaternion';
 import Matrix3 from './Matrix3';
 import Matrix4 from './Matrix4';
+import { getFloatArrayConstructor } from '../utils';
 
 /**
  * 三维向量，三维向量表示的是一个有顺序的、三个为一组的数字组合，可以用来描述：
@@ -42,7 +43,7 @@ import Matrix4 from './Matrix4';
  * ```
  */
 export default class Vector3 extends Vector {
-  elements = new Float32Array(3);
+  elements = new (getFloatArrayConstructor())(3);
 
   /**
    * @param x 向量的x值，默认为0

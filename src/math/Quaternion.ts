@@ -16,7 +16,7 @@ import {
 } from 'gl-matrix/quat';
 
 import { equals } from 'gl-matrix/vec4';
-import { radToDeg } from '../utils/math';
+import { radToDeg, getFloatArrayConstructor } from '../utils/math';
 import Euler from './Euler';
 import Vector from './Vector';
 import Vector3 from './Vector3';
@@ -32,7 +32,7 @@ const tempArray: number[] = [];
  * ```
  */
 export default class Quaternion extends Vector {
-  elements = new Float32Array(4);
+  elements = new (getFloatArrayConstructor())(4);
 
   #changeCallbacks: ICallback[] = [];
 

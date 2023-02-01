@@ -20,7 +20,7 @@ const normalize = (a, min, max) => {
   if (hex) {
     v = Number.parseInt('' + a * max, 10) / 100;
   }
-  return Math.abs(v - max) < 1e-6 ? 1 : a % diff / diff;
+  return Math.abs(v - max) < 1e-6 ? 1 : (a % diff) / diff;
 };
 
 /**
@@ -64,7 +64,7 @@ export default class Color {
    * @param a alpha 通道
    * @param isNormalized 是否是归一化的数值
    */
-  constructor (v: number | AnyColor = 255, g?: number, b?: number, a = 1, isNormalized = false) {
+  constructor(v: number | AnyColor = 255, g?: number, b?: number, a = 1, isNormalized = false) {
     this.r = 1;
     this.g = 1;
     this.b = 1;
@@ -95,7 +95,7 @@ export default class Color {
    * 解析颜色，凡是可以被 [colord](https://github.com/omgovich/colord) 解析的都可以使用
    * @param c
    */
-  fromColor (c: AnyColor) {
+  fromColor(c: AnyColor) {
     const color = colord(c).toRgb();
     return this.setRGBA(color.r, color.g, color.b, color.a);
   }
@@ -107,7 +107,7 @@ export default class Color {
    * @param l
    * @param a
    */
-  fromHSL (h, s, l, a = 1) {
+  fromHSL(h, s, l, a = 1) {
     const color = colord({
       h,
       s,
@@ -124,7 +124,7 @@ export default class Color {
    * @param v
    * @param a
    */
-  fromHSV (h, s, v, a = 1) {
+  fromHSV(h, s, v, a = 1) {
     const color = colord({
       h,
       s,
@@ -140,7 +140,7 @@ export default class Color {
    * @param g g 值，一般为 0-255
    * @param b b 值，一般为 0-255
    */
-  setRGB (r: number, g: number, b: number) {
+  setRGB(r: number, g: number, b: number) {
     this.setRGBA(r, g, b, this.a);
     return this;
   }
@@ -153,7 +153,7 @@ export default class Color {
    * @param a alpha 通道
    * @param isNormalized 是否已经归一化（一般从颜色字符串解析的都是未归一化的）
    */
-  setRGBA (r, g, b, a, isNormalized?: boolean) {
+  setRGBA(r, g, b, a, isNormalized?: boolean) {
     this.r = isNormalized ? r : normalize(r, 0, 255);
     this.g = isNormalized ? g : normalize(g, 0, 255);
     this.b = isNormalized ? b : normalize(b, 0, 255);
@@ -165,7 +165,7 @@ export default class Color {
    * 设置 alpha 通道
    * @param alpha
    */
-  setAlpha (alpha) {
+  setAlpha(alpha) {
     if (alpha > 1) {
       this.a = normalize(alpha, 0, 255);
     } else {
@@ -177,21 +177,21 @@ export default class Color {
   /**
    * 输出 16 进制字符串
    */
-  toHex () {
+  toHex() {
     return colord(this.toObject()).toHex();
   }
 
   /**
    * 输出 hsl 对象
    */
-  toHSL () {
+  toHSL() {
     return colord(this.toObject()).toHsl();
   }
 
   /**
    * 输出 hsv 对象
    */
-  toHSV () {
+  toHSV() {
     return colord(this.toObject()).toHsv();
   }
 
@@ -199,7 +199,7 @@ export default class Color {
    * 将颜色转换为对象
    * @param isNormalized 是否进行归一化，默认采用 0-255
    */
-  toObject (isNormalized = false) {
+  toObject(isNormalized = false) {
     const m = isNormalized ? 1 : 255;
     return {
       r: this.r * m,
@@ -212,35 +212,37 @@ export default class Color {
   /**
    * 转换为数组（一般已经归一化。可以直接传递给 gl）
    */
-  toArray () {
+  toArray() {
     return [this.r, this.g, this.b, this.a];
   }
 
   /**
    * 转换为 Vector4
    */
-  toVector () {
+  toVector() {
     return new Vector4().fromArray(this.toArray());
   }
 
   /**
    * 转换为 Vector3
    */
-  toVector3 () {
+  toVector3() {
     return new Vector3().fromArray(this.toArray());
   }
 
   /**
    * 转换为字符串
    */
-  toString () {
+  toString() {
     return `${this.constructor.name}(${this.r}, ${this.g}, ${this.b}, ${this.a})`;
   }
 }
 
-export type ColorLike = Color | {
-  r: number;
-  g: number;
-  b: number;
-  a?: number;
-}
+export type ColorLike =
+  | Color
+  | {
+      r: number;
+      g: number;
+      b: number;
+      a?: number;
+    };

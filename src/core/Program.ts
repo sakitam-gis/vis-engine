@@ -76,18 +76,17 @@ export interface UniformData {
 }
 
 export interface ProgramRenderState {
-
   /**
    * 指定正面或背面多边形是否可以剔除
    * 可能的值：`gl.FRONT`、`gl.FRONT_AND_BACK` 和 `gl.BACK`
    */
-  cullFace: GLenum,
+  cullFace: GLenum;
 
   /**
    * 指定图形顶点以顺时针是正面还是逆时针方向是正面：
    * 可能的值：`gl.CW` 和 `gl.CCW`
    */
-  frontFace: GLenum,
+  frontFace: GLenum;
 
   /**
    * 是否启用深度测试，默认启用
@@ -170,7 +169,7 @@ export interface ProgramOptions extends ProgramRenderState {
    */
   includes?: {
     [key: string]: string;
-  },
+  };
 }
 
 /**
@@ -367,7 +366,11 @@ export default class Program extends Resource<ProgramOptions> {
     this.gl.linkProgram(this.handle);
     this.gl.validateProgram(this.handle);
     if (!this.gl.getProgramParameter(this.handle, this.gl.LINK_STATUS)) {
-      throw new Error('Program:'.concat(this.id, ': Error linking ').concat(this.gl.getProgramInfoLog(this.handle) as string));
+      throw new Error(
+        'Program:'
+          .concat(this.id, ': Error linking ')
+          .concat(this.gl.getProgramInfoLog(this.handle) as string),
+      );
     }
 
     this.uniforms = uniforms;
@@ -439,9 +442,9 @@ export default class Program extends Resource<ProgramOptions> {
     }
 
     this.#uniformLocations.forEach((location, activeUniform) => {
-      let name = activeUniform.name;
+      const name = activeUniform.name;
 
-      let uniform = this.uniforms[name];
+      const uniform = this.uniforms[name];
 
       if (!uniform) {
         console.warn('Program:'.concat(this.id, ': Active uniform ').concat(name, ' has not been supplied'));
