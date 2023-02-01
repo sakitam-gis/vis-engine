@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/sakitam-gis/vis-engine/compare/v1.1.1...v1.2.0) (2023-02-01)
+
+
+### Features
+
+* **math:** Add `highPrecision` method to solve the problem of floating point calculation_ ([48bd74f](https://github.com/sakitam-gis/vis-engine/commit/48bd74f2856c14e113a353d396edabacfc93b36c))
+
 ## [1.1.1](https://github.com/sakitam-gis/vis-engine/compare/v1.1.0...v1.1.1) (2023-02-01)
 
 
