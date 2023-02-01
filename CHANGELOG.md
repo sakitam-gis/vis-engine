@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/sakitam-gis/vis-engine/compare/v1.1.0...v1.1.1) (2023-02-01)
+
+
+### Bug Fixes
+
+* **pitch:** Matrix identity and update docs ([382abfd](https://github.com/sakitam-gis/vis-engine/commit/382abfdc74270ebcb7cccd601f6712a0fc82c73e))
+
 # [1.1.0](https://github.com/sakitam-gis/vis-engine/compare/v1.0.4...v1.1.0) (2023-01-30)
 
 
