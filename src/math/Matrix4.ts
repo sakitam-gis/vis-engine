@@ -1,5 +1,4 @@
 import {
-  str,
   set,
   copy,
   scale,
@@ -534,6 +533,6 @@ export default class Matrix4 extends Matrix {
    * 转换为字符串
    */
   toString() {
-    return str(this.elements);
+    return `${this.constructor.name}(${this.elements.join(', ')})`;
   }
 }

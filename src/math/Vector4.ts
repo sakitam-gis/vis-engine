@@ -1,5 +1,4 @@
 import {
-  str,
   set,
   add,
   subtract,
@@ -389,6 +388,6 @@ export default class Vector4 extends Vector {
    * 转换为字符串
    */
   toString() {
-    return str(this.elements);
+    return `${this.constructor.name}(${this.elements.join(', ')})`;
   }
 }

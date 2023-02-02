@@ -378,4 +378,11 @@ export default class Euler extends Vector {
   triggerChange() {
     this.#changeCallbacks.forEach((f) => f());
   }
+
+  /**
+   * 转换为字符串
+   */
+  toString() {
+    return `${this.constructor.name}(${this.elements.join(', ')})`;
+  }
 }

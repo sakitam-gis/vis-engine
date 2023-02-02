@@ -123,9 +123,7 @@ export default class Quaternion extends Vector {
    * 从对象赋值 Quaternion 的 x、y、z、w 值
    * @param object
    */
-  fromObject({
-    x, y, z, w,
-  }) {
+  fromObject({ x, y, z, w }) {
     if (x !== undefined) this.x = x;
     if (y !== undefined) this.y = y;
     if (z !== undefined) this.z = z;
@@ -308,6 +306,13 @@ export default class Quaternion extends Vector {
    * 触发所有的回调函数
    */
   triggerChange() {
-    this.#changeCallbacks.forEach(((cb) => cb()));
+    this.#changeCallbacks.forEach((cb) => cb());
+  }
+
+  /**
+   * 转换为字符串
+   */
+  toString() {
+    return `${this.constructor.name}(${this.elements.join(', ')})`;
   }
 }

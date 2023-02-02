@@ -55,4 +55,11 @@ export default class ProjectionMatrix extends Matrix4 {
     lookAt(this.elements, eye.elements, target.elements, up.elements);
     return this;
   }
+
+  /**
+   * 转换为字符串
+   */
+  toString(): string {
+    return `${this.constructor.name}(${this.elements.join(', ')})`;
+  }
 }

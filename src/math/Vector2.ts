@@ -1,5 +1,4 @@
 import {
-  str,
   add,
   subtract,
   multiply,
@@ -339,6 +338,6 @@ export default class Vector2 extends Vector {
    * 转换为字符串
    */
   toString() {
-    return str(this.elements);
+    return `${this.constructor.name}(${this.elements.join(', ')})`;
   }
 }

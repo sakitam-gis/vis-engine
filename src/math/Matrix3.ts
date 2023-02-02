@@ -20,7 +20,6 @@ import {
   fromMat4,
   fromRotation,
   normalFromMat4,
-  str,
 } from 'gl-matrix/mat3';
 
 import Matrix from './Matrix';
@@ -380,6 +379,6 @@ export default class Matrix3 extends Matrix {
    * 转换为字符串
    */
   toString() {
-    return str(this.elements);
+    return `${this.constructor.name}(${this.elements.join(', ')})`;
   }
 }
