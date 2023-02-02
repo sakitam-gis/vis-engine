@@ -27,4 +27,12 @@ describe('Matrix3', async () => {
     const array = [1, 0, 1, 0, 1, 2, 0, 0, 1];
     expect(m.transpose().toArray()).toEqual(array);
   });
+
+  test('toString', async () => {
+    const m = new Matrix3(1, 0, 0, 0, 1, 0, 1, 2, 1);
+    const array = [1, 0, 0, 0, 1, 0, 1, 2, 1];
+    const array1 = [1, 0, 0, 0, 1, 0, 0, 0, 1];
+    expect(m.toString()).toEqual(`Matrix3(${array.join(', ')})`);
+    expect(new Matrix3().toString()).toEqual(`Matrix3(${array1.join(', ')})`);
+  });
 });
