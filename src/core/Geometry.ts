@@ -3,7 +3,7 @@ import Program from '../core/Program';
 import Base from './Base';
 import Renderer from './Renderer';
 import BufferAttribute from './BufferAttribute';
-import type { Attribute } from './BufferAttribute';
+import type { Attribute, DataType } from './BufferAttribute';
 import Vector3 from '../math/Vector3';
 import Vector4 from '../math/Vector4';
 
@@ -210,10 +210,20 @@ export default class Geometry extends Base {
    * @param attribute
    */
   updateAttribute(attribute) {
+    const createBuffer = !attribute.buffer;
+    if (createBuffer) {
+      attribute.buffer = this.gl.createBuffer();
+    }
     if (this.rendererState.boundBuffer !== attribute.buffer) {
       this.gl.bindBuffer(attribute.target, attribute.buffer);
       this.rendererState.boundBuffer = attribute.buffer;
     }
+
+    // if (createBuffer) {
+    //   this.gl.bufferData(attribute.target, attribute.data, attribute.usage);
+    // } else {
+    //   this.gl.bufferSubData(attribute.target, 0, attribute.data);
+    // }
     this.gl.bufferData(attribute.target, attribute.data, attribute.usage);
     attribute.needsUpdate = false;
   }
@@ -387,8 +397,9 @@ export default class Geometry extends Base {
 
   /**
    * 计算当前几何体的的矩形边界（立方体包围盒）
+   * @param vertices 外部传入的顶点数据
    */
-  computeBoundingBox() {
+  computeBoundingBox(vertices?: DataType | number[]) {
     const { data, offset = 0, stride, size } = this.attributes.get('position') as BufferAttribute;
     if (!this.#bounds) {
       this.#bounds = {
@@ -401,11 +412,12 @@ export default class Geometry extends Base {
     }
     this.#bounds.min.setScalar(+Number.POSITIVE_INFINITY);
     this.#bounds.max.setScalar(Number.NEGATIVE_INFINITY);
+    const array = vertices || data;
     const dl = stride || size;
-    for (let i = offset; i < data.length; i += dl) {
-      const x = data[i + 0];
-      const y = data[i + 1];
-      const z = data[i + 2];
+    for (let i = offset; i < array.length; i += dl) {
+      const x = array[i + 0];
+      const y = array[i + 1];
+      const z = array[i + 2];
       this.#bounds.min.x = Math.min(x, this.#bounds.min.x);
       this.#bounds.min.y = Math.min(y, this.#bounds.min.y);
       this.#bounds.min.z = Math.min(z, this.#bounds.min.z);
@@ -420,16 +432,19 @@ export default class Geometry extends Base {
 
   /**
    * 计算当前几何体的的球形边界（球形包围盒）
+   * @param vertices 外部传入的顶点数据
    */
-  computeBoundingSphere() {
+  computeBoundingSphere(vertices?: DataType | number[]) {
     const { data, offset = 0, stride, size } = this.attributes.get('position') as BufferAttribute;
     if (!this.#bounds) {
-      this.computeBoundingBox();
+      this.computeBoundingBox(vertices);
     }
+    const array = vertices || data;
     let len = 0;
     const dl = stride || size;
-    for (let j = offset; j < data.length; j += dl) {
-      tempVec3.fromArray([...data], j);
+    const length = array.length;
+    for (let j = offset; j < length; j += dl) {
+      tempVec3.fromArray(array, j);
       len = Math.max(len, this.#bounds.center.distanceToSquared(tempVec3));
     }
     this.#bounds.radius = Math.sqrt(len);
