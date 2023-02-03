@@ -10,7 +10,7 @@ import Color from '../math/Color';
 
 const getDefines = (t) => {
   const defines = [];
-  return defines.map(t => '#define '.concat(t));
+  return defines.map((d) => '#define '.concat(d));
 };
 
 const arrayCacheF32 = {};
@@ -506,7 +506,7 @@ export default class Program extends Resource<ProgramOptions> {
         blendEquation: {
           ...this.#renderState.blendEquation,
           ...states.blendEquation,
-        }
+        },
       } as ProgramRenderState;
     }
   }

@@ -4,17 +4,17 @@ type Keys<T> = Extract<keyof T, string>;
 
 export type IOptions = {
   /**
-  * 指定事件名称的合法值的正则表达式
-  */
+   * 指定事件名称的合法值的正则表达式
+   */
   validEventTypes?: RegExp[];
-}
+};
 
 class Event {
-  public readonly type: string
+  public readonly type: string;
 
-  constructor (type: string, params = {}) {
+  constructor(type: string, params = {}) {
     this.type = type;
-    (Object.getOwnPropertyNames(params) || []).forEach(key => {
+    (Object.getOwnPropertyNames(params) || []).forEach((key) => {
       this[key] = params[key];
     });
   }
@@ -46,7 +46,7 @@ export default class EventEmitter<EventsMap extends Record<string, any> = Event>
   private fns: Map<Keys<EventsMap>, any>;
   private readonly validateEventTypes: RegExp[];
 
-  constructor({validEventTypes = [/.*/]}: IOptions = {}) {
+  constructor({ validEventTypes = [/.*/] }: IOptions = {}) {
     this.fns = new Map();
     this.validateEventTypes = validEventTypes;
   }
@@ -84,7 +84,7 @@ export default class EventEmitter<EventsMap extends Record<string, any> = Event>
     if (isString(type)) {
       const names = type.split(' ');
       if (names.length > 1) {
-        names.forEach(t => {
+        names.forEach((t) => {
           this.on(t, handler, context);
         });
         return this;
@@ -108,7 +108,7 @@ export default class EventEmitter<EventsMap extends Record<string, any> = Event>
     if (isString(type)) {
       const names = type.split(' ');
       if (names.length > 1) {
-        names.forEach(t => {
+        names.forEach((t) => {
           this.once(t, handler, context);
         });
         return this;
@@ -132,7 +132,7 @@ export default class EventEmitter<EventsMap extends Record<string, any> = Event>
     if (isString(type)) {
       const names = type.split(' ');
       if (names.length > 1) {
-        names.forEach(t => {
+        names.forEach((t) => {
           this.off(t, handler, context);
         });
         return this;
@@ -156,13 +156,11 @@ export default class EventEmitter<EventsMap extends Record<string, any> = Event>
    * @param args
    */
   emit(type, args?: any) {
-    const eventObject = type instanceof Event
-      ? type
-      : new Event(type, args);
+    const eventObject = type instanceof Event ? type : new Event(type, args);
     this.validateEventType(eventObject.type);
     const fns = this.has(eventObject.type);
     if (fns) {
-      return fns.map((fn => fn.call(this, eventObject)));
+      return fns.map((fn) => fn.call(this, eventObject));
     }
   }
 

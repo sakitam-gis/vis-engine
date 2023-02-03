@@ -47,7 +47,7 @@ export default class RenderBuffer extends Resource<RenderBufferOptions> {
 
   #internalFormat: GLenum;
 
-  constructor (renderer: Renderer, options: RenderBufferOptions = {} as RenderBufferOptions) {
+  constructor(renderer: Renderer, options: RenderBufferOptions = {} as RenderBufferOptions) {
     super(renderer, {
       ...options,
       format: options.format || renderer.gl.DEPTH_COMPONENT16,
@@ -60,10 +60,15 @@ export default class RenderBuffer extends Resource<RenderBufferOptions> {
 
     console.assert(
       this.width > 0 && this.height > 0,
-      'Renderbuffer object requires valid width and height greater than zero'
+      'Renderbuffer object requires valid width and height greater than zero',
     );
     this.bind();
-    renderer.gl.renderbufferStorage(renderer.gl.RENDERBUFFER, this.#internalFormat, this.width, this.height);
+    renderer.gl.renderbufferStorage(
+      renderer.gl.RENDERBUFFER,
+      this.#internalFormat,
+      this.width,
+      this.height,
+    );
   }
 
   /**
@@ -71,7 +76,7 @@ export default class RenderBuffer extends Resource<RenderBufferOptions> {
    * @param width
    * @param height
    */
-  resize (width, height) {
+  resize(width, height) {
     if (width === this.width && height === this.height) return;
     this.width = width;
     this.height = height;
@@ -83,21 +88,21 @@ export default class RenderBuffer extends Resource<RenderBufferOptions> {
   /**
    * 绑定渲染缓冲
    */
-  bind () {
+  bind() {
     this.gl.bindRenderbuffer(this.gl.RENDERBUFFER, this.handle);
   }
 
   /**
    * 解绑渲染缓冲
    */
-  unbind () {
+  unbind() {
     this.gl.bindRenderbuffer(this.gl.RENDERBUFFER, null);
   }
 
   /**
    * 销毁此渲染对象
    */
-  destroy () {
+  destroy() {
     this.unbind();
     this.deleteHandle();
   }
@@ -105,14 +110,14 @@ export default class RenderBuffer extends Resource<RenderBufferOptions> {
   /**
    * 创建 `RBO`
    */
-  createHandle () {
+  createHandle() {
     return this.gl.createRenderbuffer();
   }
 
   /**
    * 移除 `RBO`
    */
-  deleteHandle () {
+  deleteHandle() {
     this.handle && this.gl.deleteRenderbuffer(this.handle);
   }
 }

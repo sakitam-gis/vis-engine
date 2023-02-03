@@ -94,6 +94,7 @@ export function getPlaneBuffer(
       uv[i * 2] = ix / gridX;
       uv[i * 2 + 1] = 1 - iy / gridY;
 
+      // eslint-disable-next-line no-param-reassign
       i++;
       if (iy === gridY || ix === gridX) continue;
 
@@ -109,6 +110,7 @@ export function getPlaneBuffer(
       index[ii * 6 + 4] = c;
       index[ii * 6 + 5] = d;
 
+      // eslint-disable-next-line no-param-reassign
       ii++;
     }
   }
@@ -134,13 +136,16 @@ export default class Plane extends Geometry {
    * @param heightSegments 高度分段数，默认值是`1`。
    * @param attributes 顶点数据
    */
-  constructor(renderer: Renderer, {
-    width = 1,
-    height = 1,
-    widthSegments = 1,
-    heightSegments = 1,
-    attributes = {},
-  }: Partial<PlaneOptions> = {}) {
+  constructor(
+    renderer: Renderer,
+    {
+      width = 1,
+      height = 1,
+      widthSegments = 1,
+      heightSegments = 1,
+      attributes = {},
+    }: Partial<PlaneOptions> = {},
+  ) {
     const gridX = Math.floor(widthSegments);
     const gridY = Math.floor(heightSegments);
 

@@ -5,10 +5,18 @@ import Renderer from './Renderer';
 /**
  * `attribute` 支持的数据类型
  */
-export type DataType = Float32Array | Float64Array | Uint32Array | Uint16Array | Uint8Array | Uint8ClampedArray | Int32Array | Int16Array | Int8Array;
+export type DataType =
+  | Float32Array
+  | Float64Array
+  | Uint32Array
+  | Uint16Array
+  | Uint8Array
+  | Uint8ClampedArray
+  | Int32Array
+  | Int16Array
+  | Int8Array;
 
 export interface Attribute {
-
   /**
    * `Attribute` 数据，必须是 `TypedArray` 类型
    */
@@ -122,7 +130,7 @@ export default class BufferAttribute {
   /**
    * `Attribute` 数据，必须是 `TypedArray` 类型
    */
-  public data: DataType
+  public data: DataType;
 
   /**
    * `BufferAttribute`中元素的数据类型
@@ -186,14 +194,18 @@ export default class BufferAttribute {
   public buffer: WithNull<WebGLBuffer>;
 
   constructor(renderer: Renderer, attribute: Attribute) {
-    const attr = Object.assign({}, {
-      size: 1,
-      normalized: true,
-      stride: 0,
-      offset: 0,
-      divisor: 0,
-      usage: renderer.gl.STATIC_DRAW
-    }, attribute);
+    const attr = Object.assign(
+      {},
+      {
+        size: 1,
+        normalized: true,
+        stride: 0,
+        offset: 0,
+        divisor: 0,
+        usage: renderer.gl.STATIC_DRAW,
+      },
+      attribute,
+    );
     this.id = uid('attribute');
     this.needsUpdate = false;
 

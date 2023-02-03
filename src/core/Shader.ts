@@ -3,7 +3,7 @@ import Renderer from './Renderer';
 
 const ERR_SOURCE = 'Shader: GLSL source code must be a JavaScript string';
 
-const getShaderName = t => {
+const getShaderName = (t) => {
   const v = t.match(/#define[\s*]SHADER_NAME[\s*]([\w-]+)[\s*]/);
   return v ? v[1] : 'unnamed';
 };
@@ -27,7 +27,8 @@ const getTypeName = (ctx, shaderType: any): ShaderType => {
     default:
       return 'unknown';
   }
-}
+};
+
 const getShaderType = (ctx, type) => {
   switch (type) {
     case 'fragment':
@@ -40,7 +41,7 @@ const getShaderType = (ctx, type) => {
 };
 
 function addLineNumbers(string: string) {
-  let lines = string.split('\n');
+  const lines = string.split('\n');
   for (let i = 0; i < lines.length; i++) {
     lines[i] = i + 1 + ': ' + lines[i];
   }
@@ -52,22 +53,22 @@ export class Shader extends Resource<any> {
 
   #includes: {
     [key: string]: string;
-  }
+  };
 
   public sourceCode: string;
 
   constructor(renderer: Renderer, sourceCode, type, includes = {}) {
     const shaderType = getShaderType(renderer.gl, type);
     super(renderer, {
-      name: getShaderName(sourceCode) || genShaderName(getTypeName(renderer, shaderType))
+      name: getShaderName(sourceCode) || genShaderName(getTypeName(renderer, shaderType)),
     });
-    console.assert(
-      typeof sourceCode === 'string', ERR_SOURCE
-    );
+    console.assert(typeof sourceCode === 'string', ERR_SOURCE);
     this.#includes = includes;
     this.#shaderType = shaderType;
-    this.sourceCode = this.injectShaderModule(sourceCode, includes || {})
-      .replace(/\n\n+/gm, '\n\n');
+    this.sourceCode = this.injectShaderModule(sourceCode, includes || {}).replace(
+      /\n\n+/gm,
+      '\n\n',
+    );
     this.createShader(this.sourceCode);
   }
 
@@ -82,12 +83,9 @@ export class Shader extends Resource<any> {
     return shader.replace(regExp, replacement);
   }
 
-  createShader(
-    source = this.source,
-  ) {
+  createShader(source = this.source) {
     let s = source.replace(/#include </g, '#glsl_include <');
-    s = this.injectShaderModule(s, this.#includes || {})
-      .replace(/\n\n+/gm, '\n\n');
+    s = this.injectShaderModule(s, this.#includes || {}).replace(/\n\n+/gm, '\n\n');
     this.gl.shaderSource(this.handle, s);
     this.gl.compileShader(this.handle);
     if (!this.gl.getShaderParameter(this.handle, this.gl.COMPILE_STATUS)) {

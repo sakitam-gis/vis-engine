@@ -15,7 +15,7 @@ export interface DataTextureOptions extends TextureOptions {
  * ```
  */
 export default class DataTexture extends Texture {
-  constructor (renderer, options: Partial<DataTextureOptions> = {}) {
+  constructor(renderer, options: Partial<DataTextureOptions> = {}) {
     super(renderer, {
       ...options,
       image: options.data,

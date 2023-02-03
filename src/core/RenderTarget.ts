@@ -128,7 +128,7 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
    * @param renderer `Renderer` 对象
    * @param options 配置项，详见 #RenderTargetOptions
    */
-  constructor (renderer: Renderer, options: Partial<RenderTargetOptions> = {}) {
+  constructor(renderer: Renderer, options: Partial<RenderTargetOptions> = {}) {
     super(renderer, {
       color: 1,
       depth: true,
@@ -171,19 +171,22 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
         if (opt.data) {
           texture = new DataTexture(renderer, opt);
         } else {
-          texture = new Texture(renderer, omit<TextureOptions & RenderTargetOptions, keyof RenderTargetOptions>(opt, [
-            'data',
-            'name',
-            'attachments',
-            'depthTexture',
-          ]));
+          texture = new Texture(
+            renderer,
+            omit<TextureOptions & RenderTargetOptions, keyof RenderTargetOptions>(opt, [
+              'data',
+              'name',
+              'attachments',
+              'depthTexture',
+            ]),
+          );
         }
-        attachments.push([
-          this.gl.COLOR_ATTACHMENT0 + i,
-          texture,
-        ]);
+        attachments.push([this.gl.COLOR_ATTACHMENT0 + i, texture]);
       }
-      if (options.depthTexture && (renderer.isWebGL2 || renderer.gl.getExtension('WEBGL_depth_texture'))) {
+      if (
+        options.depthTexture &&
+        (renderer.isWebGL2 || renderer.gl.getExtension('WEBGL_depth_texture'))
+      ) {
         const texture = new Texture(renderer, {
           width: this.width,
           height: this.height,
@@ -191,7 +194,7 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
           magFilter: this.gl.NEAREST,
           format: this.gl.DEPTH_COMPONENT,
           internalFormat: renderer.isWebGL2 ? this.gl.DEPTH_COMPONENT16 : this.gl.DEPTH_COMPONENT,
-          type: this.gl.UNSIGNED_INT
+          type: this.gl.UNSIGNED_INT,
         });
         attachments.push([this.gl.DEPTH_ATTACHMENT, texture]);
       } else {
@@ -223,7 +226,7 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
     this.create(attachments);
   }
 
-  get texture () {
+  get texture() {
     return this.#textures.values().next().value;
   }
 
@@ -276,7 +279,7 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
    * 创建帧缓冲关联对象
    * @param attachments
    */
-  create (attachments: Attachment[]) {
+  create(attachments: Attachment[]) {
     this.#clearColors = [];
     this.#clearDepth = 1;
     this.#clearStencil = 0;
@@ -304,14 +307,25 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
      * 将渲染缓冲区关联到帧缓冲区
      */
     this.#renderBuffers.forEach((rbo, attachment) => {
-      this.gl.framebufferRenderbuffer(this.gl.FRAMEBUFFER, attachment, this.gl.RENDERBUFFER, rbo.handle);
+      this.gl.framebufferRenderbuffer(
+        this.gl.FRAMEBUFFER,
+        attachment,
+        this.gl.RENDERBUFFER,
+        rbo.handle,
+      );
     });
 
     /**
      * 将纹理缓冲区与帧缓冲区关联
      */
     this.#textures.forEach((texture, attachment) => {
-      this.gl.framebufferTexture2D(this.gl.FRAMEBUFFER, attachment, this.gl.TEXTURE_2D, texture.handle, 0);
+      this.gl.framebufferTexture2D(
+        this.gl.FRAMEBUFFER,
+        attachment,
+        this.gl.TEXTURE_2D,
+        texture.handle,
+        0,
+      );
     });
     this.unbind();
     const status = this.gl.checkFramebufferStatus(this.gl.FRAMEBUFFER);
@@ -338,10 +352,10 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
   /**
    * 清空此帧缓冲区
    */
-  clear () {
+  clear() {
     this.bind();
 
-    let flags = 0
+    let flags = 0;
 
     if (this.clearColors[0]) {
       const color = this.clearColors[0];
@@ -362,7 +376,7 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
     this.unbind();
   }
 
-  getTexture (key) {
+  getTexture(key) {
     return this.#textures.get(key);
   }
 
@@ -371,7 +385,7 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
    * @param width 宽度
    * @param height 高度
    */
-  resize (width: number, height: number) {
+  resize(width: number, height: number) {
     if (this.width !== width || this.height !== height) {
       this.width = width;
       this.height = height;
@@ -383,7 +397,7 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
           texture.update();
         }
       });
-      this.#renderBuffers.forEach(rbo => {
+      this.#renderBuffers.forEach((rbo) => {
         rbo.resize(width, height);
       });
       this.viewport.set(0, 0, width, height);
@@ -394,7 +408,7 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
    * 绑定帧缓冲区
    * @param fbo 如果未传入 `fbo`，默认是此 `RenderTarget` 创建的帧缓冲
    */
-  bind (fbo = this.gl.FRAMEBUFFER) {
+  bind(fbo = this.gl.FRAMEBUFFER) {
     this.gl.bindFramebuffer(fbo, this.handle);
   }
 
@@ -402,7 +416,7 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
    * 解绑帧缓冲区
    * @param fbo 如果未传入 `fbo`，默认是此 `RenderTarget` 创建的帧缓冲
    */
-  unbind (fbo = this.gl.FRAMEBUFFER) {
+  unbind(fbo = this.gl.FRAMEBUFFER) {
     this.gl.bindFramebuffer(fbo, null);
   }
 
@@ -412,7 +426,7 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
    * - 销毁关联的渲染缓冲区
    * - 销毁帧缓冲区
    */
-  destroy () {
+  destroy() {
     this.#textures.forEach((texture: Texture) => {
       texture.destroy();
     });
@@ -425,14 +439,14 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
   /**
    * 创建帧缓冲区
    */
-  createHandle () {
+  createHandle() {
     return this.gl.createFramebuffer();
   }
 
   /**
    * 移除帧缓冲区
    */
-  deleteHandle () {
+  deleteHandle() {
     this.handle && this.gl.deleteFramebuffer(this.handle);
   }
 

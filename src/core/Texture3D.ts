@@ -222,7 +222,10 @@ export default class Texture3D extends Texture {
    */
   update(units = 0) {
     const needUpdate = !(this.image === this.#state.image && !this.needsUpdate);
-    const checked = needUpdate || this.rendererState.textureUnits[units] !== this.id || this.rendererState.activeTextureUnit !== units;
+    const checked =
+      needUpdate ||
+      this.rendererState.textureUnits[units] !== this.id ||
+      this.rendererState.activeTextureUnit !== units;
     if (checked) {
       this.rendererState.setActiveTexture(units);
       this.bind(units);
@@ -230,23 +233,43 @@ export default class Texture3D extends Texture {
     if (!needUpdate) return;
     this.needsUpdate = false;
     if (this.options.wrapS !== this.#state.wrapS) {
-      this.gl.texParameteri(this.gl.TEXTURE_3D, this.gl.TEXTURE_WRAP_S, this.options.wrapS as GLenum);
+      this.gl.texParameteri(
+        this.gl.TEXTURE_3D,
+        this.gl.TEXTURE_WRAP_S,
+        this.options.wrapS as GLenum,
+      );
       this.#state.wrapS = this.options.wrapS as GLenum;
     }
     if (this.options.wrapT !== this.#state.wrapT) {
-      this.gl.texParameteri(this.gl.TEXTURE_3D, this.gl.TEXTURE_WRAP_T, this.options.wrapT as GLenum);
+      this.gl.texParameteri(
+        this.gl.TEXTURE_3D,
+        this.gl.TEXTURE_WRAP_T,
+        this.options.wrapT as GLenum,
+      );
       this.#state.wrapT = this.options.wrapT as GLenum;
     }
     if (this.options.wrapR !== this.#state.wrapR) {
-      this.gl.texParameteri(this.gl.TEXTURE_3D, this.gl.TEXTURE_WRAP_R, this.options.wrapR as GLenum);
+      this.gl.texParameteri(
+        this.gl.TEXTURE_3D,
+        this.gl.TEXTURE_WRAP_R,
+        this.options.wrapR as GLenum,
+      );
       this.#state.wrapR = this.options.wrapR as GLenum;
     }
     if (this.options.minFilter !== this.#state.minFilter) {
-      this.gl.texParameteri(this.gl.TEXTURE_3D, this.gl.TEXTURE_MIN_FILTER, this.options.minFilter as GLenum);
+      this.gl.texParameteri(
+        this.gl.TEXTURE_3D,
+        this.gl.TEXTURE_MIN_FILTER,
+        this.options.minFilter as GLenum,
+      );
       this.#state.minFilter = this.options.minFilter as GLenum;
     }
     if (this.options.magFilter !== this.#state.magFilter) {
-      this.gl.texParameteri(this.gl.TEXTURE_3D, this.gl.TEXTURE_MAG_FILTER, this.options.magFilter as GLenum);
+      this.gl.texParameteri(
+        this.gl.TEXTURE_3D,
+        this.gl.TEXTURE_MAG_FILTER,
+        this.options.magFilter as GLenum,
+      );
       this.#state.magFilter = this.options.magFilter as GLenum;
     }
     if (this.options.flipY !== this.rendererState.flipY) {
@@ -254,7 +277,10 @@ export default class Texture3D extends Texture {
       this.rendererState.flipY = this.options.flipY as boolean;
     }
     if (this.options.premultiplyAlpha !== this.rendererState.premultiplyAlpha) {
-      this.gl.pixelStorei(this.gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, this.options.premultiplyAlpha as boolean);
+      this.gl.pixelStorei(
+        this.gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL,
+        this.options.premultiplyAlpha as boolean,
+      );
       this.rendererState.premultiplyAlpha = this.options.premultiplyAlpha as boolean;
     }
     if (this.options.unpackAlignment !== this.rendererState.unpackAlignment) {
@@ -295,9 +321,8 @@ export default class Texture3D extends Texture {
       }
       if (this.options.generateMipmaps) {
         if (
-          this.renderer.isWebGL2
-          || isPowerOfTwo(this.image.width)
-          && isPowerOfTwo(this.image.height)
+          this.renderer.isWebGL2 ||
+          (isPowerOfTwo(this.image.width) && isPowerOfTwo(this.image.height))
         ) {
           this.gl.generateMipmap(this.gl.TEXTURE_3D);
         } else {

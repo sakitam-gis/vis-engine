@@ -62,15 +62,18 @@ export default class Box extends Geometry {
    * @param depthSegments 深度分段数，默认值是`1`。
    * @param attributes 顶点数据
    */
-  constructor(renderer: Renderer, {
-    width = 1,
-    height = 1,
-    depth = 1,
-    widthSegments = 1,
-    heightSegments = 1,
-    depthSegments = 1,
-    attributes = {}
-  }: Partial<BoxOptions> = {}) {
+  constructor(
+    renderer: Renderer,
+    {
+      width = 1,
+      height = 1,
+      depth = 1,
+      widthSegments = 1,
+      heightSegments = 1,
+      depthSegments = 1,
+      attributes = {},
+    }: Partial<BoxOptions> = {},
+  ) {
     const gridX = Math.floor(widthSegments);
     const gridY = Math.floor(heightSegments);
     const gridZ = Math.floor(depthSegments);
@@ -96,32 +99,134 @@ export default class Box extends Geometry {
     const wt = gridX * gridZ;
     const ht = gridX * gridY;
     // left plane
-    getPlaneBuffer(position, normal, uv, index, depth, height, width, depthSegments, heightSegments, 2, 1, 0, -1, -1, i, ii);
+    getPlaneBuffer(
+      position,
+      normal,
+      uv,
+      index,
+      depth,
+      height,
+      width,
+      depthSegments,
+      heightSegments,
+      2,
+      1,
+      0,
+      -1,
+      -1,
+      i,
+      ii,
+    );
 
     // right plane
     i += d;
     ii += dt;
-    getPlaneBuffer(position, normal, uv, index, depth, height, -width, depthSegments, heightSegments, 2, 1, 0, 1, -1, i, ii);
+    getPlaneBuffer(
+      position,
+      normal,
+      uv,
+      index,
+      depth,
+      height,
+      -width,
+      depthSegments,
+      heightSegments,
+      2,
+      1,
+      0,
+      1,
+      -1,
+      i,
+      ii,
+    );
 
     // top plane
     i += d;
     ii += dt;
-    getPlaneBuffer(position, normal, uv, index, width, depth, height, depthSegments, widthSegments, 0, 2, 1, 1, 1, i, ii);
+    getPlaneBuffer(
+      position,
+      normal,
+      uv,
+      index,
+      width,
+      depth,
+      height,
+      depthSegments,
+      widthSegments,
+      0,
+      2,
+      1,
+      1,
+      1,
+      i,
+      ii,
+    );
 
     // bottom plane
     i += w;
     ii += wt;
-    getPlaneBuffer(position, normal, uv, index, width, depth, -height, depthSegments, widthSegments, 0, 2, 1, 1, -1, i, ii);
+    getPlaneBuffer(
+      position,
+      normal,
+      uv,
+      index,
+      width,
+      depth,
+      -height,
+      depthSegments,
+      widthSegments,
+      0,
+      2,
+      1,
+      1,
+      -1,
+      i,
+      ii,
+    );
 
     // front plane
     i += w;
     ii += wt;
-    getPlaneBuffer(position, normal, uv, index, width, height, -depth, widthSegments, heightSegments, 0, 1, 2, -1, -1, i, ii);
+    getPlaneBuffer(
+      position,
+      normal,
+      uv,
+      index,
+      width,
+      height,
+      -depth,
+      widthSegments,
+      heightSegments,
+      0,
+      1,
+      2,
+      -1,
+      -1,
+      i,
+      ii,
+    );
 
     // back plane
     i += h;
     ii += ht;
-    getPlaneBuffer(position, normal, uv, index, width, height, depth, widthSegments, heightSegments, 0, 1, 2, 1, -1, i, ii);
+    getPlaneBuffer(
+      position,
+      normal,
+      uv,
+      index,
+      width,
+      height,
+      depth,
+      widthSegments,
+      heightSegments,
+      0,
+      1,
+      2,
+      1,
+      -1,
+      i,
+      ii,
+    );
 
     super(renderer, {
       ...attributes,
