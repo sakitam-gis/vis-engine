@@ -5,6 +5,7 @@
   },
   "include": [
     "src/**/*.ts",
+    "adapters/**/*.ts",
     "test/**/*.ts",
     "playground/src/**/*",
     "package.json",

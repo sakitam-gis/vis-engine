@@ -1,10 +1,20 @@
-import { Matrix4, Vector3, ProjectionMatrix, OrthographicCamera, PerspectiveCamera, Scene, utils } from '@sakitam-gis/vis-engine';
+import {
+  Matrix4,
+  Vector3,
+  ProjectionMatrix,
+  OrthographicCamera,
+  PerspectiveCamera,
+  Scene,
+  utils,
+} from '@sakitam-gis/vis-engine';
 import { mercatorZfromAltitude } from './mercatorCoordinate';
 
 const { degToRad, radToDeg, clamp } = utils;
 
 export function compareVersion(v1, v2) {
+  // eslint-disable-next-line no-param-reassign
   v1 = v1.split('.');
+  // eslint-disable-next-line no-param-reassign
   v2 = v2.split('.');
   const len = Math.max(v1.length, v2.length);
 
@@ -55,9 +65,12 @@ export default class CameraSync {
     const farZ = 1e21;
     this.map = map;
     this.scene = scene;
-    this.camera = cameraType === 'orthographic'
-      ? new OrthographicCamera(-width / 2, width / 2, height / 2, -height / 2, nearZ, farZ)
-      : new PerspectiveCamera(fov, width / height, nearZ, farZ);
+    this.scene.matrixAutoUpdate = false;
+    this.scene.worldMatrixNeedsUpdate = true;
+    this.camera =
+      cameraType === 'orthographic'
+        ? new OrthographicCamera(-width / 2, width / 2, height / 2, -height / 2, nearZ, farZ)
+        : new PerspectiveCamera(fov, width / height, nearZ, farZ);
     this.camera.matrixAutoUpdate = false;
     this.camera.position.z = 600;
     this.setup();
@@ -74,15 +87,7 @@ export default class CameraSync {
   }
 
   update() {
-    const {
-      width,
-      height,
-      worldSize,
-      pixelsPerMeter,
-      elevation,
-      _camera,
-      _horizonShift,
-    } = this.map.transform;
+    const { width, height, worldSize, elevation, _camera, _horizonShift } = this.map.transform;
     const center = this.map.getCenter();
     const pitch = this.map.getPitch();
     const pitchRad = degToRad(pitch);
@@ -92,27 +97,32 @@ export default class CameraSync {
     const pitchAngle = Math.cos(Math.PI / 2 - pitchRad);
     const groundAngle = Math.PI / 2 + pitchRad;
     this.cameraToCenterDistance = (0.5 / Math.tan(halfFov)) * height;
-    this.mercatorMatrix = new Matrix4()
-      .scale(
-        new Vector3(worldSize, worldSize, worldSize / pixelsPerMeter),
-      );
     const point = this.map.transform.project(center);
     const rotateMap = new Matrix4().fromRotationZ(Math.PI);
-    const scale = new Matrix4().fromScale(new Vector3(-worldSize, worldSize, 1));
+    const scale = new Matrix4().fromScale(new Vector3(-worldSize, worldSize, worldSize));
     const translateMap = new Matrix4().fromTranslation(new Vector3(-point.x, point.y, 0));
     const nz = height / 50;
     const nearZ = Math.max(nz * pitchAngle, nz);
     // const farZ = 1e21;
     const fovAboveCenter = fovRad * (0.5 + this.map.transform.centerOffset.y / height);
     // eslint-disable-next-line max-len
-    const topHalfSurfaceDistance = Math.sin(fovAboveCenter) * this.cameraToCenterDistance / Math.sin(clamp(Math.PI - groundAngle - fovAboveCenter, 0.01, Math.PI - 0.01));
-    let farZ = 0;
+    let topHalfSurfaceDistance =
+      (Math.sin(fovAboveCenter) * this.cameraToCenterDistance) /
+      Math.sin(clamp(Math.PI - groundAngle - fovAboveCenter, 0.01, Math.PI - 0.01));
+    let farZ;
+    const pixelsPerMeter = mercatorZfromAltitude(1, center.lat) * worldSize || 1;
     if (compareVersion(this.map.version, '2.0.0') >= 0) {
       // Adjust distance to MSL by the minimum possible elevation visible on screen,
       // this way the far plane is pushed further in the case of negative elevation.
-      const minElevationInPixels = elevation ? elevation.getMinElevationBelowMSL() * pixelsPerMeter : 0;
-      const cameraToSeaLevelDistance = ((_camera.position[2] * worldSize) - minElevationInPixels) / Math.cos(pitchRad);
-      const topHalfSurfaceDistance = Math.sin(fovAboveCenter) * cameraToSeaLevelDistance / Math.sin(utils.clamp(Math.PI - groundAngle - fovAboveCenter, 0.01, Math.PI - 0.01));
+      const minElevationInPixels = elevation
+        ? elevation.getMinElevationBelowMSL() * pixelsPerMeter
+        : 0;
+      const cameraToSeaLevelDistance =
+        (_camera.position[2] * worldSize - minElevationInPixels) / Math.cos(pitchRad);
+      // eslint-disable-next-line max-len
+      topHalfSurfaceDistance =
+        (Math.sin(fovAboveCenter) * cameraToSeaLevelDistance) /
+        Math.sin(utils.clamp(Math.PI - groundAngle - fovAboveCenter, 0.01, Math.PI - 0.01));
 
       // Calculate z distance of the farthest fragment that should be rendered.
       const furthestDistance = pitchAngle * topHalfSurfaceDistance + cameraToSeaLevelDistance;
@@ -127,10 +137,11 @@ export default class CameraSync {
       farZ = furthestDistance * 1.01;
     }
 
-    const may = new Matrix4()
-      .fromTranslation(
-        new Vector3(0, 0, this.cameraToCenterDistance)
-      );
+    this.mercatorMatrix = new Matrix4().scale(
+      new Vector3(worldSize, worldSize, worldSize / pixelsPerMeter),
+    );
+
+    const may = new Matrix4().fromTranslation(new Vector3(0, 0, this.cameraToCenterDistance));
 
     this.labelPlaneMatrix = new Matrix4();
 
@@ -142,9 +153,7 @@ export default class CameraSync {
 
     this.camera.aspect = width / height;
 
-    const alt = mercatorZfromAltitude(1, center.lat) * worldSize;
-    const zScale = pixelsPerMeter / alt;
-    this.cameraTranslateZ = this.cameraToCenterDistance * zScale;
+    this.cameraTranslateZ = this.cameraToCenterDistance;
 
     if (this.camera instanceof OrthographicCamera) {
       this.camera.projectionMatrix.orthographic(
@@ -169,7 +178,7 @@ export default class CameraSync {
     this.camera.worldMatrix.copy(cameraWorldMatrix);
     this.camera.updateMatrixWorld();
     if (this.scene) {
-      this.scene.worldMatrix = new ProjectionMatrix()
+      this.scene.localMatrix = new ProjectionMatrix()
         .premultiply(rotateMap)
         .premultiply(scale)
         .premultiply(translateMap);

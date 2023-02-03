@@ -127,6 +127,12 @@ importers:
       vitest: 0.24.5_terser@5.16.1
       wait-for-expect: 3.0.2
 
+  adapters/mapbox:
+    specifiers:
+      '@sakitam-gis/vis-engine': workspace:*
+    dependencies:
+      '@sakitam-gis/vis-engine': link:../..
+
   documents:
     specifiers:
       '@algolia/client-search': ^4.14.3
@@ -137,6 +143,7 @@ importers:
       '@docusaurus/preset-classic': ^2.2.0
       '@docusaurus/theme-common': ^2.2.0
       '@docusaurus/theme-live-codeblock': ^2.2.0
+      '@sakitam-gis/mapbox-ve': workspace:*
       '@sakitam-gis/vis-engine': workspace:*
       '@svgr/webpack': ^6.5.1
       '@tsconfig/docusaurus': ^1.0.6
@@ -163,6 +170,7 @@ importers:
       '@docusaurus/preset-classic': 2.2.0_4mvbrmqotwuhfzwlcr6w5cftiu
       '@docusaurus/theme-common': 2.2.0_biqbaboplfbrettd7655fr4n2y
       '@docusaurus/theme-live-codeblock': 2.2.0_biqbaboplfbrettd7655fr4n2y
+      '@sakitam-gis/mapbox-ve': link:../adapters/mapbox
       '@sakitam-gis/vis-engine': link:..
       clsx: 1.2.1
       leva: 0.9.34_biqbaboplfbrettd7655fr4n2y
