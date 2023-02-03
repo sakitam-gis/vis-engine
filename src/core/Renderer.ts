@@ -106,7 +106,7 @@ export interface RenderParams {
 export default class Renderer {
   readonly #gl: WebGLRenderingContext | WebGL2RenderingContext;
 
-  readonly #state: any;
+  readonly #state: State;
 
   readonly #extensions: {
     [key in ExtensionKeys]: Extensions;
@@ -298,7 +298,7 @@ export default class Renderer {
   /**
    * 获取 `renderState`
    */
-  get state() {
+  get state(): State {
     return this.#state;
   }
 
@@ -420,9 +420,13 @@ export default class Renderer {
   }
 
   /**
-   * 重置内部 `WebGL` 状态
+   * 重置内部 `WebGL` 状态。
+   * 需要注意的是一般单独使用时我们不需要去重置状态，但是在跨多个 `WebGL` 库共享单个 `WebGL` 上下文时我们需要关注此方法。默认情况下
+   * 我们会重置所有的状态，但是当我们确认多个共享库使用的状态完全相同时我们可以考虑仅重置部分状态以提高性能。但是有可能会出现无法预料的情况
+   * 请在你确认状态完全匹配时使用 `force = false` 重置部分状态。
+   * @param force 是否强制重置所用状态，默认是 `true`
    */
-  resetState() {
-    this.#state.reset();
+  resetState(force = true) {
+    this.#state.reset(force);
   }
 }

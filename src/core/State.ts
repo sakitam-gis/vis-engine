@@ -21,10 +21,12 @@ type FBOData = {
 };
 
 interface StateOptions {
-  textureUnits: number[];
+  textureUnits: (number | string)[];
   activeTextureUnit: number;
   activeGeometryId: string | number;
   currentProgramId: string | number;
+
+  boundBuffer: WebGLBuffer | null;
 
   colorMask: boolean;
 
@@ -93,8 +95,6 @@ interface IState extends StateOptions {
 export default class State extends Base {
   #state: IState;
 
-  public locked: boolean;
-
   constructor(renderer: Renderer, options?: Partial<StateOptions>) {
     super(renderer);
     const { gl } = renderer;
@@ -128,7 +128,8 @@ export default class State extends Base {
           framebuffer: null,
           textureUnits: [],
           activeTextureUnit: -1,
-          activeGeometryId: null,
+          activeGeometryId: -1,
+          currentProgramId: -1,
           clearAlpha: 1,
           clearColor: new Color(0),
         } as unknown as StateOptions),
@@ -247,6 +248,21 @@ export default class State extends Base {
   }
 
   /**
+   * 设置最后一次绑定的顶点数据
+   * @param boundBuffer
+   */
+  set boundBuffer(boundBuffer) {
+    this.#state.boundBuffer = boundBuffer;
+  }
+
+  /**
+   * 获取最后一次绑定的顶点数据
+   */
+  get boundBuffer() {
+    return this.#state.boundBuffer;
+  }
+
+  /**
    * apply options 并且更新状态
    * @param options
    */
@@ -340,14 +356,6 @@ export default class State extends Base {
   }
 
   /**
-   * 设置 State 是否锁定
-   * @param lock
-   */
-  setLocked(lock: boolean) {
-    this.locked = lock;
-  }
-
-  /**
    * 设置颜色缓冲的状态
    * 模板缓冲可以实现渲染剔除，需要遮罩的话，可能希望只绘制模板缓冲而不绘制颜色缓冲
    * gl.colorMask(false, false, false, false)：关闭颜色缓冲的所有通道
@@ -355,7 +363,7 @@ export default class State extends Base {
    * @param colorMask
    */
   setMask(colorMask: boolean) {
-    if (this.#state.colorMask !== colorMask && !this.locked) {
+    if (this.#state.colorMask !== colorMask) {
       this.gl.colorMask(colorMask, colorMask, colorMask, colorMask);
       this.#state.colorMask = colorMask;
     }
@@ -665,14 +673,71 @@ export default class State extends Base {
 
   /**
    * 重置 `State`
+   * @param force
    */
-  reset() {
-    this.#state.activeGeometryId = -1;
-    this.#state.activeTextureUnit = -1;
-    this.#state.textureUnits = [];
-    this.#state.currentProgramId = -1;
-    this.bindFramebuffer({
-      buffer: null,
-    });
+  reset(force = true) {
+    const keys = Object.keys(this.#state);
+    if (force) {
+      keys
+        .filter((key) => ['viewport', 'premultiplyAlpha'].indexOf(key) < 0)
+        .forEach((key) => {
+          delete this.#state[key];
+        });
+      this.bindFramebuffer({
+        buffer: null,
+      });
+      this.apply({
+        frontFace: this.gl.CCW,
+        depthTest: false,
+        depthWrite: true,
+        depthMask: true,
+        depthFunc: this.gl.LESS,
+        blending: blendType.NormalBlending,
+        blendFunc: {
+          src: this.gl.ONE,
+          dst: this.gl.ZERO,
+        },
+        blendEquation: {
+          modeRGB: this.gl.FUNC_ADD,
+        },
+        premultiplyAlpha: false,
+        unpackAlignment: 4,
+        flipY: false,
+        framebuffer: null,
+        textureUnits: [],
+        activeTextureUnit: -1,
+        activeGeometryId: -1,
+        currentProgramId: -1,
+        clearAlpha: 1,
+        clearColor: new Color(0),
+      } as unknown as StateOptions);
+    } else {
+      keys
+        .filter(
+          (key) =>
+            [
+              'flipY',
+              'framebuffer',
+              'textureUnits',
+              'activeTextureUnit',
+              'activeGeometryId',
+              'currentProgramId',
+            ].indexOf(key) > -1,
+        )
+        .forEach((key) => {
+          delete this.#state[key];
+        });
+
+      this.bindFramebuffer({
+        buffer: null,
+      });
+
+      this.#state.flipY = false;
+      this.#state.activeGeometryId = -1;
+      this.#state.activeTextureUnit = -1;
+      this.#state.currentProgramId = -1;
+      this.#state.textureUnits = [];
+      this.#state.boundBuffer = null;
+    }
   }
 }
