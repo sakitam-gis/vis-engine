@@ -1,3 +1,23 @@
+# [1.3.0](https://github.com/sakitam-gis/vis-engine/compare/v1.2.0...v1.3.0) (2023-02-03)
+
+
+### Bug Fixes
+
+* **core:** fixed `Texture` magFilter state ([c10e56a](https://github.com/sakitam-gis/vis-engine/commit/c10e56ad9eb7e834f0fca59e1cdecdceec73e105))
+* **math:** `Matrix` and `Vector`、`Euler`、`Quaternion` toString method ([3eb2433](https://github.com/sakitam-gis/vis-engine/commit/3eb243325d5a6e4aeecbcdcf08acc4d47e2f7c25))
+
+
+### Features
+
+* **map-adapters:** add mapbox-gl adapter support ([45edb33](https://github.com/sakitam-gis/vis-engine/commit/45edb33234be8c8180b5886eebe0a4ac8c00e778))
+
+
+### Performance Improvements
+
+* **core:** update `Geometry` computeBoundingBox and computeBoundingSphere method support external `vertices` params ([64d18bb](https://github.com/sakitam-gis/vis-engine/commit/64d18bba185867700caee5080f1207514b27fe36))
+* **core:** update `State` reset method support `force` params ([98d0c58](https://github.com/sakitam-gis/vis-engine/commit/98d0c5825794ee9fe544e5a766811cdd2426c84f))
+* **eslint:** format code ([89874ec](https://github.com/sakitam-gis/vis-engine/commit/89874ecb5b31e2d501bb5b639339acc143023d09))
+
 # [1.2.0](https://github.com/sakitam-gis/vis-engine/compare/v1.1.1...v1.2.0) (2023-02-01)
 
 
