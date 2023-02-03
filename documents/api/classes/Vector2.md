@@ -1,4 +1,4 @@
-[vis-engine - v1.0.0](../index.md) / Vector2
+[vis-engine - v1.2.0](../index.md) / Vector2
 
 # Class: Vector2
 
@@ -88,13 +88,13 @@ Vector.constructor
 
 #### Defined in
 
-[math/Vector2.ts:46](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;46)
+[math/Vector2.ts:46](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;46)
 
 ## Properties
 
 ### elements
 
-• **elements**: `Float32Array`
+• **elements**: `Float32Array` \| `Float64Array`
 
 #### Overrides
 
@@ -102,7 +102,7 @@ Vector.elements
 
 #### Defined in
 
-[math/Vector2.ts:40](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;40)
+[math/Vector2.ts:40](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;40)
 
 ## Accessors
 
@@ -120,7 +120,7 @@ number;
 
 #### Defined in
 
-[math/Vector2.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;57)
+[math/Vector2.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;57)
 
 • `set` **x**(`x`): `void`
 
@@ -138,7 +138,7 @@ number;
 
 #### Defined in
 
-[math/Vector2.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;65)
+[math/Vector2.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;65)
 
 ___
 
@@ -156,7 +156,7 @@ number;
 
 #### Defined in
 
-[math/Vector2.ts:73](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;73)
+[math/Vector2.ts:73](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;73)
 
 • `set` **y**(`y`): `void`
 
@@ -174,7 +174,7 @@ number;
 
 #### Defined in
 
-[math/Vector2.ts:81](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;81)
+[math/Vector2.ts:81](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;81)
 
 ## Methods
 
@@ -196,7 +196,7 @@ number;
 
 #### Defined in
 
-[math/Vector2.ts:129](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;129)
+[math/Vector2.ts:129](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;129)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:138](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;138)
+[math/Vector2.ts:138](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;138)
 
 ___
 
@@ -234,7 +234,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:232](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;232)
+[math/Vector2.ts:232](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;232)
 
 ___
 
@@ -256,7 +256,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:239](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;239)
+[math/Vector2.ts:239](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;239)
 
 ___
 
@@ -278,7 +278,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:306](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;306)
+[math/Vector2.ts:306](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;306)
 
 ___
 
@@ -300,7 +300,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:315](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;315)
+[math/Vector2.ts:315](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;315)
 
 ___
 
@@ -316,7 +316,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:333](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;333)
+[math/Vector2.ts:333](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;333)
 
 ___
 
@@ -338,7 +338,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:324](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;324)
+[math/Vector2.ts:324](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;324)
 
 ___
 
@@ -360,7 +360,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:263](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;263)
+[math/Vector2.ts:263](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;263)
 
 ___
 
@@ -382,7 +382,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:210](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;210)
+[math/Vector2.ts:210](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;210)
 
 ___
 
@@ -404,7 +404,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:225](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;225)
+[math/Vector2.ts:225](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;225)
 
 ___
 
@@ -426,7 +426,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:183](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;183)
+[math/Vector2.ts:183](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;183)
 
 ___
 
@@ -448,7 +448,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:192](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;192)
+[math/Vector2.ts:192](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;192)
 
 ___
 
@@ -470,7 +470,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:247](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;247)
+[math/Vector2.ts:247](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;247)
 
 ___
 
@@ -492,7 +492,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:255](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;255)
+[math/Vector2.ts:255](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;255)
 
 ___
 
@@ -519,7 +519,7 @@ Vector.fromArray
 
 #### Defined in
 
-[math/Vector.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;1dddf76#line&#x3D;13)
+[math/Vector.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;b6d63c9#line&#x3D;15)
 
 ___
 
@@ -541,7 +541,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:89](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;89)
+[math/Vector2.ts:89](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;89)
 
 ___
 
@@ -557,7 +557,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:279](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;279)
+[math/Vector2.ts:279](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;279)
 
 ___
 
@@ -573,7 +573,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:217](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;217)
+[math/Vector2.ts:217](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;217)
 
 ___
 
@@ -596,7 +596,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:289](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;289)
+[math/Vector2.ts:289](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;289)
 
 ___
 
@@ -618,7 +618,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:165](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;165)
+[math/Vector2.ts:165](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;165)
 
 ___
 
@@ -640,7 +640,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;174)
+[math/Vector2.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;174)
 
 ___
 
@@ -656,7 +656,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:271](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;271)
+[math/Vector2.ts:271](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;271)
 
 ___
 
@@ -672,7 +672,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:297](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;297)
+[math/Vector2.ts:297](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;297)
 
 ___
 
@@ -694,7 +694,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:201](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;201)
+[math/Vector2.ts:201](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;201)
 
 ___
 
@@ -717,7 +717,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:111](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;111)
+[math/Vector2.ts:111](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;111)
 
 ___
 
@@ -739,7 +739,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:121](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;121)
+[math/Vector2.ts:121](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;121)
 
 ___
 
@@ -761,7 +761,7 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:147](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;147)
+[math/Vector2.ts:147](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;147)
 
 ___
 
@@ -783,13 +783,13 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:156](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;156)
+[math/Vector2.ts:156](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;156)
 
 ___
 
 ### toArray
 
-▸ **toArray**(`out?`, `offset?`): `Float32Array` \| `number`[]
+▸ **toArray**(`out?`, `offset?`): `Float32Array` \| `Float64Array` \| `number`[]
 
 从向量转换到数组
 
@@ -797,12 +797,12 @@ ___
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `out` | `Float32Array` \| `number`[] | `[]` | 输出数据 |
+| `out` | `Float32Array` \| `Float64Array` \| `number`[] | `[]` | 输出数据 |
 | `offset` | `number` | `0` | 偏移量 |
 
 #### Returns
 
-`Float32Array` \| `number`[]
+`Float32Array` \| `Float64Array` \| `number`[]
 
 #### Inherited from
 
@@ -810,7 +810,7 @@ Vector.toArray
 
 #### Defined in
 
-[math/Vector.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;1dddf76#line&#x3D;26)
+[math/Vector.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;b6d63c9#line&#x3D;28)
 
 ___
 
@@ -831,20 +831,20 @@ ___
 
 #### Defined in
 
-[math/Vector2.ts:99](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;99)
+[math/Vector2.ts:99](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;99)
 
 ___
 
 ### toString
 
-▸ **toString**(): `any`
+▸ **toString**(): `string`
 
 转换为字符串
 
 #### Returns
 
-`any`
+`string`
 
 #### Defined in
 
-[math/Vector2.ts:340](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;1dddf76#line&#x3D;340)
+[math/Vector2.ts:340](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector2.ts?at&#x3D;b6d63c9#line&#x3D;340)

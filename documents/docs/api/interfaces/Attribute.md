@@ -16,7 +16,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/BufferAttribute.ts:70](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;70)
+[core/BufferAttribute.ts:78](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;78)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:54](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;54)
+[core/BufferAttribute.ts:62](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;62)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;15)
+[core/BufferAttribute.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;23)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:39](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;39)
+[core/BufferAttribute.ts:47](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;47)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:75](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;75)
+[core/BufferAttribute.ts:83](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;83)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:33](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;33)
+[core/BufferAttribute.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;41)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:49](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;49)
+[core/BufferAttribute.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;57)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;20)
+[core/BufferAttribute.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;28)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:44](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;44)
+[core/BufferAttribute.ts:52](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;52)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:59](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;59)
+[core/BufferAttribute.ts:67](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;67)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;25)
+[core/BufferAttribute.ts:33](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;33)
 
 ___
 
@@ -153,4 +153,4 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;65)
+[core/BufferAttribute.ts:73](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;73)

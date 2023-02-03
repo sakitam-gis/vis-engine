@@ -1,6 +1,6 @@
 ---
 id: "index"
-title: "vis-engine - v1.0.4"
+title: "vis-engine - v1.2.0"
 sidebar_label: "Exports"
 sidebar_position: 0.5
 custom_edit_url: null
@@ -65,6 +65,12 @@ custom_edit_url: null
 - [TextureOptions](interfaces/TextureOptions.md)
 - [UniformData](interfaces/UniformData.md)
 
+## References
+
+### highPrecision
+
+Re-exports [highPrecision](namespaces/utils.md#highprecision)
+
 ## Type Aliases
 
 ### Attachment
@@ -73,7 +79,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;1f0fb3d#line&#x3D;9)
+[core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;b6d63c9#line&#x3D;9)
 
 ___
 
@@ -92,7 +98,7 @@ ___
 
 #### Defined in
 
-[cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f0fb3d#line&#x3D;12)
+[cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;b6d63c9#line&#x3D;12)
 
 ___
 
@@ -104,7 +110,7 @@ ___
 
 #### Defined in
 
-[cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f0fb3d#line&#x3D;10)
+[cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;b6d63c9#line&#x3D;10)
 
 ___
 
@@ -114,7 +120,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;1f0fb3d#line&#x3D;241)
+[math/Color.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;b6d63c9#line&#x3D;241)
 
 ___
 
@@ -126,7 +132,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;1f0fb3d#line&#x3D;8)
+[core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;b6d63c9#line&#x3D;8)
 
 ___
 
@@ -136,4 +142,4 @@ ___
 
 #### Defined in
 
-[core/Program.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;1f0fb3d#line&#x3D;65)
+[core/Program.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;b6d63c9#line&#x3D;65)

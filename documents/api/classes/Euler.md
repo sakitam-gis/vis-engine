@@ -1,4 +1,4 @@
-[vis-engine - v1.0.0](../index.md) / Euler
+[vis-engine - v1.2.0](../index.md) / Euler
 
 # Class: Euler
 
@@ -49,6 +49,7 @@ const a = new Euler(0, 1, 1.57, 'xyz' )
 - [toArray](Euler.md#toarray)
 - [toObject](Euler.md#toobject)
 - [toQuaternion](Euler.md#toquaternion)
+- [toString](Euler.md#tostring)
 - [toVector3](Euler.md#tovector3)
 - [triggerChange](Euler.md#triggerchange)
 
@@ -73,13 +74,13 @@ Vector.constructor
 
 #### Defined in
 
-[math/Euler.ts:32](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;32)
+[math/Euler.ts:32](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;32)
 
 ## Properties
 
 ### elements
 
-• **elements**: `Float32Array`
+• **elements**: `Float32Array` \| `Float64Array`
 
 #### Overrides
 
@@ -87,7 +88,7 @@ Vector.elements
 
 #### Defined in
 
-[math/Euler.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;20)
+[math/Euler.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;20)
 
 ## Accessors
 
@@ -103,7 +104,7 @@ Vector.elements
 
 #### Defined in
 
-[math/Euler.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;95)
+[math/Euler.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;95)
 
 • `set` **order**(`order`): `void`
 
@@ -121,7 +122,7 @@ Vector.elements
 
 #### Defined in
 
-[math/Euler.ts:103](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;103)
+[math/Euler.ts:103](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;103)
 
 ___
 
@@ -135,7 +136,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:116](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;116)
+[math/Euler.ts:116](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;116)
 
 • `set` **pitch**(`pitch`): `void`
 
@@ -151,7 +152,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:120](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;120)
+[math/Euler.ts:120](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;120)
 
 ___
 
@@ -165,7 +166,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:108](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;108)
+[math/Euler.ts:108](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;108)
 
 • `set` **roll**(`roll`): `void`
 
@@ -181,7 +182,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:112](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;112)
+[math/Euler.ts:112](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;112)
 
 ___
 
@@ -199,7 +200,7 @@ number;
 
 #### Defined in
 
-[math/Euler.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;45)
+[math/Euler.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;45)
 
 • `set` **x**(`x`): `void`
 
@@ -217,7 +218,7 @@ number;
 
 #### Defined in
 
-[math/Euler.ts:53](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;53)
+[math/Euler.ts:53](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;53)
 
 ___
 
@@ -235,7 +236,7 @@ number;
 
 #### Defined in
 
-[math/Euler.ts:62](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;62)
+[math/Euler.ts:62](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;62)
 
 • `set` **y**(`y`): `void`
 
@@ -253,7 +254,7 @@ number;
 
 #### Defined in
 
-[math/Euler.ts:70](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;70)
+[math/Euler.ts:70](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;70)
 
 ___
 
@@ -267,7 +268,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:124](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;124)
+[math/Euler.ts:124](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;124)
 
 • `set` **yaw**(`yaw`): `void`
 
@@ -283,7 +284,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:128](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;128)
+[math/Euler.ts:128](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;128)
 
 ___
 
@@ -301,7 +302,7 @@ number;
 
 #### Defined in
 
-[math/Euler.ts:79](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;79)
+[math/Euler.ts:79](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;79)
 
 • `set` **z**(`z`): `void`
 
@@ -319,7 +320,7 @@ number;
 
 #### Defined in
 
-[math/Euler.ts:87](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;87)
+[math/Euler.ts:87](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;87)
 
 ## Methods
 
@@ -335,7 +336,7 @@ number;
 
 #### Defined in
 
-[math/Euler.ts:337](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;337)
+[math/Euler.ts:337](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;337)
 
 ___
 
@@ -357,7 +358,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:345](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;345)
+[math/Euler.ts:345](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;345)
 
 ___
 
@@ -379,7 +380,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:361](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;361)
+[math/Euler.ts:361](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;361)
 
 ___
 
@@ -406,7 +407,7 @@ Vector.fromArray
 
 #### Defined in
 
-[math/Vector.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;1dddf76#line&#x3D;13)
+[math/Vector.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;b6d63c9#line&#x3D;15)
 
 ___
 
@@ -428,7 +429,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:139](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;139)
+[math/Euler.ts:139](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;139)
 
 ___
 
@@ -450,7 +451,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:268](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;268)
+[math/Euler.ts:268](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;268)
 
 ___
 
@@ -474,7 +475,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;174)
+[math/Euler.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;174)
 
 ___
 
@@ -497,7 +498,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:289](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;289)
+[math/Euler.ts:289](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;289)
 
 ___
 
@@ -519,7 +520,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:369](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;369)
+[math/Euler.ts:369](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;369)
 
 ___
 
@@ -544,13 +545,13 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:325](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;325)
+[math/Euler.ts:325](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;325)
 
 ___
 
 ### toArray
 
-▸ **toArray**(`out?`, `offset?`): `Float32Array` \| `number`[]
+▸ **toArray**(`out?`, `offset?`): `Float32Array` \| `Float64Array` \| `number`[]
 
 从向量转换到数组
 
@@ -558,12 +559,12 @@ ___
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `out` | `Float32Array` \| `number`[] | `[]` | 输出数据 |
+| `out` | `Float32Array` \| `Float64Array` \| `number`[] | `[]` | 输出数据 |
 | `offset` | `number` | `0` | 偏移量 |
 
 #### Returns
 
-`Float32Array` \| `number`[]
+`Float32Array` \| `Float64Array` \| `number`[]
 
 #### Inherited from
 
@@ -571,7 +572,7 @@ Vector.toArray
 
 #### Defined in
 
-[math/Vector.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;1dddf76#line&#x3D;26)
+[math/Vector.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Vector.ts?at&#x3D;b6d63c9#line&#x3D;28)
 
 ___
 
@@ -594,7 +595,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:159](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;159)
+[math/Euler.ts:159](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;159)
 
 ___
 
@@ -610,7 +611,23 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:296](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;296)
+[math/Euler.ts:296](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;296)
+
+___
+
+### toString
+
+▸ **toString**(): `string`
+
+转换为字符串
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[math/Euler.ts:385](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;385)
 
 ___
 
@@ -626,7 +643,7 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:314](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;314)
+[math/Euler.ts:314](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;314)
 
 ___
 
@@ -642,4 +659,4 @@ ___
 
 #### Defined in
 
-[math/Euler.ts:378](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;1dddf76#line&#x3D;378)
+[math/Euler.ts:378](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Euler.ts?at&#x3D;b6d63c9#line&#x3D;378)

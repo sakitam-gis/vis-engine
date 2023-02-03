@@ -10,7 +10,11 @@ module.exports = {
       'playground/box-volume',
       'playground/clouds',
       'playground/gltf',
+    ],
+    'Mapbox': [
       'playground/mapbox-mesh',
+      'playground/mapbox-box-mesh',
+      'playground/mapbox-gltf',
     ],
   },
 };

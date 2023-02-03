@@ -59,13 +59,13 @@ Matrix.constructor
 
 #### Defined in
 
-[math/Matrix4.ts:78](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;78)
+[math/Matrix4.ts:77](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;77)
 
 ## Properties
 
 ### elements
 
-• **elements**: `Float32Array`
+• **elements**: `Float32Array` \| `Float64Array`
 
 #### Overrides
 
@@ -73,7 +73,7 @@ Matrix.elements
 
 #### Defined in
 
-[math/Matrix4.ts:58](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;58)
+[math/Matrix4.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;57)
 
 ## Accessors
 
@@ -91,7 +91,7 @@ number;
 
 #### Defined in
 
-[math/Matrix4.ts:148](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;148)
+[math/Matrix4.ts:147](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;147)
 
 ___
 
@@ -109,7 +109,7 @@ number;
 
 #### Defined in
 
-[math/Matrix4.ts:124](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;124)
+[math/Matrix4.ts:123](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;123)
 
 ___
 
@@ -127,7 +127,7 @@ number;
 
 #### Defined in
 
-[math/Matrix4.ts:132](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;132)
+[math/Matrix4.ts:131](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;131)
 
 ___
 
@@ -145,7 +145,7 @@ number;
 
 #### Defined in
 
-[math/Matrix4.ts:140](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;140)
+[math/Matrix4.ts:139](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;139)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:155](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;155)
+[math/Matrix4.ts:154](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;154)
 
 ## Methods
 
@@ -186,7 +186,7 @@ this
 
 #### Defined in
 
-[math/Matrix4.ts:225](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;225)
+[math/Matrix4.ts:224](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;224)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:206](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;206)
+[math/Matrix4.ts:205](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;205)
 
 ___
 
@@ -226,7 +226,7 @@ a new Matrix4
 
 #### Defined in
 
-[math/Matrix4.ts:529](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;529)
+[math/Matrix4.ts:528](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;528)
 
 ___
 
@@ -250,7 +250,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:499](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;499)
+[math/Matrix4.ts:498](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;498)
 
 ___
 
@@ -274,7 +274,7 @@ this
 
 #### Defined in
 
-[math/Matrix4.ts:520](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;520)
+[math/Matrix4.ts:519](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;519)
 
 ___
 
@@ -296,7 +296,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:507](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;507)
+[math/Matrix4.ts:506](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;506)
 
 ___
 
@@ -312,7 +312,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:215](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;215)
+[math/Matrix4.ts:214](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;214)
 
 ___
 
@@ -334,7 +334,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:432](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;432)
+[math/Matrix4.ts:431](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;431)
 
 ___
 
@@ -361,7 +361,7 @@ Matrix.fromArray
 
 #### Defined in
 
-[math/Matrix.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix.ts?at&#x3D;1f0fb3d#line&#x3D;13)
+[math/Matrix.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix.ts?at&#x3D;b6d63c9#line&#x3D;15)
 
 ___
 
@@ -388,7 +388,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:414](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;414)
+[math/Matrix4.ts:413](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;413)
 
 ___
 
@@ -413,7 +413,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:400](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;400)
+[math/Matrix4.ts:399](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;399)
 
 ___
 
@@ -435,7 +435,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:423](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;423)
+[math/Matrix4.ts:422](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;422)
 
 ___
 
@@ -449,7 +449,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `rad` | `any` | 弧度 |
+| `rad` | `number` | 弧度 |
 | `axis` | `any` | 轴 |
 
 #### Returns
@@ -458,7 +458,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:342](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;342)
+[math/Matrix4.ts:341](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;341)
 
 ___
 
@@ -481,7 +481,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:388](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;388)
+[math/Matrix4.ts:387](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;387)
 
 ___
 
@@ -495,7 +495,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `rad` | `any` |
+| `rad` | `number` |
 
 #### Returns
 
@@ -503,7 +503,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:351](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;351)
+[math/Matrix4.ts:350](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;350)
 
 ___
 
@@ -517,7 +517,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `rad` | `any` |
+| `rad` | `number` |
 
 #### Returns
 
@@ -525,7 +525,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:360](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;360)
+[math/Matrix4.ts:359](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;359)
 
 ___
 
@@ -547,7 +547,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:369](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;369)
+[math/Matrix4.ts:368](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;368)
 
 ___
 
@@ -569,7 +569,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:378](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;378)
+[math/Matrix4.ts:377](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;377)
 
 ___
 
@@ -591,7 +591,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:332](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;332)
+[math/Matrix4.ts:331](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;331)
 
 ___
 
@@ -613,7 +613,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:440](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;440)
+[math/Matrix4.ts:439](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;439)
 
 ___
 
@@ -635,7 +635,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:450](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;450)
+[math/Matrix4.ts:449](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;449)
 
 ___
 
@@ -657,7 +657,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:460](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;460)
+[math/Matrix4.ts:459](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;459)
 
 ___
 
@@ -681,7 +681,7 @@ Matrix4
 
 #### Defined in
 
-[math/Matrix4.ts:197](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;197)
+[math/Matrix4.ts:196](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;196)
 
 ___
 
@@ -706,13 +706,13 @@ this
 
 #### Defined in
 
-[math/Matrix4.ts:256](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;256)
+[math/Matrix4.ts:255](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;255)
 
 ___
 
 ### multiplyScalar
 
-▸ **multiplyScalar**(`a?`, `b`): [`Matrix4`](Matrix4.md)
+▸ **multiplyScalar**(`a?`, `b?`): [`Matrix4`](Matrix4.md)
 
 计算 Matrix4 与标量的乘积
 
@@ -721,7 +721,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `a` | [`Matrix4`](Matrix4.md) | 如果不传，计算 this 和 b 的乘积 |
-| `b` | `number` |  |
+| `b?` | `number` |  |
 
 #### Returns
 
@@ -729,7 +729,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:270](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;270)
+[math/Matrix4.ts:269](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;269)
 
 ___
 
@@ -754,7 +754,7 @@ this
 
 #### Defined in
 
-[math/Matrix4.ts:281](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;281)
+[math/Matrix4.ts:280](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;280)
 
 ___
 
@@ -778,7 +778,7 @@ this
 
 #### Defined in
 
-[math/Matrix4.ts:305](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;305)
+[math/Matrix4.ts:304](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;304)
 
 ___
 
@@ -800,7 +800,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:470](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;470)
+[math/Matrix4.ts:469](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;469)
 
 ___
 
@@ -822,7 +822,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:479](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;479)
+[math/Matrix4.ts:478](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;478)
 
 ___
 
@@ -844,7 +844,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:488](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;488)
+[math/Matrix4.ts:487](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;487)
 
 ___
 
@@ -866,7 +866,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:314](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;314)
+[math/Matrix4.ts:313](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;313)
 
 ___
 
@@ -888,7 +888,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:323](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;323)
+[math/Matrix4.ts:322](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;322)
 
 ___
 
@@ -925,7 +925,7 @@ ___
 
 #### Defined in
 
-[math/Matrix4.ts:178](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;178)
+[math/Matrix4.ts:177](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;177)
 
 ___
 
@@ -950,13 +950,13 @@ this
 
 #### Defined in
 
-[math/Matrix4.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;241)
+[math/Matrix4.ts:240](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;240)
 
 ___
 
 ### toArray
 
-▸ **toArray**(`out?`, `offset?`): `Float32Array` \| `number`[]
+▸ **toArray**(`out?`, `offset?`): `Float32Array` \| `Float64Array` \| `number`[]
 
 从矩阵转换到数组
 
@@ -964,12 +964,12 @@ ___
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `out` | `Float32Array` \| `number`[] | `[]` | 输出数据 |
+| `out` | `Float32Array` \| `Float64Array` \| `number`[] | `[]` | 输出数据 |
 | `offset` | `number` | `0` | 偏移量 |
 
 #### Returns
 
-`Float32Array` \| `number`[]
+`Float32Array` \| `Float64Array` \| `number`[]
 
 #### Inherited from
 
@@ -977,23 +977,23 @@ Matrix.toArray
 
 #### Defined in
 
-[math/Matrix.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix.ts?at&#x3D;1f0fb3d#line&#x3D;26)
+[math/Matrix.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix.ts?at&#x3D;b6d63c9#line&#x3D;28)
 
 ___
 
 ### toString
 
-▸ **toString**(): `any`
+▸ **toString**(): `string`
 
 转换为字符串
 
 #### Returns
 
-`any`
+`string`
 
 #### Defined in
 
-[math/Matrix4.ts:536](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;536)
+[math/Matrix4.ts:535](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;535)
 
 ___
 
@@ -1017,7 +1017,7 @@ this
 
 #### Defined in
 
-[math/Matrix4.ts:295](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;295)
+[math/Matrix4.ts:294](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;294)
 
 ___
 
@@ -1035,4 +1035,4 @@ this
 
 #### Defined in
 
-[math/Matrix4.ts:187](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;1f0fb3d#line&#x3D;187)
+[math/Matrix4.ts:186](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Matrix4.ts?at&#x3D;b6d63c9#line&#x3D;186)

@@ -22,6 +22,7 @@
     "@docusaurus/theme-common": "^2.2.0",
     "@docsearch/react": "^3.3.0",
     "@sakitam-gis/vis-engine": "workspace:*",
+    "@sakitam-gis/mapbox-ve": "workspace:*",
     "mapbox-gl": "^2.12.0",
     "maptalks": "^1.0.0-rc.17",
     "clsx": "^1.2.1",

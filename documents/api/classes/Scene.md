@@ -1,4 +1,4 @@
-[vis-engine - v1.0.0](../index.md) / Scene
+[vis-engine - v1.2.0](../index.md) / Scene
 
 # Class: Scene
 
@@ -68,7 +68,7 @@ scene.add(points);
 
 #### Defined in
 
-[objects/Object3D.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;45)
+[objects/Object3D.ts:71](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;71)
 
 ## Properties
 
@@ -76,13 +76,15 @@ scene.add(points);
 
 • **children**: [`Object3D`](Object3D.md)[]
 
+对象子级
+
 #### Inherited from
 
 [Object3D](Object3D.md).[children](Object3D.md#children)
 
 #### Defined in
 
-[objects/Object3D.ts:39](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;39)
+[objects/Object3D.ts:59](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;59)
 
 ___
 
@@ -98,7 +100,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;20)
+[objects/Object3D.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;19)
 
 ___
 
@@ -106,13 +108,15 @@ ___
 
 • **matrixAutoUpdate**: `boolean`
 
+当这个属性设置了之后，它将计算每一帧的位移、旋转（四元变换）和缩放矩阵，并重新计算 `worldMatrix` 属性
+
 #### Inherited from
 
 [Object3D](Object3D.md).[matrixAutoUpdate](Object3D.md#matrixautoupdate)
 
 #### Defined in
 
-[objects/Object3D.ts:27](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;27)
+[objects/Object3D.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;29)
 
 ___
 
@@ -120,13 +124,15 @@ ___
 
 • **parent**: `WithNull`<[`Object3D`](Object3D.md)\>
 
+对象父级
+
 #### Inherited from
 
 [Object3D](Object3D.md).[parent](Object3D.md#parent)
 
 #### Defined in
 
-[objects/Object3D.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;41)
+[objects/Object3D.ts:64](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;64)
 
 ___
 
@@ -134,13 +140,15 @@ ___
 
 • **position**: [`Vector3`](Vector3.md)
 
+物体局部位置
+
 #### Inherited from
 
 [Object3D](Object3D.md).[position](Object3D.md#position)
 
 #### Defined in
 
-[objects/Object3D.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;29)
+[objects/Object3D.ts:34](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;34)
 
 ___
 
@@ -148,13 +156,15 @@ ___
 
 • **quaternion**: [`Quaternion`](Quaternion.md)
 
+物体的局部旋转
+
 #### Inherited from
 
 [Object3D](Object3D.md).[quaternion](Object3D.md#quaternion)
 
 #### Defined in
 
-[objects/Object3D.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;35)
+[objects/Object3D.ts:49](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;49)
 
 ___
 
@@ -162,13 +172,15 @@ ___
 
 • **rotation**: [`Euler`](Euler.md)
 
+物体的局部旋转
+
 #### Inherited from
 
 [Object3D](Object3D.md).[rotation](Object3D.md#rotation)
 
 #### Defined in
 
-[objects/Object3D.ts:33](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;33)
+[objects/Object3D.ts:44](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;44)
 
 ___
 
@@ -176,13 +188,15 @@ ___
 
 • **scale**: [`Vector3`](Vector3.md)
 
+物体的局部缩放
+
 #### Inherited from
 
 [Object3D](Object3D.md).[scale](Object3D.md#scale)
 
 #### Defined in
 
-[objects/Object3D.ts:31](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;31)
+[objects/Object3D.ts:39](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;39)
 
 ___
 
@@ -190,13 +204,15 @@ ___
 
 • **up**: [`Vector3`](Vector3.md)
 
+物体的朝向
+
 #### Inherited from
 
 [Object3D](Object3D.md).[up](Object3D.md#up)
 
 #### Defined in
 
-[objects/Object3D.ts:37](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;37)
+[objects/Object3D.ts:54](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;54)
 
 ___
 
@@ -212,7 +228,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;15)
+[objects/Object3D.ts:14](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;14)
 
 ___
 
@@ -220,7 +236,7 @@ ___
 
 • **worldMatrix**: [`ProjectionMatrix`](ProjectionMatrix.md)
 
-物体的世界变换矩阵
+物体的世界变换矩阵 (如果没有父级，那么他和局部变化矩阵相同)
 
 #### Inherited from
 
@@ -228,7 +244,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;25)
+[objects/Object3D.ts:24](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;24)
 
 ___
 
@@ -236,26 +252,30 @@ ___
 
 • **worldMatrixNeedsUpdate**: `boolean`
 
+当这个属性设置了之后，它将计算在那一帧中的 `worldMatrix`，并将这个值重置为false。默认值为false
+
 #### Inherited from
 
 [Object3D](Object3D.md).[worldMatrixNeedsUpdate](Object3D.md#worldmatrixneedsupdate)
 
 #### Defined in
 
-[objects/Object3D.ts:43](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;43)
+[objects/Object3D.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;69)
 
 ## Methods
 
 ### add
 
-▸ **add**(`object`, `p?`): `void`
+▸ **add**(`object`, `notifyChild?`): `void`
+
+添加对象到这个对象的子级
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `object` | `any` | `undefined` |
-| `p` | `boolean` | `true` |
+| `object` | [`Object3D`](Object3D.md) | `undefined` |
+| `notifyChild` | `boolean` | `true` |
 
 #### Returns
 
@@ -267,7 +287,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:66](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;66)
+[objects/Object3D.ts:97](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;97)
 
 ___
 
@@ -287,7 +307,7 @@ ___
 
 #### Defined in
 
-[objects/Scene.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Scene.ts?at&#x3D;1dddf76#line&#x3D;21)
+[objects/Scene.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Scene.ts?at&#x3D;b6d63c9#line&#x3D;21)
 
 ___
 
@@ -301,7 +321,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `object` | `any` |
+| `object` | [`Object3D`](Object3D.md) |
 
 #### Returns
 
@@ -313,7 +333,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:88](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;88)
+[objects/Object3D.ts:124](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;124)
 
 ___
 
@@ -340,13 +360,15 @@ ___
 
 #### Defined in
 
-[objects/Scene.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Scene.ts?at&#x3D;1dddf76#line&#x3D;30)
+[objects/Scene.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Scene.ts?at&#x3D;b6d63c9#line&#x3D;30)
 
 ___
 
 ### decompose
 
 ▸ **decompose**(): `void`
+
+从局部矩阵计算位置，旋转和缩放
 
 #### Returns
 
@@ -358,20 +380,22 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:159](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;159)
+[objects/Object3D.ts:208](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;208)
 
 ___
 
 ### lookAt
 
-▸ **lookAt**(`eye`, `isCamera?`): `void`
+▸ **lookAt**(`eye`, `invert?`): `void`
+
+旋转物体使其在世界空间中面朝一个点
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `eye` | [`Vector3`](Vector3.md) |
-| `isCamera?` | `boolean` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `eye` | [`Vector3`](Vector3.md) | 朝向位置 |
+| `invert?` | `boolean` | 是否反转 |
 
 #### Returns
 
@@ -383,20 +407,22 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:115](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;115)
+[objects/Object3D.ts:160](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;160)
 
 ___
 
 ### remove
 
-▸ **remove**(`object`, `p?`): `void`
+▸ **remove**(`object`, `notifyChild?`): `void`
+
+从此对象移除传入的对象（如果存在）
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `object` | `any` | `undefined` |
-| `p` | `boolean` | `true` |
+| `object` | [`Object3D`](Object3D.md) | `undefined` |
+| `notifyChild` | `boolean` | `true` |
 
 #### Returns
 
@@ -408,7 +434,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:75](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;75)
+[objects/Object3D.ts:111](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;111)
 
 ___
 
@@ -435,7 +461,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:97](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;97)
+[objects/Object3D.ts:133](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;133)
 
 ___
 
@@ -443,11 +469,13 @@ ___
 
 ▸ **traverse**(`callback`): `void`
 
+遍历此对象（包含子对象）
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `callback` | `any` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `callback` | `any` | 回调函数 |
 
 #### Returns
 
@@ -459,7 +487,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:107](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;107)
+[objects/Object3D.ts:147](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;147)
 
 ___
 
@@ -479,7 +507,7 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:154](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;154)
+[objects/Object3D.ts:200](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;200)
 
 ___
 
@@ -505,4 +533,4 @@ ___
 
 #### Defined in
 
-[objects/Object3D.ts:129](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1dddf76#line&#x3D;129)
+[objects/Object3D.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;b6d63c9#line&#x3D;174)

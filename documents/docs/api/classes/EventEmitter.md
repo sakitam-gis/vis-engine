@@ -53,7 +53,7 @@ e.clear();
 
 #### Defined in
 
-[core/Event.ts:49](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;1f0fb3d#line&#x3D;49)
+[core/Event.ts:49](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;b6d63c9#line&#x3D;49)
 
 ## Methods
 
@@ -69,7 +69,7 @@ e.clear();
 
 #### Defined in
 
-[core/Event.ts:176](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;1f0fb3d#line&#x3D;176)
+[core/Event.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;b6d63c9#line&#x3D;174)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[core/Event.ts:158](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;1f0fb3d#line&#x3D;158)
+[core/Event.ts:158](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;b6d63c9#line&#x3D;158)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[core/Event.ts:169](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;1f0fb3d#line&#x3D;169)
+[core/Event.ts:167](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;b6d63c9#line&#x3D;167)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[core/Event.ts:130](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;1f0fb3d#line&#x3D;130)
+[core/Event.ts:130](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;b6d63c9#line&#x3D;130)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[core/Event.ts:82](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;1f0fb3d#line&#x3D;82)
+[core/Event.ts:82](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;b6d63c9#line&#x3D;82)
 
 ___
 
@@ -184,4 +184,4 @@ ___
 
 #### Defined in
 
-[core/Event.ts:106](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;1f0fb3d#line&#x3D;106)
+[core/Event.ts:106](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;b6d63c9#line&#x3D;106)

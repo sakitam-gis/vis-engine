@@ -1,4 +1,4 @@
-[vis-engine - v1.0.0](../index.md) / State
+[vis-engine - v1.2.0](../index.md) / State
 
 # Class: State
 
@@ -18,13 +18,13 @@
 
 ### Properties
 
-- [locked](State.md#locked)
 - [renderer](State.md#renderer)
 
 ### Accessors
 
 - [activeGeometryId](State.md#activegeometryid)
 - [activeTextureUnit](State.md#activetextureunit)
+- [boundBuffer](State.md#boundbuffer)
 - [currentProgramId](State.md#currentprogramid)
 - [flipY](State.md#flipy)
 - [gl](State.md#gl)
@@ -41,6 +41,7 @@
 - [bindFramebuffer](State.md#bindframebuffer)
 - [disable](State.md#disable)
 - [enable](State.md#enable)
+- [reset](State.md#reset)
 - [setActiveGeometry](State.md#setactivegeometry)
 - [setActiveTexture](State.md#setactivetexture)
 - [setBlendEquation](State.md#setblendequation)
@@ -54,7 +55,6 @@
 - [setDepthTest](State.md#setdepthtest)
 - [setFrontFace](State.md#setfrontface)
 - [setLineWidth](State.md#setlinewidth)
-- [setLocked](State.md#setlocked)
 - [setMask](State.md#setmask)
 - [setPolygonOffset](State.md#setpolygonoffset)
 - [setStencil](State.md#setstencil)
@@ -79,19 +79,9 @@ Base.constructor
 
 #### Defined in
 
-[core/State.ts:98](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;98)
+[core/State.ts:98](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;98)
 
 ## Properties
-
-### locked
-
-• **locked**: `boolean`
-
-#### Defined in
-
-[core/State.ts:96](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;96)
-
-___
 
 ### renderer
 
@@ -103,7 +93,7 @@ Base.renderer
 
 #### Defined in
 
-[core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;1dddf76#line&#x3D;7)
+[core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;b6d63c9#line&#x3D;7)
 
 ## Accessors
 
@@ -119,7 +109,7 @@ Base.renderer
 
 #### Defined in
 
-[core/State.ts:189](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;189)
+[core/State.ts:193](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;193)
 
 • `set` **activeGeometryId**(`id`): `void`
 
@@ -137,7 +127,7 @@ Base.renderer
 
 #### Defined in
 
-[core/State.ts:197](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;197)
+[core/State.ts:201](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;201)
 
 ___
 
@@ -153,7 +143,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:159](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;159)
+[core/State.ts:163](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;163)
 
 • `set` **activeTextureUnit**(`activeTextureUnit`): `void`
 
@@ -171,7 +161,41 @@ ___
 
 #### Defined in
 
-[core/State.ts:167](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;167)
+[core/State.ts:171](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;171)
+
+___
+
+### boundBuffer
+
+• `get` **boundBuffer**(): ``null`` \| `WebGLBuffer`
+
+获取最后一次绑定的顶点数据
+
+#### Returns
+
+``null`` \| `WebGLBuffer`
+
+#### Defined in
+
+[core/State.ts:261](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;261)
+
+• `set` **boundBuffer**(`boundBuffer`): `void`
+
+设置最后一次绑定的顶点数据
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `boundBuffer` | ``null`` \| `WebGLBuffer` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[core/State.ts:254](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;254)
 
 ___
 
@@ -187,7 +211,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;174)
+[core/State.ts:178](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;178)
 
 • `set` **currentProgramId**(`id`): `void`
 
@@ -205,7 +229,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:182](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;182)
+[core/State.ts:186](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;186)
 
 ___
 
@@ -221,7 +245,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:212](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;212)
+[core/State.ts:216](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;216)
 
 • `set` **flipY**(`flipY`): `void`
 
@@ -239,7 +263,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:205](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;205)
+[core/State.ts:209](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;209)
 
 ___
 
@@ -259,7 +283,7 @@ Base.gl
 
 #### Defined in
 
-[core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;1dddf76#line&#x3D;16)
+[core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;b6d63c9#line&#x3D;16)
 
 ___
 
@@ -275,7 +299,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:242](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;242)
+[core/State.ts:246](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;246)
 
 • `set` **premultiplyAlpha**(`premultiplyAlpha`): `void`
 
@@ -293,19 +317,19 @@ ___
 
 #### Defined in
 
-[core/State.ts:235](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;235)
+[core/State.ts:239](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;239)
 
 ___
 
 ### rendererState
 
-• `get` **rendererState**(): `any`
+• `get` **rendererState**(): [`State`](State.md)
 
 获取渲染状态
 
 #### Returns
 
-`any`
+[`State`](State.md)
 
 #### Inherited from
 
@@ -313,7 +337,7 @@ Base.rendererState
 
 #### Defined in
 
-[core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;1dddf76#line&#x3D;23)
+[core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;b6d63c9#line&#x3D;23)
 
 ___
 
@@ -329,23 +353,23 @@ ___
 
 #### Defined in
 
-[core/State.ts:138](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;138)
+[core/State.ts:142](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;142)
 
 ___
 
 ### textureUnits
 
-• `get` **textureUnits**(): `number`[]
+• `get` **textureUnits**(): (`string` \| `number`)[]
 
 获取当前 `gl` 的纹理单位
 
 #### Returns
 
-`number`[]
+(`string` \| `number`)[]
 
 #### Defined in
 
-[core/State.ts:152](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;152)
+[core/State.ts:156](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;156)
 
 ___
 
@@ -361,7 +385,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:227](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;227)
+[core/State.ts:231](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;231)
 
 • `set` **unpackAlignment**(`unpackAlignment`): `void`
 
@@ -379,7 +403,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:220](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;220)
+[core/State.ts:224](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;224)
 
 ___
 
@@ -402,7 +426,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:145](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;145)
+[core/State.ts:149](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;149)
 
 ## Methods
 
@@ -424,7 +448,7 @@ apply options 并且更新状态
 
 #### Defined in
 
-[core/State.ts:250](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;250)
+[core/State.ts:269](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;269)
 
 ___
 
@@ -446,7 +470,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:633](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;633)
+[core/State.ts:658](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;658)
 
 ___
 
@@ -468,7 +492,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:322](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;322)
+[core/State.ts:333](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;333)
 
 ___
 
@@ -490,7 +514,29 @@ ___
 
 #### Defined in
 
-[core/State.ts:311](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;311)
+[core/State.ts:322](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;322)
+
+___
+
+### reset
+
+▸ **reset**(`force?`): `void`
+
+重置 `State`
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `force` | `boolean` | `true` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[core/State.ts:678](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;678)
 
 ___
 
@@ -512,7 +558,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:648](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;648)
+[core/State.ts:670](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;670)
 
 ___
 
@@ -534,7 +580,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:586](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;586)
+[core/State.ts:611](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;611)
 
 ___
 
@@ -560,7 +606,7 @@ gl.FUNC_REVERSE_SUBSTRACT：反向相减处理，即 dest 减去 source
 
 #### Defined in
 
-[core/State.ts:457](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;457)
+[core/State.ts:475](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;475)
 
 ___
 
@@ -585,7 +631,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:427](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;427)
+[core/State.ts:445](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;445)
 
 ___
 
@@ -608,7 +654,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
 
 #### Defined in
 
-[core/State.ts:374](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;374)
+[core/State.ts:377](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;377)
 
 ___
 
@@ -630,7 +676,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:476](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;476)
+[core/State.ts:497](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;497)
 
 ___
 
@@ -653,7 +699,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:487](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;487)
+[core/State.ts:508](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;508)
 
 ___
 
@@ -675,7 +721,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:503](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;503)
+[core/State.ts:524](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;524)
 
 ___
 
@@ -697,7 +743,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:543](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;543)
+[core/State.ts:564](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;564)
 
 ___
 
@@ -719,7 +765,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:532](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;532)
+[core/State.ts:553](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;553)
 
 ___
 
@@ -741,7 +787,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:554](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;554)
+[core/State.ts:575](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;575)
 
 ___
 
@@ -764,7 +810,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:521](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;521)
+[core/State.ts:542](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;542)
 
 ___
 
@@ -786,29 +832,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:597](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;597)
-
-___
-
-### setLocked
-
-▸ **setLocked**(`lock`): `void`
-
-设置 State 是否锁定
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `lock` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/State.ts:351](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;351)
+[core/State.ts:622](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;622)
 
 ___
 
@@ -833,7 +857,7 @@ gl.colorMask(true, true, true, true)：开启颜色缓冲的所有通道
 
 #### Defined in
 
-[core/State.ts:362](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;362)
+[core/State.ts:365](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;365)
 
 ___
 
@@ -862,7 +886,7 @@ gl.polygonOffset(factor, units)方法指定加到每个顶点绘制后Z值上的
 
 #### Defined in
 
-[core/State.ts:615](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;615)
+[core/State.ts:640](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;640)
 
 ___
 
@@ -886,7 +910,7 @@ ___
 
 #### Defined in
 
-[core/State.ts:571](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;571)
+[core/State.ts:592](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;592)
 
 ___
 
@@ -911,4 +935,4 @@ ___
 
 #### Defined in
 
-[core/State.ts:336](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;1dddf76#line&#x3D;336)
+[core/State.ts:347](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts?at&#x3D;b6d63c9#line&#x3D;347)

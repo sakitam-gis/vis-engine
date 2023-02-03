@@ -49,8 +49,7 @@ function render(props) {
         autoClear: false,
       });
       this.scene = new Scene();
-      this.scene.matrixAutoUpdate = false;
-      this.sync = new MapboxCameraSync(map, 'perspective', this.scene);
+      this.sync = new mbve.CameraSync(map, 'perspective', this.scene);
       this.updateCamera = this.updateCamera.bind(this);
       map.on('move', this.updateCamera);
       map.on('resize', this.updateCamera);
@@ -99,14 +98,15 @@ function render(props) {
       varying vec2 vUv;
 
       void main() {
-          // gl_FragColor.rgb = 0.5 + 0.3 * sin(vUv.yxx + uTime) + vec3(0.2, 0.0, 0.1);
-          // gl_FragColor.a = 1.0;
-          gl_FragColor = vec4(0.5, 1.0, 0.5, 1.0);
+          gl_FragColor.rgb = 0.5 + 0.3 * sin(vUv.yxx + uTime) + vec3(0.2, 0.0, 0.1);
+          gl_FragColor.a = 1.0;
+
       }
       `,
         uniforms: {
           uTime: { value: 0.5 },
         },
+        depthTest: false,
       });
 
       this.mesh = new Mesh(this.renderer, {
@@ -129,26 +129,57 @@ function render(props) {
     }
 
     render () {
+      this.scene.worldMatrixNeedsUpdate = true;
+      this.renderer.resetState();
       this.renderer.render({
         scene: this.scene,
         camera: this.camera,
-        // update: false,
       });
-
-      this.renderer.resetState();
     }
   }
 
   const init = () => {
-    mapboxgl.accessToken = 'pk.eyJ1Ijoic21pbGVmZGQiLCJhIjoiY2tnN2Iybm91MDIzajJ5bHM1N3o5YzgybiJ9.KI0dCXX1rAfcLO1iwGKwHg';
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXhhbXBsZXMiLCJhIjoiY2p0MG01MXRqMW45cjQzb2R6b2ptc3J4MSJ9.zA2W0IkI0c6KaAhJfk9bWg';
     const map = new mapboxgl.Map({
       container: refDom.current,
       zoom: 3,
       center: [112.26608, 32.7213],
       pitch: 0,
       bearing: 0,
-      style: 'mapbox://styles/mapbox/satellite-streets-v12',
-      // style: 'mapbox://styles/mapbox/light-v10',
+      // style: 'mapbox://styles/mapbox/satellite-streets-v12',
+      style: {
+        version: 8,
+        glyphs: 'mapbox://fonts/mapbox/{fontstack}/{range}.pbf',
+        sources: {
+          tile: {
+            type: 'raster',
+            tiles: [
+              'https://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}',
+            ],
+            tileSize: 256,
+          },
+        },
+        layers: [
+          {
+            id: 'tile',
+            type: 'raster',
+            source: 'tile',
+            minzoom: 0,
+            maxzoom: 22,
+            paint: {
+              'raster-resampling': 'nearest',
+              'raster-fade-duration': 200,
+            },
+          },
+          {
+            id: 'background',
+            type: 'background',
+            layout: {
+              visibility: 'none',
+            },
+          },
+        ],
+      },
       // center: [-74.0066, 40.7135],
       // zoom: 15.5,
       // pitch: 45,
@@ -157,14 +188,6 @@ function render(props) {
       projection: 'mercator'
     });
     map.on('load', () => {
-      map.addSource('mapbox-dem', {
-        'type': 'raster-dem',
-        'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
-        'tileSize': 512,
-        'maxzoom': 14
-      });
-      // add the DEM source as a terrain layer with exaggerated height
-      map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
       const layer = new MeshLayer('mesh');
       map.addLayer(layer);
       window.layer = layer;

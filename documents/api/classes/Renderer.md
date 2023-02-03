@@ -1,4 +1,4 @@
-[vis-engine - v1.0.0](../index.md) / Renderer
+[vis-engine - v1.2.0](../index.md) / Renderer
 
 # Class: Renderer
 
@@ -35,6 +35,7 @@
 
 - [getRenderList](Renderer.md#getrenderlist)
 - [render](Renderer.md#render)
+- [resetState](Renderer.md#resetstate)
 - [setSize](Renderer.md#setsize)
 - [setViewport](Renderer.md#setviewport)
 
@@ -53,7 +54,7 @@
 
 #### Defined in
 
-[core/Renderer.ts:146](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;146)
+[core/Renderer.ts:146](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;146)
 
 ## Properties
 
@@ -63,7 +64,7 @@
 
 #### Defined in
 
-[core/Renderer.ts:139](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;139)
+[core/Renderer.ts:139](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;139)
 
 ___
 
@@ -73,7 +74,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:138](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;138)
+[core/Renderer.ts:138](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;138)
 
 ___
 
@@ -83,7 +84,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:140](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;140)
+[core/Renderer.ts:140](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;140)
 
 ___
 
@@ -93,7 +94,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:136](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;136)
+[core/Renderer.ts:136](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;136)
 
 ___
 
@@ -103,7 +104,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:137](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;137)
+[core/Renderer.ts:137](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;137)
 
 ___
 
@@ -113,7 +114,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:144](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;144)
+[core/Renderer.ts:144](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;144)
 
 ___
 
@@ -123,7 +124,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:135](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;135)
+[core/Renderer.ts:135](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;135)
 
 ___
 
@@ -133,7 +134,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:142](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;142)
+[core/Renderer.ts:142](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;142)
 
 ## Accessors
 
@@ -149,7 +150,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:236](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;236)
+[core/Renderer.ts:270](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;270)
 
 ___
 
@@ -165,7 +166,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:229](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;229)
+[core/Renderer.ts:263](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;263)
 
 ___
 
@@ -181,7 +182,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:243](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;243)
+[core/Renderer.ts:277](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;277)
 
 ___
 
@@ -197,7 +198,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:250](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;250)
+[core/Renderer.ts:284](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;284)
 
 ___
 
@@ -213,7 +214,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:274](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;274)
+[core/Renderer.ts:308](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;308)
 
 ___
 
@@ -234,23 +235,23 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:257](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;257)
+[core/Renderer.ts:291](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;291)
 
 ___
 
 ### state
 
-• `get` **state**(): `any`
+• `get` **state**(): [`State`](State.md)
 
 获取 `renderState`
 
 #### Returns
 
-`any`
+[`State`](State.md)
 
 #### Defined in
 
-[core/Renderer.ts:267](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;267)
+[core/Renderer.ts:301](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;301)
 
 ## Methods
 
@@ -272,7 +273,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:324](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;324)
+[core/Renderer.ts:358](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;358)
 
 ___
 
@@ -294,7 +295,32 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:345](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;345)
+[core/Renderer.ts:379](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;379)
+
+___
+
+### resetState
+
+▸ **resetState**(`force?`): `void`
+
+重置内部 `WebGL` 状态。
+需要注意的是一般单独使用时我们不需要去重置状态，但是在跨多个 `WebGL` 库共享单个 `WebGL` 上下文时我们需要关注此方法。默认情况下
+我们会重置所有的状态，但是当我们确认多个共享库使用的状态完全相同时我们可以考虑仅重置部分状态以提高性能。但是有可能会出现无法预料的情况
+请在你确认状态完全匹配时使用 `force = false` 重置部分状态。
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `force` | `boolean` | `true` | 是否强制重置所用状态，默认是 `true` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[core/Renderer.ts:429](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;429)
 
 ___
 
@@ -317,7 +343,7 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:283](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;283)
+[core/Renderer.ts:317](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;317)
 
 ___
 
@@ -342,4 +368,4 @@ ___
 
 #### Defined in
 
-[core/Renderer.ts:298](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1dddf76#line&#x3D;298)
+[core/Renderer.ts:332](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;b6d63c9#line&#x3D;332)

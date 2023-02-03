@@ -1,4 +1,4 @@
-[vis-engine - v1.0.0](../index.md) / Attributes
+[vis-engine - v1.2.0](../index.md) / Attributes
 
 # Interface: Attributes
 
