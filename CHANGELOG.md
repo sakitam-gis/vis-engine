@@ -1,3 +1,11 @@
+## [1.3.1](https://github.com/sakitam-gis/vis-engine/compare/v1.3.0...v1.3.1) (2023-02-04)
+
+
+### Bug Fixes
+
+* **core:** fix `Program` setStates method and update `Renderer` types def. ([a82fa00](https://github.com/sakitam-gis/vis-engine/commit/a82fa0079c37f097c95375656d27e7db5eea5452))
+* **patch:** try release adapters in action ([1379d00](https://github.com/sakitam-gis/vis-engine/commit/1379d005e700109e37381f7bd2e8cc11a9e0a772))
+
 # [1.3.0](https://github.com/sakitam-gis/vis-engine/compare/v1.2.0...v1.3.0) (2023-02-03)
 
 
