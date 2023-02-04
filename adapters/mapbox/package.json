@@ -1,6 +1,6 @@
 {
   "name": "@sakitam-gis/mapbox-ve",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "vis-engine for mapbox-gl",
   "private": false,
   "license": "BSD 3-Clause",

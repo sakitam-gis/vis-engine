@@ -1,3 +1,11 @@
+## @sakitam-gis/mapbox-ve [1.0.1](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/mapbox-ve@1.0.0...@sakitam-gis/mapbox-ve@1.0.1) (2023-02-04)
+
+
+### Bug Fixes
+
+* **no-release:** fix mapbox adapter workspace version and add readme doc ([f608e53](https://github.com/sakitam-gis/vis-engine/commit/f608e53f8a6af0b98297019af3dbafdf8624a845))
+* **patch:** update mapbox adapter version ([b0c5793](https://github.com/sakitam-gis/vis-engine/commit/b0c579367c1d92c52c0f2145003cf5efe1270205))
+
 # @sakitam-gis/mapbox-ve 1.0.0 (2023-02-04)
 
 
