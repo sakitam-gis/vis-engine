@@ -132,12 +132,24 @@ export default class Renderer {
 
   readonly #frustumCull: boolean;
 
-  public vertexAttribDivisor: any;
-  public drawArraysInstanced: any;
-  public drawElementsInstanced: any;
-  public createVertexArray: any;
-  public bindVertexArray: any;
-  public deleteVertexArray: any;
+  public vertexAttribDivisor:
+    | ANGLE_instanced_arrays['vertexAttribDivisorANGLE']
+    | WebGL2RenderingContext['vertexAttribDivisor'];
+  public drawArraysInstanced:
+    | ANGLE_instanced_arrays['drawArraysInstancedANGLE']
+    | WebGL2RenderingContext['drawArraysInstanced'];
+  public drawElementsInstanced:
+    | ANGLE_instanced_arrays['drawElementsInstancedANGLE']
+    | WebGL2RenderingContext['drawElementsInstanced'];
+  public createVertexArray:
+    | OES_vertex_array_object['createVertexArrayOES']
+    | WebGL2RenderingContext['createVertexArray'];
+  public bindVertexArray:
+    | OES_vertex_array_object['bindVertexArrayOES']
+    | WebGL2RenderingContext['bindVertexArray'];
+  public deleteVertexArray:
+    | OES_vertex_array_object['deleteVertexArrayOES']
+    | WebGL2RenderingContext['deleteVertexArray'];
 
   public width: number;
 

@@ -1,4 +1,4 @@
-import { isNull, isUndef, parseShader, uid } from '../utils';
+import { isNull, isUndef, omit, parseShader, uid } from '../utils';
 import type { WithNull } from '../types';
 
 import Resource from './Resource';
@@ -498,16 +498,20 @@ export default class Program extends Resource<ProgramOptions> {
     } else {
       this.#renderState = {
         ...this.#renderState,
-        ...states,
-        blendFunc: {
+        ...omit(states, ['blendFunc', 'blendEquation']),
+      } as ProgramRenderState;
+      if (states.blendFunc) {
+        this.#renderState.blendFunc = {
           ...this.#renderState.blendFunc,
           ...states.blendFunc,
-        },
-        blendEquation: {
+        };
+      }
+      if (states.blendEquation) {
+        this.#renderState.blendEquation = {
           ...this.#renderState.blendEquation,
           ...states.blendEquation,
-        },
-      } as ProgramRenderState;
+        };
+      }
     }
   }
 

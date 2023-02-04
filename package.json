@@ -11,7 +11,6 @@
   "commonjs": "dist/index.cjs.js",
   "namespace": "ve",
   "types": "dist/index.d.ts",
-  "type": "module",
   "author": "sakitam-fdd <smilefdd@gmail.com>",
   "repository": {
     "url": "https://github.com/sakitam-gis/vis-engine.git"
@@ -51,8 +50,8 @@
   },
   "scripts": {
     "dev": "rollup -wm --config rollup.config.ts --configPlugin esbuild --environment NODE_ENV:development",
-    "build": "rollup --config rollup.config.ts --configPlugin esbuild --environment NODE_ENV:production",
-    "build:minify": "rollup --config rollup.config.ts --configPlugin esbuild --environment MINIFY,NODE_ENV:production",
+    "build": "rollup --config rollup.config.ts --configPlugin esbuild --environment NODE_ENV:production && pnpm run --filter=./adapters/* -r build",
+    "build:minify": "rollup --config rollup.config.ts --configPlugin esbuild --environment MINIFY,NODE_ENV:production && pnpm run --filter=./adapters/* -r build:minify",
     "build:analyze": "cross-env BUILD_ANALYZER=true pnpm run build",
     "build:docs": "pnpm run build && cd documents && pnpm run api && pnpm run build",
     "lint": "eslint src --ext js,jsx,ts,tsx",
@@ -60,7 +59,7 @@
     "test": "npm run build && npm run test-only",
     "test-only": "vitest run",
     "coverage": "vitest run --coverage",
-    "semantic-release": "semantic-release --branches master"
+    "semantic-release": "semantic-release --branches master && node multirelease.cjs.js"
   },
   "dependencies": {
     "gl-matrix": "^3.4.3",
@@ -111,6 +110,7 @@
     "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "lint-staged": "^13.0.3",
+    "multi-semantic-release": "^3.0.1",
     "prettier": "^2.7.0",
     "rollup": "^3.2.3",
     "rollup-plugin-dts": "^5.0.0",
