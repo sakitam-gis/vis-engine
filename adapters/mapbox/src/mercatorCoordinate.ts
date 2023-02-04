@@ -62,6 +62,11 @@ export function meterInMercatorCoordinateUnits(y) {
 
 export const MAX_MERCATOR_LATITUDE = 85.051129;
 
+/**
+ * 经纬度转到 mapbox 墨卡托坐标
+ * @param lngLatLike
+ * @param altitude
+ */
 export function fromLngLat(lngLatLike, altitude = 0) {
   const lat = clamp(lngLatLike.lat, -MAX_MERCATOR_LATITUDE, MAX_MERCATOR_LATITUDE);
   return {
@@ -71,6 +76,10 @@ export function fromLngLat(lngLatLike, altitude = 0) {
   };
 }
 
+/**
+ * 墨卡托坐标转经纬度
+ * @param mercatorCoordinate
+ */
 export function toLngLat(mercatorCoordinate) {
   return {
     lng: lngFromMercatorX(mercatorCoordinate.x),
