@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;b6d63c9#line&#x3D;12)
+[src/core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;4124c8d#line&#x3D;12)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;b6d63c9#line&#x3D;10)
+[src/core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;4124c8d#line&#x3D;10)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:11](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;b6d63c9#line&#x3D;11)
+[src/core/Resource.ts:11](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;4124c8d#line&#x3D;11)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;b6d63c9#line&#x3D;13)
+[src/core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;4124c8d#line&#x3D;13)
