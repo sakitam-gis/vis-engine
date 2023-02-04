@@ -1,6 +1,6 @@
 {
   "name": "@sakitam-gis/mapbox-ve",
-  "version": "1.2.0",
+  "version": "1.0.0",
   "description": "vis-engine for mapbox-gl",
   "private": false,
   "license": "BSD 3-Clause",
@@ -11,7 +11,6 @@
   "commonjs": "dist/index.cjs.js",
   "namespace": "mbve",
   "types": "dist/index.d.ts",
-  "type": "module",
   "author": "sakitam-fdd <smilefdd@gmail.com>",
   "repository": {
     "url": "https://github.com/sakitam-gis/vis-engine.git",
