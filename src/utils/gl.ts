@@ -9,6 +9,13 @@ export function isWebGL(gl: any): boolean {
   if (typeof WebGL2RenderingContext !== 'undefined' && gl instanceof WebGL2RenderingContext) {
     return true;
   }
+  // wrap maptalks group layer
+  if (
+    gl?.gl &&
+    (gl.gl instanceof WebGLRenderingContext || gl.gl instanceof WebGL2RenderingContext)
+  ) {
+    return true;
+  }
   // Look for debug contexts, headless gl etc
   return Boolean(gl && Number.isFinite(gl._version));
 }
@@ -19,6 +26,10 @@ export function isWebGL(gl: any): boolean {
  */
 export function isWebGL2(gl: any): boolean {
   if (typeof WebGL2RenderingContext !== 'undefined' && gl instanceof WebGL2RenderingContext) {
+    return true;
+  }
+  // wrap maptalks group layer
+  if (gl?.gl && gl.gl instanceof WebGL2RenderingContext) {
     return true;
   }
   // Look for debug contexts, headless gl etc
@@ -65,7 +76,7 @@ export interface GlOptions {
 }
 
 /**
- * 获取 webgl 示例
+ * 获取 webgl 实例
  * @param canvas
  * @param glOptions
  * @param requestWebGl2
@@ -86,7 +97,7 @@ export function getContext(
     console.error(error.statusMessage);
   }
 
-  canvas.addEventListener('webglcontextcreationerror', onContextCreationError, false);
+  canvas?.addEventListener?.('webglcontextcreationerror', onContextCreationError, false);
   for (let ii = 0; ii < names.length; ++ii) {
     try {
       context = canvas.getContext(names[ii], glOptions) as WebGLRenderingContext;
@@ -96,7 +107,7 @@ export function getContext(
     }
   }
 
-  canvas.removeEventListener('webglcontextcreationerror', onContextCreationError, false);
+  canvas?.removeEventListener?.('webglcontextcreationerror', onContextCreationError, false);
 
   return context;
 }
