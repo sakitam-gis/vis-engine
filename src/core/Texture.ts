@@ -403,6 +403,15 @@ export default class Texture extends Resource<TextureOptions> {
   }
 
   /**
+   * 移除相关状态
+   */
+  removeStats() {
+    this.#state = {
+      version: -1,
+    } as IState;
+  }
+
+  /**
    * @private
    * 创建纹理对象
    */

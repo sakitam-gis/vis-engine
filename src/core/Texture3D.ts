@@ -386,6 +386,15 @@ export default class Texture3D extends Texture {
   }
 
   /**
+   * 移除相关状态
+   */
+  removeStats() {
+    this.#state = {
+      version: -1,
+    } as IState;
+  }
+
+  /**
    * 销毁纹理
    */
   destroy() {

@@ -99,6 +99,9 @@ export default class RenderBuffer extends Resource<RenderBufferOptions> {
     this.gl.bindRenderbuffer(this.gl.RENDERBUFFER, null);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  removeStats() {}
+
   /**
    * 销毁此渲染对象
    */

@@ -420,6 +420,9 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
     this.gl.bindFramebuffer(fbo, null);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  removeStats() {}
+
   /**
    * 销毁此 `RenderTarget`
    * - 销毁关联的纹理缓冲区

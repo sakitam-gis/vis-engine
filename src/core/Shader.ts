@@ -115,6 +115,9 @@ export class Shader extends Resource<any> {
     this.createShader(source);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  removeStats() {}
+
   deleteHandle() {
     this.gl.deleteShader(this.handle);
   }
