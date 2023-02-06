@@ -13,6 +13,7 @@
   "types": "dist/index.d.ts",
   "author": "sakitam-fdd <smilefdd@gmail.com>",
   "repository": {
+    "type": "git",
     "url": "https://github.com/sakitam-gis/vis-engine.git",
     "directory": "adapters/mapbox"
   },
