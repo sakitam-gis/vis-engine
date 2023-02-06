@@ -2,7 +2,7 @@ import State from './State';
 import RenderTarget from './RenderTarget';
 import Scene from '../objects/Scene';
 import { isWebGL, isWebGL2, getContext } from '../utils';
-import type { WithUndef } from '../types';
+import type { WithNull, WithUndef } from '../types';
 
 type ExtensionKeys = 'ANGLE_instanced_arrays' | 'OES_vertex_array_object';
 type Extensions = ANGLE_instanced_arrays | OES_vertex_array_object;
@@ -206,10 +206,9 @@ export default class Renderer {
           )
     ) as WebGLRenderingContext | WebGL2RenderingContext;
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const attrs = this.#gl.getContextAttributes()!;
+    const attrs = this.#gl?.getContextAttributes();
 
-    const viewport = this.#gl.getParameter(this.#gl.VIEWPORT);
+    const viewport = this.#gl?.getParameter(this.#gl.VIEWPORT);
 
     this.#state = new State(this);
 
@@ -408,11 +407,8 @@ export default class Renderer {
         this.#state.enable(this.gl.DEPTH_TEST);
         this.#state.setDepthMask(true);
       }
-      this.gl.clear(
-        (this.#color ? this.gl.COLOR_BUFFER_BIT : 0) |
-          (this.#depth ? this.gl.DEPTH_BUFFER_BIT : 0) |
-          (this.#stencil ? this.gl.STENCIL_BUFFER_BIT : 0),
-      );
+
+      this.clear(this.#color, this.#depth, this.#stencil);
     }
 
     // 更新场景矩阵
@@ -429,6 +425,26 @@ export default class Renderer {
       const node = renderList[i];
       node.draw({ camera });
     }
+
+    if (target) {
+      target.unbind();
+    }
+  }
+
+  /**
+   * 清空画布
+   * @param color 颜色
+   * @param depth 深度
+   * @param stencil 模板
+   */
+  clear(color = true, depth = true, stencil = true) {
+    let bits = 0;
+
+    if (color) bits |= this.gl.COLOR_BUFFER_BIT;
+    if (depth) bits |= this.gl.DEPTH_BUFFER_BIT;
+    if (stencil) bits |= this.gl.STENCIL_BUFFER_BIT;
+
+    this.gl.clear(bits);
   }
 
   /**
@@ -437,8 +453,13 @@ export default class Renderer {
    * 我们会重置所有的状态，但是当我们确认多个共享库使用的状态完全相同时我们可以考虑仅重置部分状态以提高性能。但是有可能会出现无法预料的情况
    * 请在你确认状态完全匹配时使用 `force = false` 重置部分状态。
    * @param force 是否强制重置所用状态，默认是 `true`
+   * @param vao
    */
-  resetState(force = true) {
+  resetState(
+    force = true,
+    vao: WithNull<WebGLVertexArrayObject | WebGLVertexArrayObjectOES> = null,
+  ) {
     this.#state.reset(force);
+    this.bindVertexArray(vao);
   }
 }
