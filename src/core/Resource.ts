@@ -16,6 +16,8 @@ export interface ResourceOptions {
 export default class Resource<T> extends Base {
   #handle: any;
 
+  #lastHandle: any;
+
   id: string;
 
   name: WithUndef<string>;
@@ -44,6 +46,22 @@ export default class Resource<T> extends Base {
 
   get handle() {
     return this.#handle;
+  }
+
+  /**
+   * 交换为新的 `handle`（一般我们会用在虚拟 webgl 环境中）
+   * @param handle
+   */
+  swapHandle(handle) {
+    this.#lastHandle = this.#handle;
+    this.#handle = handle;
+  }
+
+  /**
+   * 恢复为原有 `handle`
+   */
+  restoreHandle() {
+    this.#handle = this.#lastHandle;
   }
 
   /**
