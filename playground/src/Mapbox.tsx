@@ -111,12 +111,11 @@ export default function Mapbox() {
 
     render() {
       this.scene.worldMatrixNeedsUpdate = true;
-      this.renderer.resetState();
       this.renderer.render({
         scene: this.scene,
         camera: this.camera,
       });
-      this.renderer.bindVertexArray(null);
+      this.renderer.resetState();
     }
   }
 
