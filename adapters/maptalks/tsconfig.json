@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "checkJs": false,
+    "outDir": "dist",
+    "rootDir": ".",
+    "module": "esnext",
+    "target": "esnext"
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.json",
+    "package.json",
+    "rollup.config.ts",
+    "typings.d.ts"
+  ]
+}

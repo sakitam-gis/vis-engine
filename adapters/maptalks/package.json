@@ -1,0 +1,93 @@
+{
+  "name": "@sakitam-gis/maptalks-ve",
+  "version": "1.0.0",
+  "description": "vis-engine for maptalks",
+  "private": false,
+  "license": "BSD 3-Clause",
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.js",
+  "commonjs": "dist/index.cjs.js",
+  "namespace": "mtkve",
+  "types": "dist/index.d.ts",
+  "author": "sakitam-fdd <smilefdd@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sakitam-gis/vis-engine.git",
+    "directory": "adapters/maptalks"
+  },
+  "keywords": [
+    "3d",
+    "webgl",
+    "vis",
+    "maptalks"
+  ],
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "node": {
+        "import": {
+          "production": "./dist/index.esm.js",
+          "development": "./dist/index.esm.js",
+          "default": "./dist/index.esm.js"
+        },
+        "require": {
+          "production": "./dist/index.cjs.js",
+          "development": "./dist/index.cjs.js",
+          "default": "./dist/index.cjs.js"
+        }
+      },
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "dev": "rollup -wm --config rollup.config.ts --configPlugin esbuild --environment NODE_ENV:development",
+    "build": "rollup --config rollup.config.ts --configPlugin esbuild --environment NODE_ENV:production",
+    "build:minify": "rollup --config rollup.config.ts --configPlugin esbuild --environment MINIFY,NODE_ENV:production",
+    "build:analyze": "cross-env BUILD_ANALYZER=true pnpm run build",
+    "lint": "eslint src --ext js,jsx,ts,tsx",
+    "prepublishOnly": "npm run build && npm run build:minify",
+    "test": "npm run build && npm run test-only",
+    "test-only": "vitest run",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@sakitam-gis/vis-engine": "^1.3.1"
+  },
+  "peerDependencies": {
+    "maptalks": ">=1.0.0-rc.11"
+  },
+  "engines": {
+    "node": ">= 14.18.1",
+    "npm": ">= 6.14.15"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pnpm run lint",
+      "pre-push": "pnpm run test"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write",
+      "git add"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
