@@ -50,8 +50,8 @@
   },
   "scripts": {
     "dev": "rollup -wm --config rollup.config.ts --configPlugin esbuild --environment NODE_ENV:development",
-    "build": "rollup --config rollup.config.ts --configPlugin esbuild --environment NODE_ENV:production",
-    "build:minify": "rollup --config rollup.config.ts --configPlugin esbuild --environment MINIFY,NODE_ENV:production",
+    "build": "rollup --config rollup.config.ts --configPlugin esbuild --environment NODE_ENV:production && pnpm run --filter=./adapters/* -r build",
+    "build:minify": "rollup --config rollup.config.ts --configPlugin esbuild --environment MINIFY,NODE_ENV:production && pnpm run --filter=./adapters/* -r build:minify",
     "build:analyze": "cross-env BUILD_ANALYZER=true pnpm run build",
     "build:docs": "pnpm run build && cd documents && pnpm run api && pnpm run build",
     "lint": "eslint src --ext js,jsx,ts,tsx",
