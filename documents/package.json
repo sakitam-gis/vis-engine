@@ -23,6 +23,8 @@
     "@docsearch/react": "^3.3.0",
     "@sakitam-gis/vis-engine": "workspace:*",
     "@sakitam-gis/mapbox-ve": "workspace:*",
+    "@sakitam-gis/maptalks-ve": "workspace:*",
+    "@maptalks/gl": "^0.80.0",
     "mapbox-gl": "^2.12.0",
     "maptalks": "^1.0.0-rc.17",
     "clsx": "^1.2.1",

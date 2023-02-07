@@ -16,7 +16,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/RenderBuffer.ts:18](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts?at&#x3D;cadd330#line&#x3D;18)
+[src/core/RenderBuffer.ts:18](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts?at&#x3D;5cce138#line&#x3D;18)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[core/RenderBuffer.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts?at&#x3D;cadd330#line&#x3D;13)
+[src/core/RenderBuffer.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts?at&#x3D;5cce138#line&#x3D;13)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[core/RenderBuffer.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts?at&#x3D;cadd330#line&#x3D;8)
+[src/core/RenderBuffer.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts?at&#x3D;5cce138#line&#x3D;8)

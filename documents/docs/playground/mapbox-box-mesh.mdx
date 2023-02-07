@@ -199,11 +199,11 @@ function render(props) {
 
     render () {
       this.scene.worldMatrixNeedsUpdate = true;
-      this.renderer.resetState(false);
       this.renderer.render({
         scene: this.scene,
         camera: this.camera,
       });
+      this.renderer.resetState(false);
     }
   }
 

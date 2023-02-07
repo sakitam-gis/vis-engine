@@ -20,4 +20,4 @@ Raf 配置项
 
 #### Defined in
 
-[animation/Raf.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Raf.ts?at&#x3D;cadd330#line&#x3D;10)
+[src/animation/Raf.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Raf.ts?at&#x3D;5cce138#line&#x3D;10)

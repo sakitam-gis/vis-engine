@@ -1,6 +1,6 @@
 ---
 id: "index"
-title: "vis-engine - v1.2.0"
+title: "vis-engine - v1.3.2"
 sidebar_label: "Exports"
 sidebar_position: 0.5
 custom_edit_url: null
@@ -79,7 +79,7 @@ Re-exports [highPrecision](namespaces/utils.md#highprecision)
 
 #### Defined in
 
-[core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;cadd330#line&#x3D;9)
+[src/core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;5cce138#line&#x3D;9)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;cadd330#line&#x3D;12)
+[src/cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;5cce138#line&#x3D;12)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;cadd330#line&#x3D;10)
+[src/cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;5cce138#line&#x3D;10)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[math/Color.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;cadd330#line&#x3D;241)
+[src/math/Color.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;5cce138#line&#x3D;241)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;cadd330#line&#x3D;8)
+[src/core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;5cce138#line&#x3D;8)
 
 ___
 
@@ -142,4 +142,4 @@ ___
 
 #### Defined in
 
-[core/Program.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;cadd330#line&#x3D;65)
+[src/core/Program.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;5cce138#line&#x3D;65)

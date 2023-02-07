@@ -1,4 +1,4 @@
-[vis-engine - v1.2.0](../index.md) / CameraOptions
+[vis-engine - v1.3.1](../index.md) / CameraOptions
 
 # Interface: CameraOptions
 
@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[src/cameras/Camera.ts:50](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;4124c8d#line&#x3D;50)
+[src/cameras/Camera.ts:50](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;bbe6a01#line&#x3D;50)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:55](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;4124c8d#line&#x3D;55)
+[src/cameras/Camera.ts:55](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;bbe6a01#line&#x3D;55)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:40](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;4124c8d#line&#x3D;40)
+[src/cameras/Camera.ts:40](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;bbe6a01#line&#x3D;40)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;4124c8d#line&#x3D;45)
+[src/cameras/Camera.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;bbe6a01#line&#x3D;45)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;4124c8d#line&#x3D;35)
+[src/cameras/Camera.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;bbe6a01#line&#x3D;35)
 
 ___
 
@@ -83,4 +83,4 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:60](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;4124c8d#line&#x3D;60)
+[src/cameras/Camera.ts:60](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;bbe6a01#line&#x3D;60)

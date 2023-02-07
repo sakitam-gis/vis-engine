@@ -3,7 +3,7 @@ id: mapbox-mesh
 title: Draw Mesh with mapbox-gl
 ---
 
-结合 mapbox-gl 的自定义图层渲染 `Mesh`;
+结合 mapbox-gl 的自定义图层渲染 `Mesh`，注意 [@sakitam-gis/mapbox-ve](https://www.npmjs.com/package/@sakitam-gis/mapbox-ve) 插件内部默认启用了高精度。
 
 ### 示例
 
@@ -130,11 +130,11 @@ function render(props) {
 
     render () {
       this.scene.worldMatrixNeedsUpdate = true;
-      this.renderer.resetState();
       this.renderer.render({
         scene: this.scene,
         camera: this.camera,
       });
+      this.renderer.resetState();
     }
   }
 

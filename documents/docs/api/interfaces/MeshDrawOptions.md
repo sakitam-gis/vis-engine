@@ -16,7 +16,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[objects/Mesh.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;cadd330#line&#x3D;69)
+[src/objects/Mesh.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;5cce138#line&#x3D;69)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:64](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;cadd330#line&#x3D;64)
+[src/objects/Mesh.ts:64](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;5cce138#line&#x3D;64)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:74](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;cadd330#line&#x3D;74)
+[src/objects/Mesh.ts:74](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;5cce138#line&#x3D;74)

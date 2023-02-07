@@ -61,27 +61,27 @@ function render(props) {
         this.scene.children.forEach((child) => child.setParent(null));
 
         const s = gltfObject.scene || gltfObject.scenes[0];
-        s.forEach((root) => {
-          root.setParent(this.scene);
-        });
 
         const coords = [6.58968, 45.39701, 1913.2236908406628];
         // const coords = [6.58968, 45.39701, 0];
         const center = this.projectToWorld(coords);
-        this.scene.children[0].position.set(
+        s[0].position.set(
           center[0],
           center[1],
           center[2] + mbve.mercatorZfromAltitude(100, 45.39701),
         );
-        this.scene.children[0].quaternion.fromAxisAngle(
+        s[0].quaternion.fromAxisAngle(
           new Vector3(0, 1, 0),
           (180 * Math.PI) / 180,
         );
         const scale = mbve.meterInMercatorCoordinateUnits(center[1]) * 100;
-        this.scene.children[0].scale.set(scale, scale, scale);
+        s[0].scale.set(scale, scale, scale);
         // 为什么在自定义图层中FrontFace不一样，猜测可能与顶点数据组织有关系
-        this.scene.children[0].children[0].program.setStates({
+        s[0].children[0].program.setStates({
           frontFace: this.renderer.gl.CW,
+        });
+        s.forEach((root) => {
+          this.scene.add(root);
         });
         console.log(this.scene, scale);
       });
@@ -98,12 +98,11 @@ function render(props) {
 
     render () {
       this.scene.worldMatrixNeedsUpdate = true;
-      this.renderer.resetState();
       this.renderer.render({
         scene: this.scene,
         camera: this.camera,
       });
-      this.renderer.bindVertexArray(null);
+      this.renderer.resetState();
     }
   }
 

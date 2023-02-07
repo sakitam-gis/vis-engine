@@ -16,7 +16,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[objects/Mesh.ts:47](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;cadd330#line&#x3D;47)
+[src/objects/Mesh.ts:47](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;5cce138#line&#x3D;47)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:24](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;cadd330#line&#x3D;24)
+[src/objects/Mesh.ts:24](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;5cce138#line&#x3D;24)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;cadd330#line&#x3D;19)
+[src/objects/Mesh.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;5cce138#line&#x3D;19)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:42](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;cadd330#line&#x3D;42)
+[src/objects/Mesh.ts:42](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;5cce138#line&#x3D;42)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;cadd330#line&#x3D;29)
+[src/objects/Mesh.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;5cce138#line&#x3D;29)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:52](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;cadd330#line&#x3D;52)
+[src/objects/Mesh.ts:52](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;5cce138#line&#x3D;52)
 
 ___
 
@@ -96,4 +96,4 @@ ___
 
 #### Defined in
 
-[objects/Mesh.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;cadd330#line&#x3D;57)
+[src/objects/Mesh.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;5cce138#line&#x3D;57)

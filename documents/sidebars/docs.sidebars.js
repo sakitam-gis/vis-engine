@@ -16,5 +16,8 @@ module.exports = {
       'playground/mapbox-box-mesh',
       'playground/mapbox-gltf',
     ],
+    'Maptalks': [
+      'playground/maptalks-gltf',
+    ],
   },
 };

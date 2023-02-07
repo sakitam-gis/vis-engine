@@ -1,6 +1,6 @@
-vis-engine - v1.2.0
+vis-engine - v1.3.1
 
-# vis-engine - v1.2.0
+# vis-engine - v1.3.1
 
 ## Table of contents
 
@@ -90,7 +90,7 @@ Re-exports [highPrecision](modules/utils.md#highprecision)
 
 #### Defined in
 
-[src/core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;4124c8d#line&#x3D;9)
+[src/core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;bbe6a01#line&#x3D;9)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;4124c8d#line&#x3D;12)
+[src/cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;bbe6a01#line&#x3D;12)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;4124c8d#line&#x3D;10)
+[src/cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;bbe6a01#line&#x3D;10)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;4124c8d#line&#x3D;241)
+[src/math/Color.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;bbe6a01#line&#x3D;241)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;4124c8d#line&#x3D;8)
+[src/core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;bbe6a01#line&#x3D;8)
 
 ___
 
@@ -153,4 +153,4 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;4124c8d#line&#x3D;65)
+[src/core/Program.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;65)

@@ -143,6 +143,7 @@ vis-engine 完全采用 Typescript 编写
 📢注意：这是一个玩具项目，不是为了替代什么，但是我会尽力完善它，它最大的方向可能是和各类地图引擎结合例如 mapbox-gl/maptalks/leaflet 等，所以暂时没有固定的路线图。
 
 - mapbox-gl adapters: https://github.com/sakitam-gis/vis-engine/tree/master/adapters/mapbox
+- maptalks adapters: https://github.com/sakitam-gis/vis-engine/tree/master/adapters/maptalks
 
 ### License
 
