@@ -1,3 +1,25 @@
+# [1.4.0](https://github.com/sakitam-gis/vis-engine/compare/v1.3.2...v1.4.0) (2023-02-07)
+
+
+### Bug Fixes
+
+* **core:** `Resource` subclass missing `removeStats` ([2a0e3f7](https://github.com/sakitam-gis/vis-engine/commit/2a0e3f7accb614204d3dec84cd3b8f2740d18a55))
+* **patch:** disable adapters test ([04e16ce](https://github.com/sakitam-gis/vis-engine/commit/04e16ced0d9d704afd71ad56887cbb23d4646871))
+* **utils:** gl util `isWebGL` and `isWebGL2` methods support maptalks grouplayer ([435f799](https://github.com/sakitam-gis/vis-engine/commit/435f79946d498ff8687cd3a5e293660a1e128f2f))
+
+
+### Features
+
+* **adapters:** add maptalks adapter support ([dd62cf5](https://github.com/sakitam-gis/vis-engine/commit/dd62cf5a37e10186c5543334f5a73c3e56854782))
+* **core:** `Renderer` resetState support reset `vao` and add `clear` method ([15f3079](https://github.com/sakitam-gis/vis-engine/commit/15f30798be5f05d66f82785735bb66d20b6b27c3))
+* **core:** `Resource` support `swapHandle` and `restoreHandle` method ([cfa3d4d](https://github.com/sakitam-gis/vis-engine/commit/cfa3d4da1f68d17339a71c35954855308ee4c242))
+
+
+### Performance Improvements
+
+* **adapters:** mapbox adapter default use high precision ([ff0b007](https://github.com/sakitam-gis/vis-engine/commit/ff0b007cf9b9b03f69763556a20d2249197912c0))
+* **ci:** update ci script ([b5c3591](https://github.com/sakitam-gis/vis-engine/commit/b5c35914c4c62ef83d40186eb16bcc35c3c6e104))
+
 ## [1.3.2](https://github.com/sakitam-gis/vis-engine/compare/v1.3.1...v1.3.2) (2023-02-04)
 
 
