@@ -1,3 +1,15 @@
+## @sakitam-gis/mapbox-ve [1.0.2](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/mapbox-ve@1.0.1...@sakitam-gis/mapbox-ve@1.0.2) (2023-02-07)
+
+
+### Bug Fixes
+
+* **patch:** fixed ci [skip-ve-release] [release-adapters] ([34dfdfc](https://github.com/sakitam-gis/vis-engine/commit/34dfdfc2534f54eeee8c12d023221cd7292b3d48))
+
+
+### Performance Improvements
+
+* **adapters:** mapbox adapter default use high precision ([ff0b007](https://github.com/sakitam-gis/vis-engine/commit/ff0b007cf9b9b03f69763556a20d2249197912c0))
+
 ## @sakitam-gis/mapbox-ve [1.0.1](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/mapbox-ve@1.0.0...@sakitam-gis/mapbox-ve@1.0.1) (2023-02-04)
 
 
