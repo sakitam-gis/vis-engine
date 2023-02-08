@@ -6,6 +6,7 @@ const config: { test: UserConfig } = {
     coverage: {
       reporter: ['lcov', 'html'],
     },
+    include: ['{src,test}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
   },
 }
 
