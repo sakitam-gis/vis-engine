@@ -1,8 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { Leva, useCreateStore, LevaPanel } from 'leva';
-import * as maptalks from 'maptalks';
-import { GroupGLLayer } from '@maptalks/gl';
-import { VeLayer } from '@sakitam-gis/maptalks-ve';
 
 import { GLTFLoader } from './GLTFLoader';
 
@@ -13,7 +10,11 @@ export default function DrawModel(props) {
 
   const store = useCreateStore();
 
-  const init = () => {
+  const init = async () => {
+    const maptalks = await import('maptalks');
+    const { GroupGLLayer } = await import('@maptalks/gl');
+    // 使用 '@sakitam-gis/maptalks-ve' 工作空间的包，docusaurus build 会失败`Module not find`，暂时使用相对路径
+    const { VeLayer } = await import('../../../adapters/maptalks');
     const map = new maptalks.Map(refDom.current, {
       zoom: 17,
       center: [13.429362937522342, 52.518205849377495],
@@ -188,7 +189,9 @@ export default function DrawModel(props) {
     const map = init();
 
     return () => {
-      map.remove();
+      map.then(m => {
+        m.remove();
+      });
     };
   }, []);
 
