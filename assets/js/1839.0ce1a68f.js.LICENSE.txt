@@ -1,0 +1,55 @@
+/*!
+	 * @maptalks/fusiongl v0.5.1
+	 * LICENSE : UNLICENSED
+	 * (c) 2016-2022 maptalks.com
+	 */
+
+/*!
+	 * @maptalks/gltf-loader v0.27.2
+	 * LICENSE : UNLICENSED
+	 * (c) 2016-2022 maptalks.org
+	 */
+
+/*!
+	 * @maptalks/reshader.gl v0.80.0
+	 * LICENSE : UNLICENSED
+	 * (c) 2016-2022 maptalks.com
+	 */
+
+/*!
+	 * Contains code from THREE.JS
+	 * https://github.com/mrdoob/three.js/
+	 * License MIT
+	 * 
+	 * Generate tangents per vertex.
+	 */
+
+/*!
+	 * Contains code from google filament
+	 * https://github.com/google/filament/
+	 * License Apache-2.0
+	 */
+
+/*!
+	 * from claygl
+	 * https://github.com/pissang/claygl/
+	 * License: BSD-2-Clause
+	 */
+
+/*!
+	 * maptalks v1.0.0-rc.14
+	 * LICENSE : BSD-3-Clause
+	 * (c) 2016-2022 maptalks.org
+	 */
+
+/*!
+	* Contains code from THREE.js
+	* MIT License
+	* https://github.com/mrdoob/three.js
+	*/
+
+/*!
+ * @maptalks/gl v0.80.0
+ * LICENSE : UNLICENSED
+ * (c) 2016-2022 maptalks.com
+ */
