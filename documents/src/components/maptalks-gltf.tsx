@@ -1,36 +1,17 @@
----
-id: maptalks-gltf
-title: Draw GLTF with maptalks
----
+import React, { useRef, useEffect } from 'react';
+import { Leva, useCreateStore, LevaPanel } from 'leva';
+import * as maptalks from 'maptalks';
+import { GroupGLLayer } from '@maptalks/gl';
+import { VeLayer } from '@sakitam-gis/maptalks-ve';
 
-结合 [maptalks](https://maptalks.com) 渲染 GLTF，这个只是提供了一个实现方案，不建议使用在项目中，`maptalks` 有完备的 `GLTF` 渲染
-方案和插件。
+import { GLTFLoader } from './GLTFLoader';
 
-:::warning
+import { Mesh, Program, Geometry, Vector3 } from '@sakitam-gis/vis-engine';
 
-maptalks 因为部分变量在`SSG` 模式下会出问题，所以没有使用 live block。
-
-:::
-
-### 示例
-
-import CodeBlock from '@theme/CodeBlock';
-import Draw from '@site/src/components/maptalks-gltf';
-import DrawString from '!!raw-loader!@site/src/components/maptalks-gltf';
-
-import BrowserOnly from '@docusaurus/BrowserOnly';
-
-<BrowserOnly>
-  {() => <Draw></Draw>}
-</BrowserOnly>
-
-<CodeBlock language="jsx">{DrawString}</CodeBlock>
-
-```jsx
-function render(props) {
+export default function DrawModel(props) {
   const refDom = useRef(null);
 
-  const store = leva.useCreateStore();
+  const store = useCreateStore();
 
   const init = () => {
     const map = new maptalks.Map(refDom.current, {
@@ -45,7 +26,7 @@ function render(props) {
       }),
     });
 
-    const layer = new mtkve.VeLayer('mesh', {
+    const layer = new VeLayer('mesh', {
       forceRenderOnMoving: true,
       forceRenderOnRotating: true,
       requestWebGl2: true,
@@ -195,7 +176,7 @@ function render(props) {
         antialias: { enable: true },
       },
     };
-    const groupLayer = new maptalks.GroupGLLayer('group', [layer], { sceneConfig });
+    const groupLayer = new GroupGLLayer('group', [layer], { sceneConfig });
     groupLayer.addTo(map);
     // console.log(sceneConfig);
     // layer.addTo(map);
@@ -221,4 +202,3 @@ function render(props) {
     </div>
   );
 }
-```

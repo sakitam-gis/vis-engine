@@ -16,6 +16,12 @@ module.exports = {
   favicon: 'images/logo.svg',
   organizationName: 'sakitam-gis',
   projectName: 'vis-engine',
+  // scripts: [
+  //   'https://unpkg.com/maptalks@1.0.0-rc.17/dist/maptalks.min.js',
+  //   'https://unpkg.com/@maptalks/gl@0.80.0/dist/maptalksgl.js',
+  //   'https://unpkg.com/@sakitam-gis/vis-engine/dist/index.js',
+  //   'https://unpkg.com/@sakitam-gis/maptalks-ve/dist/index.js',
+  // ],
   presets: [
     [
       '@docusaurus/preset-classic',
