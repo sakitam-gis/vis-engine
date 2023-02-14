@@ -132,7 +132,6 @@ class MeshLayer {
 
   onRemove () {
     this.mesh.destroy();
-    this.scene.destroy();
     this.program.destroy();
   }
 

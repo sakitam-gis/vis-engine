@@ -25,7 +25,7 @@ import BufferAttribute, { Attribute, DataType } from './core/BufferAttribute';
 
 import Object3D from './objects/Object3D';
 import Geometry, { Attributes } from './core/Geometry';
-import Plane, { PlaneOptions } from './geometries/Plane';
+import Plane, { getPlaneBuffer, PlaneOptions } from './geometries/Plane';
 import Box, { BoxOptions } from './geometries/Box';
 import Program, { ProgramOptions, ProgramRenderState, Uniforms, UniformData } from './core/Program';
 
@@ -41,6 +41,7 @@ import OrthographicCamera from './cameras/OrthographicCamera';
 export {
   utils,
   highPrecision,
+  getPlaneBuffer,
   Raf,
   Clock,
   Color,

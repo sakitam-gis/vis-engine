@@ -106,7 +106,6 @@ export default function Mapbox() {
     }
 
     onRemove() {
-      this.scene.destroy();
     }
 
     render() {
