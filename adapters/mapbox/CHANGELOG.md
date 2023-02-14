@@ -1,3 +1,10 @@
+## @sakitam-gis/mapbox-ve [1.0.3](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/mapbox-ve@1.0.2...@sakitam-gis/mapbox-ve@1.0.3) (2023-02-14)
+
+
+### Performance Improvements
+
+* **patch:** add mapbox adapter MeshLayer and export core module getPlaneBuffer method, fix demo [release-adapters] ([f3ee066](https://github.com/sakitam-gis/vis-engine/commit/f3ee066b368d99f55cf0848e1cc6b8286736ef24))
+
 ## @sakitam-gis/mapbox-ve [1.0.2](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/mapbox-ve@1.0.1...@sakitam-gis/mapbox-ve@1.0.2) (2023-02-07)
 
 
