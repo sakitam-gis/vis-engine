@@ -1,3 +1,18 @@
+## [1.4.1](https://github.com/sakitam-gis/vis-engine/compare/v1.4.0...v1.4.1) (2023-03-06)
+
+
+### Bug Fixes
+
+* **doc:** fix typedoc sourceLinkTemplate ([1777de1](https://github.com/sakitam-gis/vis-engine/commit/1777de182e54ea7f40099c1c5c3adec61693a2a2))
+* **patch:** fixed ci [release-adapters] ([eebdf51](https://github.com/sakitam-gis/vis-engine/commit/eebdf5155a0b27a78eea9601e201e6af05380e2e))
+* **patch:** fixed ci [skip-ve-release] [release-adapters] ([34dfdfc](https://github.com/sakitam-gis/vis-engine/commit/34dfdfc2534f54eeee8c12d023221cd7292b3d48))
+* **patch:** renderer get `flipY` state ([fc9bf97](https://github.com/sakitam-gis/vis-engine/commit/fc9bf97e094d60a3850ff8fe946a69eba597499a))
+
+
+### Performance Improvements
+
+* **patch:** add mapbox adapter MeshLayer and export core module getPlaneBuffer method, fix demo [release-adapters] ([f3ee066](https://github.com/sakitam-gis/vis-engine/commit/f3ee066b368d99f55cf0848e1cc6b8286736ef24))
+
 # [1.4.0](https://github.com/sakitam-gis/vis-engine/compare/v1.3.2...v1.4.0) (2023-02-07)
 
 
