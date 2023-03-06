@@ -209,6 +209,7 @@ export default class Renderer {
     const attrs = this.#gl?.getContextAttributes();
 
     const viewport = this.#gl?.getParameter(this.#gl.VIEWPORT);
+    const flipY = this.#gl?.getParameter(this.#gl.UNPACK_FLIP_Y_WEBGL);
 
     this.#state = new State(this);
 
@@ -220,6 +221,7 @@ export default class Renderer {
       this.#preserveDrawingBuffer = Boolean(attrs.preserveDrawingBuffer);
     }
 
+    this.#state.flipY = Boolean(flipY);
     this.#state.setViewport(viewport[2], viewport[3], viewport[0], viewport[1]);
     this.#state.premultiplyAlpha = this.#premultipliedAlpha;
 

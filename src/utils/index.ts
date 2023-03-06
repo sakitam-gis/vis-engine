@@ -114,3 +114,20 @@ export function omit<T, K extends keyof T>(obj: T, keys: K[] = []): Omit<T, K> {
       {} as Omit<T, K>,
     );
 }
+
+/**
+ * pick object
+ * @param obj
+ * @param keys
+ */
+export function pick<T, K extends keyof T>(obj: T, keys: K[] = []): Omit<T, K> {
+  return Object.keys(obj as any)
+    .filter((key: any) => keys.indexOf(key) > -1)
+    .reduce(
+      (newObj: Omit<T, K>, key) =>
+        Object.assign(newObj, {
+          [key]: obj[key],
+        }),
+      {} as Omit<T, K>,
+    );
+}
