@@ -137,13 +137,13 @@ importers:
 
   adapters/mapbox:
     specifiers:
-      '@sakitam-gis/vis-engine': ^1.4.1
+      '@sakitam-gis/vis-engine': ^1.4.2
     dependencies:
       '@sakitam-gis/vis-engine': link:../..
 
   adapters/maptalks:
     specifiers:
-      '@sakitam-gis/vis-engine': ^1.4.1
+      '@sakitam-gis/vis-engine': ^1.4.2
     dependencies:
       '@sakitam-gis/vis-engine': link:../..
 

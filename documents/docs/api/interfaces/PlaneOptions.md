@@ -16,7 +16,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[src/geometries/Plane.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Plane.ts?at&#x3D;1f7cbec#line&#x3D;29)
+[src/geometries/Plane.ts:29](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Plane.ts#L29)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/geometries/Plane.ts:14](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Plane.ts?at&#x3D;1f7cbec#line&#x3D;14)
+[src/geometries/Plane.ts:14](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Plane.ts#L14)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[src/geometries/Plane.ts:24](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Plane.ts?at&#x3D;1f7cbec#line&#x3D;24)
+[src/geometries/Plane.ts:24](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Plane.ts#L24)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[src/geometries/Plane.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Plane.ts?at&#x3D;1f7cbec#line&#x3D;9)
+[src/geometries/Plane.ts:9](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Plane.ts#L9)
 
 ___
 
@@ -64,4 +64,4 @@ ___
 
 #### Defined in
 
-[src/geometries/Plane.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Plane.ts?at&#x3D;1f7cbec#line&#x3D;19)
+[src/geometries/Plane.ts:19](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Plane.ts#L19)

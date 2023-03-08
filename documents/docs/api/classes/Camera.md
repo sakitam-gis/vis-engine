@@ -36,7 +36,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[src/cameras/Camera.ts:130](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;130)
+[src/cameras/Camera.ts:130](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L130)
 
 ## Properties
 
@@ -48,7 +48,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[src/cameras/Camera.ts:76](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;76)
+[src/cameras/Camera.ts:76](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L76)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:59](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;59)
+[src/objects/Object3D.ts:59](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L59)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:128](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;128)
+[src/cameras/Camera.ts:128](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L128)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;19)
+[src/objects/Object3D.ts:19](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L19)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;29)
+[src/objects/Object3D.ts:29](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L29)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:64](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;64)
+[src/objects/Object3D.ts:64](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L64)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:34](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;34)
+[src/objects/Object3D.ts:34](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L34)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:81](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;81)
+[src/cameras/Camera.ts:81](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L81)
 
 ___
 
@@ -162,7 +162,7 @@ pv矩阵，它是 `projectionMatrix`和`viewMatrix` 的乘积
 
 #### Defined in
 
-[src/cameras/Camera.ts:91](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;91)
+[src/cameras/Camera.ts:91](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L91)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:49](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;49)
+[src/objects/Object3D.ts:49](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L49)
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:44](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;44)
+[src/objects/Object3D.ts:44](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L44)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:39](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;39)
+[src/objects/Object3D.ts:39](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L39)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:54](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;54)
+[src/objects/Object3D.ts:54](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L54)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:86](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;86)
+[src/cameras/Camera.ts:86](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L86)
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:14](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;14)
+[src/objects/Object3D.ts:14](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L14)
 
 ___
 
@@ -270,7 +270,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:24](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;24)
+[src/objects/Object3D.ts:24](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L24)
 
 ___
 
@@ -286,7 +286,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;69)
+[src/objects/Object3D.ts:69](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L69)
 
 ___
 
@@ -298,7 +298,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:96](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;96)
+[src/cameras/Camera.ts:96](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L96)
 
 ## Accessors
 
@@ -314,7 +314,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:220](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;220)
+[src/cameras/Camera.ts:220](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L220)
 
 • `set` **aspect**(`aspect`): `void`
 
@@ -332,7 +332,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:228](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;228)
+[src/cameras/Camera.ts:228](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L228)
 
 ___
 
@@ -348,7 +348,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:252](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;252)
+[src/cameras/Camera.ts:252](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L252)
 
 • `set` **bounds**(`bounds`): `void`
 
@@ -366,7 +366,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:260](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;260)
+[src/cameras/Camera.ts:260](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L260)
 
 ___
 
@@ -382,7 +382,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:188](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;188)
+[src/cameras/Camera.ts:188](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L188)
 
 • `set` **far**(`f`): `void`
 
@@ -400,7 +400,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:196](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;196)
+[src/cameras/Camera.ts:196](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L196)
 
 ___
 
@@ -416,7 +416,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:204](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;204)
+[src/cameras/Camera.ts:204](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L204)
 
 • `set` **fov**(`f`): `void`
 
@@ -434,7 +434,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:212](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;212)
+[src/cameras/Camera.ts:212](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L212)
 
 ___
 
@@ -450,7 +450,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:172](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;172)
+[src/cameras/Camera.ts:172](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L172)
 
 • `set` **near**(`n`): `void`
 
@@ -468,7 +468,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:180](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;180)
+[src/cameras/Camera.ts:180](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L180)
 
 ___
 
@@ -484,7 +484,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:236](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;236)
+[src/cameras/Camera.ts:236](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L236)
 
 • `set` **zoom**(`zoom`): `void`
 
@@ -502,7 +502,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:244](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;244)
+[src/cameras/Camera.ts:244](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L244)
 
 ## Methods
 
@@ -529,7 +529,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:97](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;97)
+[src/objects/Object3D.ts:97](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L97)
 
 ___
 
@@ -549,7 +549,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:218](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;218)
+[src/objects/Object3D.ts:218](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L218)
 
 ___
 
@@ -575,7 +575,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:124](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;124)
+[src/objects/Object3D.ts:124](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L124)
 
 ___
 
@@ -602,7 +602,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:227](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;227)
+[src/objects/Object3D.ts:227](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L227)
 
 ___
 
@@ -622,7 +622,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:208](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;208)
+[src/objects/Object3D.ts:208](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L208)
 
 ___
 
@@ -645,7 +645,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:340](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;340)
+[src/cameras/Camera.ts:340](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L340)
 
 ___
 
@@ -671,7 +671,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:317](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;317)
+[src/cameras/Camera.ts:317](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L317)
 
 ___
 
@@ -699,7 +699,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:292](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;292)
+[src/cameras/Camera.ts:292](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L292)
 
 ___
 
@@ -724,7 +724,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:272](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;272)
+[src/cameras/Camera.ts:272](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L272)
 
 ___
 
@@ -746,7 +746,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:376](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;376)
+[src/cameras/Camera.ts:376](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L376)
 
 ___
 
@@ -773,7 +773,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:111](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;111)
+[src/objects/Object3D.ts:111](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L111)
 
 ___
 
@@ -800,7 +800,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:133](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;133)
+[src/objects/Object3D.ts:133](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L133)
 
 ___
 
@@ -826,7 +826,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:147](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;147)
+[src/objects/Object3D.ts:147](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L147)
 
 ___
 
@@ -846,7 +846,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:382](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;382)
+[src/cameras/Camera.ts:382](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L382)
 
 ___
 
@@ -866,7 +866,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:200](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts?at&#x3D;1f7cbec#line&#x3D;200)
+[src/objects/Object3D.ts:200](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L200)
 
 ___
 
@@ -888,7 +888,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:327](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;327)
+[src/cameras/Camera.ts:327](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L327)
 
 ___
 
@@ -904,4 +904,4 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:391](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;1f7cbec#line&#x3D;391)
+[src/cameras/Camera.ts:391](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L391)

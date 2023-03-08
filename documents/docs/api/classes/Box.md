@@ -41,7 +41,7 @@ scene.add(box);
 
 #### Defined in
 
-[src/geometries/Box.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;1f7cbec#line&#x3D;65)
+[src/geometries/Box.ts:65](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Box.ts#L65)
 
 ## Properties
 
@@ -55,7 +55,7 @@ scene.add(box);
 
 #### Defined in
 
-[src/core/Geometry.ts:59](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;59)
+[src/core/Geometry.ts:59](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L59)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:53](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;53)
+[src/core/Geometry.ts:53](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L53)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:55](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;55)
+[src/core/Geometry.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L55)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;57)
+[src/core/Geometry.ts:57](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L57)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;1f7cbec#line&#x3D;7)
+[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Base.ts#L7)
 
 ## Accessors
 
@@ -131,7 +131,7 @@ Geometry.attributes
 
 #### Defined in
 
-[src/core/Geometry.ts:112](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;112)
+[src/core/Geometry.ts:112](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L112)
 
 ___
 
@@ -151,7 +151,7 @@ Geometry.attributesData
 
 #### Defined in
 
-[src/core/Geometry.ts:119](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;119)
+[src/core/Geometry.ts:119](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L119)
 
 ___
 
@@ -171,7 +171,7 @@ Geometry.bounds
 
 #### Defined in
 
-[src/core/Geometry.ts:143](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;143)
+[src/core/Geometry.ts:143](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L143)
 
 • `set` **bounds**(`bounds`): `void`
 
@@ -193,7 +193,7 @@ Geometry.bounds
 
 #### Defined in
 
-[src/core/Geometry.ts:151](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;151)
+[src/core/Geometry.ts:151](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L151)
 
 ___
 
@@ -213,7 +213,7 @@ Geometry.gl
 
 #### Defined in
 
-[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;1f7cbec#line&#x3D;16)
+[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Base.ts#L16)
 
 ___
 
@@ -233,7 +233,7 @@ Geometry.id
 
 #### Defined in
 
-[src/core/Geometry.ts:105](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;105)
+[src/core/Geometry.ts:105](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L105)
 
 ___
 
@@ -253,7 +253,7 @@ Geometry.index
 
 #### Defined in
 
-[src/core/Geometry.ts:136](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;136)
+[src/core/Geometry.ts:136](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L136)
 
 ___
 
@@ -273,7 +273,7 @@ Geometry.rendererState
 
 #### Defined in
 
-[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;1f7cbec#line&#x3D;23)
+[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Base.ts#L23)
 
 ## Methods
 
@@ -300,7 +300,7 @@ Geometry.rendererState
 
 #### Defined in
 
-[src/core/Geometry.ts:160](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;160)
+[src/core/Geometry.ts:160](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L160)
 
 ___
 
@@ -327,7 +327,7 @@ https://devdocs.io/dom/webgl2renderingcontext/vertexattribipointer
 
 #### Defined in
 
-[src/core/Geometry.ts:363](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;363)
+[src/core/Geometry.ts:363](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L363)
 
 ___
 
@@ -347,7 +347,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:540](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;540)
+[src/core/Geometry.ts:540](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L540)
 
 ___
 
@@ -373,7 +373,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:402](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;402)
+[src/core/Geometry.ts:402](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L402)
 
 ___
 
@@ -399,7 +399,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:437](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;437)
+[src/core/Geometry.ts:437](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L437)
 
 ___
 
@@ -425,7 +425,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:502](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;502)
+[src/core/Geometry.ts:502](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L502)
 
 ___
 
@@ -451,7 +451,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:350](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;350)
+[src/core/Geometry.ts:350](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L350)
 
 ___
 
@@ -471,7 +471,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:549](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;549)
+[src/core/Geometry.ts:549](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L549)
 
 ___
 
@@ -498,7 +498,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:458](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;458)
+[src/core/Geometry.ts:458](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L458)
 
 ___
 
@@ -524,7 +524,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:191](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;191)
+[src/core/Geometry.ts:191](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L191)
 
 ___
 
@@ -550,7 +550,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:235](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;235)
+[src/core/Geometry.ts:235](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L235)
 
 ___
 
@@ -577,7 +577,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:200](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;200)
+[src/core/Geometry.ts:200](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L200)
 
 ___
 
@@ -603,7 +603,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:310](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;310)
+[src/core/Geometry.ts:310](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L310)
 
 ___
 
@@ -630,7 +630,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:333](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;333)
+[src/core/Geometry.ts:333](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L333)
 
 ___
 
@@ -656,7 +656,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:243](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;243)
+[src/core/Geometry.ts:243](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L243)
 
 ___
 
@@ -682,7 +682,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:342](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;342)
+[src/core/Geometry.ts:342](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L342)
 
 ___
 
@@ -708,7 +708,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:282](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;282)
+[src/core/Geometry.ts:282](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L282)
 
 ___
 
@@ -734,7 +734,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:296](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;296)
+[src/core/Geometry.ts:296](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L296)
 
 ___
 
@@ -760,7 +760,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:262](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;262)
+[src/core/Geometry.ts:262](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L262)
 
 ___
 
@@ -786,4 +786,4 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:212](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts?at&#x3D;1f7cbec#line&#x3D;212)
+[src/core/Geometry.ts:212](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Geometry.ts#L212)

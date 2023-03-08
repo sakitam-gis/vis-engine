@@ -23,7 +23,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[src/core/Renderer.ts:158](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;158)
+[src/core/Renderer.ts:158](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L158)
 
 ## Properties
 
@@ -33,7 +33,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[src/core/Renderer.ts:147](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;147)
+[src/core/Renderer.ts:147](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L147)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:144](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;144)
+[src/core/Renderer.ts:144](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L144)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:150](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;150)
+[src/core/Renderer.ts:150](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L150)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:138](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;138)
+[src/core/Renderer.ts:138](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L138)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:141](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;141)
+[src/core/Renderer.ts:141](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L141)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:156](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;156)
+[src/core/Renderer.ts:156](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L156)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:135](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;135)
+[src/core/Renderer.ts:135](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L135)
 
 ___
 
@@ -103,9 +103,39 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:154](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;154)
+[src/core/Renderer.ts:154](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L154)
 
 ## Accessors
+
+### attributes
+
+• `get` **attributes**(): `Object`
+
+获取 `Renderer` 的内部属性值
+
+#### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `alpha` | `WithUndef`<`boolean`\> |
+| `antialias` | `WithUndef`<`boolean`\> |
+| `autoClear` | `boolean` |
+| `color` | `boolean` |
+| `depth` | `WithUndef`<`boolean`\> |
+| `dpr` | `number` |
+| `flipY` | `boolean` |
+| `frustumCull` | `boolean` |
+| `premultipliedAlpha` | `WithUndef`<`boolean`\> |
+| `preserveDrawingBuffer` | `WithUndef`<`boolean`\> |
+| `stencil` | `WithUndef`<`boolean`\> |
+
+#### Defined in
+
+[src/core/Renderer.ts:284](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L284)
+
+___
 
 ### canvas
 
@@ -119,7 +149,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:281](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;281)
+[src/core/Renderer.ts:303](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L303)
 
 ___
 
@@ -135,7 +165,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:274](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;274)
+[src/core/Renderer.ts:277](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L277)
 
 ___
 
@@ -151,7 +181,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:288](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;288)
+[src/core/Renderer.ts:310](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L310)
 
 ___
 
@@ -167,7 +197,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:295](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;295)
+[src/core/Renderer.ts:317](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L317)
 
 ___
 
@@ -183,7 +213,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:319](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;319)
+[src/core/Renderer.ts:341](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L341)
 
 ___
 
@@ -204,7 +234,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:302](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;302)
+[src/core/Renderer.ts:324](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L324)
 
 ___
 
@@ -220,7 +250,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:312](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;312)
+[src/core/Renderer.ts:334](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L334)
 
 ## Methods
 
@@ -232,11 +262,11 @@ ___
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `color` | `boolean` | `true` | 颜色 |
-| `depth` | `boolean` | `true` | 深度 |
-| `stencil` | `boolean` | `true` | 模板 |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `color` | `boolean` | 颜色 |
+| `depth` | `WithUndef`<`boolean`\> | 深度 |
+| `stencil` | `WithUndef`<`boolean`\> | 模板 |
 
 #### Returns
 
@@ -244,7 +274,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:440](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;440)
+[src/core/Renderer.ts:462](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L462)
 
 ___
 
@@ -266,7 +296,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:369](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;369)
+[src/core/Renderer.ts:391](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L391)
 
 ___
 
@@ -288,7 +318,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:390](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;390)
+[src/core/Renderer.ts:412](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L412)
 
 ___
 
@@ -314,7 +344,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:458](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;458)
+[src/core/Renderer.ts:480](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L480)
 
 ___
 
@@ -337,7 +367,7 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:328](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;328)
+[src/core/Renderer.ts:350](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L350)
 
 ___
 
@@ -362,4 +392,4 @@ ___
 
 #### Defined in
 
-[src/core/Renderer.ts:343](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Renderer.ts?at&#x3D;1f7cbec#line&#x3D;343)
+[src/core/Renderer.ts:365](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Renderer.ts#L365)

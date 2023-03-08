@@ -28,7 +28,7 @@ Constructor
 
 #### Defined in
 
-[src/animation/Clock.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;1f7cbec#line&#x3D;35)
+[src/animation/Clock.ts:35](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/animation/Clock.ts#L35)
 
 ## Properties
 
@@ -38,7 +38,7 @@ Constructor
 
 #### Defined in
 
-[src/animation/Clock.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;1f7cbec#line&#x3D;29)
+[src/animation/Clock.ts:29](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/animation/Clock.ts#L29)
 
 ## Methods
 
@@ -54,7 +54,7 @@ Constructor
 
 #### Defined in
 
-[src/animation/Clock.ts:77](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;1f7cbec#line&#x3D;77)
+[src/animation/Clock.ts:77](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/animation/Clock.ts#L77)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[src/animation/Clock.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;1f7cbec#line&#x3D;69)
+[src/animation/Clock.ts:69](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/animation/Clock.ts#L69)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/animation/Clock.ts:61](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;1f7cbec#line&#x3D;61)
+[src/animation/Clock.ts:61](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/animation/Clock.ts#L61)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[src/animation/Clock.ts:42](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;1f7cbec#line&#x3D;42)
+[src/animation/Clock.ts:42](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/animation/Clock.ts#L42)
 
 ___
 
@@ -118,4 +118,4 @@ ___
 
 #### Defined in
 
-[src/animation/Clock.ts:52](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Clock.ts?at&#x3D;1f7cbec#line&#x3D;52)
+[src/animation/Clock.ts:52](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/animation/Clock.ts#L52)

@@ -16,7 +16,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[src/geometries/Box.ts:40](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;1f7cbec#line&#x3D;40)
+[src/geometries/Box.ts:40](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Box.ts#L40)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/geometries/Box.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;1f7cbec#line&#x3D;20)
+[src/geometries/Box.ts:20](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Box.ts#L20)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[src/geometries/Box.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;1f7cbec#line&#x3D;35)
+[src/geometries/Box.ts:35](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Box.ts#L35)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[src/geometries/Box.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;1f7cbec#line&#x3D;15)
+[src/geometries/Box.ts:15](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Box.ts#L15)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/geometries/Box.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;1f7cbec#line&#x3D;30)
+[src/geometries/Box.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Box.ts#L30)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[src/geometries/Box.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;1f7cbec#line&#x3D;10)
+[src/geometries/Box.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Box.ts#L10)
 
 ___
 
@@ -88,4 +88,4 @@ ___
 
 #### Defined in
 
-[src/geometries/Box.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts?at&#x3D;1f7cbec#line&#x3D;25)
+[src/geometries/Box.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Box.ts#L25)
