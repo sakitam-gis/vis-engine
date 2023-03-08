@@ -62,7 +62,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@sakitam-gis/vis-engine": "^1.4.0"
+    "@sakitam-gis/vis-engine": "^1.4.1"
   },
   "peerDependencies": {
     "maptalks": ">=1.0.0-rc.11"
