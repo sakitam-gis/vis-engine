@@ -1,3 +1,5 @@
+## @sakitam-gis/mapbox-ve [1.0.4](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/mapbox-ve@1.0.3...@sakitam-gis/mapbox-ve@1.0.4) (2023-03-08)
+
 ## @sakitam-gis/mapbox-ve [1.0.3](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/mapbox-ve@1.0.2...@sakitam-gis/mapbox-ve@1.0.3) (2023-02-14)
 
 
