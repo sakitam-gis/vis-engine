@@ -217,6 +217,7 @@ export default class Renderer {
       this.#depth = Boolean(attrs.depth);
       this.#antialias = Boolean(attrs.antialias);
       this.#alpha = Boolean(attrs.alpha);
+      this.#stencil = Boolean(attrs.stencil);
       this.#premultipliedAlpha = Boolean(attrs.premultipliedAlpha);
       this.#preserveDrawingBuffer = Boolean(attrs.preserveDrawingBuffer);
     }
@@ -275,6 +276,25 @@ export default class Renderer {
    */
   get gl() {
     return this.#gl;
+  }
+
+  /**
+   * 获取 `Renderer` 的内部属性值
+   */
+  get attributes() {
+    return {
+      dpr: this.#dpr,
+      flipY: this.#state.flipY,
+      depth: this.#depth,
+      color: this.#color,
+      antialias: this.#antialias,
+      alpha: this.#alpha,
+      stencil: this.#stencil,
+      autoClear: this.#autoClear,
+      frustumCull: this.#frustumCull,
+      premultipliedAlpha: this.#premultipliedAlpha,
+      preserveDrawingBuffer: this.#preserveDrawingBuffer,
+    };
   }
 
   /**
@@ -439,7 +459,7 @@ export default class Renderer {
    * @param depth 深度
    * @param stencil 模板
    */
-  clear(color = true, depth = true, stencil = true) {
+  clear(color = this.#color, depth = this.#depth, stencil = this.#stencil) {
     let bits = 0;
 
     if (color) bits |= this.gl.COLOR_BUFFER_BIT;
