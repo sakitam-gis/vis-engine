@@ -1,3 +1,15 @@
+## [1.4.2](https://github.com/sakitam-gis/vis-engine/compare/v1.4.1...v1.4.2) (2023-03-08)
+
+
+### Bug Fixes
+
+* **patch:** fix pnpm lock in ci  [release-adapters] ([2b0ddaa](https://github.com/sakitam-gis/vis-engine/commit/2b0ddaa2a05fc6f4aaad742a985c12051777bd58))
+
+
+### Performance Improvements
+
+* **patch:** perf Renderer clear params and add renderAttributes getter ([97cfc47](https://github.com/sakitam-gis/vis-engine/commit/97cfc47e49ee46ce797c32f6d1a694192c0a49ef))
+
 ## [1.4.1](https://github.com/sakitam-gis/vis-engine/compare/v1.4.0...v1.4.1) (2023-03-06)
 
 
