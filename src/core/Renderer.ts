@@ -4,8 +4,72 @@ import Scene from '../objects/Scene';
 import { isWebGL, isWebGL2, getContext } from '../utils';
 import type { WithNull, WithUndef } from '../types';
 
-type ExtensionKeys = 'ANGLE_instanced_arrays' | 'OES_vertex_array_object';
-type Extensions = ANGLE_instanced_arrays | OES_vertex_array_object;
+const innerExtensionKeys = [
+  'ANGLE_instanced_arrays', // 实例化绘制
+  'OES_vertex_array_object', // 顶点数组对象
+] as const;
+
+type InnerExtensionKeys = typeof innerExtensionKeys[number];
+
+/**
+ * 仅在 webgl 1 中使用的扩展，webgl2 直接支持
+ */
+const external1ExtensionKeys = [
+  'WEBGL_depth_texture', // 深度纹理
+  'OES_texture_half_float', // 半浮点型纹理
+  'OES_texture_float', // 浮点型纹理
+  'OES_standard_derivatives', // 标准导数
+  'OES_element_index_uint', // UNSIGNED_INT索引
+  'EXT_frag_depth', // 设置gl_FragDepth
+  'EXT_blend_minmax', // 混合公式MIN/MAX
+  'EXT_shader_texture_lod', // 直接纹理LOD获取
+  'WEBGL_draw_buffers', // 多种绘制缓冲
+  'WEBGL_color_buffer_float', // 32 位浮点数颜色缓冲区
+] as const;
+
+/**
+ * 仅在 webgl 2 中支持的扩展
+ */
+const external2ExtensionKeys = [
+  'EXT_color_buffer_float', // 32 位浮点数颜色缓冲区
+] as const;
+
+/**
+ * 在 webgl1 和 webgl2 都支持的扩展
+ */
+const external12ExtensionKeys = [
+  'WEBGL_lose_context', // 模拟丢失和恢复 gl 上下文
+  'OES_texture_half_float_linear', // 半浮点型纹理线性过滤
+  'OES_texture_float_linear', // 浮点型纹理线性过滤
+  'EXT_color_buffer_half_float', // 半（16 位）浮点数颜色缓冲区
+  'WEBGL_debug_renderer_info', // 图形驱动信息
+] as const;
+
+type External1ExtensionKeys = typeof external1ExtensionKeys[number];
+type External2ExtensionKeys = typeof external2ExtensionKeys[number];
+type External12ExtensionKeys = typeof external12ExtensionKeys[number];
+
+type ExternalExtensionKeys =
+  | External1ExtensionKeys
+  | External2ExtensionKeys
+  | External12ExtensionKeys;
+
+type ExtensionKeys = InnerExtensionKeys | ExternalExtensionKeys;
+
+type Extensions =
+  | ANGLE_instanced_arrays
+  | OES_vertex_array_object
+  | WEBGL_depth_texture
+  | OES_texture_half_float
+  | OES_texture_float
+  | OES_texture_half_float_linear
+  | OES_texture_float_linear
+  | OES_standard_derivatives
+  | OES_element_index_uint
+  | EXT_frag_depth
+  | EXT_blend_minmax
+  | EXT_shader_texture_lod
+  | WEBGL_draw_buffers;
 
 export interface RendererOptions {
   /**
@@ -61,6 +125,11 @@ export interface RendererOptions {
    * 是否开启视锥剔除，默认不开启
    */
   frustumCull: boolean;
+
+  /**
+   * WebGL 上下文支持的扩展列表。默认 []
+   */
+  extensions: ExternalExtensionKeys[];
 }
 
 export interface RenderParams {
@@ -170,6 +239,7 @@ export default class Renderer {
         premultipliedAlpha: false,
         preserveDrawingBuffer: false,
         requestWebGl2: true,
+        extensions: [],
       },
       opts,
     );
@@ -269,6 +339,41 @@ export default class Renderer {
       'deleteVertexArray',
       'deleteVertexArrayOES',
     );
+
+    if (options.extensions) {
+      options.extensions
+        .filter(
+          (extension: ExternalExtensionKeys) =>
+            external1ExtensionKeys.findIndex((ext) => ext === extension) > -1,
+        )
+        .forEach((extension: ExternalExtensionKeys) => {
+          if (!this.#extensions[extension] && !this.isWebGL2) {
+            this.#extensions[extension] = this.gl.getExtension(extension);
+          }
+        });
+
+      options.extensions
+        .filter(
+          (extension: ExternalExtensionKeys) =>
+            external2ExtensionKeys.findIndex((ext) => ext === extension) > -1,
+        )
+        .forEach((extension: ExternalExtensionKeys) => {
+          if (!this.#extensions[extension] && this.isWebGL2) {
+            this.#extensions[extension] = this.gl.getExtension(extension);
+          }
+        });
+
+      options.extensions
+        .filter(
+          (extension: ExternalExtensionKeys) =>
+            external12ExtensionKeys.findIndex((ext) => ext === extension) > -1,
+        )
+        .forEach((extension: ExternalExtensionKeys) => {
+          if (!this.#extensions[extension]) {
+            this.#extensions[extension] = this.gl.getExtension(extension);
+          }
+        });
+    }
   }
 
   /**
@@ -316,6 +421,21 @@ export default class Renderer {
    */
   get isWebGL2() {
     return isWebGL2(this.gl);
+  }
+
+  /**
+   * 获取已开启的扩展
+   */
+  get extensions() {
+    return this.#extensions;
+  }
+
+  /**
+   * 获取指定的扩展
+   * @param key
+   */
+  extension(key: ExtensionKeys) {
+    return this.#extensions[key];
   }
 
   /**

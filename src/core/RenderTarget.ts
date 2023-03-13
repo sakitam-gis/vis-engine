@@ -185,7 +185,10 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
       }
       if (
         options.depthTexture &&
-        (renderer.isWebGL2 || renderer.gl.getExtension('WEBGL_depth_texture'))
+        (renderer.isWebGL2 ||
+          // 此扩展仅适用于WebGL1上下文。在WebGL2 中，此扩展的功能默认在 WebGL2 上下文中可用。WebGL2 中的常量是 gl.UNSIGNED_INT_24_8
+          // @link https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_depth_texture
+          (!renderer.isWebGL2 && renderer.gl.getExtension('WEBGL_depth_texture')))
       ) {
         const texture = new Texture(renderer, {
           width: this.width,
@@ -296,8 +299,20 @@ export default class RenderTarget extends Resource<RenderTargetOptions> {
       this.#clearColors[i] = [0, 0, 0, 0];
     }
 
-    if (this.options.color! > 1 && this.renderer.isWebGL2) {
-      (this.gl as WebGL2RenderingContext).drawBuffers(this.drawBuffers);
+    if (this.options.color! > 1) {
+      // @link https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_draw_buffers#browser_compatibility 兼容性不好
+      if (this.renderer.isWebGL2) {
+        (this.gl as WebGL2RenderingContext).drawBuffers(this.drawBuffers);
+      } else {
+        const ext = this.renderer.extension('WEBGL_draw_buffers') as WEBGL_draw_buffers;
+        if (ext && ext.drawBuffersWEBGL) {
+          ext.drawBuffersWEBGL(this.drawBuffers);
+        } else {
+          throw new Error(
+            'Please open the corresponding extension [WEBGL_draw_buffers](https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_draw_buffers#browser_compatibility) and check whether the browser supports it',
+          );
+        }
+      }
     }
 
     this.drawBuffersChanged = true;
