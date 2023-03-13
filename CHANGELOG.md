@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/sakitam-gis/vis-engine/compare/v1.4.2...v1.4.3) (2023-03-13)
+
+
+### Features
+
+* **patch:** support renderer extensions option ([c312699](https://github.com/sakitam-gis/vis-engine/commit/c3126997510bf5363e76a75eda8c119558551802))
+
 ## [1.4.2](https://github.com/sakitam-gis/vis-engine/compare/v1.4.1...v1.4.2) (2023-03-08)
 
 
