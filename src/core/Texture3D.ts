@@ -97,7 +97,7 @@ export default class Texture3D extends Texture<Texture3DOptions> {
       target: gl.TEXTURE_3D,
       type: gl.UNSIGNED_BYTE,
       format: gl.RGBA,
-      internalFormat: options.format || gl.RGBA,
+      internalFormat: options.internalFormat || gl.RGBA,
       wrapS: gl.CLAMP_TO_EDGE,
       wrapT: gl.CLAMP_TO_EDGE,
       wrapR: gl.CLAMP_TO_EDGE,
