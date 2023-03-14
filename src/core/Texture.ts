@@ -1,8 +1,13 @@
-import { isPowerOfTwo } from '../utils/math';
-import Resource from './Resource';
+import Resource, { ResourceOptions } from './Resource';
 import Renderer from './Renderer';
+import { isNumber, isPowerOfTwo } from '../utils';
 
-export interface TextureOptions {
+export interface TextureOptions extends ResourceOptions {
+  /**
+   * 默认为 `gl.TEXTURE_2D`
+   */
+  target: GLenum;
+
   /**
    * 纹理宽度，默认为 0
    */
@@ -38,12 +43,6 @@ export interface TextureOptions {
   wrapT: number;
 
   /**
-   * 深度采样纹理时使用的行为。
-   * 可能的值：`gl.REPEAT`，`gl.MIRRORED_REPEAT`，`gl.CLAMP_TO_EDGE`
-   */
-  wrapR: number;
-
-  /**
    * 纹理数据的格式，在 WebGL 1 中，它必须与 internalformat 相同。
    * 可能的值：`gl.RGBA`，`gl.RGB`，`gl.LUMINANCE`，`gl.LUMINANCE_ALPHA`
    */
@@ -64,7 +63,7 @@ export interface TextureOptions {
   /**
    * 配置是否启用 `mipmap`，默认为`true`
    * `generateMipmaps`会自动生成若干小尺寸的纹理，根据当前三维物体在屏幕上的大小来自动选择最合适的尺寸。
-   * 使用`mipmap`要求纹理的长度和宽度必须是2的整数次幂。
+   * 在 `webgl2` 使用`mipmap` 不再强制要求纹理的长度和宽度必须是2的整数次幂。
    */
   generateMipmaps: boolean;
 
@@ -72,6 +71,14 @@ export interface TextureOptions {
    * 设置纹理上传时是否翻转 Y 轴，默认为 `false`
    */
   flipY: boolean;
+
+  /**
+   *  沿通过具有最高纹理像素密度的像素的坐标轴取样的数量。默认情况下，此值为 `1`。
+   *  较高的值会产生比基本mipmap更少的模糊结果，但需要使用更多纹理样本。通常我们在实现让物体缩小时
+   *  获取更高的清晰度，可以将此值设大，注意需要 `gl.getParameter(ext.MAX_TEXTURE_MAX_ANISOTROPY_EXT)`
+   *  获取允许的最大值。（see: https://developer.mozilla.org/en-US/docs/Web/API/EXT_texture_filter_anisotropic）
+   */
+  anisotropy: number;
 
   /**
    * 指定内存中每个像素行起点的对齐要求。
@@ -90,9 +97,9 @@ export interface TextureOptions {
   level: number;
 
   /**
-   * 指定纹理深度，默认为`0`
+   * [GLintptr](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Types) 类型偏移到 [WebGLBuffer](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGLBuffer) 的数据存储中。用于上传数据到当前范围 [WebGLTexture](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGLTexture) 从WebGLBuffer 范围到PIXEL_UNPACK_BUFFER 目标
    */
-  depth: number;
+  offset?: number;
 
   /**
    * 纹理数据
@@ -100,17 +107,16 @@ export interface TextureOptions {
   image: any;
 }
 
-interface IState {
+export interface TextureState {
   version: number;
   image: any;
   wrapS: GLenum;
   wrapT: GLenum;
   minFilter: GLenum;
   magFilter: GLenum;
-  flipY: boolean;
-  unpackAlignment: number;
-  premultiplyAlpha: boolean;
 }
+
+export const emptyPixel = new Uint8Array(4);
 
 /**
  * 纹理
@@ -132,7 +138,7 @@ interface IState {
  * image.src = './assets/posx.jpg';
  * ```
  */
-export default class Texture extends Resource<TextureOptions> {
+export default class Texture<T extends TextureOptions = TextureOptions> extends Resource<T> {
   /**
    * 设置纹理是否需要更新，一般我们会在纹理数据或者配置变更时将此配置项设置为 `true`
    * 这样会在下一次渲染时应用对应的纹理数据和配置。
@@ -159,16 +165,22 @@ export default class Texture extends Resource<TextureOptions> {
    */
   public height: number;
 
-  #state: IState = {} as IState;
+  /**
+   * `texImage2D` target
+   */
+  public target: GLenum;
+
+  #state: TextureState = {} as TextureState;
 
   /**
    * @param renderer Renderer 对象
    * @param options 配置项
    * @param needsUpdate 是否需要`update`
    */
-  constructor(renderer: Renderer, options: Partial<TextureOptions> = {}, needsUpdate = true) {
+  constructor(renderer: Renderer, options: Partial<T> = {}, needsUpdate = true) {
     const { gl } = renderer;
     const defaultOptions = {
+      target: gl.TEXTURE_2D,
       type: gl.UNSIGNED_BYTE,
       format: gl.RGBA,
       internalFormat: options.format || gl.RGBA,
@@ -179,17 +191,18 @@ export default class Texture extends Resource<TextureOptions> {
       magFilter: gl.LINEAR,
       premultiplyAlpha: false,
       unpackAlignment: 4,
+      anisotropy: 0,
       flipY: false,
       level: 0,
     };
 
     const opt = Object.assign({}, defaultOptions, options);
     super(renderer, opt);
-    this.needsUpdate = false;
     this.textureUnit = 0;
     this.image = this.options.image;
     this.width = this.options.width as number;
     this.height = this.options.height as number;
+    this.target = this.options.target as GLenum;
     this.#state.version = -1;
     this.needsUpdate = Boolean(needsUpdate);
     if (this.needsUpdate) {
@@ -214,7 +227,7 @@ export default class Texture extends Resource<TextureOptions> {
    * 设置纹理配置（默认进行合并）
    * @param options 配置项
    */
-  setOptions(options: Partial<TextureOptions>) {
+  setOptions(options: Partial<T>) {
     this.options = Object.assign(this.options, options);
     this.width = this.options.width as number;
     this.height = this.options.height as number;
@@ -257,24 +270,16 @@ export default class Texture extends Resource<TextureOptions> {
     if (!needUpdate) return;
     this.needsUpdate = false;
     if (this.options.wrapS !== this.#state.wrapS) {
-      this.gl.texParameteri(
-        this.gl.TEXTURE_2D,
-        this.gl.TEXTURE_WRAP_S,
-        this.options.wrapS as GLenum,
-      );
+      this.gl.texParameteri(this.target, this.gl.TEXTURE_WRAP_S, this.options.wrapS as GLenum);
       this.#state.wrapS = this.options.wrapS as GLenum;
     }
     if (this.options.wrapT !== this.#state.wrapT) {
-      this.gl.texParameteri(
-        this.gl.TEXTURE_2D,
-        this.gl.TEXTURE_WRAP_T,
-        this.options.wrapT as GLenum,
-      );
+      this.gl.texParameteri(this.target, this.gl.TEXTURE_WRAP_T, this.options.wrapT as GLenum);
       this.#state.wrapT = this.options.wrapT as GLenum;
     }
     if (this.options.minFilter !== this.#state.minFilter) {
       this.gl.texParameteri(
-        this.gl.TEXTURE_2D,
+        this.target,
         this.gl.TEXTURE_MIN_FILTER,
         this.options.minFilter as GLenum,
       );
@@ -282,7 +287,7 @@ export default class Texture extends Resource<TextureOptions> {
     }
     if (this.options.magFilter !== this.#state.magFilter) {
       this.gl.texParameteri(
-        this.gl.TEXTURE_2D,
+        this.target,
         this.gl.TEXTURE_MAG_FILTER,
         this.options.magFilter as GLenum,
       );
@@ -303,15 +308,42 @@ export default class Texture extends Resource<TextureOptions> {
       this.gl.pixelStorei(this.gl.UNPACK_ALIGNMENT, this.options.unpackAlignment as GLenum);
       this.rendererState.unpackAlignment = this.options.unpackAlignment as number;
     }
+
+    if (this.options.anisotropy && this.options.anisotropy !== this.rendererState.anisotropy) {
+      const extTextureFilterAnisotropic =
+        this.gl.getExtension('EXT_texture_filter_anisotropic') ||
+        this.gl.getExtension('MOZ_EXT_texture_filter_anisotropic') ||
+        this.gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic');
+      if (extTextureFilterAnisotropic) {
+        const max = this.gl.getParameter(
+          extTextureFilterAnisotropic.MAX_TEXTURE_MAX_ANISOTROPY_EXT,
+        );
+        let v = this.options.anisotropy;
+        if (this.options.anisotropy > max) {
+          v = max;
+          console.warn(
+            `[Texture]: Texture.anisotropy option exceeded the maximum allowed value ${max} of the device`,
+          );
+        }
+        this.gl.texParameterf(
+          this.target,
+          extTextureFilterAnisotropic.TEXTURE_MAX_ANISOTROPY_EXT,
+          v,
+        );
+      }
+      this.rendererState.anisotropy = this.options.anisotropy;
+    }
+
     if (this.image) {
       if (this.image.width) {
         this.width = this.image.width;
         this.height = this.image.height;
       }
-      if (ArrayBuffer.isView(this.image)) {
+
+      if (this.renderer.isWebGL2 && isNumber(this.options.offset)) {
         this.gl.texImage2D(
-          this.gl.TEXTURE_2D,
-          0,
+          this.target,
+          this.options.level as GLenum,
           this.options.internalFormat as GLenum,
           this.width,
           this.height,
@@ -319,23 +351,39 @@ export default class Texture extends Resource<TextureOptions> {
           this.options.format as GLenum,
           this.options.type as GLenum,
           this.image,
+          this.options.offset,
         );
       } else {
-        this.gl.texImage2D(
-          this.gl.TEXTURE_2D,
-          0,
-          this.options.internalFormat as GLenum,
-          this.options.format as GLenum,
-          this.options.type as GLenum,
-          this.image,
-        );
+        if (ArrayBuffer.isView(this.image)) {
+          this.gl.texImage2D(
+            this.target,
+            this.options.level as GLenum,
+            this.options.internalFormat as GLenum,
+            this.width,
+            this.height,
+            0,
+            this.options.format as GLenum,
+            this.options.type as GLenum,
+            this.image,
+          );
+        } else {
+          this.gl.texImage2D(
+            this.target,
+            this.options.level as GLenum,
+            this.options.internalFormat as GLenum,
+            this.options.format as GLenum,
+            this.options.type as GLenum,
+            this.image,
+          );
+        }
       }
+
       if (this.options.generateMipmaps) {
         if (
           this.renderer.isWebGL2 ||
           (isPowerOfTwo(this.image.width) && isPowerOfTwo(this.image.height))
         ) {
-          this.gl.generateMipmap(this.gl.TEXTURE_2D);
+          this.gl.generateMipmap(this.target);
         } else {
           this.options.generateMipmaps = false;
           this.options.wrapS = this.gl.CLAMP_TO_EDGE;
@@ -344,30 +392,59 @@ export default class Texture extends Resource<TextureOptions> {
         }
       }
     } else {
-      if (this.width > 0) {
-        this.gl.texImage2D(
-          this.gl.TEXTURE_2D,
-          0,
-          this.options.internalFormat as GLenum,
-          this.width,
-          this.height,
-          0,
-          this.options.format as GLenum,
-          this.options.type as GLenum,
-          null,
-        );
+      if (this.renderer.isWebGL2 && isNumber(this.options.offset)) {
+        if (this.width > 0) {
+          (this.gl as WebGL2RenderingContext).texImage2D(
+            this.target,
+            this.options.level as GLenum,
+            this.options.internalFormat as GLenum,
+            this.width,
+            this.height,
+            0,
+            this.options.format as GLenum,
+            this.options.type as GLenum,
+            this.options.offset,
+          );
+        } else {
+          this.gl.texImage2D(
+            this.target,
+            0,
+            this.gl.RGBA,
+            1,
+            1,
+            0,
+            this.gl.RGBA,
+            this.gl.UNSIGNED_BYTE,
+            emptyPixel,
+            this.options.offset,
+          );
+        }
       } else {
-        this.gl.texImage2D(
-          this.gl.TEXTURE_2D,
-          0,
-          this.gl.RGBA,
-          1,
-          1,
-          0,
-          this.gl.RGBA,
-          this.gl.UNSIGNED_BYTE,
-          new Uint8Array(4),
-        );
+        if (this.width > 0) {
+          this.gl.texImage2D(
+            this.target,
+            this.options.level as GLenum,
+            this.options.internalFormat as GLenum,
+            this.width,
+            this.height,
+            0,
+            this.options.format as GLenum,
+            this.options.type as GLenum,
+            null,
+          );
+        } else {
+          this.gl.texImage2D(
+            this.target,
+            0,
+            this.gl.RGBA,
+            1,
+            1,
+            0,
+            this.gl.RGBA,
+            this.gl.UNSIGNED_BYTE,
+            emptyPixel,
+          );
+        }
       }
     }
     this.#state.image = this.image;
@@ -382,7 +459,7 @@ export default class Texture extends Resource<TextureOptions> {
     if (this.rendererState.textureUnits[this.rendererState.activeTextureUnit] === this.id) return;
     this.textureUnit = unit;
     this.rendererState.textureUnits[this.textureUnit] = this.id;
-    this.gl.bindTexture(this.gl.TEXTURE_2D, this.handle);
+    this.gl.bindTexture(this.target, this.handle);
   }
 
   /**
@@ -390,7 +467,7 @@ export default class Texture extends Resource<TextureOptions> {
    */
   unbind() {
     this.gl.activeTexture(this.gl.TEXTURE0 + this.textureUnit);
-    this.gl.bindTexture(this.gl.TEXTURE_2D, null);
+    this.gl.bindTexture(this.target, null);
     delete this.rendererState.textureUnits[this.textureUnit];
   }
 
@@ -408,7 +485,7 @@ export default class Texture extends Resource<TextureOptions> {
   removeStats() {
     this.#state = {
       version: -1,
-    } as IState;
+    } as TextureState;
   }
 
   /**

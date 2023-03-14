@@ -106,6 +106,7 @@ export default function Mapbox() {
     }
 
     onRemove() {
+      console.log('remove');
     }
 
     render() {

@@ -1,51 +1,22 @@
 import { isPowerOfTwo } from '../utils/math';
-import Texture from './Texture';
+import Texture, { emptyPixel, TextureState, TextureOptions } from './Texture';
 import Renderer from './Renderer';
+import { isNumber } from '../utils';
 
-export interface Texture3DOptions {
+export interface Texture3DOptions extends TextureOptions {
   /**
-   * 纹理宽度，默认为 0
+   * 默认为 `gl.TEXTURE_3D`
    */
-  width: number;
+  target: GLenum;
 
   /**
-   * 纹理高度，默认为 0
-   */
-  height: number;
-
-  /**
-   * 纹理放大时使用的过滤类型。
-   * 可能的值：`gl.NEAREST`，`gl.LINEAR`
-   */
-  magFilter: number;
-
-  /**
-   * 纹理缩小时使用的过滤类型。
-   * 可能的值：`gl.NEAREST`，`gl.LINEAR`
-   */
-  minFilter: number;
-
-  /**
-   * 水平采样纹理时使用的行为。
-   * 可能的值：`gl.REPEAT`，`gl.MIRRORED_REPEAT`，`gl.CLAMP_TO_EDGE`
-   */
-  wrapS: number;
-
-  /**
-   * 垂直采样纹理时使用的行为。
-   * 可能的值：`gl.REPEAT`，`gl.MIRRORED_REPEAT`，`gl.CLAMP_TO_EDGE`
-   */
-  wrapT: number;
-
-  /**
-   * 深度采样纹理时使用的行为。
+   * 深度采样纹理时使用的行为, 仅在 `Texture3D` 时可用。
    * 可能的值：`gl.REPEAT`，`gl.MIRRORED_REPEAT`，`gl.CLAMP_TO_EDGE`
    */
   wrapR: number;
 
   /**
-   * 纹理数据的格式，在 WebGL 1 中，它必须与 internalformat 相同。
-   * 可能的值：`gl.RGBA`，`gl.RGB`，`gl.LUMINANCE`，`gl.LUMINANCE_ALPHA`
+   * [GLenum](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Types) 制定纹素的版本。正确的 内部格式 组合被列举在 [这个列表](https://www.khronos.org/registry/webgl/specs/latest/2.0/#TEXTURE_TYPES_FORMATS_FROM_DOM_ELEMENTS_TABLE)。
    */
   format: number;
 
@@ -58,36 +29,10 @@ export interface Texture3DOptions {
   /**
    * 指定纹理数据的数据类型。
    * 可能的值：`gl.UNSIGNED_BYTE`，`gl.FLOAT`，`gl.UNSIGNED_SHORT`，`gl.UNSIGNED_INT` 等等
+   * 可以查看[texImage3D](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL2RenderingContext/texImage3D) 来
+   * 获取更多信息
    */
   type: number;
-
-  /**
-   * 配置是否启用 `mipmap`，默认为`true`
-   * `generateMipmaps`会自动生成若干小尺寸的纹理，根据当前三维物体在屏幕上的大小来自动选择最合适的尺寸。
-   * 使用`mipmap`要求纹理的长度和宽度必须是2的整数次幂。
-   */
-  generateMipmaps: boolean;
-
-  /**
-   * 设置纹理上传时是否翻转 Y 轴，默认为 `false`
-   */
-  flipY: boolean;
-
-  /**
-   * 指定内存中每个像素行起点的对齐要求。
-   * 可能的值: 1, 2, 4, 8 (see http://www.khronos.org/opengles/sdk/docs/man/xhtml/glPixelStorei.xml)
-   */
-  unpackAlignment: number;
-
-  /**
-   * 设置纹理上传时是否预乘 `alpha` 值，默认为 `false`
-   */
-  premultiplyAlpha: boolean;
-
-  /**
-   * 指定mipmap的精细度，级别 0 是基础图像级别，级别 n 是第 n 个 mipmap 缩减级别。默认为 `0`。
-   */
-  level: number;
 
   /**
    * 指定纹理深度，默认为`0`
@@ -100,17 +45,8 @@ export interface Texture3DOptions {
   image: any;
 }
 
-interface IState {
-  version: number;
-  image: any;
-  wrapS: GLenum;
-  wrapT: GLenum;
+interface Texture3DState extends TextureState {
   wrapR: GLenum;
-  minFilter: GLenum;
-  magFilter: GLenum;
-  flipY: boolean;
-  unpackAlignment: number;
-  premultiplyAlpha: boolean;
 }
 
 /**
@@ -132,7 +68,7 @@ interface IState {
  * image.src = './assets/posx.jpg';
  * ```
  */
-export default class Texture3D extends Texture {
+export default class Texture3D extends Texture<Texture3DOptions> {
   /**
    * 设置纹理是否需要更新，一般我们会在纹理数据或者配置变更时将此配置项设置为 `true`
    * 这样会在下一次渲染时应用对应的纹理数据和配置。
@@ -149,15 +85,16 @@ export default class Texture3D extends Texture {
    */
   public depth: number;
 
-  #state: IState = {} as IState;
+  #state: Texture3DState = {} as Texture3DState;
 
   /**
    * @param renderer Renderer 对象
    * @param options 配置项
    */
   constructor(renderer: Renderer, options: Partial<Texture3DOptions> = {}) {
-    const { gl } = renderer;
+    const gl = renderer.gl as WebGL2RenderingContext;
     const defaultOptions = {
+      target: gl.TEXTURE_3D,
       type: gl.UNSIGNED_BYTE,
       format: gl.RGBA,
       internalFormat: options.format || gl.RGBA,
@@ -176,6 +113,7 @@ export default class Texture3D extends Texture {
 
     const opt = Object.assign({}, defaultOptions, options);
     super(renderer, opt, false);
+
     this.needsUpdate = true;
     this.depth = this.options.depth as number;
     this.#state.version = -1;
@@ -233,32 +171,20 @@ export default class Texture3D extends Texture {
     if (!needUpdate) return;
     this.needsUpdate = false;
     if (this.options.wrapS !== this.#state.wrapS) {
-      this.gl.texParameteri(
-        this.gl.TEXTURE_3D,
-        this.gl.TEXTURE_WRAP_S,
-        this.options.wrapS as GLenum,
-      );
+      this.gl.texParameteri(this.target, this.gl.TEXTURE_WRAP_S, this.options.wrapS as GLenum);
       this.#state.wrapS = this.options.wrapS as GLenum;
     }
     if (this.options.wrapT !== this.#state.wrapT) {
-      this.gl.texParameteri(
-        this.gl.TEXTURE_3D,
-        this.gl.TEXTURE_WRAP_T,
-        this.options.wrapT as GLenum,
-      );
+      this.gl.texParameteri(this.target, this.gl.TEXTURE_WRAP_T, this.options.wrapT as GLenum);
       this.#state.wrapT = this.options.wrapT as GLenum;
     }
     if (this.options.wrapR !== this.#state.wrapR) {
-      this.gl.texParameteri(
-        this.gl.TEXTURE_3D,
-        this.gl.TEXTURE_WRAP_R,
-        this.options.wrapR as GLenum,
-      );
+      this.gl.texParameteri(this.target, this.gl.TEXTURE_WRAP_R, this.options.wrapR as GLenum);
       this.#state.wrapR = this.options.wrapR as GLenum;
     }
     if (this.options.minFilter !== this.#state.minFilter) {
       this.gl.texParameteri(
-        this.gl.TEXTURE_3D,
+        this.target,
         this.gl.TEXTURE_MIN_FILTER,
         this.options.minFilter as GLenum,
       );
@@ -266,7 +192,7 @@ export default class Texture3D extends Texture {
     }
     if (this.options.magFilter !== this.#state.magFilter) {
       this.gl.texParameteri(
-        this.gl.TEXTURE_3D,
+        this.target,
         this.gl.TEXTURE_MAG_FILTER,
         this.options.magFilter as GLenum,
       );
@@ -287,15 +213,42 @@ export default class Texture3D extends Texture {
       this.gl.pixelStorei(this.gl.UNPACK_ALIGNMENT, this.options.unpackAlignment as GLenum);
       this.rendererState.unpackAlignment = this.options.unpackAlignment as number;
     }
+
+    if (this.options.anisotropy && this.options.anisotropy !== this.rendererState.anisotropy) {
+      const extTextureFilterAnisotropic =
+        this.gl.getExtension('EXT_texture_filter_anisotropic') ||
+        this.gl.getExtension('MOZ_EXT_texture_filter_anisotropic') ||
+        this.gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic');
+      if (extTextureFilterAnisotropic) {
+        const max = this.gl.getParameter(
+          extTextureFilterAnisotropic.MAX_TEXTURE_MAX_ANISOTROPY_EXT,
+        );
+        let v = this.options.anisotropy;
+        if (this.options.anisotropy > max) {
+          v = max;
+          console.warn(
+            `[Texture]: Texture.anisotropy option exceeded the maximum allowed value ${max} of the device`,
+          );
+        }
+        this.gl.texParameterf(
+          this.target,
+          extTextureFilterAnisotropic.TEXTURE_MAX_ANISOTROPY_EXT,
+          v,
+        );
+      }
+      this.rendererState.anisotropy = this.options.anisotropy;
+    }
+
     if (this.image) {
       if (this.image.width) {
         this.width = this.image.width;
         this.height = this.image.height;
       }
-      if (ArrayBuffer.isView(this.image)) {
+
+      if (this.renderer.isWebGL2 && isNumber(this.options.offset)) {
         this.gl.texImage3D(
-          this.gl.TEXTURE_3D,
-          0,
+          this.target,
+          this.options.level as GLenum,
           this.options.internalFormat as GLenum,
           this.width,
           this.height,
@@ -304,27 +257,44 @@ export default class Texture3D extends Texture {
           this.options.format as GLenum,
           this.options.type as GLenum,
           this.image,
+          this.options.offset,
         );
       } else {
-        this.gl.texImage3D(
-          this.gl.TEXTURE_3D,
-          0,
-          this.options.internalFormat as GLenum,
-          this.width,
-          this.height,
-          this.depth,
-          0,
-          this.options.format as GLenum,
-          this.options.type as GLenum,
-          this.image,
-        );
+        if (ArrayBuffer.isView(this.image)) {
+          this.gl.texImage3D(
+            this.target,
+            this.options.level as GLenum,
+            this.options.internalFormat as GLenum,
+            this.width,
+            this.height,
+            this.depth,
+            0,
+            this.options.format as GLenum,
+            this.options.type as GLenum,
+            this.image,
+          );
+        } else {
+          this.gl.texImage3D(
+            this.target,
+            this.options.level as GLenum,
+            this.options.internalFormat as GLenum,
+            this.width,
+            this.height,
+            this.depth,
+            0,
+            this.options.format as GLenum,
+            this.options.type as GLenum,
+            this.image,
+          );
+        }
       }
+
       if (this.options.generateMipmaps) {
         if (
           this.renderer.isWebGL2 ||
           (isPowerOfTwo(this.image.width) && isPowerOfTwo(this.image.height))
         ) {
-          this.gl.generateMipmap(this.gl.TEXTURE_3D);
+          this.gl.generateMipmap(this.target);
         } else {
           this.options.generateMipmaps = false;
           this.options.wrapS = this.gl.CLAMP_TO_EDGE;
@@ -335,8 +305,8 @@ export default class Texture3D extends Texture {
     } else {
       if (this.width > 0) {
         this.gl.texImage3D(
-          this.gl.TEXTURE_3D,
-          0,
+          this.target,
+          this.options.level as GLenum,
           this.options.internalFormat as GLenum,
           this.width,
           this.height,
@@ -348,7 +318,7 @@ export default class Texture3D extends Texture {
         );
       } else {
         this.gl.texImage3D(
-          this.gl.TEXTURE_3D,
+          this.target,
           0,
           this.gl.RGBA,
           1,
@@ -357,7 +327,7 @@ export default class Texture3D extends Texture {
           0,
           this.gl.RGBA,
           this.gl.UNSIGNED_BYTE,
-          new Uint8Array(4),
+          emptyPixel,
         );
       }
     }
@@ -366,40 +336,12 @@ export default class Texture3D extends Texture {
   }
 
   /**
-   * 绑定纹理
-   * @param unit 纹理单位，默认为 `this.textureUnit`
-   */
-  bind(unit = this.textureUnit) {
-    if (this.rendererState.textureUnits[this.rendererState.activeTextureUnit] === this.id) return;
-    this.textureUnit = unit;
-    this.rendererState.textureUnits[this.textureUnit] = this.id;
-    this.gl.bindTexture(this.gl.TEXTURE_3D, this.handle);
-  }
-
-  /**
-   * 解绑纹理
-   */
-  unbind() {
-    this.gl.activeTexture(this.gl.TEXTURE0 + this.textureUnit);
-    this.gl.bindTexture(this.gl.TEXTURE_3D, null);
-    delete this.rendererState.textureUnits[this.textureUnit];
-  }
-
-  /**
    * 移除相关状态
    */
   removeStats() {
     this.#state = {
       version: -1,
-    } as IState;
-  }
-
-  /**
-   * 销毁纹理
-   */
-  destroy() {
-    this.unbind();
-    super.destroy();
+    } as Texture3DState;
   }
 
   /**
