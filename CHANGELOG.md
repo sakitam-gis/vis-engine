@@ -1,3 +1,11 @@
+## [1.4.4](https://github.com/sakitam-gis/vis-engine/compare/v1.4.3...v1.4.4) (2023-03-14)
+
+
+### Performance Improvements
+
+* **core:** update Resource options type ([2dc689c](https://github.com/sakitam-gis/vis-engine/commit/2dc689cf0c15ed9042cf2fa5c5df8ad0e3d4c5cf))
+* **patch:** Texture support `anisotropy` and `offset` ([a0c417a](https://github.com/sakitam-gis/vis-engine/commit/a0c417a0f25b9ee91184c875ac645080d1272e21))
+
 ## [1.4.3](https://github.com/sakitam-gis/vis-engine/compare/v1.4.2...v1.4.3) (2023-03-13)
 
 
