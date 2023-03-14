@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/sakitam-gis/vis-engine/compare/v1.4.4...v1.4.5) (2023-03-14)
+
+
+### Bug Fixes
+
+* **patch:** Texture `internalFormat` option not set ([6ba4275](https://github.com/sakitam-gis/vis-engine/commit/6ba4275f536b0d9a44ae007053083d680597c2c3))
+
 ## [1.4.4](https://github.com/sakitam-gis/vis-engine/compare/v1.4.3...v1.4.4) (2023-03-14)
 
 
