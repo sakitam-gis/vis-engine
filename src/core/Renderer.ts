@@ -43,6 +43,7 @@ const external12ExtensionKeys = [
   'OES_texture_float_linear', // 浮点型纹理线性过滤
   'EXT_color_buffer_half_float', // 半（16 位）浮点数颜色缓冲区
   'WEBGL_debug_renderer_info', // 图形驱动信息
+  'EXT_texture_filter_anisotropic', // 有效各向异性值
 ] as const;
 
 type External1ExtensionKeys = typeof external1ExtensionKeys[number];

@@ -1,4 +1,4 @@
-import Resource from './Resource';
+import Resource, { ResourceOptions } from './Resource';
 import Renderer from './Renderer';
 
 const ERR_SOURCE = 'Shader: GLSL source code must be a JavaScript string';
@@ -48,7 +48,7 @@ function addLineNumbers(string: string) {
   return lines.join('\n');
 }
 
-export class Shader extends Resource<any> {
+export class Shader extends Resource<ResourceOptions> {
   #shaderType: ShaderType;
 
   #includes: {

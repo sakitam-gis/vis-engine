@@ -13,7 +13,7 @@ export interface ResourceOptions {
   userData: any;
 }
 
-export default class Resource<T> extends Base {
+export default class Resource<T extends ResourceOptions> extends Base {
   #handle: any;
 
   #lastHandle: any;
@@ -27,9 +27,9 @@ export default class Resource<T> extends Base {
   // Only meaningful for resources that allocate GPU memory
   byteLength: number;
 
-  options: Partial<ResourceOptions & T>;
+  options: Partial<T>;
 
-  constructor(renderer: Renderer, options: Partial<ResourceOptions & T> = {}) {
+  constructor(renderer: Renderer, options: Partial<T> = {}) {
     super(renderer);
     this.id = options?.id || uid(this.constructor.name);
     this.name = options?.name;

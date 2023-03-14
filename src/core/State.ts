@@ -72,6 +72,8 @@ interface StateOptions {
 
   flipY: boolean;
 
+  anisotropy: number;
+
   lineWidth: number;
 
   polygonOffset: boolean;
@@ -260,6 +262,21 @@ export default class State extends Base {
    */
   get boundBuffer() {
     return this.#state.boundBuffer;
+  }
+
+  /**
+   * 配置 `anisotropy`
+   * @param anisotropy
+   */
+  set anisotropy(anisotropy: number) {
+    this.#state.anisotropy = anisotropy;
+  }
+
+  /**
+   * 获取 `anisotropy` 配置
+   */
+  get anisotropy() {
+    return this.#state.anisotropy;
   }
 
   /**

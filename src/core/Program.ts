@@ -1,7 +1,7 @@
 import { isNull, isUndef, omit, parseShader, uid } from '../utils';
 import type { WithNull } from '../types';
 
-import Resource from './Resource';
+import Resource, { ResourceOptions } from './Resource';
 import Texture from './Texture';
 import Vector from '../math/Vector';
 import Matrix from '../math/Matrix';
@@ -133,7 +133,7 @@ export interface ProgramRenderState {
   };
 }
 
-export interface ProgramOptions extends ProgramRenderState {
+export interface ProgramOptions extends ProgramRenderState, ResourceOptions {
   /**
    * 指定 `id`
    */

@@ -1,4 +1,4 @@
-import Resource from './Resource';
+import Resource, { ResourceOptions } from './Resource';
 import Vector4 from '../math/Vector4';
 import Texture, { TextureOptions } from './Texture';
 import DataTexture from './DataTexture';
@@ -8,7 +8,7 @@ import { isNumber, omit } from '../utils';
 
 export type Attachment = [GLenum, Texture | DataTexture | RenderBuffer];
 
-export interface RenderTargetOptions {
+export interface RenderTargetOptions extends ResourceOptions {
   /**
    * 非图片和 canvas 数据，传入的是一组结构化数组，这里我们先不去指定数据类型
    */

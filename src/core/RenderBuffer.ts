@@ -1,7 +1,7 @@
-import Resource from './Resource';
+import Resource, { ResourceOptions } from './Resource';
 import Renderer from './Renderer';
 
-export interface RenderBufferOptions {
+export interface RenderBufferOptions extends ResourceOptions {
   /**
    * 缓冲区宽度
    */
@@ -47,7 +47,7 @@ export default class RenderBuffer extends Resource<RenderBufferOptions> {
 
   #internalFormat: GLenum;
 
-  constructor(renderer: Renderer, options: RenderBufferOptions = {} as RenderBufferOptions) {
+  constructor(renderer: Renderer, options: Partial<RenderBufferOptions> = {} as RenderBufferOptions) {
     super(renderer, {
       ...options,
       format: options.format || renderer.gl.DEPTH_COMPONENT16,
