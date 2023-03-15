@@ -183,7 +183,7 @@ export default class Texture<T extends TextureOptions = TextureOptions> extends 
       target: gl.TEXTURE_2D,
       type: gl.UNSIGNED_BYTE,
       format: gl.RGBA,
-      internalFormat: options.internalFormat || gl.RGBA,
+      internalFormat: options.format || gl.RGBA,
       wrapS: gl.CLAMP_TO_EDGE,
       wrapT: gl.CLAMP_TO_EDGE,
       generateMipmaps: true,
