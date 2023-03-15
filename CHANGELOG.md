@@ -1,3 +1,10 @@
+## [1.4.6](https://github.com/sakitam-gis/vis-engine/compare/v1.4.5...v1.4.6) (2023-03-15)
+
+
+### Bug Fixes
+
+* **patch:** Texture add default `internalFormat` same to `format`, in webgl1, internalFormat must be the same as format ([1e824b1](https://github.com/sakitam-gis/vis-engine/commit/1e824b14dd94ac09cdaa77c679165ef4484ff546))
+
 ## [1.4.5](https://github.com/sakitam-gis/vis-engine/compare/v1.4.4...v1.4.5) (2023-03-14)
 
 
