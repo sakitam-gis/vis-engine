@@ -47,9 +47,22 @@ interface StateOptions {
   };
 
   stencil: {
-    func: GLenum;
-    ref: GLenum;
     mask: GLenum;
+    func: {
+      cmp: GLenum;
+      ref: GLenum;
+      mask: GLenum;
+    };
+    opFront: {
+      fail: GLenum;
+      zFail: GLenum;
+      zPass: GLenum;
+    };
+    opBack: {
+      fail: GLenum;
+      zFail: GLenum;
+      zPass: GLenum;
+    };
   };
 
   clearAlpha: number;
@@ -134,6 +147,10 @@ export default class State extends Base {
           currentProgramId: -1,
           clearAlpha: 1,
           clearColor: new Color(0),
+          stencil: {
+            opFront: {},
+            opBack: {},
+          },
         } as unknown as StateOptions),
     );
   }
@@ -601,23 +618,112 @@ export default class State extends Base {
   }
 
   /**
-   * 设置模板缓冲
-   * @param func
-   * @param ref
-   * @param mask
+   * 设置模板缓冲测试方式
+   * @param cmp 指定比较方式
+   * @param ref 用来做stencil测试的参考值
+   * @param mask 指定操作掩码，在测试的时候会先将ref与mask进行与运算
+   * @param face
    */
-  setStencil(func: GLenum, ref: GLenum, mask: GLenum) {
+  setStencilFunc(cmp: GLenum, ref: GLenum, mask: GLenum, face?: GLenum) {
     if (
-      this.#state.stencil.func !== func ||
-      this.#state.stencil.ref !== ref ||
-      this.#state.stencil.mask !== mask
+      this.#state.stencil?.func?.cmp !== cmp ||
+      this.#state.stencil?.func?.ref !== ref ||
+      this.#state.stencil?.func?.mask !== mask
     ) {
-      this.#state.stencil = {
-        func,
+      this.#state.stencil.func = {
         ref,
         mask,
+        cmp,
       };
-      this.gl.stencilFunc(func, ref, mask);
+      if (face) {
+        this.gl.stencilFuncSeparate(face, cmp, ref, mask);
+      } else {
+        this.gl.stencilFunc(cmp, ref, mask);
+      }
+    }
+  }
+
+  /**
+   * 设置模板测试的操作
+   * @param fail 指定模板测试失败时要使用的操作。默认值为 `gl.KEEP`
+   * @param zFail 指定模板测试通过但深度测试失败时要使用的操作。默认值为 `gl.KEEP`
+   * @param zPass 指定当模板测试和深度测试都通过时使用的操作，或者当模板测试通过但没有深度缓冲区或深度测试被禁用时使用的操作。默认值为 `gl.KEEP`
+   * @param face
+   */
+  setStencilOp(fail, zFail, zPass, face?: GLenum) {
+    const flag = false;
+
+    if (!face || face === this.gl.FRONT_AND_BACK) {
+      return (
+        this.#state.stencil?.opFront?.fail !== fail ||
+        this.#state.stencil?.opFront?.zFail !== zFail ||
+        this.#state.stencil?.opFront?.zPass !== zPass ||
+        this.#state.stencil?.opBack?.fail !== fail ||
+        this.#state.stencil?.opBack?.zFail !== zFail ||
+        this.#state.stencil?.opBack?.zPass !== zPass
+      );
+    } else if (face === this.gl.FRONT) {
+      return (
+        this.#state.stencil?.opFront?.fail !== fail ||
+        this.#state.stencil?.opFront?.zFail !== zFail ||
+        this.#state.stencil?.opFront?.zPass !== zPass
+      );
+    } else if (face === this.gl.BACK) {
+      return (
+        this.#state.stencil?.opBack?.fail !== fail ||
+        this.#state.stencil?.opBack?.zFail !== zFail ||
+        this.#state.stencil?.opBack?.zPass !== zPass
+      );
+    }
+
+    if (flag) {
+      if (face) {
+        if (face === this.gl.FRONT_AND_BACK) {
+          this.#state.stencil.opFront.fail = fail;
+          this.#state.stencil.opFront.zFail = zFail;
+          this.#state.stencil.opFront.zPass = zPass;
+          this.#state.stencil.opBack.fail = fail;
+          this.#state.stencil.opBack.zFail = zFail;
+          this.#state.stencil.opBack.zPass = zPass;
+        } else if (face === this.gl.FRONT) {
+          this.#state.stencil.opFront.fail = fail;
+          this.#state.stencil.opFront.zFail = zFail;
+          this.#state.stencil.opFront.zPass = zPass;
+        } else if (face === this.gl.BACK) {
+          this.#state.stencil.opBack.fail = fail;
+          this.#state.stencil.opBack.zFail = zFail;
+          this.#state.stencil.opBack.zPass = zPass;
+        }
+
+        this.gl.stencilOpSeparate(face, fail, zFail, zPass);
+      } else {
+        this.#state.stencil.opFront.fail = fail;
+        this.#state.stencil.opFront.zFail = zFail;
+        this.#state.stencil.opFront.zPass = zPass;
+        this.#state.stencil.opBack.fail = fail;
+        this.#state.stencil.opBack.zFail = zFail;
+        this.#state.stencil.opBack.zPass = zPass;
+        this.gl.stencilOp(fail, zFail, zPass);
+      }
+    }
+  }
+
+  /**
+   * 设置模版测试的操作掩码
+   * @param mask
+   * @param face
+   */
+  setStencilMask(mask, face?: GLenum) {
+    if (this.#state.stencil?.mask !== mask) {
+      this.#state.stencil = {
+        ...this.#state.stencil,
+        mask,
+      };
+      if (face) {
+        this.gl.stencilMaskSeparate(face, mask);
+      } else {
+        this.gl.stencilMask(mask);
+      }
     }
   }
 
