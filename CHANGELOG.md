@@ -1,3 +1,11 @@
+## [1.4.8](https://github.com/sakitam-gis/vis-engine/compare/v1.4.7...v1.4.8) (2023-03-19)
+
+
+### Bug Fixes
+
+* **patch:** check stencil state has key ([b9b4c84](https://github.com/sakitam-gis/vis-engine/commit/b9b4c845ec15bcbf64bbfc3623ebf801a5c8252a))
+* **patch:** stencil func default ([8a6ee2a](https://github.com/sakitam-gis/vis-engine/commit/8a6ee2ae8b9decf18f4f3a5fe3c188f2fa8829c6))
+
 ## [1.4.7](https://github.com/sakitam-gis/vis-engine/compare/v1.4.6...v1.4.7) (2023-03-19)
 
 
