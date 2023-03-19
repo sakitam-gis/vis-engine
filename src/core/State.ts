@@ -631,6 +631,9 @@ export default class State extends Base {
       this.#state.stencil?.func?.ref !== ref ||
       this.#state.stencil?.func?.mask !== mask
     ) {
+      if (!this.#state.stencil?.func) {
+        this.#state.stencil.func = {} as StateOptions['stencil']['func'];
+      }
       this.#state.stencil.func = {
         ref,
         mask,
@@ -679,6 +682,12 @@ export default class State extends Base {
 
     if (flag) {
       if (face) {
+        if (!this.#state.stencil?.opFront) {
+          this.#state.stencil.opFront = {} as StateOptions['stencil']['opFront'];
+        }
+        if (!this.#state.stencil?.opBack) {
+          this.#state.stencil.opBack = {} as StateOptions['stencil']['opBack'];
+        }
         if (face === this.gl.FRONT_AND_BACK) {
           this.#state.stencil.opFront.fail = fail;
           this.#state.stencil.opFront.zFail = zFail;
