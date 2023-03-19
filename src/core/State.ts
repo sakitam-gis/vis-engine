@@ -148,6 +148,7 @@ export default class State extends Base {
           clearAlpha: 1,
           clearColor: new Color(0),
           stencil: {
+            func: {},
             opFront: {},
             opBack: {},
           },
