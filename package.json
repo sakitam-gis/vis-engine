@@ -1,6 +1,6 @@
 {
   "name": "@sakitam-gis/vis-engine",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "A sample gl render engine toolkit.",
   "private": false,
   "license": "BSD 3-Clause",

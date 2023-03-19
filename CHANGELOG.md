@@ -1,3 +1,10 @@
+## [1.4.7](https://github.com/sakitam-gis/vis-engine/compare/v1.4.6...v1.4.7) (2023-03-19)
+
+
+### Performance Improvements
+
+* **patch:** stencil state default setting and support `stencilOpSeparate` front and back ([eb639d8](https://github.com/sakitam-gis/vis-engine/commit/eb639d8c01ab80ea5869037c227b7f2cff753c5c))
+
 ## [1.4.6](https://github.com/sakitam-gis/vis-engine/compare/v1.4.5...v1.4.6) (2023-03-15)
 
 
