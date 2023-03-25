@@ -1,3 +1,10 @@
+## [1.4.9](https://github.com/sakitam-gis/vis-engine/compare/v1.4.8...v1.4.9) (2023-03-25)
+
+
+### Bug Fixes
+
+* **patch:** state reset ([7adafcc](https://github.com/sakitam-gis/vis-engine/commit/7adafcc1213c61560c34bc6d73651394a4903687))
+
 ## [1.4.8](https://github.com/sakitam-gis/vis-engine/compare/v1.4.7...v1.4.8) (2023-03-19)
 
 
