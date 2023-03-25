@@ -1,3 +1,5 @@
+## @sakitam-gis/maptalks-ve [1.0.3](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/maptalks-ve@1.0.2...@sakitam-gis/maptalks-ve@1.0.3) (2023-03-25)
+
 ## @sakitam-gis/maptalks-ve [1.0.2](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/maptalks-ve@1.0.1...@sakitam-gis/maptalks-ve@1.0.2) (2023-03-08)
 
 ## @sakitam-gis/maptalks-ve [1.0.1](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/maptalks-ve@1.0.0...@sakitam-gis/maptalks-ve@1.0.1) (2023-03-08)
