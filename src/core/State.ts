@@ -627,11 +627,14 @@ export default class State extends Base {
    */
   setStencilFunc(cmp: GLenum, ref: GLenum, mask: GLenum, face?: GLenum) {
     if (
-      this.#state.stencil?.func?.cmp !== cmp ||
-      this.#state.stencil?.func?.ref !== ref ||
-      this.#state.stencil?.func?.mask !== mask
+      this.#state?.stencil?.func?.cmp !== cmp ||
+      this.#state?.stencil?.func?.ref !== ref ||
+      this.#state?.stencil?.func?.mask !== mask
     ) {
-      if (!this.#state.stencil?.func) {
+      if (!this.#state?.stencil) {
+        this.#state.stencil = {} as StateOptions['stencil'];
+      }
+      if (!this.#state?.stencil?.func) {
         this.#state.stencil.func = {} as StateOptions['stencil']['func'];
       }
       this.#state.stencil.func = {
@@ -656,6 +659,10 @@ export default class State extends Base {
    */
   setStencilOp(fail, zFail, zPass, face?: GLenum) {
     const flag = false;
+
+    if (!this.#state?.stencil) {
+      this.#state.stencil = {} as StateOptions['stencil'];
+    }
 
     if (!face || face === this.gl.FRONT_AND_BACK) {
       return (
@@ -843,6 +850,11 @@ export default class State extends Base {
         currentProgramId: -1,
         clearAlpha: 1,
         clearColor: new Color(0),
+        stencil: {
+          func: {},
+          opFront: {},
+          opBack: {},
+        },
       } as unknown as StateOptions);
     } else {
       keys
