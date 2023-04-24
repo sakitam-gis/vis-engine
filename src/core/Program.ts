@@ -7,6 +7,7 @@ import Vector from '../math/Vector';
 import Matrix from '../math/Matrix';
 import { FragmentShader, VertexShader } from './Shader';
 import Color from '../math/Color';
+import { BlendType } from './State';
 
 const getDefines = (t) => {
   const defines = [];
@@ -111,6 +112,11 @@ export interface ProgramRenderState {
    * - gl.ALWAYS（总通过）
    */
   depthFunc: GLenum;
+
+  /**
+   * blend 类型
+   */
+  blending: BlendType;
 
   /**
    * 指定颜色混合算法
@@ -342,6 +348,7 @@ export default class Program extends Resource<ProgramOptions> {
       depthTest = true,
       depthWrite = true,
       depthFunc = renderer.gl.LESS,
+      blending = 1,
       blendFunc,
       blendEquation,
     } = options;
@@ -376,6 +383,7 @@ export default class Program extends Resource<ProgramOptions> {
     this.uniforms = uniforms;
 
     this.#renderState = {
+      blending,
       cullFace,
       frontFace,
       depthTest,

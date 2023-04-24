@@ -4,7 +4,7 @@ import Color, { ColorLike } from '../math/Color';
 import Base from './Base';
 import Renderer from './Renderer';
 
-enum blendType {
+export enum BlendType {
   NoBlending = 0,
   NormalBlending = 1,
   AdditiveBlending = 2,
@@ -13,7 +13,7 @@ enum blendType {
   CustomBlending = 5,
 }
 
-type IBlendType = blendType;
+type IBlendType = BlendType;
 
 type FBOData = {
   target?: GLenum;
@@ -129,7 +129,7 @@ export default class State extends Base {
           depthWrite: true,
           depthMask: true,
           depthFunc: gl.LESS,
-          blending: blendType.NormalBlending,
+          blending: BlendType.NormalBlending,
           blendFunc: {
             src: gl.ONE,
             dst: gl.ZERO,
@@ -303,7 +303,7 @@ export default class State extends Base {
    */
   apply(options: Partial<StateOptions>) {
     if (options.blending) {
-      this.setBlending(options.blending);
+      this.setBlending(options.blending, options);
     } else {
       if (options.blendFunc) {
         const { src, dst, srcAlpha, dstAlpha } = options.blendFunc;
@@ -408,15 +408,16 @@ export default class State extends Base {
    * 指定渲染时的颜色混合方式
    * https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
    * @param blending
+   * @param options
    */
-  setBlending(blending: IBlendType) {
+  setBlending(blending: IBlendType, options?: Partial<StateOptions>) {
     this.#state.blending = blending;
-    if (blending === blendType.NoBlending) {
+    if (blending === BlendType.NoBlending) {
       this.disable(this.gl.BLEND);
     } else {
       this.enable(this.gl.BLEND);
     }
-    if (blending === blendType.AdditiveBlending) {
+    if (blending === BlendType.AdditiveBlending) {
       if (this.#state.premultiplyAlpha) {
         this.setBlendEquation(this.gl.FUNC_ADD, this.gl.FUNC_ADD);
         this.setBlendFunc(this.gl.ONE, this.gl.ONE, this.gl.ONE, this.gl.ONE);
@@ -424,7 +425,7 @@ export default class State extends Base {
         this.setBlendEquation(this.gl.FUNC_ADD);
         this.setBlendFunc(this.gl.SRC_ALPHA, this.gl.ONE);
       }
-    } else if (blending === blendType.SubtractiveBlending) {
+    } else if (blending === BlendType.SubtractiveBlending) {
       if (this.#state.premultiplyAlpha) {
         this.setBlendEquation(this.gl.FUNC_ADD, this.gl.FUNC_ADD);
         this.setBlendFunc(
@@ -437,7 +438,7 @@ export default class State extends Base {
         this.setBlendEquation(this.gl.FUNC_ADD);
         this.setBlendFunc(this.gl.ZERO, this.gl.ONE_MINUS_SRC_COLOR);
       }
-    } else if (blending === blendType.MultiplyBlending) {
+    } else if (blending === BlendType.MultiplyBlending) {
       if (this.#state.premultiplyAlpha) {
         this.setBlendEquation(this.gl.FUNC_ADD, this.gl.FUNC_ADD);
         this.setBlendFunc(this.gl.ZERO, this.gl.SRC_COLOR, this.gl.ZERO, this.gl.SRC_ALPHA);
@@ -445,7 +446,7 @@ export default class State extends Base {
         this.setBlendEquation(this.gl.FUNC_ADD);
         this.setBlendFunc(this.gl.ZERO, this.gl.SRC_COLOR);
       }
-    } else if (blending === blendType.NormalBlending) {
+    } else if (blending === BlendType.NormalBlending) {
       if (this.#state.premultiplyAlpha) {
         this.setBlendEquation(this.gl.FUNC_ADD, this.gl.FUNC_ADD);
         this.setBlendFunc(
@@ -463,8 +464,16 @@ export default class State extends Base {
           this.gl.ONE_MINUS_SRC_ALPHA,
         );
       }
-    } else if (blending === blendType.CustomBlending) {
-      console.info('TODO: 需要实现');
+    } else if (blending === BlendType.CustomBlending) {
+      if (options?.blendFunc) {
+        const { src, dst, srcAlpha, dstAlpha } = options.blendFunc;
+        this.setBlendFunc(src, dst, srcAlpha, dstAlpha);
+        this.enable(this.gl.BLEND);
+      }
+      if (options?.blendEquation) {
+        const { modeRGB, modeAlpha } = options.blendEquation;
+        this.setBlendEquation(modeRGB, modeAlpha);
+      }
     } else {
       console.error('State: Invalid blending: ', blending);
     }
@@ -832,7 +841,7 @@ export default class State extends Base {
         depthWrite: true,
         depthMask: true,
         depthFunc: this.gl.LESS,
-        blending: blendType.NormalBlending,
+        blending: BlendType.NormalBlending,
         blendFunc: {
           src: this.gl.ONE,
           dst: this.gl.ZERO,
