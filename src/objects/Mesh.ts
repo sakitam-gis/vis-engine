@@ -205,7 +205,10 @@ export default class Mesh extends Object3D {
     }
 
     Object.assign(uniforms, {
-      resolution: new Vector2(this.gl.canvas.width, this.gl.canvas.height),
+      resolution: new Vector2(
+        this.renderer.state?.viewport?.width || 1,
+        this.renderer.state?.viewport?.height || 1,
+      ),
       modelMatrix: this.worldMatrix,
       modelViewMatrix: this.modelViewMatrix,
       normalMatrix: this.normalMatrix,
