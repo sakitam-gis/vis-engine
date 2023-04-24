@@ -1,3 +1,16 @@
+# [1.5.0](https://github.com/sakitam-gis/vis-engine/compare/v1.4.9...v1.5.0) (2023-04-24)
+
+
+### Bug Fixes
+
+* **Mesh:** resolution use state viewport ([3ad53a3](https://github.com/sakitam-gis/vis-engine/commit/3ad53a332089a877a74fb7f725ffe87875a669a3))
+* **patch:** lock ci pnpm version ([7aaaea7](https://github.com/sakitam-gis/vis-engine/commit/7aaaea74d678480c8f8be657c5c6c5d2c2c48be4))
+
+
+### Features
+
+* **Program:** support custom blending options ([4882d2b](https://github.com/sakitam-gis/vis-engine/commit/4882d2ba3e8d1039d44a24bfa844dcd56fb04f5f))
+
 ## [1.4.9](https://github.com/sakitam-gis/vis-engine/compare/v1.4.8...v1.4.9) (2023-03-25)
 
 
