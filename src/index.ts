@@ -17,7 +17,7 @@ import ProjectionMatrix from './math/ProjectionMatrix';
 
 import Mesh, { MeshOptions, MeshDrawOptions } from './objects/Mesh';
 import Scene from './objects/Scene';
-import State from './core/State';
+import State, { BlendType } from './core/State';
 import Renderer, { RendererOptions } from './core/Renderer';
 import RenderBuffer, { RenderBufferOptions } from './core/RenderBuffer';
 import RenderTarget, { RenderTargetOptions, Attachment } from './core/RenderTarget';
@@ -73,6 +73,7 @@ export {
   DataTexture,
   Box,
   Plane,
+  BlendType,
 };
 
 export type {

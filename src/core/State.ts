@@ -302,7 +302,7 @@ export default class State extends Base {
    * @param options
    */
   apply(options: Partial<StateOptions>) {
-    if (options.blending) {
+    if (options.blending !== undefined && options.blending !== null) {
       this.setBlending(options.blending, options);
     } else {
       if (options.blendFunc) {
@@ -414,6 +414,7 @@ export default class State extends Base {
     this.#state.blending = blending;
     if (blending === BlendType.NoBlending) {
       this.disable(this.gl.BLEND);
+      return;
     } else {
       this.enable(this.gl.BLEND);
     }

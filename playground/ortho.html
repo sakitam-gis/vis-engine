@@ -20,8 +20,8 @@
       }
 
       #cv {
-        width: 100%;
-        height: 100%;
+        width: 512px;
+        height: 512px;
         background-color: #8d8d8d;
       }
     </style>
@@ -84,24 +84,31 @@
 
       renderer.state.setClearColor(new ve.Color(0, 0, 0, 0));
 
-      const camera = new ve.OrthographicCamera(0, canvas.width, canvas.height, 0, 0, 1);
+      const camera = new ve.OrthographicCamera(0, 1, 1, 0, 0, 1);
       // camera.position.z = 15;
 
       function resize() {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.aspect = window.innerWidth / window.innerHeight;
+        // renderer.setSize(canvas.width, canvas.height);
+        // camera.aspect = canvas.width / canvas.height;
       }
       window.addEventListener('resize', resize, false);
       resize();
 
       const scene = new ve.Scene();
 
-      const geometry = new ve.Plane(renderer, {
-        width: canvas.width / 2,
-        height: canvas.height / 2,
-
-        widthSegments: 16,
-        heightSegments: 16,
+      const geometry = new ve.Geometry(renderer, {
+        position: {
+          size: 2,
+          data: new Float32Array([0, 0, 1, 0, 0, 1, 1, 1]),
+        },
+        uv: {
+          size: 2,
+          data: new Float32Array([0, 0, 1, 0, 0, 1, 1, 1]),
+        },
+        index: {
+          size: 1,
+          data: new Uint16Array([0, 1, 2, 2, 1, 3]),
+        },
       });
 
       const program = new ve.Program(renderer, {
@@ -128,15 +135,28 @@
         },
       });
 
-      const mesh = new ve.Mesh(renderer, {
-        geometry,
-        program,
-        wireframe: true,
-      });
-      mesh.position.set(canvas.width / 2, canvas.height / 2, 0);
-      scene.add(mesh);
+      const w = 4;
+      const h = 2;
+      const xmin = 0;
+      const ymin = 0;
+      for (let y = 0; y < h; y++) {
+        for (let x = 0; x < w; x++) {
+          const mesh = new ve.Mesh(renderer, {
+            geometry,
+            program,
+            // drawMode: renderer.gl.POINTS,
+          });
+
+          mesh.scale.set(1 / w, 1 / h, 1);
+          mesh.position.set((x - xmin) / w, (y - ymin) / h, 0);
+
+          // mesh.position.set(0, 0, 0);
+
+          scene.add(mesh);
+        }
+      }
+
       const raf = new ve.Raf((t) => {
-        program.setUniform('uTime', t);
         renderer.render({ scene, camera });
       });
     </script>
