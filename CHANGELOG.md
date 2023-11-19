@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/sakitam-gis/vis-engine/compare/v1.5.0...v1.5.1) (2023-11-19)
+
+
+### Bug Fixes
+
+* **patch:** fix gl blend state set ([ad750b7](https://github.com/sakitam-gis/vis-engine/commit/ad750b7a054f09a3f75877a6eeed9f7513831bce))
+
 # [1.5.0](https://github.com/sakitam-gis/vis-engine/compare/v1.4.9...v1.5.0) (2023-04-24)
 
 
