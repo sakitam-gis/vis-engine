@@ -38,7 +38,7 @@ jobs:
             ${{ runner.os }}-${{ matrix.node-version }}-test-
             ${{ runner.os }}-
       - name: Install pnpm
-        run: npm i -g pnpm@7.14.0
+        run: npm i -g pnpm@8.6.5
 
       - name: Install deps
         run: pnpm i
@@ -78,7 +78,7 @@ jobs:
             ${{ runner.os }}-${{ matrix.node-version }}-release-${{ env.cache-name }}-
             ${{ runner.os }}-${{ matrix.node-version }}-release-
             ${{ runner.os }}-
-      - run: npm i -g pnpm@7.14.0
+      - run: npm i -g pnpm@8.6.5
       - run: pnpm i
       - run: pnpm semantic-release
         env:
@@ -105,7 +105,7 @@ jobs:
             ${{ runner.os }}-${{ matrix.node-version }}-release-${{ env.cache-name }}-
             ${{ runner.os }}-${{ matrix.node-version }}-release-
             ${{ runner.os }}-
-      - run: npm i -g pnpm@7.14.0
+      - run: npm i -g pnpm@8.6.5
       - run: pnpm i
       - run: pnpm prepublishOnly
       - run: node multirelease.cjs
@@ -133,9 +133,9 @@ jobs:
             ${{ runner.os }}-${{ matrix.node-version }}-release-${{ env.cache-name }}-
             ${{ runner.os }}-${{ matrix.node-version }}-release-
             ${{ runner.os }}-
-      - run: npm i -g pnpm@7.14.0
+      - run: npm i -g pnpm@8.6.5
       - run: pnpm i
-      - run: pnpm run build:docs
+      - run: pnpm run build:docusaurus
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
