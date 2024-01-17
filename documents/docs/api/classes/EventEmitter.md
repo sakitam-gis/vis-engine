@@ -31,19 +31,19 @@ e.clear();
 
 | Name | Type |
 | :------ | :------ |
-| `EventsMap` | extends `Record`<`string`, `any`\> = `Event` |
+| `EventsMap` | extends `Record`\<`string`, `any`\> = `Event` |
 
 ## Constructors
 
 ### constructor
 
-• **new EventEmitter**<`EventsMap`\>(`«destructured»?`)
+• **new EventEmitter**\<`EventsMap`\>(`«destructured»?`): [`EventEmitter`](EventEmitter.md)\<`EventsMap`\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `EventsMap` | extends `Record`<`string`, `any`\> = `Event` |
+| `EventsMap` | extends `Record`\<`string`, `any`\> = `Event` |
 
 #### Parameters
 
@@ -51,25 +51,85 @@ e.clear();
 | :------ | :------ |
 | `«destructured»` | `IOptions` |
 
+#### Returns
+
+[`EventEmitter`](EventEmitter.md)\<`EventsMap`\>
+
 #### Defined in
 
-[src/core/Event.ts:49](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L49)
+[src/core/Event.ts:49](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts#L49)
 
 ## Methods
 
-### clear
+### on
 
-▸ **clear**(): [`EventEmitter`](EventEmitter.md)<`EventsMap`\>
+▸ **on**(`type`, `handler`, `context?`): [`EventEmitter`](EventEmitter.md)\<`EventsMap`\>
 
-清空所有的订阅者
+添加订阅者
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `type` | `any` | 事件类型 |
+| `handler` | `any` | 回调函数 |
+| `context?` | `any` | 上下文 |
 
 #### Returns
 
-[`EventEmitter`](EventEmitter.md)<`EventsMap`\>
+[`EventEmitter`](EventEmitter.md)\<`EventsMap`\>
 
 #### Defined in
 
-[src/core/Event.ts:174](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L174)
+[src/core/Event.ts:82](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts#L82)
+
+___
+
+### once
+
+▸ **once**(`type`, `handler`, `context?`): [`EventEmitter`](EventEmitter.md)\<`EventsMap`\>
+
+添加一次性订阅者
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `type` | `any` |
+| `handler` | `any` |
+| `context?` | `any` |
+
+#### Returns
+
+[`EventEmitter`](EventEmitter.md)\<`EventsMap`\>
+
+#### Defined in
+
+[src/core/Event.ts:106](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts#L106)
+
+___
+
+### off
+
+▸ **off**(`type`, `handler?`, `context?`): [`EventEmitter`](EventEmitter.md)\<`EventsMap`\>
+
+取消监听
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `type` | `any` |
+| `handler?` | `any` |
+| `context?` | `any` |
+
+#### Returns
+
+[`EventEmitter`](EventEmitter.md)\<`EventsMap`\>
+
+#### Defined in
+
+[src/core/Event.ts:130](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts#L130)
 
 ___
 
@@ -92,7 +152,7 @@ ___
 
 #### Defined in
 
-[src/core/Event.ts:158](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L158)
+[src/core/Event.ts:158](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts#L158)
 
 ___
 
@@ -112,76 +172,20 @@ ___
 
 #### Defined in
 
-[src/core/Event.ts:167](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L167)
+[src/core/Event.ts:167](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts#L167)
 
 ___
 
-### off
+### clear
 
-▸ **off**(`type`, `handler?`, `context?`): [`EventEmitter`](EventEmitter.md)<`EventsMap`\>
+▸ **clear**(): [`EventEmitter`](EventEmitter.md)\<`EventsMap`\>
 
-取消监听
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `type` | `any` |
-| `handler?` | `any` |
-| `context?` | `any` |
+清空所有的订阅者
 
 #### Returns
 
-[`EventEmitter`](EventEmitter.md)<`EventsMap`\>
+[`EventEmitter`](EventEmitter.md)\<`EventsMap`\>
 
 #### Defined in
 
-[src/core/Event.ts:130](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L130)
-
-___
-
-### on
-
-▸ **on**(`type`, `handler`, `context?`): [`EventEmitter`](EventEmitter.md)<`EventsMap`\>
-
-添加订阅者
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `any` | 事件类型 |
-| `handler` | `any` | 回调函数 |
-| `context?` | `any` | 上下文 |
-
-#### Returns
-
-[`EventEmitter`](EventEmitter.md)<`EventsMap`\>
-
-#### Defined in
-
-[src/core/Event.ts:82](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L82)
-
-___
-
-### once
-
-▸ **once**(`type`, `handler`, `context?`): [`EventEmitter`](EventEmitter.md)<`EventsMap`\>
-
-添加一次性订阅者
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `type` | `any` |
-| `handler` | `any` |
-| `context?` | `any` |
-
-#### Returns
-
-[`EventEmitter`](EventEmitter.md)<`EventsMap`\>
-
-#### Defined in
-
-[src/core/Event.ts:106](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L106)
+[src/core/Event.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts#L174)

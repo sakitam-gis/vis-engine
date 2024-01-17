@@ -37,7 +37,7 @@ const color7 = new Color(1, 0, 0, 1, true);
 
 ### constructor
 
-• **new Color**(`v?`, `g?`, `b?`, `a?`, `isNormalized?`)
+• **new Color**(`v?`, `g?`, `b?`, `a?`, `isNormalized?`): [`Color`](Color.md)
 
 #### Parameters
 
@@ -49,29 +49,23 @@ const color7 = new Color(1, 0, 0, 1, true);
 | `a` | `number` | `1` | alpha 通道 |
 | `isNormalized` | `boolean` | `false` | 是否是归一化的数值 |
 
+#### Returns
+
+[`Color`](Color.md)
+
 #### Defined in
 
-[src/math/Color.ts:67](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L67)
+[src/math/Color.ts:67](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L67)
 
 ## Properties
 
-### a
+### r
 
-• **a**: `number`
-
-#### Defined in
-
-[src/math/Color.ts:58](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L58)
-
-___
-
-### b
-
-• **b**: `number`
+• **r**: `number`
 
 #### Defined in
 
-[src/math/Color.ts:57](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L57)
+[src/math/Color.ts:55](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L55)
 
 ___
 
@@ -81,17 +75,27 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:56](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L56)
+[src/math/Color.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L56)
 
 ___
 
-### r
+### b
 
-• **r**: `number`
+• **b**: `number`
 
 #### Defined in
 
-[src/math/Color.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L55)
+[src/math/Color.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L57)
+
+___
+
+### a
+
+• **a**: `number`
+
+#### Defined in
+
+[src/math/Color.ts:58](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L58)
 
 ## Methods
 
@@ -113,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:98](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L98)
+[src/math/Color.ts:98](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L98)
 
 ___
 
@@ -138,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:110](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L110)
+[src/math/Color.ts:110](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L110)
 
 ___
 
@@ -163,29 +167,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:127](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L127)
-
-___
-
-### setAlpha
-
-▸ **setAlpha**(`alpha`): [`Color`](Color.md)
-
-设置 alpha 通道
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `alpha` | `any` |
-
-#### Returns
-
-[`Color`](Color.md)
-
-#### Defined in
-
-[src/math/Color.ts:168](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L168)
+[src/math/Color.ts:127](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L127)
 
 ___
 
@@ -209,7 +191,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:143](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L143)
+[src/math/Color.ts:143](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L143)
 
 ___
 
@@ -235,55 +217,29 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:156](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L156)
+[src/math/Color.ts:156](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L156)
 
 ___
 
-### toArray
+### setAlpha
 
-▸ **toArray**(): `number`[]
+▸ **setAlpha**(`alpha`): [`Color`](Color.md)
 
-转换为数组（一般已经归一化。可以直接传递给 gl）
+设置 alpha 通道
 
-#### Returns
+#### Parameters
 
-`number`[]
-
-#### Defined in
-
-[src/math/Color.ts:215](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L215)
-
-___
-
-### toHSL
-
-▸ **toHSL**(): `HslaColor`
-
-输出 hsl 对象
+| Name | Type |
+| :------ | :------ |
+| `alpha` | `any` |
 
 #### Returns
 
-`HslaColor`
+[`Color`](Color.md)
 
 #### Defined in
 
-[src/math/Color.ts:187](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L187)
-
-___
-
-### toHSV
-
-▸ **toHSV**(): `HsvaColor`
-
-输出 hsv 对象
-
-#### Returns
-
-`HsvaColor`
-
-#### Defined in
-
-[src/math/Color.ts:194](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L194)
+[src/math/Color.ts:168](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L168)
 
 ___
 
@@ -299,7 +255,39 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:180](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L180)
+[src/math/Color.ts:180](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L180)
+
+___
+
+### toHSL
+
+▸ **toHSL**(): `HslaColor`
+
+输出 hsl 对象
+
+#### Returns
+
+`HslaColor`
+
+#### Defined in
+
+[src/math/Color.ts:187](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L187)
+
+___
+
+### toHSV
+
+▸ **toHSV**(): `HsvaColor`
+
+输出 hsv 对象
+
+#### Returns
+
+`HsvaColor`
+
+#### Defined in
+
+[src/math/Color.ts:194](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L194)
 
 ___
 
@@ -321,30 +309,30 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `a` | `number` |
-| `b` | `number` |
-| `g` | `number` |
 | `r` | `number` |
+| `g` | `number` |
+| `b` | `number` |
+| `a` | `number` |
 
 #### Defined in
 
-[src/math/Color.ts:202](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L202)
+[src/math/Color.ts:202](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L202)
 
 ___
 
-### toString
+### toArray
 
-▸ **toString**(): `string`
+▸ **toArray**(): `number`[]
 
-转换为字符串
+转换为数组（一般已经归一化。可以直接传递给 gl）
 
 #### Returns
 
-`string`
+`number`[]
 
 #### Defined in
 
-[src/math/Color.ts:236](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L236)
+[src/math/Color.ts:215](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L215)
 
 ___
 
@@ -360,7 +348,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:222](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L222)
+[src/math/Color.ts:222](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L222)
 
 ___
 
@@ -376,4 +364,20 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:229](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L229)
+[src/math/Color.ts:229](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L229)
+
+___
+
+### toString
+
+▸ **toString**(): `string`
+
+转换为字符串
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[src/math/Color.ts:236](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts#L236)

@@ -8,27 +8,15 @@ custom_edit_url: null
 
 ## Properties
 
-### aspect
+### near
 
-• `Optional` **aspect**: `number`
+• **near**: `number`
 
-相机视锥体的纵横比
-
-#### Defined in
-
-[src/cameras/Camera.ts:50](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/cameras/Camera.ts#L50)
-
-___
-
-### bounds
-
-• `Optional` **bounds**: [`Bounds`](../#bounds)
-
-像机视锥体配置
+像机的近端面，默认值是0.1
 
 #### Defined in
 
-[src/cameras/Camera.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/cameras/Camera.ts#L55)
+[src/cameras/Camera.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts#L35)
 
 ___
 
@@ -40,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:40](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/cameras/Camera.ts#L40)
+[src/cameras/Camera.ts:40](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts#L40)
 
 ___
 
@@ -52,19 +40,31 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:45](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/cameras/Camera.ts#L45)
+[src/cameras/Camera.ts:45](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts#L45)
 
 ___
 
-### near
+### aspect
 
-• **near**: `number`
+• `Optional` **aspect**: `number`
 
-像机的近端面，默认值是0.1
+相机视锥体的纵横比
 
 #### Defined in
 
-[src/cameras/Camera.ts:35](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/cameras/Camera.ts#L35)
+[src/cameras/Camera.ts:50](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts#L50)
+
+___
+
+### bounds
+
+• `Optional` **bounds**: [`Bounds`](../types/Bounds.md)
+
+像机视锥体配置
+
+#### Defined in
+
+[src/cameras/Camera.ts:55](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts#L55)
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:60](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/cameras/Camera.ts#L60)
+[src/cameras/Camera.ts:60](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts#L60)

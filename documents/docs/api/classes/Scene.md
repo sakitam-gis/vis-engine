@@ -29,7 +29,11 @@ scene.add(points);
 
 ### constructor
 
-• **new Scene**()
+• **new Scene**(): [`Scene`](Scene.md)
+
+#### Returns
+
+[`Scene`](Scene.md)
 
 #### Inherited from
 
@@ -37,23 +41,23 @@ scene.add(points);
 
 #### Defined in
 
-[src/objects/Object3D.ts:71](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L71)
+[src/objects/Object3D.ts:71](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L71)
 
 ## Properties
 
-### children
+### visible
 
-• **children**: [`Object3D`](Object3D.md)[]
+• **visible**: `boolean`
 
-对象子级
+是否可见
 
 #### Inherited from
 
-[Object3D](Object3D.md).[children](Object3D.md#children)
+[Object3D](Object3D.md).[visible](Object3D.md#visible)
 
 #### Defined in
 
-[src/objects/Object3D.ts:59](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L59)
+[src/objects/Object3D.ts:14](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L14)
 
 ___
 
@@ -69,135 +73,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:19](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L19)
-
-___
-
-### matrixAutoUpdate
-
-• **matrixAutoUpdate**: `boolean`
-
-当这个属性设置了之后，它将计算每一帧的位移、旋转（四元变换）和缩放矩阵，并重新计算 `worldMatrix` 属性
-
-#### Inherited from
-
-[Object3D](Object3D.md).[matrixAutoUpdate](Object3D.md#matrixautoupdate)
-
-#### Defined in
-
-[src/objects/Object3D.ts:29](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L29)
-
-___
-
-### parent
-
-• **parent**: `WithNull`<[`Object3D`](Object3D.md)\>
-
-对象父级
-
-#### Inherited from
-
-[Object3D](Object3D.md).[parent](Object3D.md#parent)
-
-#### Defined in
-
-[src/objects/Object3D.ts:64](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L64)
-
-___
-
-### position
-
-• **position**: [`Vector3`](Vector3.md)
-
-物体局部位置
-
-#### Inherited from
-
-[Object3D](Object3D.md).[position](Object3D.md#position)
-
-#### Defined in
-
-[src/objects/Object3D.ts:34](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L34)
-
-___
-
-### quaternion
-
-• **quaternion**: [`Quaternion`](Quaternion.md)
-
-物体的局部旋转
-
-#### Inherited from
-
-[Object3D](Object3D.md).[quaternion](Object3D.md#quaternion)
-
-#### Defined in
-
-[src/objects/Object3D.ts:49](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L49)
-
-___
-
-### rotation
-
-• **rotation**: [`Euler`](Euler.md)
-
-物体的局部旋转
-
-#### Inherited from
-
-[Object3D](Object3D.md).[rotation](Object3D.md#rotation)
-
-#### Defined in
-
-[src/objects/Object3D.ts:44](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L44)
-
-___
-
-### scale
-
-• **scale**: [`Vector3`](Vector3.md)
-
-物体的局部缩放
-
-#### Inherited from
-
-[Object3D](Object3D.md).[scale](Object3D.md#scale)
-
-#### Defined in
-
-[src/objects/Object3D.ts:39](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L39)
-
-___
-
-### up
-
-• **up**: [`Vector3`](Vector3.md)
-
-物体的朝向
-
-#### Inherited from
-
-[Object3D](Object3D.md).[up](Object3D.md#up)
-
-#### Defined in
-
-[src/objects/Object3D.ts:54](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L54)
-
-___
-
-### visible
-
-• **visible**: `boolean`
-
-是否可见
-
-#### Inherited from
-
-[Object3D](Object3D.md).[visible](Object3D.md#visible)
-
-#### Defined in
-
-[src/objects/Object3D.ts:14](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L14)
+[src/objects/Object3D.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L19)
 
 ___
 
@@ -213,7 +89,135 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:24](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L24)
+[src/objects/Object3D.ts:24](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L24)
+
+___
+
+### matrixAutoUpdate
+
+• **matrixAutoUpdate**: `boolean`
+
+当这个属性设置了之后，它将计算每一帧的位移、旋转（四元变换）和缩放矩阵，并重新计算 `worldMatrix` 属性
+
+#### Inherited from
+
+[Object3D](Object3D.md).[matrixAutoUpdate](Object3D.md#matrixautoupdate)
+
+#### Defined in
+
+[src/objects/Object3D.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L29)
+
+___
+
+### position
+
+• **position**: [`Vector3`](Vector3.md)
+
+物体局部位置
+
+#### Inherited from
+
+[Object3D](Object3D.md).[position](Object3D.md#position)
+
+#### Defined in
+
+[src/objects/Object3D.ts:34](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L34)
+
+___
+
+### scale
+
+• **scale**: [`Vector3`](Vector3.md)
+
+物体的局部缩放
+
+#### Inherited from
+
+[Object3D](Object3D.md).[scale](Object3D.md#scale)
+
+#### Defined in
+
+[src/objects/Object3D.ts:39](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L39)
+
+___
+
+### rotation
+
+• **rotation**: [`Euler`](Euler.md)
+
+物体的局部旋转
+
+#### Inherited from
+
+[Object3D](Object3D.md).[rotation](Object3D.md#rotation)
+
+#### Defined in
+
+[src/objects/Object3D.ts:44](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L44)
+
+___
+
+### quaternion
+
+• **quaternion**: [`Quaternion`](Quaternion.md)
+
+物体的局部旋转
+
+#### Inherited from
+
+[Object3D](Object3D.md).[quaternion](Object3D.md#quaternion)
+
+#### Defined in
+
+[src/objects/Object3D.ts:49](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L49)
+
+___
+
+### up
+
+• **up**: [`Vector3`](Vector3.md)
+
+物体的朝向
+
+#### Inherited from
+
+[Object3D](Object3D.md).[up](Object3D.md#up)
+
+#### Defined in
+
+[src/objects/Object3D.ts:54](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L54)
+
+___
+
+### children
+
+• **children**: [`Object3D`](Object3D.md)[]
+
+对象子级
+
+#### Inherited from
+
+[Object3D](Object3D.md).[children](Object3D.md#children)
+
+#### Defined in
+
+[src/objects/Object3D.ts:59](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L59)
+
+___
+
+### parent
+
+• **parent**: `WithNull`\<[`Object3D`](Object3D.md)\>
+
+对象父级
+
+#### Inherited from
+
+[Object3D](Object3D.md).[parent](Object3D.md#parent)
+
+#### Defined in
+
+[src/objects/Object3D.ts:64](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L64)
 
 ___
 
@@ -229,7 +233,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:69](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L69)
+[src/objects/Object3D.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L69)
 
 ## Methods
 
@@ -256,127 +260,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:97](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L97)
-
-___
-
-### clone
-
-▸ **clone**(): [`Scene`](Scene.md)
-
-克隆场景对象
-
-#### Returns
-
-[`Scene`](Scene.md)
-
-#### Overrides
-
-[Object3D](Object3D.md).[clone](Object3D.md#clone)
-
-#### Defined in
-
-[src/objects/Scene.ts:21](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Scene.ts#L21)
-
-___
-
-### contains
-
-▸ **contains**(`object`): `boolean`
-
-判断此渲染对象的子集是否包含传入的渲染对象
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `object` | [`Object3D`](Object3D.md) |
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-[Object3D](Object3D.md).[contains](Object3D.md#contains)
-
-#### Defined in
-
-[src/objects/Object3D.ts:124](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L124)
-
-___
-
-### copy
-
-▸ **copy**(`source`, `recursive`): [`Scene`](Scene.md)
-
-将传入的场景对象的各属性复制到此场景实例中
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `source` | `any` | 源场景 |
-| `recursive` | `any` | 设置是否复制子对象 |
-
-#### Returns
-
-[`Scene`](Scene.md)
-
-#### Overrides
-
-[Object3D](Object3D.md).[copy](Object3D.md#copy)
-
-#### Defined in
-
-[src/objects/Scene.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Scene.ts#L30)
-
-___
-
-### decompose
-
-▸ **decompose**(): `void`
-
-从局部矩阵计算位置，旋转和缩放
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Object3D](Object3D.md).[decompose](Object3D.md#decompose)
-
-#### Defined in
-
-[src/objects/Object3D.ts:208](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L208)
-
-___
-
-### lookAt
-
-▸ **lookAt**(`eye`, `invert?`): `void`
-
-旋转物体使其在世界空间中面朝一个点
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `eye` | [`Vector3`](Vector3.md) | 朝向位置 |
-| `invert?` | `boolean` | 是否反转 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Object3D](Object3D.md).[lookAt](Object3D.md#lookat)
-
-#### Defined in
-
-[src/objects/Object3D.ts:160](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L160)
+[src/objects/Object3D.ts:97](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L97)
 
 ___
 
@@ -403,7 +287,33 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:111](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L111)
+[src/objects/Object3D.ts:111](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L111)
+
+___
+
+### contains
+
+▸ **contains**(`object`): `boolean`
+
+判断此渲染对象的子集是否包含传入的渲染对象
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `object` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+[Object3D](Object3D.md).[contains](Object3D.md#contains)
+
+#### Defined in
+
+[src/objects/Object3D.ts:124](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L124)
 
 ___
 
@@ -430,7 +340,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:133](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L133)
+[src/objects/Object3D.ts:133](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L133)
 
 ___
 
@@ -456,15 +366,22 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:147](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L147)
+[src/objects/Object3D.ts:147](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L147)
 
 ___
 
-### updateMatrix
+### lookAt
 
-▸ **updateMatrix**(): `void`
+▸ **lookAt**(`eye`, `invert?`): `void`
 
-更新局部变换矩阵
+旋转物体使其在世界空间中面朝一个点
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `eye` | [`Vector3`](Vector3.md) | 朝向位置 |
+| `invert?` | `boolean` | 是否反转 |
 
 #### Returns
 
@@ -472,11 +389,11 @@ ___
 
 #### Inherited from
 
-[Object3D](Object3D.md).[updateMatrix](Object3D.md#updatematrix)
+[Object3D](Object3D.md).[lookAt](Object3D.md#lookat)
 
 #### Defined in
 
-[src/objects/Object3D.ts:200](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L200)
+[src/objects/Object3D.ts:160](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L160)
 
 ___
 
@@ -502,4 +419,91 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:174](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L174)
+[src/objects/Object3D.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L174)
+
+___
+
+### updateMatrix
+
+▸ **updateMatrix**(): `void`
+
+更新局部变换矩阵
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Object3D](Object3D.md).[updateMatrix](Object3D.md#updatematrix)
+
+#### Defined in
+
+[src/objects/Object3D.ts:200](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L200)
+
+___
+
+### decompose
+
+▸ **decompose**(): `void`
+
+从局部矩阵计算位置，旋转和缩放
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Object3D](Object3D.md).[decompose](Object3D.md#decompose)
+
+#### Defined in
+
+[src/objects/Object3D.ts:208](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L208)
+
+___
+
+### clone
+
+▸ **clone**(): [`Scene`](Scene.md)
+
+克隆场景对象
+
+#### Returns
+
+[`Scene`](Scene.md)
+
+#### Overrides
+
+[Object3D](Object3D.md).[clone](Object3D.md#clone)
+
+#### Defined in
+
+[src/objects/Scene.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Scene.ts#L21)
+
+___
+
+### copy
+
+▸ **copy**(`source`, `recursive`): [`Scene`](Scene.md)
+
+将传入的场景对象的各属性复制到此场景实例中
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `any` | 源场景 |
+| `recursive` | `any` | 设置是否复制子对象 |
+
+#### Returns
+
+[`Scene`](Scene.md)
+
+#### Overrides
+
+[Object3D](Object3D.md).[copy](Object3D.md#copy)
+
+#### Defined in
+
+[src/objects/Scene.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Scene.ts#L30)

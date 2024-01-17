@@ -18,14 +18,18 @@ custom_edit_url: null
 
 ### constructor
 
-• **new State**(`renderer`, `options?`)
+• **new State**(`renderer`, `options?`): [`State`](State.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `renderer` | [`Renderer`](Renderer.md) |
-| `options?` | `Partial`<`StateOptions`\> |
+| `options?` | `Partial`\<`StateOptions`\> |
+
+#### Returns
+
+[`State`](State.md)
 
 #### Overrides
 
@@ -33,7 +37,7 @@ Base.constructor
 
 #### Defined in
 
-[src/core/State.ts:113](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L113)
+[src/core/State.ts:113](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L113)
 
 ## Properties
 
@@ -47,213 +51,9 @@ Base.renderer
 
 #### Defined in
 
-[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L7)
+[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts#L7)
 
 ## Accessors
-
-### activeGeometryId
-
-• `get` **activeGeometryId**(): `string` \| `number`
-
-获取当前激活的几何体 id
-
-#### Returns
-
-`string` \| `number`
-
-#### Defined in
-
-[src/core/State.ts:213](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L213)
-
-• `set` **activeGeometryId**(`id`): `void`
-
-设置当前激活的几何体 id
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` \| `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:221](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L221)
-
-___
-
-### activeTextureUnit
-
-• `get` **activeTextureUnit**(): `number`
-
-获取已激活的纹理
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/core/State.ts:183](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L183)
-
-• `set` **activeTextureUnit**(`activeTextureUnit`): `void`
-
-设置当前激活的纹理
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `activeTextureUnit` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:191](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L191)
-
-___
-
-### anisotropy
-
-• `get` **anisotropy**(): `number`
-
-获取 `anisotropy` 配置
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/core/State.ts:296](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L296)
-
-• `set` **anisotropy**(`anisotropy`): `void`
-
-配置 `anisotropy`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `anisotropy` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:289](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L289)
-
-___
-
-### boundBuffer
-
-• `get` **boundBuffer**(): ``null`` \| `WebGLBuffer`
-
-获取最后一次绑定的顶点数据
-
-#### Returns
-
-``null`` \| `WebGLBuffer`
-
-#### Defined in
-
-[src/core/State.ts:281](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L281)
-
-• `set` **boundBuffer**(`boundBuffer`): `void`
-
-设置最后一次绑定的顶点数据
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `boundBuffer` | ``null`` \| `WebGLBuffer` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:274](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L274)
-
-___
-
-### currentProgramId
-
-• `get` **currentProgramId**(): `string` \| `number`
-
-获取当前的 `Program` id
-
-#### Returns
-
-`string` \| `number`
-
-#### Defined in
-
-[src/core/State.ts:198](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L198)
-
-• `set` **currentProgramId**(`id`): `void`
-
-设置当前的 `Program` id
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` \| `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:206](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L206)
-
-___
-
-### flipY
-
-• `get` **flipY**(): `boolean`
-
-获取 `flipY` 配置
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/core/State.ts:236](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L236)
-
-• `set` **flipY**(`flipY`): `void`
-
-设置 `flipY`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `flipY` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:229](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L229)
-
-___
 
 ### gl
 
@@ -271,41 +71,7 @@ Base.gl
 
 #### Defined in
 
-[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L16)
-
-___
-
-### premultiplyAlpha
-
-• `get` **premultiplyAlpha**(): `boolean`
-
-获取 `premultipliedAlpha` 配置
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/core/State.ts:266](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L266)
-
-• `set` **premultiplyAlpha**(`premultiplyAlpha`): `void`
-
-设置 `premultipliedAlpha`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `premultiplyAlpha` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:259](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L259)
+[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts#L16)
 
 ___
 
@@ -325,7 +91,7 @@ Base.rendererState
 
 #### Defined in
 
-[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L23)
+[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts#L23)
 
 ___
 
@@ -341,7 +107,30 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:162](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L162)
+[src/core/State.ts:162](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L162)
+
+___
+
+### viewport
+
+• `get` **viewport**(): `Object`
+
+获取视图
+
+#### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+| `y` | `number` |
+| `width` | `number` |
+| `height` | `number` |
+
+#### Defined in
+
+[src/core/State.ts:169](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L169)
 
 ___
 
@@ -357,7 +146,143 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:176](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L176)
+[src/core/State.ts:176](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L176)
+
+___
+
+### activeTextureUnit
+
+• `get` **activeTextureUnit**(): `number`
+
+获取已激活的纹理
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/core/State.ts:183](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L183)
+
+• `set` **activeTextureUnit**(`activeTextureUnit`): `void`
+
+设置当前激活的纹理
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `activeTextureUnit` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:191](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L191)
+
+___
+
+### currentProgramId
+
+• `get` **currentProgramId**(): `string` \| `number`
+
+获取当前的 `Program` id
+
+#### Returns
+
+`string` \| `number`
+
+#### Defined in
+
+[src/core/State.ts:198](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L198)
+
+• `set` **currentProgramId**(`id`): `void`
+
+设置当前的 `Program` id
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` \| `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:206](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L206)
+
+___
+
+### activeGeometryId
+
+• `get` **activeGeometryId**(): `string` \| `number`
+
+获取当前激活的几何体 id
+
+#### Returns
+
+`string` \| `number`
+
+#### Defined in
+
+[src/core/State.ts:213](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L213)
+
+• `set` **activeGeometryId**(`id`): `void`
+
+设置当前激活的几何体 id
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` \| `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:221](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L221)
+
+___
+
+### flipY
+
+• `get` **flipY**(): `boolean`
+
+获取 `flipY` 配置
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/core/State.ts:236](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L236)
+
+• `set` **flipY**(`flipY`): `void`
+
+设置 `flipY`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `flipY` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:229](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L229)
 
 ___
 
@@ -373,7 +298,7 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:251](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L251)
+[src/core/State.ts:251](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L251)
 
 • `set` **unpackAlignment**(`unpackAlignment`): `void`
 
@@ -391,30 +316,109 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:244](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L244)
+[src/core/State.ts:244](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L244)
 
 ___
 
-### viewport
+### premultiplyAlpha
 
-• `get` **viewport**(): `Object`
+• `get` **premultiplyAlpha**(): `boolean`
 
-获取视图
+获取 `premultipliedAlpha` 配置
 
 #### Returns
 
-`Object`
-
-| Name | Type |
-| :------ | :------ |
-| `height` | `number` |
-| `width` | `number` |
-| `x` | `number` |
-| `y` | `number` |
+`boolean`
 
 #### Defined in
 
-[src/core/State.ts:169](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L169)
+[src/core/State.ts:266](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L266)
+
+• `set` **premultiplyAlpha**(`premultiplyAlpha`): `void`
+
+设置 `premultipliedAlpha`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `premultiplyAlpha` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:259](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L259)
+
+___
+
+### boundBuffer
+
+• `get` **boundBuffer**(): ``null`` \| `WebGLBuffer`
+
+获取最后一次绑定的顶点数据
+
+#### Returns
+
+``null`` \| `WebGLBuffer`
+
+#### Defined in
+
+[src/core/State.ts:281](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L281)
+
+• `set` **boundBuffer**(`boundBuffer`): `void`
+
+设置最后一次绑定的顶点数据
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `boundBuffer` | ``null`` \| `WebGLBuffer` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:274](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L274)
+
+___
+
+### anisotropy
+
+• `get` **anisotropy**(): `number`
+
+获取 `anisotropy` 配置
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/core/State.ts:296](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L296)
+
+• `set` **anisotropy**(`anisotropy`): `void`
+
+配置 `anisotropy`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `anisotropy` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:289](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L289)
 
 ## Methods
 
@@ -428,7 +432,7 @@ apply options 并且更新状态
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Partial`<`StateOptions`\> |
+| `options` | `Partial`\<`StateOptions`\> |
 
 #### Returns
 
@@ -436,51 +440,7 @@ apply options 并且更新状态
 
 #### Defined in
 
-[src/core/State.ts:304](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L304)
-
-___
-
-### bindFramebuffer
-
-▸ **bindFramebuffer**(`v?`): `void`
-
-绑定或者解绑 FBO
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `v` | `FBOData` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:808](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L808)
-
-___
-
-### disable
-
-▸ **disable**(`id`): `void`
-
-关闭诸如 `DEPTH_TEST`、`BLEND` 等功能
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `any` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:368](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L368)
+[src/core/State.ts:304](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L304)
 
 ___
 
@@ -502,37 +462,15 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:357](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L357)
+[src/core/State.ts:357](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L357)
 
 ___
 
-### reset
+### disable
 
-▸ **reset**(`force?`): `void`
+▸ **disable**(`id`): `void`
 
-重置 `State`
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `force` | `boolean` | `true` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:828](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L828)
-
-___
-
-### setActiveGeometry
-
-▸ **setActiveGeometry**(`id`): `void`
-
-设置当前激活的 Geometry
+关闭诸如 `DEPTH_TEST`、`BLEND` 等功能
 
 #### Parameters
 
@@ -546,21 +484,24 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:820](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L820)
+[src/core/State.ts:368](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L368)
 
 ___
 
-### setActiveTexture
+### setViewport
 
-▸ **setActiveTexture**(`unit`): `void`
+▸ **setViewport**(`width`, `height`, `x?`, `y?`): `void`
 
-设置当前激活的纹理单位
+设置 Viewport
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `unit` | `any` |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `width` | `any` | `undefined` |
+| `height` | `any` | `undefined` |
+| `x` | `number` | `0` |
+| `y` | `number` | `0` |
 
 #### Returns
 
@@ -568,7 +509,81 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:761](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L761)
+[src/core/State.ts:382](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L382)
+
+___
+
+### setMask
+
+▸ **setMask**(`colorMask`): `void`
+
+设置颜色缓冲的状态
+模板缓冲可以实现渲染剔除，需要遮罩的话，可能希望只绘制模板缓冲而不绘制颜色缓冲
+gl.colorMask(false, false, false, false)：关闭颜色缓冲的所有通道
+gl.colorMask(true, true, true, true)：开启颜色缓冲的所有通道
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `colorMask` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:400](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L400)
+
+___
+
+### setBlending
+
+▸ **setBlending**(`blending`, `options?`): `void`
+
+指定渲染时的颜色混合方式
+https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `blending` | [`BlendType`](../enums/BlendType.md) |
+| `options?` | `Partial`\<`StateOptions`\> |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:413](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L413)
+
+___
+
+### setBlendFunc
+
+▸ **setBlendFunc**(`src`, `dst`, `srcAlpha?`, `dstAlpha?`): `void`
+
+设置混合方式
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `src` | `number` |
+| `dst` | `number` |
+| `srcAlpha?` | `number` |
+| `dstAlpha?` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:490](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L490)
 
 ___
 
@@ -594,56 +609,7 @@ gl.FUNC_REVERSE_SUBSTRACT：反向相减处理，即 dest 减去 source
 
 #### Defined in
 
-[src/core/State.ts:520](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L520)
-
-___
-
-### setBlendFunc
-
-▸ **setBlendFunc**(`src`, `dst`, `srcAlpha?`, `dstAlpha?`): `void`
-
-设置混合方式
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `src` | `number` |
-| `dst` | `number` |
-| `srcAlpha?` | `number` |
-| `dstAlpha?` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:490](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L490)
-
-___
-
-### setBlending
-
-▸ **setBlending**(`blending`, `options?`): `void`
-
-指定渲染时的颜色混合方式
-https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `blending` | [`BlendType`](../enums/BlendType.md) |
-| `options?` | `Partial`<`StateOptions`\> |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:413](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L413)
+[src/core/State.ts:520](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L520)
 
 ___
 
@@ -665,7 +631,7 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:542](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L542)
+[src/core/State.ts:542](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L542)
 
 ___
 
@@ -679,7 +645,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `color` | [`ColorLike`](../#colorlike) | 颜色 |
+| `color` | [`ColorLike`](../types/ColorLike.md) | 颜色 |
 | `alpha?` | `number` | 透明度 |
 
 #### Returns
@@ -688,7 +654,7 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:553](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L553)
+[src/core/State.ts:553](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L553)
 
 ___
 
@@ -710,73 +676,7 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:569](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L569)
-
-___
-
-### setDepthFunc
-
-▸ **setDepthFunc**(`func`): `void`
-
-指定将输入像素深度与当前深度缓冲区值进行比较的函数
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `func` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:609](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L609)
-
-___
-
-### setDepthMask
-
-▸ **setDepthMask**(`mask`): `void`
-
-设置深度缓冲区的写入操作方式（只读或者可写）
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `mask` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:598](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L598)
-
-___
-
-### setDepthTest
-
-▸ **setDepthTest**(`state`): `void`
-
-设置是否开启深度测试
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `state` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:620](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L620)
+[src/core/State.ts:569](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L569)
 
 ___
 
@@ -799,7 +699,168 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:587](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L587)
+[src/core/State.ts:587](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L587)
+
+___
+
+### setDepthMask
+
+▸ **setDepthMask**(`mask`): `void`
+
+设置深度缓冲区的写入操作方式（只读或者可写）
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `mask` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:598](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L598)
+
+___
+
+### setDepthFunc
+
+▸ **setDepthFunc**(`func`): `void`
+
+指定将输入像素深度与当前深度缓冲区值进行比较的函数
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `func` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:609](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L609)
+
+___
+
+### setDepthTest
+
+▸ **setDepthTest**(`state`): `void`
+
+设置是否开启深度测试
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `state` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:620](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L620)
+
+___
+
+### setStencilFunc
+
+▸ **setStencilFunc**(`cmp`, `ref`, `mask`, `face?`): `void`
+
+设置模板缓冲测试方式
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `cmp` | `number` | 指定比较方式 |
+| `ref` | `number` | 用来做stencil测试的参考值 |
+| `mask` | `number` | 指定操作掩码，在测试的时候会先将ref与mask进行与运算 |
+| `face?` | `number` |  |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:638](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L638)
+
+___
+
+### setStencilOp
+
+▸ **setStencilOp**(`fail`, `zFail`, `zPass`, `face?`): `undefined` \| `boolean`
+
+设置模板测试的操作
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `fail` | `any` | 指定模板测试失败时要使用的操作。默认值为 `gl.KEEP` |
+| `zFail` | `any` | 指定模板测试通过但深度测试失败时要使用的操作。默认值为 `gl.KEEP` |
+| `zPass` | `any` | 指定当模板测试和深度测试都通过时使用的操作，或者当模板测试通过但没有深度缓冲区或深度测试被禁用时使用的操作。默认值为 `gl.KEEP` |
+| `face?` | `number` |  |
+
+#### Returns
+
+`undefined` \| `boolean`
+
+#### Defined in
+
+[src/core/State.ts:670](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L670)
+
+___
+
+### setStencilMask
+
+▸ **setStencilMask**(`mask`, `face?`): `void`
+
+设置模版测试的操作掩码
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `mask` | `any` |
+| `face?` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:743](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L743)
+
+___
+
+### setActiveTexture
+
+▸ **setActiveTexture**(`unit`): `void`
+
+设置当前激活的纹理单位
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `unit` | `any` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/State.ts:761](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L761)
 
 ___
 
@@ -821,32 +882,7 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:772](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L772)
-
-___
-
-### setMask
-
-▸ **setMask**(`colorMask`): `void`
-
-设置颜色缓冲的状态
-模板缓冲可以实现渲染剔除，需要遮罩的话，可能希望只绘制模板缓冲而不绘制颜色缓冲
-gl.colorMask(false, false, false, false)：关闭颜色缓冲的所有通道
-gl.colorMask(true, true, true, true)：开启颜色缓冲的所有通道
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `colorMask` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:400](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L400)
+[src/core/State.ts:772](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L772)
 
 ___
 
@@ -875,47 +911,21 @@ gl.polygonOffset(factor, units)方法指定加到每个顶点绘制后Z值上的
 
 #### Defined in
 
-[src/core/State.ts:790](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L790)
+[src/core/State.ts:790](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L790)
 
 ___
 
-### setStencilFunc
+### bindFramebuffer
 
-▸ **setStencilFunc**(`cmp`, `ref`, `mask`, `face?`): `void`
+▸ **bindFramebuffer**(`v?`): `void`
 
-设置模板缓冲测试方式
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `cmp` | `number` | 指定比较方式 |
-| `ref` | `number` | 用来做stencil测试的参考值 |
-| `mask` | `number` | 指定操作掩码，在测试的时候会先将ref与mask进行与运算 |
-| `face?` | `number` |  |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/State.ts:638](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L638)
-
-___
-
-### setStencilMask
-
-▸ **setStencilMask**(`mask`, `face?`): `void`
-
-设置模版测试的操作掩码
+绑定或者解绑 FBO
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `mask` | `any` |
-| `face?` | `number` |
+| `v` | `FBOData` |
 
 #### Returns
 
@@ -923,49 +933,43 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:743](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L743)
+[src/core/State.ts:808](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L808)
 
 ___
 
-### setStencilOp
+### setActiveGeometry
 
-▸ **setStencilOp**(`fail`, `zFail`, `zPass`, `face?`): `undefined` \| `boolean`
+▸ **setActiveGeometry**(`id`): `void`
 
-设置模板测试的操作
+设置当前激活的 Geometry
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `fail` | `any` | 指定模板测试失败时要使用的操作。默认值为 `gl.KEEP` |
-| `zFail` | `any` | 指定模板测试通过但深度测试失败时要使用的操作。默认值为 `gl.KEEP` |
-| `zPass` | `any` | 指定当模板测试和深度测试都通过时使用的操作，或者当模板测试通过但没有深度缓冲区或深度测试被禁用时使用的操作。默认值为 `gl.KEEP` |
-| `face?` | `number` |  |
+| Name | Type |
+| :------ | :------ |
+| `id` | `any` |
 
 #### Returns
 
-`undefined` \| `boolean`
+`void`
 
 #### Defined in
 
-[src/core/State.ts:670](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L670)
+[src/core/State.ts:820](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L820)
 
 ___
 
-### setViewport
+### reset
 
-▸ **setViewport**(`width`, `height`, `x?`, `y?`): `void`
+▸ **reset**(`force?`): `void`
 
-设置 Viewport
+重置 `State`
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `width` | `any` | `undefined` |
-| `height` | `any` | `undefined` |
-| `x` | `number` | `0` |
-| `y` | `number` | `0` |
+| `force` | `boolean` | `true` |
 
 #### Returns
 
@@ -973,4 +977,4 @@ ___
 
 #### Defined in
 
-[src/core/State.ts:382](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/State.ts#L382)
+[src/core/State.ts:828](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/State.ts#L828)

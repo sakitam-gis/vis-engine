@@ -1,5 +1,3 @@
-[vis-engine - v1.5.1](../index.md) / RenderBuffer
-
 # Class: RenderBuffer
 
 渲染缓冲区对象。
@@ -19,7 +17,7 @@ renderBuffer.unbind();
 
 ## Hierarchy
 
-- [`Resource`](Resource.md)<[`RenderBufferOptions`](../interfaces/RenderBufferOptions.md)\>
+- [`Resource`](Resource.md)\<[`RenderBufferOptions`](../interfaces/RenderBufferOptions.md)\>
 
   ↳ **`RenderBuffer`**
 
@@ -31,47 +29,51 @@ renderBuffer.unbind();
 
 ### Properties
 
-- [byteLength](RenderBuffer.md#bytelength)
+- [renderer](RenderBuffer.md#renderer)
+- [width](RenderBuffer.md#width)
 - [height](RenderBuffer.md#height)
 - [id](RenderBuffer.md#id)
 - [name](RenderBuffer.md#name)
-- [options](RenderBuffer.md#options)
-- [renderer](RenderBuffer.md#renderer)
 - [userData](RenderBuffer.md#userdata)
-- [width](RenderBuffer.md#width)
+- [byteLength](RenderBuffer.md#bytelength)
+- [options](RenderBuffer.md#options)
 
 ### Accessors
 
 - [gl](RenderBuffer.md#gl)
-- [handle](RenderBuffer.md#handle)
 - [rendererState](RenderBuffer.md#rendererstate)
+- [handle](RenderBuffer.md#handle)
 
 ### Methods
 
-- [bind](RenderBuffer.md#bind)
-- [createHandle](RenderBuffer.md#createhandle)
-- [delete](RenderBuffer.md#delete)
-- [deleteHandle](RenderBuffer.md#deletehandle)
-- [destroy](RenderBuffer.md#destroy)
-- [removeStats](RenderBuffer.md#removestats)
 - [resize](RenderBuffer.md#resize)
-- [restoreHandle](RenderBuffer.md#restorehandle)
-- [swapHandle](RenderBuffer.md#swaphandle)
-- [toString](RenderBuffer.md#tostring)
+- [bind](RenderBuffer.md#bind)
 - [unbind](RenderBuffer.md#unbind)
+- [removeStats](RenderBuffer.md#removestats)
+- [destroy](RenderBuffer.md#destroy)
+- [createHandle](RenderBuffer.md#createhandle)
+- [deleteHandle](RenderBuffer.md#deletehandle)
+- [swapHandle](RenderBuffer.md#swaphandle)
+- [restoreHandle](RenderBuffer.md#restorehandle)
+- [delete](RenderBuffer.md#delete)
+- [toString](RenderBuffer.md#tostring)
 
 ## Constructors
 
 ### constructor
 
-• **new RenderBuffer**(`renderer`, `options?`)
+• **new RenderBuffer**(`renderer`, `options?`): [`RenderBuffer`](RenderBuffer.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `renderer` | [`Renderer`](Renderer.md) |
-| `options` | `Partial`<[`RenderBufferOptions`](../interfaces/RenderBufferOptions.md)\> |
+| `options` | `Partial`\<[`RenderBufferOptions`](../interfaces/RenderBufferOptions.md)\> |
+
+#### Returns
+
+[`RenderBuffer`](RenderBuffer.md)
 
 #### Overrides
 
@@ -79,21 +81,33 @@ renderBuffer.unbind();
 
 #### Defined in
 
-[src/core/RenderBuffer.ts:50](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L50)
+[src/core/RenderBuffer.ts:50](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts#L50)
 
 ## Properties
 
-### byteLength
+### renderer
 
-• **byteLength**: `number`
+• **renderer**: [`Renderer`](Renderer.md)
 
 #### Inherited from
 
-[Resource](Resource.md).[byteLength](Resource.md#bytelength)
+[Resource](Resource.md).[renderer](Resource.md#renderer)
 
 #### Defined in
 
-[src/core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L28)
+[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts#L7)
+
+___
+
+### width
+
+• **width**: `number`
+
+渲染缓冲区宽度
+
+#### Defined in
+
+[src/core/RenderBuffer.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts#L41)
 
 ___
 
@@ -105,7 +119,7 @@ ___
 
 #### Defined in
 
-[src/core/RenderBuffer.ts:46](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L46)
+[src/core/RenderBuffer.ts:46](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts#L46)
 
 ___
 
@@ -119,13 +133,13 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L21)
+[src/core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L21)
 
 ___
 
 ### name
 
-• **name**: `WithUndef`<`string`\>
+• **name**: `WithUndef`\<`string`\>
 
 #### Inherited from
 
@@ -133,35 +147,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L23)
-
-___
-
-### options
-
-• **options**: `Partial`<[`RenderBufferOptions`](../interfaces/RenderBufferOptions.md)\>
-
-#### Inherited from
-
-[Resource](Resource.md).[options](Resource.md#options)
-
-#### Defined in
-
-[src/core/Resource.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L30)
-
-___
-
-### renderer
-
-• **renderer**: [`Renderer`](Renderer.md)
-
-#### Inherited from
-
-[Resource](Resource.md).[renderer](Resource.md#renderer)
-
-#### Defined in
-
-[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L7)
+[src/core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L23)
 
 ___
 
@@ -175,19 +161,35 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L25)
+[src/core/Resource.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L25)
 
 ___
 
-### width
+### byteLength
 
-• **width**: `number`
+• **byteLength**: `number`
 
-渲染缓冲区宽度
+#### Inherited from
+
+[Resource](Resource.md).[byteLength](Resource.md#bytelength)
 
 #### Defined in
 
-[src/core/RenderBuffer.ts:41](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L41)
+[src/core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L28)
+
+___
+
+### options
+
+• **options**: `Partial`\<[`RenderBufferOptions`](../interfaces/RenderBufferOptions.md)\>
+
+#### Inherited from
+
+[Resource](Resource.md).[options](Resource.md#options)
+
+#### Defined in
+
+[src/core/Resource.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L30)
 
 ## Accessors
 
@@ -207,25 +209,7 @@ Resource.gl
 
 #### Defined in
 
-[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L16)
-
-___
-
-### handle
-
-• `get` **handle**(): `any`
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-Resource.handle
-
-#### Defined in
-
-[src/core/Resource.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L47)
+[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts#L16)
 
 ___
 
@@ -245,132 +229,27 @@ Resource.rendererState
 
 #### Defined in
 
-[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L23)
-
-## Methods
-
-### bind
-
-▸ **bind**(): `void`
-
-绑定渲染缓冲
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[Resource](Resource.md).[bind](Resource.md#bind)
-
-#### Defined in
-
-[src/core/RenderBuffer.ts:91](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L91)
+[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts#L23)
 
 ___
 
-### createHandle
+### handle
 
-▸ **createHandle**(): ``null`` \| `WebGLRenderbuffer`
-
-创建 `RBO`
+• `get` **handle**(): `any`
 
 #### Returns
 
-``null`` \| `WebGLRenderbuffer`
-
-#### Overrides
-
-[Resource](Resource.md).[createHandle](Resource.md#createhandle)
-
-#### Defined in
-
-[src/core/RenderBuffer.ts:116](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L116)
-
-___
-
-### delete
-
-▸ **delete**(`«destructured»?`): [`RenderBuffer`](RenderBuffer.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `Object` |
-| › `deleteChildren` | `undefined` \| `boolean` |
-
-#### Returns
-
-[`RenderBuffer`](RenderBuffer.md)
+`any`
 
 #### Inherited from
 
-[Resource](Resource.md).[delete](Resource.md#delete)
+Resource.handle
 
 #### Defined in
 
-[src/core/Resource.ts:74](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L74)
+[src/core/Resource.ts:47](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L47)
 
-___
-
-### deleteHandle
-
-▸ **deleteHandle**(): `void`
-
-移除 `RBO`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[Resource](Resource.md).[deleteHandle](Resource.md#deletehandle)
-
-#### Defined in
-
-[src/core/RenderBuffer.ts:123](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L123)
-
-___
-
-### destroy
-
-▸ **destroy**(): `void`
-
-销毁此渲染对象
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[Resource](Resource.md).[destroy](Resource.md#destroy)
-
-#### Defined in
-
-[src/core/RenderBuffer.ts:108](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L108)
-
-___
-
-### removeStats
-
-▸ **removeStats**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[Resource](Resource.md).[removeStats](Resource.md#removestats)
-
-#### Defined in
-
-[src/core/RenderBuffer.ts:103](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L103)
-
-___
+## Methods
 
 ### resize
 
@@ -391,27 +270,125 @@ ___
 
 #### Defined in
 
-[src/core/RenderBuffer.ts:79](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L79)
+[src/core/RenderBuffer.ts:79](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts#L79)
 
 ___
 
-### restoreHandle
+### bind
 
-▸ **restoreHandle**(): `void`
+▸ **bind**(): `void`
 
-恢复为原有 `handle`
+绑定渲染缓冲
 
 #### Returns
 
 `void`
 
-#### Inherited from
+#### Overrides
 
-[Resource](Resource.md).[restoreHandle](Resource.md#restorehandle)
+[Resource](Resource.md).[bind](Resource.md#bind)
 
 #### Defined in
 
-[src/core/Resource.ts:63](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L63)
+[src/core/RenderBuffer.ts:91](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts#L91)
+
+___
+
+### unbind
+
+▸ **unbind**(): `void`
+
+解绑渲染缓冲
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[Resource](Resource.md).[unbind](Resource.md#unbind)
+
+#### Defined in
+
+[src/core/RenderBuffer.ts:98](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts#L98)
+
+___
+
+### removeStats
+
+▸ **removeStats**(): `void`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[Resource](Resource.md).[removeStats](Resource.md#removestats)
+
+#### Defined in
+
+[src/core/RenderBuffer.ts:103](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts#L103)
+
+___
+
+### destroy
+
+▸ **destroy**(): `void`
+
+销毁此渲染对象
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[Resource](Resource.md).[destroy](Resource.md#destroy)
+
+#### Defined in
+
+[src/core/RenderBuffer.ts:108](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts#L108)
+
+___
+
+### createHandle
+
+▸ **createHandle**(): ``null`` \| `WebGLRenderbuffer`
+
+创建 `RBO`
+
+#### Returns
+
+``null`` \| `WebGLRenderbuffer`
+
+#### Overrides
+
+[Resource](Resource.md).[createHandle](Resource.md#createhandle)
+
+#### Defined in
+
+[src/core/RenderBuffer.ts:116](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts#L116)
+
+___
+
+### deleteHandle
+
+▸ **deleteHandle**(): `void`
+
+移除 `RBO`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[Resource](Resource.md).[deleteHandle](Resource.md#deletehandle)
+
+#### Defined in
+
+[src/core/RenderBuffer.ts:123](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts#L123)
 
 ___
 
@@ -437,7 +414,52 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L55)
+[src/core/Resource.ts:55](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L55)
+
+___
+
+### restoreHandle
+
+▸ **restoreHandle**(): `void`
+
+恢复为原有 `handle`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Resource](Resource.md).[restoreHandle](Resource.md#restorehandle)
+
+#### Defined in
+
+[src/core/Resource.ts:63](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L63)
+
+___
+
+### delete
+
+▸ **delete**(`«destructured»?`): [`RenderBuffer`](RenderBuffer.md)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `«destructured»` | `Object` | `{}` |
+| › `deleteChildren` | `undefined` \| `boolean` | `false` |
+
+#### Returns
+
+[`RenderBuffer`](RenderBuffer.md)
+
+#### Inherited from
+
+[Resource](Resource.md).[delete](Resource.md#delete)
+
+#### Defined in
+
+[src/core/Resource.ts:74](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L74)
 
 ___
 
@@ -455,24 +477,4 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:111](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L111)
-
-___
-
-### unbind
-
-▸ **unbind**(): `void`
-
-解绑渲染缓冲
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[Resource](Resource.md).[unbind](Resource.md#unbind)
-
-#### Defined in
-
-[src/core/RenderBuffer.ts:98](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L98)
+[src/core/Resource.ts:111](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L111)

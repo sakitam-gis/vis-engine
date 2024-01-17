@@ -1,5 +1,3 @@
-[vis-engine - v1.5.1](../index.md) / RafOptions
-
 # Interface: RafOptions
 
 Raf 配置项
@@ -22,4 +20,4 @@ Raf 配置项
 
 #### Defined in
 
-[src/animation/Raf.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/animation/Raf.ts#L10)
+[src/animation/Raf.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/animation/Raf.ts#L10)

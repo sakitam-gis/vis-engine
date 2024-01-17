@@ -1,5 +1,3 @@
-[vis-engine - v1.5.1](../index.md) / Mesh
-
 # Class: Mesh
 
 网格渲染对象
@@ -26,58 +24,58 @@ points.position.set(-1, 1, 0);
 
 ### Properties
 
-- [children](Mesh.md#children)
-- [frustumCulled](Mesh.md#frustumculled)
 - [gl](Mesh.md#gl)
-- [localMatrix](Mesh.md#localmatrix)
-- [matrixAutoUpdate](Mesh.md#matrixautoupdate)
-- [mode](Mesh.md#mode)
 - [modelViewMatrix](Mesh.md#modelviewmatrix)
 - [normalMatrix](Mesh.md#normalmatrix)
-- [parent](Mesh.md#parent)
-- [position](Mesh.md#position)
-- [quaternion](Mesh.md#quaternion)
 - [renderOrder](Mesh.md#renderorder)
-- [renderer](Mesh.md#renderer)
-- [rotation](Mesh.md#rotation)
-- [scale](Mesh.md#scale)
-- [up](Mesh.md#up)
-- [visible](Mesh.md#visible)
-- [worldMatrix](Mesh.md#worldmatrix)
-- [worldMatrixNeedsUpdate](Mesh.md#worldmatrixneedsupdate)
 - [zDepth](Mesh.md#zdepth)
+- [frustumCulled](Mesh.md#frustumculled)
+- [mode](Mesh.md#mode)
+- [renderer](Mesh.md#renderer)
+- [visible](Mesh.md#visible)
+- [localMatrix](Mesh.md#localmatrix)
+- [worldMatrix](Mesh.md#worldmatrix)
+- [matrixAutoUpdate](Mesh.md#matrixautoupdate)
+- [position](Mesh.md#position)
+- [scale](Mesh.md#scale)
+- [rotation](Mesh.md#rotation)
+- [quaternion](Mesh.md#quaternion)
+- [up](Mesh.md#up)
+- [children](Mesh.md#children)
+- [parent](Mesh.md#parent)
+- [worldMatrixNeedsUpdate](Mesh.md#worldmatrixneedsupdate)
 
 ### Accessors
 
-- [geometry](Mesh.md#geometry)
 - [id](Mesh.md#id)
+- [geometry](Mesh.md#geometry)
 - [program](Mesh.md#program)
 - [wireframe](Mesh.md#wireframe)
 
 ### Methods
 
-- [add](Mesh.md#add)
-- [clone](Mesh.md#clone)
-- [contains](Mesh.md#contains)
-- [copy](Mesh.md#copy)
-- [decompose](Mesh.md#decompose)
-- [destroy](Mesh.md#destroy)
 - [draw](Mesh.md#draw)
-- [lookAt](Mesh.md#lookat)
+- [updateWireframeGeometry](Mesh.md#updatewireframegeometry)
+- [updateGeometry](Mesh.md#updategeometry)
+- [updateProgram](Mesh.md#updateprogram)
+- [destroy](Mesh.md#destroy)
+- [clone](Mesh.md#clone)
+- [copy](Mesh.md#copy)
+- [add](Mesh.md#add)
 - [remove](Mesh.md#remove)
+- [contains](Mesh.md#contains)
 - [setParent](Mesh.md#setparent)
 - [traverse](Mesh.md#traverse)
-- [updateGeometry](Mesh.md#updategeometry)
-- [updateMatrix](Mesh.md#updatematrix)
+- [lookAt](Mesh.md#lookat)
 - [updateMatrixWorld](Mesh.md#updatematrixworld)
-- [updateProgram](Mesh.md#updateprogram)
-- [updateWireframeGeometry](Mesh.md#updatewireframegeometry)
+- [updateMatrix](Mesh.md#updatematrix)
+- [decompose](Mesh.md#decompose)
 
 ## Constructors
 
 ### constructor
 
-• **new Mesh**(`renderer`, `options?`)
+• **new Mesh**(`renderer`, `options?`): [`Mesh`](Mesh.md)
 
 #### Parameters
 
@@ -86,41 +84,19 @@ points.position.set(-1, 1, 0);
 | `renderer` | `any` | 渲染器 |
 | `options` | [`MeshOptions`](../interfaces/MeshOptions.md) | MeshOptions |
 
+#### Returns
+
+[`Mesh`](Mesh.md)
+
 #### Overrides
 
 [Object3D](Object3D.md).[constructor](Object3D.md#constructor)
 
 #### Defined in
 
-[src/objects/Mesh.ts:121](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L121)
+[src/objects/Mesh.ts:121](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L121)
 
 ## Properties
-
-### children
-
-• **children**: [`Object3D`](Object3D.md)[]
-
-对象子级
-
-#### Inherited from
-
-[Object3D](Object3D.md).[children](Object3D.md#children)
-
-#### Defined in
-
-[src/objects/Object3D.ts:59](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L59)
-
-___
-
-### frustumCulled
-
-• **frustumCulled**: `boolean`
-
-#### Defined in
-
-[src/objects/Mesh.ts:99](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L99)
-
-___
 
 ### gl
 
@@ -128,49 +104,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:89](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L89)
-
-___
-
-### localMatrix
-
-• **localMatrix**: [`ProjectionMatrix`](ProjectionMatrix.md)
-
-局部变换矩阵
-
-#### Inherited from
-
-[Object3D](Object3D.md).[localMatrix](Object3D.md#localmatrix)
-
-#### Defined in
-
-[src/objects/Object3D.ts:19](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L19)
-
-___
-
-### matrixAutoUpdate
-
-• **matrixAutoUpdate**: `boolean`
-
-当这个属性设置了之后，它将计算每一帧的位移、旋转（四元变换）和缩放矩阵，并重新计算 `worldMatrix` 属性
-
-#### Inherited from
-
-[Object3D](Object3D.md).[matrixAutoUpdate](Object3D.md#matrixautoupdate)
-
-#### Defined in
-
-[src/objects/Object3D.ts:29](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L29)
-
-___
-
-### mode
-
-• **mode**: `number`
-
-#### Defined in
-
-[src/objects/Mesh.ts:101](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L101)
+[src/objects/Mesh.ts:89](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L89)
 
 ___
 
@@ -180,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:91](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L91)
+[src/objects/Mesh.ts:91](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L91)
 
 ___
 
@@ -190,55 +124,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:93](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L93)
-
-___
-
-### parent
-
-• **parent**: `WithNull`<[`Object3D`](Object3D.md)\>
-
-对象父级
-
-#### Inherited from
-
-[Object3D](Object3D.md).[parent](Object3D.md#parent)
-
-#### Defined in
-
-[src/objects/Object3D.ts:64](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L64)
-
-___
-
-### position
-
-• **position**: [`Vector3`](Vector3.md)
-
-物体局部位置
-
-#### Inherited from
-
-[Object3D](Object3D.md).[position](Object3D.md#position)
-
-#### Defined in
-
-[src/objects/Object3D.ts:34](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L34)
-
-___
-
-### quaternion
-
-• **quaternion**: [`Quaternion`](Quaternion.md)
-
-物体的局部旋转
-
-#### Inherited from
-
-[Object3D](Object3D.md).[quaternion](Object3D.md#quaternion)
-
-#### Defined in
-
-[src/objects/Object3D.ts:49](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L49)
+[src/objects/Mesh.ts:93](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L93)
 
 ___
 
@@ -248,7 +134,37 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:95](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L95)
+[src/objects/Mesh.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L95)
+
+___
+
+### zDepth
+
+• **zDepth**: `number`
+
+#### Defined in
+
+[src/objects/Mesh.ts:97](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L97)
+
+___
+
+### frustumCulled
+
+• **frustumCulled**: `boolean`
+
+#### Defined in
+
+[src/objects/Mesh.ts:99](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L99)
+
+___
+
+### mode
+
+• **mode**: `number`
+
+#### Defined in
+
+[src/objects/Mesh.ts:101](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L101)
 
 ___
 
@@ -258,55 +174,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:103](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L103)
-
-___
-
-### rotation
-
-• **rotation**: [`Euler`](Euler.md)
-
-物体的局部旋转
-
-#### Inherited from
-
-[Object3D](Object3D.md).[rotation](Object3D.md#rotation)
-
-#### Defined in
-
-[src/objects/Object3D.ts:44](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L44)
-
-___
-
-### scale
-
-• **scale**: [`Vector3`](Vector3.md)
-
-物体的局部缩放
-
-#### Inherited from
-
-[Object3D](Object3D.md).[scale](Object3D.md#scale)
-
-#### Defined in
-
-[src/objects/Object3D.ts:39](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L39)
-
-___
-
-### up
-
-• **up**: [`Vector3`](Vector3.md)
-
-物体的朝向
-
-#### Inherited from
-
-[Object3D](Object3D.md).[up](Object3D.md#up)
-
-#### Defined in
-
-[src/objects/Object3D.ts:54](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L54)
+[src/objects/Mesh.ts:103](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L103)
 
 ___
 
@@ -322,7 +190,23 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:14](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L14)
+[src/objects/Object3D.ts:14](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L14)
+
+___
+
+### localMatrix
+
+• **localMatrix**: [`ProjectionMatrix`](ProjectionMatrix.md)
+
+局部变换矩阵
+
+#### Inherited from
+
+[Object3D](Object3D.md).[localMatrix](Object3D.md#localmatrix)
+
+#### Defined in
+
+[src/objects/Object3D.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L19)
 
 ___
 
@@ -338,7 +222,135 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:24](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L24)
+[src/objects/Object3D.ts:24](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L24)
+
+___
+
+### matrixAutoUpdate
+
+• **matrixAutoUpdate**: `boolean`
+
+当这个属性设置了之后，它将计算每一帧的位移、旋转（四元变换）和缩放矩阵，并重新计算 `worldMatrix` 属性
+
+#### Inherited from
+
+[Object3D](Object3D.md).[matrixAutoUpdate](Object3D.md#matrixautoupdate)
+
+#### Defined in
+
+[src/objects/Object3D.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L29)
+
+___
+
+### position
+
+• **position**: [`Vector3`](Vector3.md)
+
+物体局部位置
+
+#### Inherited from
+
+[Object3D](Object3D.md).[position](Object3D.md#position)
+
+#### Defined in
+
+[src/objects/Object3D.ts:34](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L34)
+
+___
+
+### scale
+
+• **scale**: [`Vector3`](Vector3.md)
+
+物体的局部缩放
+
+#### Inherited from
+
+[Object3D](Object3D.md).[scale](Object3D.md#scale)
+
+#### Defined in
+
+[src/objects/Object3D.ts:39](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L39)
+
+___
+
+### rotation
+
+• **rotation**: [`Euler`](Euler.md)
+
+物体的局部旋转
+
+#### Inherited from
+
+[Object3D](Object3D.md).[rotation](Object3D.md#rotation)
+
+#### Defined in
+
+[src/objects/Object3D.ts:44](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L44)
+
+___
+
+### quaternion
+
+• **quaternion**: [`Quaternion`](Quaternion.md)
+
+物体的局部旋转
+
+#### Inherited from
+
+[Object3D](Object3D.md).[quaternion](Object3D.md#quaternion)
+
+#### Defined in
+
+[src/objects/Object3D.ts:49](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L49)
+
+___
+
+### up
+
+• **up**: [`Vector3`](Vector3.md)
+
+物体的朝向
+
+#### Inherited from
+
+[Object3D](Object3D.md).[up](Object3D.md#up)
+
+#### Defined in
+
+[src/objects/Object3D.ts:54](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L54)
+
+___
+
+### children
+
+• **children**: [`Object3D`](Object3D.md)[]
+
+对象子级
+
+#### Inherited from
+
+[Object3D](Object3D.md).[children](Object3D.md#children)
+
+#### Defined in
+
+[src/objects/Object3D.ts:59](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L59)
+
+___
+
+### parent
+
+• **parent**: `WithNull`\<[`Object3D`](Object3D.md)\>
+
+对象父级
+
+#### Inherited from
+
+[Object3D](Object3D.md).[parent](Object3D.md#parent)
+
+#### Defined in
+
+[src/objects/Object3D.ts:64](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L64)
 
 ___
 
@@ -354,35 +366,9 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:69](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L69)
-
-___
-
-### zDepth
-
-• **zDepth**: `number`
-
-#### Defined in
-
-[src/objects/Mesh.ts:97](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L97)
+[src/objects/Object3D.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L69)
 
 ## Accessors
-
-### geometry
-
-• `get` **geometry**(): [`Geometry`](Geometry.md)
-
-获取当前 `Mesh` 的几何体信息
-
-#### Returns
-
-[`Geometry`](Geometry.md)
-
-#### Defined in
-
-[src/objects/Mesh.ts:158](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L158)
-
-___
 
 ### id
 
@@ -396,7 +382,23 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:151](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L151)
+[src/objects/Mesh.ts:151](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L151)
+
+___
+
+### geometry
+
+• `get` **geometry**(): [`Geometry`](Geometry.md)
+
+获取当前 `Mesh` 的几何体信息
+
+#### Returns
+
+[`Geometry`](Geometry.md)
+
+#### Defined in
+
+[src/objects/Mesh.ts:158](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L158)
 
 ___
 
@@ -412,7 +414,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:165](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L165)
+[src/objects/Mesh.ts:165](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L165)
 
 ___
 
@@ -428,7 +430,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:184](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L184)
+[src/objects/Mesh.ts:184](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L184)
 
 • `set` **wireframe**(`wireframe`): `void`
 
@@ -446,34 +448,114 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:173](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L173)
+[src/objects/Mesh.ts:173](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L173)
 
 ## Methods
 
-### add
+### draw
 
-▸ **add**(`object`, `notifyChild?`): `void`
+▸ **draw**(`options?`): `void`
 
-添加对象到这个对象的子级
+执行`Mesh` 的渲染，一般由`Renderer` 渲染器进行调度。
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `object` | [`Object3D`](Object3D.md) | `undefined` |
-| `notifyChild` | `boolean` | `true` |
+| Name | Type |
+| :------ | :------ |
+| `options` | [`MeshDrawOptions`](../interfaces/MeshDrawOptions.md) |
 
 #### Returns
 
 `void`
 
-#### Inherited from
+#### Defined in
 
-[Object3D](Object3D.md).[add](Object3D.md#add)
+[src/objects/Mesh.ts:192](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L192)
+
+___
+
+### updateWireframeGeometry
+
+▸ **updateWireframeGeometry**(`wireframe`, `force?`): `void`
+
+更新网格几何体数据，主要是顶点索引数据
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `wireframe` | `any` | `undefined` | 是否更新索引数据为网格数据 |
+| `force` | `boolean` | `false` | 是否强制更新 |
+
+#### Returns
+
+`void`
 
 #### Defined in
 
-[src/objects/Object3D.ts:97](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L97)
+[src/objects/Mesh.ts:233](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L233)
+
+___
+
+### updateGeometry
+
+▸ **updateGeometry**(`geometry`, `destroy?`): `void`
+
+更新几何体信息，如果开启了 `wireframe` 还需要更新 `WireframeGeometry`
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `geometry` | `any` | `undefined` | 几何体 |
+| `destroy` | `boolean` | `true` | 是否销毁上一个几何体 |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/objects/Mesh.ts:270](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L270)
+
+___
+
+### updateProgram
+
+▸ **updateProgram**(`program`, `destroy?`): `void`
+
+更新 `Program` 对象
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `program` | `any` | `undefined` |  |
+| `destroy` | `boolean` | `true` | 是否销毁上一个 program |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/objects/Mesh.ts:283](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L283)
+
+___
+
+### destroy
+
+▸ **destroy**(): `void`
+
+销毁此 `Mesh`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/objects/Mesh.ts:293](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L293)
 
 ___
 
@@ -493,33 +575,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:301](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L301)
-
-___
-
-### contains
-
-▸ **contains**(`object`): `boolean`
-
-判断此渲染对象的子集是否包含传入的渲染对象
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `object` | [`Object3D`](Object3D.md) |
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-[Object3D](Object3D.md).[contains](Object3D.md#contains)
-
-#### Defined in
-
-[src/objects/Object3D.ts:124](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L124)
+[src/objects/Mesh.ts:301](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L301)
 
 ___
 
@@ -546,80 +602,22 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:316](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L316)
+[src/objects/Mesh.ts:316](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L316)
 
 ___
 
-### decompose
+### add
 
-▸ **decompose**(): `void`
+▸ **add**(`object`, `notifyChild?`): `void`
 
-从局部矩阵计算位置，旋转和缩放
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Object3D](Object3D.md).[decompose](Object3D.md#decompose)
-
-#### Defined in
-
-[src/objects/Object3D.ts:208](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L208)
-
-___
-
-### destroy
-
-▸ **destroy**(): `void`
-
-销毁此 `Mesh`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/objects/Mesh.ts:293](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L293)
-
-___
-
-### draw
-
-▸ **draw**(`options?`): `void`
-
-执行`Mesh` 的渲染，一般由`Renderer` 渲染器进行调度。
+添加对象到这个对象的子级
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `options` | [`MeshDrawOptions`](../interfaces/MeshDrawOptions.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/objects/Mesh.ts:192](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L192)
-
-___
-
-### lookAt
-
-▸ **lookAt**(`eye`, `invert?`): `void`
-
-旋转物体使其在世界空间中面朝一个点
-
-#### Parameters
-
-| Name | Type | Description |
+| Name | Type | Default value |
 | :------ | :------ | :------ |
-| `eye` | [`Vector3`](Vector3.md) | 朝向位置 |
-| `invert?` | `boolean` | 是否反转 |
+| `object` | [`Object3D`](Object3D.md) | `undefined` |
+| `notifyChild` | `boolean` | `true` |
 
 #### Returns
 
@@ -627,11 +625,11 @@ ___
 
 #### Inherited from
 
-[Object3D](Object3D.md).[lookAt](Object3D.md#lookat)
+[Object3D](Object3D.md).[add](Object3D.md#add)
 
 #### Defined in
 
-[src/objects/Object3D.ts:160](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L160)
+[src/objects/Object3D.ts:97](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L97)
 
 ___
 
@@ -658,7 +656,33 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:111](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L111)
+[src/objects/Object3D.ts:111](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L111)
+
+___
+
+### contains
+
+▸ **contains**(`object`): `boolean`
+
+判断此渲染对象的子集是否包含传入的渲染对象
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `object` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+[Object3D](Object3D.md).[contains](Object3D.md#contains)
+
+#### Defined in
+
+[src/objects/Object3D.ts:124](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L124)
 
 ___
 
@@ -685,7 +709,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:133](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L133)
+[src/objects/Object3D.ts:133](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L133)
 
 ___
 
@@ -711,38 +735,22 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:147](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L147)
+[src/objects/Object3D.ts:147](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L147)
 
 ___
 
-### updateGeometry
+### lookAt
 
-▸ **updateGeometry**(`geometry`, `destroy?`): `void`
+▸ **lookAt**(`eye`, `invert?`): `void`
 
-更新几何体信息，如果开启了 `wireframe` 还需要更新 `WireframeGeometry`
+旋转物体使其在世界空间中面朝一个点
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `geometry` | `any` | `undefined` | 几何体 |
-| `destroy` | `boolean` | `true` | 是否销毁上一个几何体 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/objects/Mesh.ts:270](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L270)
-
-___
-
-### updateMatrix
-
-▸ **updateMatrix**(): `void`
-
-更新局部变换矩阵
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `eye` | [`Vector3`](Vector3.md) | 朝向位置 |
+| `invert?` | `boolean` | 是否反转 |
 
 #### Returns
 
@@ -750,11 +758,11 @@ ___
 
 #### Inherited from
 
-[Object3D](Object3D.md).[updateMatrix](Object3D.md#updatematrix)
+[Object3D](Object3D.md).[lookAt](Object3D.md#lookat)
 
 #### Defined in
 
-[src/objects/Object3D.ts:200](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L200)
+[src/objects/Object3D.ts:160](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L160)
 
 ___
 
@@ -780,50 +788,44 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:174](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L174)
+[src/objects/Object3D.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L174)
 
 ___
 
-### updateProgram
+### updateMatrix
 
-▸ **updateProgram**(`program`, `destroy?`): `void`
+▸ **updateMatrix**(): `void`
 
-更新 `Program` 对象
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `program` | `any` | `undefined` |  |
-| `destroy` | `boolean` | `true` | 是否销毁上一个 program |
+更新局部变换矩阵
 
 #### Returns
 
 `void`
 
+#### Inherited from
+
+[Object3D](Object3D.md).[updateMatrix](Object3D.md#updatematrix)
+
 #### Defined in
 
-[src/objects/Mesh.ts:283](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L283)
+[src/objects/Object3D.ts:200](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L200)
 
 ___
 
-### updateWireframeGeometry
+### decompose
 
-▸ **updateWireframeGeometry**(`wireframe`, `force?`): `void`
+▸ **decompose**(): `void`
 
-更新网格几何体数据，主要是顶点索引数据
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `wireframe` | `any` | `undefined` | 是否更新索引数据为网格数据 |
-| `force` | `boolean` | `false` | 是否强制更新 |
+从局部矩阵计算位置，旋转和缩放
 
 #### Returns
 
 `void`
 
+#### Inherited from
+
+[Object3D](Object3D.md).[decompose](Object3D.md#decompose)
+
 #### Defined in
 
-[src/objects/Mesh.ts:233](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L233)
+[src/objects/Object3D.ts:208](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Object3D.ts#L208)

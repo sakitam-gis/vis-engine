@@ -31,6 +31,7 @@ module.exports = {
           editUrl: 'https://github.com/sakitam-gis/vis-engine/edit/master/documents/docs',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+          lastVersion: 'current',
         },
         theme: {
           customCss: require.resolve('./css/custom.css'),

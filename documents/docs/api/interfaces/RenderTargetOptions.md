@@ -14,31 +14,6 @@ custom_edit_url: null
 
 ## Properties
 
-### attachments
-
-• **attachments**: [`Attachment`](../#attachment)[]
-
-关联对象，此参数是一个数组，可以指定多组关联对象
-
-#### Defined in
-
-[src/core/RenderTarget.ts:41](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L41)
-
-___
-
-### color
-
-• **color**: `number`
-
-颜色关联对象的数量，默认是`1`。
-可以理解为整个帧缓存对象就是一张纹理，这个纹理的颜色就保存在`color attachment`中。
-
-#### Defined in
-
-[src/core/RenderTarget.ts:36](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L36)
-
-___
-
 ### data
 
 • **data**: `any`
@@ -47,71 +22,7 @@ ___
 
 #### Defined in
 
-[src/core/RenderTarget.ts:15](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L15)
-
-___
-
-### depth
-
-• **depth**: `boolean`
-
-是否包含深度关联对象
-
-#### Defined in
-
-[src/core/RenderTarget.ts:46](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L46)
-
-___
-
-### depthTexture
-
-• **depthTexture**: `boolean`
-
-是否是深度纹理，默认是`false`。
-
-#### Defined in
-
-[src/core/RenderTarget.ts:56](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L56)
-
-___
-
-### handle
-
-• **handle**: `any`
-
-#### Inherited from
-
-[ResourceOptions](ResourceOptions.md).[handle](ResourceOptions.md#handle)
-
-#### Defined in
-
-[src/core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L12)
-
-___
-
-### height
-
-• **height**: `number`
-
-`RenderTarget` 的高度
-
-#### Defined in
-
-[src/core/RenderTarget.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L30)
-
-___
-
-### id
-
-• **id**: `string`
-
-#### Inherited from
-
-[ResourceOptions](ResourceOptions.md).[id](ResourceOptions.md#id)
-
-#### Defined in
-
-[src/core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L10)
+[src/core/RenderTarget.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts#L15)
 
 ___
 
@@ -127,7 +38,68 @@ ___
 
 #### Defined in
 
-[src/core/RenderTarget.ts:20](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L20)
+[src/core/RenderTarget.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts#L20)
+
+___
+
+### width
+
+• **width**: `number`
+
+`RenderTarget` 的宽度
+
+#### Defined in
+
+[src/core/RenderTarget.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts#L25)
+
+___
+
+### height
+
+• **height**: `number`
+
+`RenderTarget` 的高度
+
+#### Defined in
+
+[src/core/RenderTarget.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts#L30)
+
+___
+
+### color
+
+• **color**: `number`
+
+颜色关联对象的数量，默认是`1`。
+可以理解为整个帧缓存对象就是一张纹理，这个纹理的颜色就保存在`color attachment`中。
+
+#### Defined in
+
+[src/core/RenderTarget.ts:36](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts#L36)
+
+___
+
+### attachments
+
+• **attachments**: [`Attachment`](../types/Attachment.md)[]
+
+关联对象，此参数是一个数组，可以指定多组关联对象
+
+#### Defined in
+
+[src/core/RenderTarget.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts#L41)
+
+___
+
+### depth
+
+• **depth**: `boolean`
+
+是否包含深度关联对象
+
+#### Defined in
+
+[src/core/RenderTarget.ts:46](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts#L46)
 
 ___
 
@@ -139,7 +111,47 @@ ___
 
 #### Defined in
 
-[src/core/RenderTarget.ts:51](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L51)
+[src/core/RenderTarget.ts:51](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts#L51)
+
+___
+
+### depthTexture
+
+• **depthTexture**: `boolean`
+
+是否是深度纹理，默认是`false`。
+
+#### Defined in
+
+[src/core/RenderTarget.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts#L56)
+
+___
+
+### id
+
+• **id**: `string`
+
+#### Inherited from
+
+[ResourceOptions](ResourceOptions.md).[id](ResourceOptions.md#id)
+
+#### Defined in
+
+[src/core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L10)
+
+___
+
+### handle
+
+• **handle**: `any`
+
+#### Inherited from
+
+[ResourceOptions](ResourceOptions.md).[handle](ResourceOptions.md#handle)
+
+#### Defined in
+
+[src/core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L12)
 
 ___
 
@@ -153,16 +165,4 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L13)
-
-___
-
-### width
-
-• **width**: `number`
-
-`RenderTarget` 的宽度
-
-#### Defined in
-
-[src/core/RenderTarget.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L25)
+[src/core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L13)

@@ -1,5 +1,3 @@
-[vis-engine - v1.5.1](../index.md) / ResourceOptions
-
 # Interface: ResourceOptions
 
 ## Hierarchy
@@ -18,22 +16,12 @@
 
 ### Properties
 
-- [handle](ResourceOptions.md#handle)
 - [id](ResourceOptions.md#id)
 - [name](ResourceOptions.md#name)
+- [handle](ResourceOptions.md#handle)
 - [userData](ResourceOptions.md#userdata)
 
 ## Properties
-
-### handle
-
-• **handle**: `any`
-
-#### Defined in
-
-[src/core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L12)
-
-___
 
 ### id
 
@@ -41,7 +29,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L10)
+[src/core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L10)
 
 ___
 
@@ -51,7 +39,17 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:11](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L11)
+[src/core/Resource.ts:11](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L11)
+
+___
+
+### handle
+
+• **handle**: `any`
+
+#### Defined in
+
+[src/core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L12)
 
 ___
 
@@ -61,4 +59,4 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L13)
+[src/core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L13)

@@ -1,30 +1,28 @@
-[vis-engine - v1.5.1](../index.md) / MeshOptions
-
 # Interface: MeshOptions
 
 ## Table of contents
 
 ### Properties
 
-- [frustumCulled](MeshOptions.md#frustumculled)
-- [geometry](MeshOptions.md#geometry)
 - [id](MeshOptions.md#id)
-- [mode](MeshOptions.md#mode)
+- [geometry](MeshOptions.md#geometry)
 - [program](MeshOptions.md#program)
+- [mode](MeshOptions.md#mode)
+- [frustumCulled](MeshOptions.md#frustumculled)
 - [renderOrder](MeshOptions.md#renderorder)
 - [wireframe](MeshOptions.md#wireframe)
 
 ## Properties
 
-### frustumCulled
+### id
 
-• `Optional` **frustumCulled**: `boolean`
+• `Optional` **id**: `string`
 
-是否启用视锥体剔除
+`Mesh` 的`id`
 
 #### Defined in
 
-[src/objects/Mesh.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L47)
+[src/objects/Mesh.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L19)
 
 ___
 
@@ -36,19 +34,19 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:24](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L24)
+[src/objects/Mesh.ts:24](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L24)
 
 ___
 
-### id
+### program
 
-• `Optional` **id**: `string`
+• **program**: [`Program`](../classes/Program.md)
 
-`Mesh` 的`id`
+`Program` 对象
 
 #### Defined in
 
-[src/objects/Mesh.ts:19](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L19)
+[src/objects/Mesh.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L29)
 
 ___
 
@@ -68,19 +66,19 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:42](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L42)
+[src/objects/Mesh.ts:42](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L42)
 
 ___
 
-### program
+### frustumCulled
 
-• **program**: [`Program`](../classes/Program.md)
+• `Optional` **frustumCulled**: `boolean`
 
-`Program` 对象
+是否启用视锥体剔除
 
 #### Defined in
 
-[src/objects/Mesh.ts:29](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L29)
+[src/objects/Mesh.ts:47](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L47)
 
 ___
 
@@ -92,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:52](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L52)
+[src/objects/Mesh.ts:52](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L52)
 
 ___
 
@@ -104,4 +102,4 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:57](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L57)
+[src/objects/Mesh.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts#L57)

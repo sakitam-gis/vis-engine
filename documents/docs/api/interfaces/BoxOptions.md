@@ -8,39 +8,15 @@ custom_edit_url: null
 
 ## Properties
 
-### attributes
+### width
 
-• **attributes**: [`Attributes`](Attributes.md)
+• **width**: `number`
 
-顶点数据
-
-#### Defined in
-
-[src/geometries/Box.ts:40](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/geometries/Box.ts#L40)
-
-___
-
-### depth
-
-• **depth**: `number`
-
-几何体沿着`Z`轴的深度，默认值是`1`。
+几何体沿着`X`轴的宽度，默认值是`1`。
 
 #### Defined in
 
-[src/geometries/Box.ts:20](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/geometries/Box.ts#L20)
-
-___
-
-### depthSegments
-
-• **depthSegments**: `number`
-
-深度分段数，默认值是`1`。
-
-#### Defined in
-
-[src/geometries/Box.ts:35](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/geometries/Box.ts#L35)
+[src/geometries/Box.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts#L10)
 
 ___
 
@@ -52,31 +28,19 @@ ___
 
 #### Defined in
 
-[src/geometries/Box.ts:15](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/geometries/Box.ts#L15)
+[src/geometries/Box.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts#L15)
 
 ___
 
-### heightSegments
+### depth
 
-• **heightSegments**: `number`
+• **depth**: `number`
 
-高度分段数，默认值是`1`。
-
-#### Defined in
-
-[src/geometries/Box.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/geometries/Box.ts#L30)
-
-___
-
-### width
-
-• **width**: `number`
-
-几何体沿着`X`轴的宽度，默认值是`1`。
+几何体沿着`Z`轴的深度，默认值是`1`。
 
 #### Defined in
 
-[src/geometries/Box.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/geometries/Box.ts#L10)
+[src/geometries/Box.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts#L20)
 
 ___
 
@@ -88,4 +52,40 @@ ___
 
 #### Defined in
 
-[src/geometries/Box.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/geometries/Box.ts#L25)
+[src/geometries/Box.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts#L25)
+
+___
+
+### heightSegments
+
+• **heightSegments**: `number`
+
+高度分段数，默认值是`1`。
+
+#### Defined in
+
+[src/geometries/Box.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts#L30)
+
+___
+
+### depthSegments
+
+• **depthSegments**: `number`
+
+深度分段数，默认值是`1`。
+
+#### Defined in
+
+[src/geometries/Box.ts:35](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts#L35)
+
+___
+
+### attributes
+
+• **attributes**: [`Attributes`](Attributes.md)
+
+顶点数据
+
+#### Defined in
+
+[src/geometries/Box.ts:40](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts#L40)

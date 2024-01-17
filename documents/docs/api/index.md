@@ -1,6 +1,6 @@
 ---
 id: "index"
-title: "vis-engine - v1.5.1"
+title: "vis-engine - v1.5.2"
 sidebar_label: "Exports"
 sidebar_position: 0.5
 custom_edit_url: null
@@ -16,171 +16,74 @@ custom_edit_url: null
 
 ## Classes
 
-- [Box](classes/Box.md)
-- [BufferAttribute](classes/BufferAttribute.md)
-- [Camera](classes/Camera.md)
 - [Clock](classes/Clock.md)
-- [Color](classes/Color.md)
-- [DataTexture](classes/DataTexture.md)
-- [Euler](classes/Euler.md)
-- [EventEmitter](classes/EventEmitter.md)
-- [Geometry](classes/Geometry.md)
-- [Matrix3](classes/Matrix3.md)
-- [Matrix4](classes/Matrix4.md)
-- [Mesh](classes/Mesh.md)
-- [Object3D](classes/Object3D.md)
+- [Raf](classes/Raf.md)
+- [Camera](classes/Camera.md)
 - [OrthographicCamera](classes/OrthographicCamera.md)
 - [PerspectiveCamera](classes/PerspectiveCamera.md)
-- [Plane](classes/Plane.md)
+- [BufferAttribute](classes/BufferAttribute.md)
+- [DataTexture](classes/DataTexture.md)
+- [EventEmitter](classes/EventEmitter.md)
+- [Geometry](classes/Geometry.md)
 - [Program](classes/Program.md)
-- [ProjectionMatrix](classes/ProjectionMatrix.md)
-- [Quaternion](classes/Quaternion.md)
-- [Raf](classes/Raf.md)
 - [RenderBuffer](classes/RenderBuffer.md)
 - [RenderTarget](classes/RenderTarget.md)
 - [Renderer](classes/Renderer.md)
 - [Resource](classes/Resource.md)
-- [Scene](classes/Scene.md)
 - [State](classes/State.md)
 - [Texture](classes/Texture.md)
 - [Texture3D](classes/Texture3D.md)
+- [Box](classes/Box.md)
+- [Plane](classes/Plane.md)
+- [Color](classes/Color.md)
+- [Euler](classes/Euler.md)
+- [Matrix3](classes/Matrix3.md)
+- [Matrix4](classes/Matrix4.md)
+- [ProjectionMatrix](classes/ProjectionMatrix.md)
+- [Quaternion](classes/Quaternion.md)
 - [Vector2](classes/Vector2.md)
 - [Vector3](classes/Vector3.md)
 - [Vector4](classes/Vector4.md)
+- [Mesh](classes/Mesh.md)
+- [Object3D](classes/Object3D.md)
+- [Scene](classes/Scene.md)
 
 ## Interfaces
 
-- [Attribute](interfaces/Attribute.md)
-- [Attributes](interfaces/Attributes.md)
-- [BoxOptions](interfaces/BoxOptions.md)
-- [CameraOptions](interfaces/CameraOptions.md)
-- [DataTextureOptions](interfaces/DataTextureOptions.md)
-- [MeshDrawOptions](interfaces/MeshDrawOptions.md)
-- [MeshOptions](interfaces/MeshOptions.md)
-- [PlaneOptions](interfaces/PlaneOptions.md)
-- [ProgramOptions](interfaces/ProgramOptions.md)
-- [ProgramRenderState](interfaces/ProgramRenderState.md)
 - [RafOptions](interfaces/RafOptions.md)
+- [CameraOptions](interfaces/CameraOptions.md)
+- [Attribute](interfaces/Attribute.md)
+- [DataTextureOptions](interfaces/DataTextureOptions.md)
+- [Attributes](interfaces/Attributes.md)
+- [UniformData](interfaces/UniformData.md)
+- [ProgramRenderState](interfaces/ProgramRenderState.md)
+- [ProgramOptions](interfaces/ProgramOptions.md)
 - [RenderBufferOptions](interfaces/RenderBufferOptions.md)
 - [RenderTargetOptions](interfaces/RenderTargetOptions.md)
 - [RendererOptions](interfaces/RendererOptions.md)
 - [ResourceOptions](interfaces/ResourceOptions.md)
-- [Texture3DOptions](interfaces/Texture3DOptions.md)
 - [TextureOptions](interfaces/TextureOptions.md)
-- [UniformData](interfaces/UniformData.md)
+- [Texture3DOptions](interfaces/Texture3DOptions.md)
+- [BoxOptions](interfaces/BoxOptions.md)
+- [PlaneOptions](interfaces/PlaneOptions.md)
+- [MeshOptions](interfaces/MeshOptions.md)
+- [MeshDrawOptions](interfaces/MeshDrawOptions.md)
+
+## Type Aliases
+
+- [CameraType](types/CameraType.md)
+- [Bounds](types/Bounds.md)
+- [DataType](types/DataType.md)
+- [Uniforms](types/Uniforms.md)
+- [Attachment](types/Attachment.md)
+- [ColorLike](types/ColorLike.md)
+
+## Functions
+
+- [getPlaneBuffer](functions/getPlaneBuffer.md)
 
 ## References
 
 ### highPrecision
 
-Re-exports [highPrecision](namespaces/utils.md#highprecision)
-
-## Type Aliases
-
-### Attachment
-
-Ƭ **Attachment**: [`GLenum`, [`Texture`](classes/Texture.md) \| [`DataTexture`](classes/DataTexture.md) \| [`RenderBuffer`](classes/RenderBuffer.md)]
-
-#### Defined in
-
-[src/core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L9)
-
-___
-
-### Bounds
-
-Ƭ **Bounds**: `Object`
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `bottom` | `number` | 像机视锥体下侧面 |
-| `left` | `number` | 像机视锥体左侧面 |
-| `right` | `number` | 像机视锥体右侧面 |
-| `top` | `number` | 像机视锥体上侧面 |
-
-#### Defined in
-
-[src/cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/cameras/Camera.ts#L12)
-
-___
-
-### CameraType
-
-Ƭ **CameraType**: ``"perspective"`` \| ``"orthographic"``
-
-相机类型，默认有两种：`perspective` 透视相机和`orthographic`平面相机。
-
-#### Defined in
-
-[src/cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/cameras/Camera.ts#L10)
-
-___
-
-### ColorLike
-
-Ƭ **ColorLike**: [`Color`](classes/Color.md) \| { `a?`: `number` ; `b`: `number` ; `g`: `number` ; `r`: `number`  }
-
-#### Defined in
-
-[src/math/Color.ts:241](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L241)
-
-___
-
-### DataType
-
-Ƭ **DataType**: `Float32Array` \| `Float64Array` \| `Uint32Array` \| `Uint16Array` \| `Uint8Array` \| `Uint8ClampedArray` \| `Int32Array` \| `Int16Array` \| `Int8Array`
-
-`attribute` 支持的数据类型
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L8)
-
-___
-
-### Uniforms
-
-Ƭ **Uniforms**: `any`
-
-#### Defined in
-
-[src/core/Program.ts:66](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L66)
-
-## Functions
-
-### getPlaneBuffer
-
-▸ **getPlaneBuffer**(`position`, `normal`, `uv`, `index`, `width?`, `height?`, `depth?`, `widthSegments?`, `heightSegments?`, `u?`, `v?`, `w?`, `uDir?`, `vDir?`, `i?`, `ii?`): `void`
-
-获取平面几何体数据
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `position` | `Float32Array` | `undefined` |
-| `normal` | `Float32Array` | `undefined` |
-| `uv` | `Float32Array` | `undefined` |
-| `index` | `Uint32Array` \| `Uint16Array` | `undefined` |
-| `width` | `number` | `1` |
-| `height` | `number` | `1` |
-| `depth` | `number` | `0` |
-| `widthSegments` | `number` | `1` |
-| `heightSegments` | `number` | `1` |
-| `u` | `number` | `0` |
-| `v` | `number` | `1` |
-| `w` | `number` | `2` |
-| `uDir` | `number` | `1` |
-| `vDir` | `number` | `-1` |
-| `i` | `number` | `0` |
-| `ii` | `number` | `0` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/geometries/Plane.ts:51](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/geometries/Plane.ts#L51)
+Re-exports [highPrecision](functions/utils.highPrecision.md)

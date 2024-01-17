@@ -16,7 +16,7 @@ const texture = new DataTexture(renderer, opt);
 
 ## Hierarchy
 
-- [`Texture`](Texture.md)<[`DataTextureOptions`](../interfaces/DataTextureOptions.md)\>
+- [`Texture`](Texture.md)\<[`DataTextureOptions`](../interfaces/DataTextureOptions.md)\>
 
   ↳ **`DataTexture`**
 
@@ -24,14 +24,18 @@ const texture = new DataTexture(renderer, opt);
 
 ### constructor
 
-• **new DataTexture**(`renderer`, `options?`)
+• **new DataTexture**(`renderer`, `options?`): [`DataTexture`](DataTexture.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `renderer` | `any` |
-| `options` | `Partial`<[`DataTextureOptions`](../interfaces/DataTextureOptions.md)\> |
+| `options` | `Partial`\<[`DataTextureOptions`](../interfaces/DataTextureOptions.md)\> |
+
+#### Returns
+
+[`DataTexture`](DataTexture.md)
 
 #### Overrides
 
@@ -39,81 +43,21 @@ const texture = new DataTexture(renderer, opt);
 
 #### Defined in
 
-[src/core/DataTexture.ts:24](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/DataTexture.ts#L24)
+[src/core/DataTexture.ts:24](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/DataTexture.ts#L24)
 
 ## Properties
 
-### byteLength
+### renderer
 
-• **byteLength**: `number`
-
-#### Inherited from
-
-[Texture](Texture.md).[byteLength](Texture.md#bytelength)
-
-#### Defined in
-
-[src/core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L28)
-
-___
-
-### height
-
-• **height**: `number`
-
-纹理高度
+• **renderer**: [`Renderer`](Renderer.md)
 
 #### Inherited from
 
-[Texture](Texture.md).[height](Texture.md#height)
+[Texture](Texture.md).[renderer](Texture.md#renderer)
 
 #### Defined in
 
-[src/core/Texture.ts:166](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L166)
-
-___
-
-### id
-
-• **id**: `string`
-
-#### Inherited from
-
-[Texture](Texture.md).[id](Texture.md#id)
-
-#### Defined in
-
-[src/core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L21)
-
-___
-
-### image
-
-• **image**: `any`
-
-纹理数据
-
-#### Inherited from
-
-[Texture](Texture.md).[image](Texture.md#image)
-
-#### Defined in
-
-[src/core/Texture.ts:156](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L156)
-
-___
-
-### name
-
-• **name**: `WithUndef`<`string`\>
-
-#### Inherited from
-
-[Texture](Texture.md).[name](Texture.md#name)
-
-#### Defined in
-
-[src/core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L23)
+[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts#L7)
 
 ___
 
@@ -130,13 +74,69 @@ ___
 
 #### Defined in
 
-[src/core/DataTexture.ts:22](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/DataTexture.ts#L22)
+[src/core/DataTexture.ts:22](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/DataTexture.ts#L22)
+
+___
+
+### id
+
+• **id**: `string`
+
+#### Inherited from
+
+[Texture](Texture.md).[id](Texture.md#id)
+
+#### Defined in
+
+[src/core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L21)
+
+___
+
+### name
+
+• **name**: `WithUndef`\<`string`\>
+
+#### Inherited from
+
+[Texture](Texture.md).[name](Texture.md#name)
+
+#### Defined in
+
+[src/core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L23)
+
+___
+
+### userData
+
+• **userData**: `any`
+
+#### Inherited from
+
+[Texture](Texture.md).[userData](Texture.md#userdata)
+
+#### Defined in
+
+[src/core/Resource.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L25)
+
+___
+
+### byteLength
+
+• **byteLength**: `number`
+
+#### Inherited from
+
+[Texture](Texture.md).[byteLength](Texture.md#bytelength)
+
+#### Defined in
+
+[src/core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L28)
 
 ___
 
 ### options
 
-• **options**: `Partial`<[`DataTextureOptions`](../interfaces/DataTextureOptions.md)\>
+• **options**: `Partial`\<[`DataTextureOptions`](../interfaces/DataTextureOptions.md)\>
 
 #### Inherited from
 
@@ -144,37 +144,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L30)
-
-___
-
-### renderer
-
-• **renderer**: [`Renderer`](Renderer.md)
-
-#### Inherited from
-
-[Texture](Texture.md).[renderer](Texture.md#renderer)
-
-#### Defined in
-
-[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L7)
-
-___
-
-### target
-
-• **target**: `number`
-
-`texImage2D` target
-
-#### Inherited from
-
-[Texture](Texture.md).[target](Texture.md#target)
-
-#### Defined in
-
-[src/core/Texture.ts:171](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L171)
+[src/core/Resource.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L30)
 
 ___
 
@@ -190,21 +160,23 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:151](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L151)
+[src/core/Texture.ts:151](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L151)
 
 ___
 
-### userData
+### image
 
-• **userData**: `any`
+• **image**: `any`
+
+纹理数据
 
 #### Inherited from
 
-[Texture](Texture.md).[userData](Texture.md#userdata)
+[Texture](Texture.md).[image](Texture.md#image)
 
 #### Defined in
 
-[src/core/Resource.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L25)
+[src/core/Texture.ts:156](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L156)
 
 ___
 
@@ -220,7 +192,39 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:161](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L161)
+[src/core/Texture.ts:161](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L161)
+
+___
+
+### height
+
+• **height**: `number`
+
+纹理高度
+
+#### Inherited from
+
+[Texture](Texture.md).[height](Texture.md#height)
+
+#### Defined in
+
+[src/core/Texture.ts:166](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L166)
+
+___
+
+### target
+
+• **target**: `number`
+
+`texImage2D` target
+
+#### Inherited from
+
+[Texture](Texture.md).[target](Texture.md#target)
+
+#### Defined in
+
+[src/core/Texture.ts:171](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L171)
 
 ## Accessors
 
@@ -240,25 +244,7 @@ Texture.gl
 
 #### Defined in
 
-[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L16)
-
-___
-
-### handle
-
-• `get` **handle**(): `any`
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-Texture.handle
-
-#### Defined in
-
-[src/core/Resource.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L47)
+[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts#L16)
 
 ___
 
@@ -278,66 +264,39 @@ Texture.rendererState
 
 #### Defined in
 
-[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L23)
+[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts#L23)
+
+___
+
+### handle
+
+• `get` **handle**(): `any`
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+Texture.handle
+
+#### Defined in
+
+[src/core/Resource.ts:47](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L47)
 
 ## Methods
 
-### bind
+### swapHandle
 
-▸ **bind**(`unit?`): `void`
+▸ **swapHandle**(`handle`): `void`
 
-绑定纹理
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `unit` | `number` | 纹理单位，默认为 `this.textureUnit` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Texture](Texture.md).[bind](Texture.md#bind)
-
-#### Defined in
-
-[src/core/Texture.ts:458](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L458)
-
-___
-
-### delete
-
-▸ **delete**(`«destructured»?`): [`DataTexture`](DataTexture.md)
+交换为新的 `handle`（一般我们会用在虚拟 webgl 环境中）
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `«destructured»` | `Object` |
-| › `deleteChildren` | `undefined` \| `boolean` |
-
-#### Returns
-
-[`DataTexture`](DataTexture.md)
-
-#### Inherited from
-
-[Texture](Texture.md).[delete](Texture.md#delete)
-
-#### Defined in
-
-[src/core/Resource.ts:74](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L74)
-
-___
-
-### destroy
-
-▸ **destroy**(): `void`
-
-销毁纹理
+| `handle` | `any` |
 
 #### Returns
 
@@ -345,57 +304,11 @@ ___
 
 #### Inherited from
 
-[Texture](Texture.md).[destroy](Texture.md#destroy)
+[Texture](Texture.md).[swapHandle](Texture.md#swaphandle)
 
 #### Defined in
 
-[src/core/Texture.ts:477](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L477)
-
-___
-
-### fromSrc
-
-▸ **fromSrc**(`url`): `Promise`<`unknown`\>
-
-从 Url 设置纹理对象的数据，会默认标记为需要更新 `needsUpdate = true`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-
-#### Returns
-
-`Promise`<`unknown`\>
-
-#### Inherited from
-
-[Texture](Texture.md).[fromSrc](Texture.md#fromsrc)
-
-#### Defined in
-
-[src/core/Texture.ts:241](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L241)
-
-___
-
-### removeStats
-
-▸ **removeStats**(): `void`
-
-移除相关状态
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Texture](Texture.md).[removeStats](Texture.md#removestats)
-
-#### Defined in
-
-[src/core/Texture.ts:485](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L485)
+[src/core/Resource.ts:55](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L55)
 
 ___
 
@@ -415,7 +328,32 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:63](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L63)
+[src/core/Resource.ts:63](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L63)
+
+___
+
+### delete
+
+▸ **delete**(`«destructured»?`): [`DataTexture`](DataTexture.md)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `«destructured»` | `Object` | `{}` |
+| › `deleteChildren` | `undefined` \| `boolean` | `false` |
+
+#### Returns
+
+[`DataTexture`](DataTexture.md)
+
+#### Inherited from
+
+[Texture](Texture.md).[delete](Texture.md#delete)
+
+#### Defined in
+
+[src/core/Resource.ts:74](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L74)
 
 ___
 
@@ -443,7 +381,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:219](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L219)
+[src/core/Texture.ts:219](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L219)
 
 ___
 
@@ -457,7 +395,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | `Partial`<[`DataTextureOptions`](../interfaces/DataTextureOptions.md)\> | 配置项 |
+| `options` | `Partial`\<[`DataTextureOptions`](../interfaces/DataTextureOptions.md)\> | 配置项 |
 
 #### Returns
 
@@ -469,73 +407,33 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:230](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L230)
+[src/core/Texture.ts:230](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L230)
 
 ___
 
-### swapHandle
+### fromSrc
 
-▸ **swapHandle**(`handle`): `void`
+▸ **fromSrc**(`url`): `Promise`\<`unknown`\>
 
-交换为新的 `handle`（一般我们会用在虚拟 webgl 环境中）
+从 Url 设置纹理对象的数据，会默认标记为需要更新 `needsUpdate = true`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `handle` | `any` |
+| `url` | `string` |
 
 #### Returns
 
-`void`
+`Promise`\<`unknown`\>
 
 #### Inherited from
 
-[Texture](Texture.md).[swapHandle](Texture.md#swaphandle)
+[Texture](Texture.md).[fromSrc](Texture.md#fromsrc)
 
 #### Defined in
 
-[src/core/Resource.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L55)
-
-___
-
-### toString
-
-▸ **toString**(): `string`
-
-获取字符串数据
-
-#### Returns
-
-`string`
-
-#### Inherited from
-
-[Texture](Texture.md).[toString](Texture.md#tostring)
-
-#### Defined in
-
-[src/core/Texture.ts:511](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L511)
-
-___
-
-### unbind
-
-▸ **unbind**(): `void`
-
-解绑纹理
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Texture](Texture.md).[unbind](Texture.md#unbind)
-
-#### Defined in
-
-[src/core/Texture.ts:468](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L468)
+[src/core/Texture.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L241)
 
 ___
 
@@ -561,4 +459,110 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:260](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L260)
+[src/core/Texture.ts:260](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L260)
+
+___
+
+### bind
+
+▸ **bind**(`unit?`): `void`
+
+绑定纹理
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `unit` | `number` | 纹理单位，默认为 `this.textureUnit` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[bind](Texture.md#bind)
+
+#### Defined in
+
+[src/core/Texture.ts:458](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L458)
+
+___
+
+### unbind
+
+▸ **unbind**(): `void`
+
+解绑纹理
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[unbind](Texture.md#unbind)
+
+#### Defined in
+
+[src/core/Texture.ts:468](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L468)
+
+___
+
+### destroy
+
+▸ **destroy**(): `void`
+
+销毁纹理
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[destroy](Texture.md#destroy)
+
+#### Defined in
+
+[src/core/Texture.ts:477](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L477)
+
+___
+
+### removeStats
+
+▸ **removeStats**(): `void`
+
+移除相关状态
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[removeStats](Texture.md#removestats)
+
+#### Defined in
+
+[src/core/Texture.ts:485](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L485)
+
+___
+
+### toString
+
+▸ **toString**(): `string`
+
+获取字符串数据
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+[Texture](Texture.md).[toString](Texture.md#tostring)
+
+#### Defined in
+
+[src/core/Texture.ts:511](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts#L511)

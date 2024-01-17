@@ -1,5 +1,3 @@
-[vis-engine - v1.5.1](../index.md) / ProgramOptions
-
 # Interface: ProgramOptions
 
 ## Hierarchy
@@ -14,92 +12,26 @@
 
 ### Properties
 
-- [blendEquation](ProgramOptions.md#blendequation)
-- [blendFunc](ProgramOptions.md#blendfunc)
-- [blending](ProgramOptions.md#blending)
 - [cullFace](ProgramOptions.md#cullface)
-- [defines](ProgramOptions.md#defines)
-- [depthFunc](ProgramOptions.md#depthfunc)
+- [frontFace](ProgramOptions.md#frontface)
 - [depthTest](ProgramOptions.md#depthtest)
 - [depthWrite](ProgramOptions.md#depthwrite)
-- [fragmentShader](ProgramOptions.md#fragmentshader)
-- [frontFace](ProgramOptions.md#frontface)
-- [handle](ProgramOptions.md#handle)
+- [depthFunc](ProgramOptions.md#depthfunc)
+- [blending](ProgramOptions.md#blending)
+- [blendFunc](ProgramOptions.md#blendfunc)
+- [blendEquation](ProgramOptions.md#blendequation)
 - [id](ProgramOptions.md#id)
+- [vertexShader](ProgramOptions.md#vertexshader)
+- [fragmentShader](ProgramOptions.md#fragmentshader)
+- [uniforms](ProgramOptions.md#uniforms)
+- [transparent](ProgramOptions.md#transparent)
+- [defines](ProgramOptions.md#defines)
 - [includes](ProgramOptions.md#includes)
 - [name](ProgramOptions.md#name)
-- [transparent](ProgramOptions.md#transparent)
-- [uniforms](ProgramOptions.md#uniforms)
+- [handle](ProgramOptions.md#handle)
 - [userData](ProgramOptions.md#userdata)
-- [vertexShader](ProgramOptions.md#vertexshader)
 
 ## Properties
-
-### blendEquation
-
-• **blendEquation**: `Object`
-
-指定颜色混合方程式
-可能的值可以参考：https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquation 和 https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquationSeparate
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `modeAlpha?` | `number` |
-| `modeRGB` | `number` |
-
-#### Inherited from
-
-[ProgramRenderState](ProgramRenderState.md).[blendEquation](ProgramRenderState.md#blendequation)
-
-#### Defined in
-
-[src/core/Program.ts:136](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L136)
-
-___
-
-### blendFunc
-
-• **blendFunc**: `Object`
-
-指定颜色混合算法
-可能的值可以参考：https://developer.mozilla.org/zh-CN/docs/Web/API/WebGLRenderingContext/blendFunc 和 https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFuncSeparate
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `dst` | `number` |
-| `dstAlpha?` | `number` |
-| `src` | `number` |
-| `srcAlpha?` | `number` |
-
-#### Inherited from
-
-[ProgramRenderState](ProgramRenderState.md).[blendFunc](ProgramRenderState.md#blendfunc)
-
-#### Defined in
-
-[src/core/Program.ts:125](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L125)
-
-___
-
-### blending
-
-• **blending**: [`BlendType`](../enums/BlendType.md)
-
-blend 类型
-
-#### Inherited from
-
-[ProgramRenderState](ProgramRenderState.md).[blending](ProgramRenderState.md#blending)
-
-#### Defined in
-
-[src/core/Program.ts:119](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L119)
-
-___
 
 ### cullFace
 
@@ -114,19 +46,56 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:84](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L84)
+[src/core/Program.ts:84](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L84)
 
 ___
 
-### defines
+### frontFace
 
-• `Optional` **defines**: `string`[]
+• **frontFace**: `number`
 
-指定着色的宏定义
+指定图形顶点以顺时针是正面还是逆时针方向是正面：
+可能的值：`gl.CW` 和 `gl.CCW`
+
+#### Inherited from
+
+[ProgramRenderState](ProgramRenderState.md).[frontFace](ProgramRenderState.md#frontface)
 
 #### Defined in
 
-[src/core/Program.ts:171](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L171)
+[src/core/Program.ts:90](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L90)
+
+___
+
+### depthTest
+
+• **depthTest**: `boolean`
+
+是否启用深度测试，默认启用
+
+#### Inherited from
+
+[ProgramRenderState](ProgramRenderState.md).[depthTest](ProgramRenderState.md#depthtest)
+
+#### Defined in
+
+[src/core/Program.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L95)
+
+___
+
+### depthWrite
+
+• **depthWrite**: `boolean`
+
+是否开启深度值写入
+
+#### Inherited from
+
+[ProgramRenderState](ProgramRenderState.md).[depthWrite](ProgramRenderState.md#depthwrite)
+
+#### Defined in
+
+[src/core/Program.ts:100](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L100)
 
 ___
 
@@ -151,82 +120,73 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:114](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L114)
+[src/core/Program.ts:114](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L114)
 
 ___
 
-### depthTest
+### blending
 
-• **depthTest**: `boolean`
+• **blending**: [`BlendType`](../enums/BlendType.md)
 
-是否启用深度测试，默认启用
+blend 类型
 
 #### Inherited from
 
-[ProgramRenderState](ProgramRenderState.md).[depthTest](ProgramRenderState.md#depthtest)
+[ProgramRenderState](ProgramRenderState.md).[blending](ProgramRenderState.md#blending)
 
 #### Defined in
 
-[src/core/Program.ts:95](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L95)
+[src/core/Program.ts:119](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L119)
 
 ___
 
-### depthWrite
+### blendFunc
 
-• **depthWrite**: `boolean`
+• **blendFunc**: `Object`
 
-是否开启深度值写入
+指定颜色混合算法
+可能的值可以参考：https://developer.mozilla.org/zh-CN/docs/Web/API/WebGLRenderingContext/blendFunc 和 https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFuncSeparate
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `src` | `number` |
+| `dst` | `number` |
+| `srcAlpha?` | `number` |
+| `dstAlpha?` | `number` |
 
 #### Inherited from
 
-[ProgramRenderState](ProgramRenderState.md).[depthWrite](ProgramRenderState.md#depthwrite)
+[ProgramRenderState](ProgramRenderState.md).[blendFunc](ProgramRenderState.md#blendfunc)
 
 #### Defined in
 
-[src/core/Program.ts:100](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L100)
+[src/core/Program.ts:125](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L125)
 
 ___
 
-### fragmentShader
+### blendEquation
 
-• **fragmentShader**: `string` \| `FragmentShader`
+• **blendEquation**: `Object`
 
-片段着色器
+指定颜色混合方程式
+可能的值可以参考：https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquation 和 https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquationSeparate
 
-#### Defined in
+#### Type declaration
 
-[src/core/Program.ts:156](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L156)
-
-___
-
-### frontFace
-
-• **frontFace**: `number`
-
-指定图形顶点以顺时针是正面还是逆时针方向是正面：
-可能的值：`gl.CW` 和 `gl.CCW`
+| Name | Type |
+| :------ | :------ |
+| `modeRGB` | `number` |
+| `modeAlpha?` | `number` |
 
 #### Inherited from
 
-[ProgramRenderState](ProgramRenderState.md).[frontFace](ProgramRenderState.md#frontface)
+[ProgramRenderState](ProgramRenderState.md).[blendEquation](ProgramRenderState.md#blendequation)
 
 #### Defined in
 
-[src/core/Program.ts:90](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L90)
-
-___
-
-### handle
-
-• **handle**: `any`
-
-#### Inherited from
-
-[ResourceOptions](ResourceOptions.md).[handle](ResourceOptions.md#handle)
-
-#### Defined in
-
-[src/core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L12)
+[src/core/Program.ts:136](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L136)
 
 ___
 
@@ -242,7 +202,67 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:146](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L146)
+[src/core/Program.ts:146](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L146)
+
+___
+
+### vertexShader
+
+• **vertexShader**: `string` \| `VertexShader`
+
+顶点着色器
+
+#### Defined in
+
+[src/core/Program.ts:151](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L151)
+
+___
+
+### fragmentShader
+
+• **fragmentShader**: `string` \| `FragmentShader`
+
+片段着色器
+
+#### Defined in
+
+[src/core/Program.ts:156](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L156)
+
+___
+
+### uniforms
+
+• `Optional` **uniforms**: `any`
+
+uniform
+
+#### Defined in
+
+[src/core/Program.ts:161](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L161)
+
+___
+
+### transparent
+
+• `Optional` **transparent**: `boolean`
+
+配置是否是透明渲染
+
+#### Defined in
+
+[src/core/Program.ts:166](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L166)
+
+___
+
+### defines
+
+• `Optional` **defines**: `string`[]
+
+指定着色的宏定义
+
+#### Defined in
+
+[src/core/Program.ts:171](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L171)
 
 ___
 
@@ -258,7 +278,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:176](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L176)
+[src/core/Program.ts:176](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L176)
 
 ___
 
@@ -272,31 +292,21 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:11](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L11)
+[src/core/Resource.ts:11](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L11)
 
 ___
 
-### transparent
+### handle
 
-• `Optional` **transparent**: `boolean`
+• **handle**: `any`
 
-配置是否是透明渲染
+#### Inherited from
 
-#### Defined in
-
-[src/core/Program.ts:166](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L166)
-
-___
-
-### uniforms
-
-• `Optional` **uniforms**: `any`
-
-uniform
+[ResourceOptions](ResourceOptions.md).[handle](ResourceOptions.md#handle)
 
 #### Defined in
 
-[src/core/Program.ts:161](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L161)
+[src/core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L12)
 
 ___
 
@@ -310,16 +320,4 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L13)
-
-___
-
-### vertexShader
-
-• **vertexShader**: `string` \| `VertexShader`
-
-顶点着色器
-
-#### Defined in
-
-[src/core/Program.ts:151](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L151)
+[src/core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts#L13)

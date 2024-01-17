@@ -1,5 +1,3 @@
-[vis-engine - v1.5.1](../index.md) / Box
-
 # Class: Box
 
 立方体，通常用来创建立方体或者不规则四边形。
@@ -26,57 +24,61 @@ scene.add(box);
 
 ### Properties
 
-- [drawMode](Box.md#drawmode)
+- [renderer](Box.md#renderer)
 - [drawRange](Box.md#drawrange)
 - [instancedCount](Box.md#instancedcount)
 - [isInstanced](Box.md#isinstanced)
-- [renderer](Box.md#renderer)
+- [drawMode](Box.md#drawmode)
 
 ### Accessors
 
+- [gl](Box.md#gl)
+- [rendererState](Box.md#rendererstate)
+- [id](Box.md#id)
 - [attributes](Box.md#attributes)
 - [attributesData](Box.md#attributesdata)
-- [bounds](Box.md#bounds)
-- [gl](Box.md#gl)
-- [id](Box.md#id)
 - [index](Box.md#index)
-- [rendererState](Box.md#rendererstate)
+- [bounds](Box.md#bounds)
 
 ### Methods
 
 - [addAttribute](Box.md#addattribute)
-- [bindAttributes](Box.md#bindattributes)
-- [clone](Box.md#clone)
-- [computeBoundingBox](Box.md#computeboundingbox)
-- [computeBoundingSphere](Box.md#computeboundingsphere)
-- [copy](Box.md#copy)
-- [createVAO](Box.md#createvao)
-- [destroy](Box.md#destroy)
-- [draw](Box.md#draw)
 - [getAttribute](Box.md#getattribute)
-- [removeAttribute](Box.md#removeattribute)
 - [setAttributeData](Box.md#setattributedata)
-- [setColors](Box.md#setcolors)
-- [setDrawRange](Box.md#setdrawrange)
+- [updateAttribute](Box.md#updateattribute)
+- [removeAttribute](Box.md#removeattribute)
 - [setIndex](Box.md#setindex)
-- [setInstancedCount](Box.md#setinstancedcount)
+- [setVertices](Box.md#setvertices)
 - [setNormals](Box.md#setnormals)
 - [setUVs](Box.md#setuvs)
-- [setVertices](Box.md#setvertices)
-- [updateAttribute](Box.md#updateattribute)
+- [setColors](Box.md#setcolors)
+- [setDrawRange](Box.md#setdrawrange)
+- [setInstancedCount](Box.md#setinstancedcount)
+- [createVAO](Box.md#createvao)
+- [bindAttributes](Box.md#bindattributes)
+- [computeBoundingBox](Box.md#computeboundingbox)
+- [computeBoundingSphere](Box.md#computeboundingsphere)
+- [draw](Box.md#draw)
+- [copy](Box.md#copy)
+- [clone](Box.md#clone)
+- [destroy](Box.md#destroy)
 
 ## Constructors
 
 ### constructor
 
-• **new Box**(`renderer`, `«destructured»?`)
+• **new Box**(`renderer`, `«destructured»?`): [`Box`](Box.md)
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `renderer` | [`Renderer`](Renderer.md) | 渲染器 |
-| `«destructured»` | `Partial`<[`BoxOptions`](../interfaces/BoxOptions.md)\> | - |
+| `«destructured»` | `Partial`\<[`BoxOptions`](../interfaces/BoxOptions.md)\> | - |
+
+#### Returns
+
+[`Box`](Box.md)
 
 #### Overrides
 
@@ -84,21 +86,21 @@ scene.add(box);
 
 #### Defined in
 
-[src/geometries/Box.ts:65](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/geometries/Box.ts#L65)
+[src/geometries/Box.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/geometries/Box.ts#L65)
 
 ## Properties
 
-### drawMode
+### renderer
 
-• **drawMode**: `number`
+• **renderer**: [`Renderer`](Renderer.md)
 
 #### Inherited from
 
-[Geometry](Geometry.md).[drawMode](Geometry.md#drawmode)
+[Geometry](Geometry.md).[renderer](Geometry.md#renderer)
 
 #### Defined in
 
-[src/core/Geometry.ts:59](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L59)
+[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts#L7)
 
 ___
 
@@ -112,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:53](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L53)
+[src/core/Geometry.ts:53](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L53)
 
 ___
 
@@ -126,7 +128,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L55)
+[src/core/Geometry.ts:55](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L55)
 
 ___
 
@@ -140,33 +142,93 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:57](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L57)
+[src/core/Geometry.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L57)
 
 ___
 
-### renderer
+### drawMode
 
-• **renderer**: [`Renderer`](Renderer.md)
+• **drawMode**: `number`
 
 #### Inherited from
 
-[Geometry](Geometry.md).[renderer](Geometry.md#renderer)
+[Geometry](Geometry.md).[drawMode](Geometry.md#drawmode)
 
 #### Defined in
 
-[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L7)
+[src/core/Geometry.ts:59](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L59)
 
 ## Accessors
 
+### gl
+
+• `get` **gl**(): `WebGLRenderingContext` \| `WebGL2RenderingContext`
+
+获取 `webgl` 实例
+
+#### Returns
+
+`WebGLRenderingContext` \| `WebGL2RenderingContext`
+
+#### Inherited from
+
+Geometry.gl
+
+#### Defined in
+
+[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts#L16)
+
+___
+
+### rendererState
+
+• `get` **rendererState**(): [`State`](State.md)
+
+获取渲染状态
+
+#### Returns
+
+[`State`](State.md)
+
+#### Inherited from
+
+Geometry.rendererState
+
+#### Defined in
+
+[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts#L23)
+
+___
+
+### id
+
+• `get` **id**(): `string`
+
+获取当前几何体数据的唯一标识
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+Geometry.id
+
+#### Defined in
+
+[src/core/Geometry.ts:105](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L105)
+
+___
+
 ### attributes
 
-• `get` **attributes**(): `Map`<`string`, [`BufferAttribute`](BufferAttribute.md)\>
+• `get` **attributes**(): `Map`\<`string`, [`BufferAttribute`](BufferAttribute.md)\>
 
 获取全部的属性信息
 
 #### Returns
 
-`Map`<`string`, [`BufferAttribute`](BufferAttribute.md)\>
+`Map`\<`string`, [`BufferAttribute`](BufferAttribute.md)\>
 
 #### Inherited from
 
@@ -174,7 +236,7 @@ Geometry.attributes
 
 #### Defined in
 
-[src/core/Geometry.ts:112](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L112)
+[src/core/Geometry.ts:112](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L112)
 
 ___
 
@@ -194,7 +256,27 @@ Geometry.attributesData
 
 #### Defined in
 
-[src/core/Geometry.ts:119](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L119)
+[src/core/Geometry.ts:119](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L119)
+
+___
+
+### index
+
+• `get` **index**(): `undefined` \| [`BufferAttribute`](BufferAttribute.md)
+
+获取顶点索引属性
+
+#### Returns
+
+`undefined` \| [`BufferAttribute`](BufferAttribute.md)
+
+#### Inherited from
+
+Geometry.index
+
+#### Defined in
+
+[src/core/Geometry.ts:136](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L136)
 
 ___
 
@@ -214,7 +296,7 @@ Geometry.bounds
 
 #### Defined in
 
-[src/core/Geometry.ts:143](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L143)
+[src/core/Geometry.ts:143](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L143)
 
 • `set` **bounds**(`bounds`): `void`
 
@@ -236,87 +318,7 @@ Geometry.bounds
 
 #### Defined in
 
-[src/core/Geometry.ts:151](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L151)
-
-___
-
-### gl
-
-• `get` **gl**(): `WebGLRenderingContext` \| `WebGL2RenderingContext`
-
-获取 `webgl` 实例
-
-#### Returns
-
-`WebGLRenderingContext` \| `WebGL2RenderingContext`
-
-#### Inherited from
-
-Geometry.gl
-
-#### Defined in
-
-[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L16)
-
-___
-
-### id
-
-• `get` **id**(): `string`
-
-获取当前几何体数据的唯一标识
-
-#### Returns
-
-`string`
-
-#### Inherited from
-
-Geometry.id
-
-#### Defined in
-
-[src/core/Geometry.ts:105](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L105)
-
-___
-
-### index
-
-• `get` **index**(): `undefined` \| [`BufferAttribute`](BufferAttribute.md)
-
-获取顶点索引属性
-
-#### Returns
-
-`undefined` \| [`BufferAttribute`](BufferAttribute.md)
-
-#### Inherited from
-
-Geometry.index
-
-#### Defined in
-
-[src/core/Geometry.ts:136](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L136)
-
-___
-
-### rendererState
-
-• `get` **rendererState**(): [`State`](State.md)
-
-获取渲染状态
-
-#### Returns
-
-[`State`](State.md)
-
-#### Inherited from
-
-Geometry.rendererState
-
-#### Defined in
-
-[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L23)
+[src/core/Geometry.ts:151](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L151)
 
 ## Methods
 
@@ -343,205 +345,7 @@ Geometry.rendererState
 
 #### Defined in
 
-[src/core/Geometry.ts:160](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L160)
-
-___
-
-### bindAttributes
-
-▸ **bindAttributes**(`program`): `void`
-
-绑定顶点属性数据
-https://devdocs.io/dom/webgl2renderingcontext/vertexattribipointer
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `program` | [`Program`](Program.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Geometry](Geometry.md).[bindAttributes](Geometry.md#bindattributes)
-
-#### Defined in
-
-[src/core/Geometry.ts:363](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L363)
-
-___
-
-### clone
-
-▸ **clone**(): [`Geometry`](Geometry.md)
-
-克隆此几何体对象
-
-#### Returns
-
-[`Geometry`](Geometry.md)
-
-#### Inherited from
-
-[Geometry](Geometry.md).[clone](Geometry.md#clone)
-
-#### Defined in
-
-[src/core/Geometry.ts:540](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L540)
-
-___
-
-### computeBoundingBox
-
-▸ **computeBoundingBox**(`vertices?`): `any`
-
-计算当前几何体的的矩形边界（立方体包围盒）
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `vertices?` | `number`[] \| [`DataType`](../index.md#datatype) | 外部传入的顶点数据 |
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-[Geometry](Geometry.md).[computeBoundingBox](Geometry.md#computeboundingbox)
-
-#### Defined in
-
-[src/core/Geometry.ts:402](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L402)
-
-___
-
-### computeBoundingSphere
-
-▸ **computeBoundingSphere**(`vertices?`): `void`
-
-计算当前几何体的的球形边界（球形包围盒）
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `vertices?` | `number`[] \| [`DataType`](../index.md#datatype) | 外部传入的顶点数据 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Geometry](Geometry.md).[computeBoundingSphere](Geometry.md#computeboundingsphere)
-
-#### Defined in
-
-[src/core/Geometry.ts:437](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L437)
-
-___
-
-### copy
-
-▸ **copy**(`source`): [`Box`](Box.md)
-
-将传入的几何体对象的属性值拷贝到此对象
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `source` | [`Geometry`](Geometry.md) | 源几何体对象 |
-
-#### Returns
-
-[`Box`](Box.md)
-
-#### Inherited from
-
-[Geometry](Geometry.md).[copy](Geometry.md#copy)
-
-#### Defined in
-
-[src/core/Geometry.ts:502](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L502)
-
-___
-
-### createVAO
-
-▸ **createVAO**(`program`): `void`
-
-创建 Vao
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `program` | [`Program`](Program.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Geometry](Geometry.md).[createVAO](Geometry.md#createvao)
-
-#### Defined in
-
-[src/core/Geometry.ts:350](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L350)
-
-___
-
-### destroy
-
-▸ **destroy**(): `void`
-
-销毁几何体对象
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Geometry](Geometry.md).[destroy](Geometry.md#destroy)
-
-#### Defined in
-
-[src/core/Geometry.ts:549](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L549)
-
-___
-
-### draw
-
-▸ **draw**(`program`, `drawMode?`): `void`
-
-执行绘制
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `program` | `any` | Program 对象 |
-| `drawMode` | `number` | 绘制模式 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Geometry](Geometry.md).[draw](Geometry.md#draw)
-
-#### Defined in
-
-[src/core/Geometry.ts:458](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L458)
+[src/core/Geometry.ts:160](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L160)
 
 ___
 
@@ -567,33 +371,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:191](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L191)
-
-___
-
-### removeAttribute
-
-▸ **removeAttribute**(`attribute`): `void`
-
-移除属性信息
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `attribute` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Geometry](Geometry.md).[removeAttribute](Geometry.md#removeattribute)
-
-#### Defined in
-
-[src/core/Geometry.ts:235](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L235)
+[src/core/Geometry.ts:191](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L191)
 
 ___
 
@@ -620,7 +398,163 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:200](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L200)
+[src/core/Geometry.ts:200](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L200)
+
+___
+
+### updateAttribute
+
+▸ **updateAttribute**(`attribute`): `void`
+
+更新顶点属性数据
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `attribute` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Geometry](Geometry.md).[updateAttribute](Geometry.md#updateattribute)
+
+#### Defined in
+
+[src/core/Geometry.ts:212](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L212)
+
+___
+
+### removeAttribute
+
+▸ **removeAttribute**(`attribute`): `void`
+
+移除属性信息
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `attribute` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Geometry](Geometry.md).[removeAttribute](Geometry.md#removeattribute)
+
+#### Defined in
+
+[src/core/Geometry.ts:235](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L235)
+
+___
+
+### setIndex
+
+▸ **setIndex**(`index`): `void`
+
+设置顶点索引数据
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `index` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Geometry](Geometry.md).[setIndex](Geometry.md#setindex)
+
+#### Defined in
+
+[src/core/Geometry.ts:243](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L243)
+
+___
+
+### setVertices
+
+▸ **setVertices**(`data`): `void`
+
+设置顶点数据
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Geometry](Geometry.md).[setVertices](Geometry.md#setvertices)
+
+#### Defined in
+
+[src/core/Geometry.ts:262](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L262)
+
+___
+
+### setNormals
+
+▸ **setNormals**(`data`): `void`
+
+设置顶点法向量数据
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Geometry](Geometry.md).[setNormals](Geometry.md#setnormals)
+
+#### Defined in
+
+[src/core/Geometry.ts:282](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L282)
+
+___
+
+### setUVs
+
+▸ **setUVs**(`data`): `void`
+
+设置纹理 UV 数据
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Geometry](Geometry.md).[setUVs](Geometry.md#setuvs)
+
+#### Defined in
+
+[src/core/Geometry.ts:296](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L296)
 
 ___
 
@@ -646,7 +580,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:310](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L310)
+[src/core/Geometry.ts:310](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L310)
 
 ___
 
@@ -673,33 +607,7 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:333](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L333)
-
-___
-
-### setIndex
-
-▸ **setIndex**(`index`): `void`
-
-设置顶点索引数据
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `index` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Geometry](Geometry.md).[setIndex](Geometry.md#setindex)
-
-#### Defined in
-
-[src/core/Geometry.ts:243](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L243)
+[src/core/Geometry.ts:333](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L333)
 
 ___
 
@@ -725,21 +633,21 @@ ___
 
 #### Defined in
 
-[src/core/Geometry.ts:342](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L342)
+[src/core/Geometry.ts:342](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L342)
 
 ___
 
-### setNormals
+### createVAO
 
-▸ **setNormals**(`data`): `void`
+▸ **createVAO**(`program`): `void`
 
-设置顶点法向量数据
+创建 Vao
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `data` | `any` |
+| `program` | [`Program`](Program.md) |
 
 #### Returns
 
@@ -747,25 +655,26 @@ ___
 
 #### Inherited from
 
-[Geometry](Geometry.md).[setNormals](Geometry.md#setnormals)
+[Geometry](Geometry.md).[createVAO](Geometry.md#createvao)
 
 #### Defined in
 
-[src/core/Geometry.ts:282](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L282)
+[src/core/Geometry.ts:350](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L350)
 
 ___
 
-### setUVs
+### bindAttributes
 
-▸ **setUVs**(`data`): `void`
+▸ **bindAttributes**(`program`): `void`
 
-设置纹理 UV 数据
+绑定顶点属性数据
+https://devdocs.io/dom/webgl2renderingcontext/vertexattribipointer
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `data` | `any` |
+| `program` | [`Program`](Program.md) |
 
 #### Returns
 
@@ -773,25 +682,51 @@ ___
 
 #### Inherited from
 
-[Geometry](Geometry.md).[setUVs](Geometry.md#setuvs)
+[Geometry](Geometry.md).[bindAttributes](Geometry.md#bindattributes)
 
 #### Defined in
 
-[src/core/Geometry.ts:296](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L296)
+[src/core/Geometry.ts:363](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L363)
 
 ___
 
-### setVertices
+### computeBoundingBox
 
-▸ **setVertices**(`data`): `void`
+▸ **computeBoundingBox**(`vertices?`): `any`
 
-设置顶点数据
+计算当前几何体的的矩形边界（立方体包围盒）
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `any` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vertices?` | `number`[] \| [`DataType`](../types/DataType.md) | 外部传入的顶点数据 |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[Geometry](Geometry.md).[computeBoundingBox](Geometry.md#computeboundingbox)
+
+#### Defined in
+
+[src/core/Geometry.ts:402](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L402)
+
+___
+
+### computeBoundingSphere
+
+▸ **computeBoundingSphere**(`vertices?`): `void`
+
+计算当前几何体的的球形边界（球形包围盒）
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vertices?` | `number`[] \| [`DataType`](../types/DataType.md) | 外部传入的顶点数据 |
 
 #### Returns
 
@@ -799,25 +734,26 @@ ___
 
 #### Inherited from
 
-[Geometry](Geometry.md).[setVertices](Geometry.md#setvertices)
+[Geometry](Geometry.md).[computeBoundingSphere](Geometry.md#computeboundingsphere)
 
 #### Defined in
 
-[src/core/Geometry.ts:262](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L262)
+[src/core/Geometry.ts:437](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L437)
 
 ___
 
-### updateAttribute
+### draw
 
-▸ **updateAttribute**(`attribute`): `void`
+▸ **draw**(`program`, `drawMode?`): `void`
 
-更新顶点属性数据
+执行绘制
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `attribute` | `any` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `program` | `any` | Program 对象 |
+| `drawMode` | `number` | 绘制模式 |
 
 #### Returns
 
@@ -825,8 +761,74 @@ ___
 
 #### Inherited from
 
-[Geometry](Geometry.md).[updateAttribute](Geometry.md#updateattribute)
+[Geometry](Geometry.md).[draw](Geometry.md#draw)
 
 #### Defined in
 
-[src/core/Geometry.ts:212](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Geometry.ts#L212)
+[src/core/Geometry.ts:458](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L458)
+
+___
+
+### copy
+
+▸ **copy**(`source`): [`Box`](Box.md)
+
+将传入的几何体对象的属性值拷贝到此对象
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | [`Geometry`](Geometry.md) | 源几何体对象 |
+
+#### Returns
+
+[`Box`](Box.md)
+
+#### Inherited from
+
+[Geometry](Geometry.md).[copy](Geometry.md#copy)
+
+#### Defined in
+
+[src/core/Geometry.ts:502](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L502)
+
+___
+
+### clone
+
+▸ **clone**(): [`Geometry`](Geometry.md)
+
+克隆此几何体对象
+
+#### Returns
+
+[`Geometry`](Geometry.md)
+
+#### Inherited from
+
+[Geometry](Geometry.md).[clone](Geometry.md#clone)
+
+#### Defined in
+
+[src/core/Geometry.ts:540](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L540)
+
+___
+
+### destroy
+
+▸ **destroy**(): `void`
+
+销毁几何体对象
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Geometry](Geometry.md).[destroy](Geometry.md#destroy)
+
+#### Defined in
+
+[src/core/Geometry.ts:549](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Geometry.ts#L549)

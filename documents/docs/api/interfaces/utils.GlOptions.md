@@ -17,7 +17,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[src/utils/gl.ts:43](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L43)
+[src/utils/gl.ts:43](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts#L43)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[src/utils/gl.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L47)
+[src/utils/gl.ts:47](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts#L47)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[src/utils/gl.ts:51](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L51)
+[src/utils/gl.ts:51](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts#L51)
 
 ___
 
@@ -53,55 +53,7 @@ ___
 
 #### Defined in
 
-[src/utils/gl.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L55)
-
-___
-
-### failIfMajorPerformanceCaveat
-
-• **failIfMajorPerformanceCaveat**: `boolean`
-
-指定如果系统性能较低，是否创建上下文。
-
-#### Defined in
-
-[src/utils/gl.ts:63](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L63)
-
-___
-
-### powerPreference
-
-• **powerPreference**: `WebGLPowerPreference`
-
-指定GPU的性能配置。
-
-#### Defined in
-
-[src/utils/gl.ts:75](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L75)
-
-___
-
-### premultipliedAlpha
-
-• **premultipliedAlpha**: `boolean`
-
-指定是否开启预乘alpha。
-
-#### Defined in
-
-[src/utils/gl.ts:67](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L67)
-
-___
-
-### preserveDrawingBuffer
-
-• **preserveDrawingBuffer**: `boolean`
-
-是否开启绘制缓冲区。
-
-#### Defined in
-
-[src/utils/gl.ts:71](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L71)
+[src/utils/gl.ts:55](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts#L55)
 
 ___
 
@@ -113,4 +65,52 @@ ___
 
 #### Defined in
 
-[src/utils/gl.ts:59](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L59)
+[src/utils/gl.ts:59](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts#L59)
+
+___
+
+### failIfMajorPerformanceCaveat
+
+• **failIfMajorPerformanceCaveat**: `boolean`
+
+指定如果系统性能较低，是否创建上下文。
+
+#### Defined in
+
+[src/utils/gl.ts:63](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts#L63)
+
+___
+
+### premultipliedAlpha
+
+• **premultipliedAlpha**: `boolean`
+
+指定是否开启预乘alpha。
+
+#### Defined in
+
+[src/utils/gl.ts:67](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts#L67)
+
+___
+
+### preserveDrawingBuffer
+
+• **preserveDrawingBuffer**: `boolean`
+
+是否开启绘制缓冲区。
+
+#### Defined in
+
+[src/utils/gl.ts:71](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts#L71)
+
+___
+
+### powerPreference
+
+• **powerPreference**: `WebGLPowerPreference`
+
+指定GPU的性能配置。
+
+#### Defined in
+
+[src/utils/gl.ts:75](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts#L75)

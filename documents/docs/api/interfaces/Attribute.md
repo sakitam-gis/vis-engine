@@ -8,64 +8,39 @@ custom_edit_url: null
 
 ## Properties
 
-### buffer
-
-• `Optional` **buffer**: `WebGLBuffer`
-
-`WebGLBuffer`，一般我们不需要指定，会在内部进行创建
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:78](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L78)
-
-___
-
-### count
-
-• `Optional` **count**: `number`
-
-顶点数量
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:62](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L62)
-
-___
-
 ### data
 
-• **data**: [`DataType`](../#datatype)
+• **data**: [`DataType`](../types/DataType.md)
 
 `Attribute` 数据，必须是 `TypedArray` 类型
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L23)
+[src/core/BufferAttribute.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L23)
 
 ___
 
-### divisor
+### size
 
-• `Optional` **divisor**: `number`
+• `Optional` **size**: `number`
 
-指定实例化渲染的数量，仅当 `ANGLE_instanced_arrays` 扩展可用时才支持此参数，在
-`webgl2` 中默认支持，调用函数为 `vertexAttribDivisor`
+指定缓冲区每个顶点分量的个数, 一般为 1-4
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L47)
+[src/core/BufferAttribute.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L28)
 
 ___
 
-### needsUpdate
+### type
 
-• `Optional` **needsUpdate**: `boolean`
+• `Optional` **type**: `number`
 
-标记此 `Attribute` 是否需要重新上传 `GPU`，一般我们在数据改变时需要将此值设置为`true`。
+指定数组中每个元素的数据类型，一般我们不传时会由内部进行判断。
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:83](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L83)
+[src/core/BufferAttribute.ts:33](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L33)
 
 ___
 
@@ -80,31 +55,20 @@ ___
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:41](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L41)
+[src/core/BufferAttribute.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L41)
 
 ___
 
-### offset
+### divisor
 
-• `Optional` **offset**: `number`
+• `Optional` **divisor**: `number`
 
-指定顶点属性数组中第一部分的字节偏移量。必须是类型的字节长度的倍数
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:57](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L57)
-
-___
-
-### size
-
-• `Optional` **size**: `number`
-
-指定缓冲区每个顶点分量的个数, 一般为 1-4
+指定实例化渲染的数量，仅当 `ANGLE_instanced_arrays` 扩展可用时才支持此参数，在
+`webgl2` 中默认支持，调用函数为 `vertexAttribDivisor`
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:28](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L28)
+[src/core/BufferAttribute.ts:47](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L47)
 
 ___
 
@@ -116,7 +80,31 @@ ___
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:52](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L52)
+[src/core/BufferAttribute.ts:52](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L52)
+
+___
+
+### offset
+
+• `Optional` **offset**: `number`
+
+指定顶点属性数组中第一部分的字节偏移量。必须是类型的字节长度的倍数
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L57)
+
+___
+
+### count
+
+• `Optional` **count**: `number`
+
+顶点数量
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:62](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L62)
 
 ___
 
@@ -128,19 +116,7 @@ ___
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:67](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L67)
-
-___
-
-### type
-
-• `Optional` **type**: `number`
-
-指定数组中每个元素的数据类型，一般我们不传时会由内部进行判断。
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:33](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L33)
+[src/core/BufferAttribute.ts:67](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L67)
 
 ___
 
@@ -153,4 +129,28 @@ ___
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:73](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L73)
+[src/core/BufferAttribute.ts:73](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L73)
+
+___
+
+### buffer
+
+• `Optional` **buffer**: `WebGLBuffer`
+
+`WebGLBuffer`，一般我们不需要指定，会在内部进行创建
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:78](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L78)
+
+___
+
+### needsUpdate
+
+• `Optional` **needsUpdate**: `boolean`
+
+标记此 `Attribute` 是否需要重新上传 `GPU`，一般我们在数据改变时需要将此值设置为`true`。
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:83](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L83)

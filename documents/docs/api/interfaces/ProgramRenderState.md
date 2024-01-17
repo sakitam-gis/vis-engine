@@ -14,60 +14,6 @@ custom_edit_url: null
 
 ## Properties
 
-### blendEquation
-
-• **blendEquation**: `Object`
-
-指定颜色混合方程式
-可能的值可以参考：https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquation 和 https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquationSeparate
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `modeAlpha?` | `number` |
-| `modeRGB` | `number` |
-
-#### Defined in
-
-[src/core/Program.ts:136](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L136)
-
-___
-
-### blendFunc
-
-• **blendFunc**: `Object`
-
-指定颜色混合算法
-可能的值可以参考：https://developer.mozilla.org/zh-CN/docs/Web/API/WebGLRenderingContext/blendFunc 和 https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFuncSeparate
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `dst` | `number` |
-| `dstAlpha?` | `number` |
-| `src` | `number` |
-| `srcAlpha?` | `number` |
-
-#### Defined in
-
-[src/core/Program.ts:125](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L125)
-
-___
-
-### blending
-
-• **blending**: [`BlendType`](../enums/BlendType.md)
-
-blend 类型
-
-#### Defined in
-
-[src/core/Program.ts:119](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L119)
-
-___
-
 ### cullFace
 
 • **cullFace**: `number`
@@ -77,7 +23,44 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:84](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L84)
+[src/core/Program.ts:84](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L84)
+
+___
+
+### frontFace
+
+• **frontFace**: `number`
+
+指定图形顶点以顺时针是正面还是逆时针方向是正面：
+可能的值：`gl.CW` 和 `gl.CCW`
+
+#### Defined in
+
+[src/core/Program.ts:90](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L90)
+
+___
+
+### depthTest
+
+• **depthTest**: `boolean`
+
+是否启用深度测试，默认启用
+
+#### Defined in
+
+[src/core/Program.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L95)
+
+___
+
+### depthWrite
+
+• **depthWrite**: `boolean`
+
+是否开启深度值写入
+
+#### Defined in
+
+[src/core/Program.ts:100](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L100)
 
 ___
 
@@ -98,41 +81,58 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:114](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L114)
+[src/core/Program.ts:114](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L114)
 
 ___
 
-### depthTest
+### blending
 
-• **depthTest**: `boolean`
+• **blending**: [`BlendType`](../enums/BlendType.md)
 
-是否启用深度测试，默认启用
+blend 类型
 
 #### Defined in
 
-[src/core/Program.ts:95](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L95)
+[src/core/Program.ts:119](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L119)
 
 ___
 
-### depthWrite
+### blendFunc
 
-• **depthWrite**: `boolean`
+• **blendFunc**: `Object`
 
-是否开启深度值写入
+指定颜色混合算法
+可能的值可以参考：https://developer.mozilla.org/zh-CN/docs/Web/API/WebGLRenderingContext/blendFunc 和 https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFuncSeparate
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `src` | `number` |
+| `dst` | `number` |
+| `srcAlpha?` | `number` |
+| `dstAlpha?` | `number` |
 
 #### Defined in
 
-[src/core/Program.ts:100](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L100)
+[src/core/Program.ts:125](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L125)
 
 ___
 
-### frontFace
+### blendEquation
 
-• **frontFace**: `number`
+• **blendEquation**: `Object`
 
-指定图形顶点以顺时针是正面还是逆时针方向是正面：
-可能的值：`gl.CW` 和 `gl.CCW`
+指定颜色混合方程式
+可能的值可以参考：https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquation 和 https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquationSeparate
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `modeRGB` | `number` |
+| `modeAlpha?` | `number` |
 
 #### Defined in
 
-[src/core/Program.ts:90](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L90)
+[src/core/Program.ts:136](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts#L136)

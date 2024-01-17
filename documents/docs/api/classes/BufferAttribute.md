@@ -12,7 +12,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new BufferAttribute**(`renderer`, `attribute`)
+• **new BufferAttribute**(`renderer`, `attribute`): [`BufferAttribute`](BufferAttribute.md)
 
 #### Parameters
 
@@ -21,59 +21,15 @@ custom_edit_url: null
 | `renderer` | [`Renderer`](Renderer.md) |
 | `attribute` | [`Attribute`](../interfaces/Attribute.md) |
 
+#### Returns
+
+[`BufferAttribute`](BufferAttribute.md)
+
 #### Defined in
 
-[src/core/BufferAttribute.ts:196](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L196)
+[src/core/BufferAttribute.ts:196](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L196)
 
 ## Properties
-
-### buffer
-
-• **buffer**: `WithNull`<`WebGLBuffer`\>
-
-WebGLBuffer
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:194](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L194)
-
-___
-
-### count
-
-• **count**: `number`
-
-顶点数量
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:178](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L178)
-
-___
-
-### data
-
-• **data**: [`DataType`](../#datatype)
-
-`Attribute` 数据，必须是 `TypedArray` 类型
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:133](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L133)
-
-___
-
-### divisor
-
-• **divisor**: `number`
-
-指定实例化渲染的数量
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:163](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L163)
-
-___
 
 ### id
 
@@ -83,91 +39,19 @@ ___
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:128](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L128)
+[src/core/BufferAttribute.ts:128](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L128)
 
 ___
 
-### instanced
+### data
 
-• **instanced**: `boolean`
+• **data**: [`DataType`](../types/DataType.md)
 
-`BufferAttribute` 是否是实例化数据
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:148](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L148)
-
-___
-
-### needsUpdate
-
-• **needsUpdate**: `boolean`
-
-标记此 `BufferAttribute` 是否需要重新上传 `GPU`，一般我们在数据改变时需要将此值设置为`true`。
+`Attribute` 数据，必须是 `TypedArray` 类型
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:173](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L173)
-
-___
-
-### normalized
-
-• **normalized**: `boolean`
-
-当整数值转换为浮点数时是否应该将整数数值归一化到特定的范围
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:168](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L168)
-
-___
-
-### offset
-
-• **offset**: `number`
-
-`BufferAttribute`中顶点属性数组中第一部分的字节偏移量
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:158](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L158)
-
-___
-
-### size
-
-• **size**: `number`
-
-`BufferAttribute`中缓冲区每个顶点分量的个数, 一般为 1-4
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:143](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L143)
-
-___
-
-### stride
-
-• **stride**: `number`
-
-`BufferAttribute`中缓冲区顶点的偏移量
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:153](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L153)
-
-___
-
-### target
-
-• **target**: `number`
-
-缓冲区对象，常用的值为`gl.ARRAY_BUFFER` 和 `gl.ELEMENT_ARRAY_BUFFER`。当然在`webgl2` 中有一些新的可用值，如 `gl.UNIFORM_BUFFER`和 `gl.TRANSFORM_FEEDBACK_BUFFER`。
-
-#### Defined in
-
-[src/core/BufferAttribute.ts:189](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L189)
+[src/core/BufferAttribute.ts:133](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L133)
 
 ___
 
@@ -179,7 +63,103 @@ ___
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:138](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L138)
+[src/core/BufferAttribute.ts:138](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L138)
+
+___
+
+### size
+
+• **size**: `number`
+
+`BufferAttribute`中缓冲区每个顶点分量的个数, 一般为 1-4
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:143](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L143)
+
+___
+
+### instanced
+
+• **instanced**: `boolean`
+
+`BufferAttribute` 是否是实例化数据
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:148](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L148)
+
+___
+
+### stride
+
+• **stride**: `number`
+
+`BufferAttribute`中缓冲区顶点的偏移量
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:153](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L153)
+
+___
+
+### offset
+
+• **offset**: `number`
+
+`BufferAttribute`中顶点属性数组中第一部分的字节偏移量
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:158](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L158)
+
+___
+
+### divisor
+
+• **divisor**: `number`
+
+指定实例化渲染的数量
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:163](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L163)
+
+___
+
+### normalized
+
+• **normalized**: `boolean`
+
+当整数值转换为浮点数时是否应该将整数数值归一化到特定的范围
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:168](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L168)
+
+___
+
+### needsUpdate
+
+• **needsUpdate**: `boolean`
+
+标记此 `BufferAttribute` 是否需要重新上传 `GPU`，一般我们在数据改变时需要将此值设置为`true`。
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:173](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L173)
+
+___
+
+### count
+
+• **count**: `number`
+
+顶点数量
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:178](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L178)
 
 ___
 
@@ -192,4 +172,28 @@ ___
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:184](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L184)
+[src/core/BufferAttribute.ts:184](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L184)
+
+___
+
+### target
+
+• **target**: `number`
+
+缓冲区对象，常用的值为`gl.ARRAY_BUFFER` 和 `gl.ELEMENT_ARRAY_BUFFER`。当然在`webgl2` 中有一些新的可用值，如 `gl.UNIFORM_BUFFER`和 `gl.TRANSFORM_FEEDBACK_BUFFER`。
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:189](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L189)
+
+___
+
+### buffer
+
+• **buffer**: `WithNull`\<`WebGLBuffer`\>
+
+WebGLBuffer
+
+#### Defined in
+
+[src/core/BufferAttribute.ts:194](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts#L194)
