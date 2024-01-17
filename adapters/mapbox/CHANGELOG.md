@@ -1,3 +1,11 @@
+## @sakitam-gis/mapbox-ve [1.0.7](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/mapbox-ve@1.0.6...@sakitam-gis/mapbox-ve@1.0.7) (2024-01-17)
+
+
+### Bug Fixes
+
+* **patch:** fix getShaderName regex ([7b15dbb](https://github.com/sakitam-gis/vis-engine/commit/7b15dbb36da2fc36a7baf941bce4d09c6bebc79f))
+* **release-adapters:** fix getShaderName regex ([5f06306](https://github.com/sakitam-gis/vis-engine/commit/5f06306ff652bc231ea5c8ede9fbc9cb2c96b451))
+
 ## @sakitam-gis/mapbox-ve [1.0.6](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/mapbox-ve@1.0.5...@sakitam-gis/mapbox-ve@1.0.6) (2023-03-25)
 
 ## @sakitam-gis/mapbox-ve [1.0.5](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/mapbox-ve@1.0.4...@sakitam-gis/mapbox-ve@1.0.5) (2023-03-08)
