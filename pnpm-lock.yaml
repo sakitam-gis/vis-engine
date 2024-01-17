@@ -211,7 +211,7 @@ importers:
   adapters/mapbox:
     dependencies:
       '@sakitam-gis/vis-engine':
-        specifier: workspace:*
+        specifier: ^1.5.2
         version: link:../..
       mapbox-gl:
         specifier: '>=0.50.0 || >=1.0.0 || >=2.0.0'
@@ -220,7 +220,7 @@ importers:
   adapters/maptalks:
     dependencies:
       '@sakitam-gis/vis-engine':
-        specifier: workspace:*
+        specifier: ^1.5.2
         version: link:../..
       maptalks:
         specifier: '>=1.0.0-rc.11'
