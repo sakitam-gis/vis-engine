@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/sakitam-gis/vis-engine/compare/v1.5.1...v1.5.2) (2024-01-17)
+
+
+### Bug Fixes
+
+* **patch:** fix getShaderName regex ([7b15dbb](https://github.com/sakitam-gis/vis-engine/commit/7b15dbb36da2fc36a7baf941bce4d09c6bebc79f))
+
 ## [1.5.1](https://github.com/sakitam-gis/vis-engine/compare/v1.5.0...v1.5.1) (2023-11-19)
 
 
