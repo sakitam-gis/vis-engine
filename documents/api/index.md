@@ -1,6 +1,6 @@
-vis-engine - v1.3.1
+vis-engine - v1.5.1
 
-# vis-engine - v1.3.1
+# vis-engine - v1.5.1
 
 ## Table of contents
 
@@ -11,6 +11,10 @@ vis-engine - v1.3.1
 ### Namespaces
 
 - [utils](modules/utils.md)
+
+### Enumerations
+
+- [BlendType](enums/BlendType.md)
 
 ### Classes
 
@@ -76,6 +80,10 @@ vis-engine - v1.3.1
 - [DataType](index.md#datatype)
 - [Uniforms](index.md#uniforms)
 
+### Functions
+
+- [getPlaneBuffer](index.md#getplanebuffer)
+
 ## References
 
 ### highPrecision
@@ -90,7 +98,7 @@ Re-exports [highPrecision](modules/utils.md#highprecision)
 
 #### Defined in
 
-[src/core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;bbe6a01#line&#x3D;9)
+[src/core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L9)
 
 ___
 
@@ -109,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;bbe6a01#line&#x3D;12)
+[src/cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/cameras/Camera.ts#L12)
 
 ___
 
@@ -121,7 +129,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/master/src/cameras/Camera.ts?at&#x3D;bbe6a01#line&#x3D;10)
+[src/cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/cameras/Camera.ts#L10)
 
 ___
 
@@ -131,7 +139,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:241](https://github.com/sakitam-gis/vis-engine/blob/master/src/math/Color.ts?at&#x3D;bbe6a01#line&#x3D;241)
+[src/math/Color.ts:241](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L241)
 
 ___
 
@@ -143,7 +151,7 @@ ___
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/BufferAttribute.ts?at&#x3D;bbe6a01#line&#x3D;8)
+[src/core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L8)
 
 ___
 
@@ -153,4 +161,41 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:65](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;65)
+[src/core/Program.ts:66](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L66)
+
+## Functions
+
+### getPlaneBuffer
+
+▸ **getPlaneBuffer**(`position`, `normal`, `uv`, `index`, `width?`, `height?`, `depth?`, `widthSegments?`, `heightSegments?`, `u?`, `v?`, `w?`, `uDir?`, `vDir?`, `i?`, `ii?`): `void`
+
+获取平面几何体数据
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `position` | `Float32Array` | `undefined` |
+| `normal` | `Float32Array` | `undefined` |
+| `uv` | `Float32Array` | `undefined` |
+| `index` | `Uint32Array` \| `Uint16Array` | `undefined` |
+| `width` | `number` | `1` |
+| `height` | `number` | `1` |
+| `depth` | `number` | `0` |
+| `widthSegments` | `number` | `1` |
+| `heightSegments` | `number` | `1` |
+| `u` | `number` | `0` |
+| `v` | `number` | `1` |
+| `w` | `number` | `2` |
+| `uDir` | `number` | `1` |
+| `vDir` | `number` | `-1` |
+| `i` | `number` | `0` |
+| `ii` | `number` | `0` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/geometries/Plane.ts:51](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/geometries/Plane.ts#L51)

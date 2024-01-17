@@ -1,4 +1,4 @@
-[vis-engine - v1.3.1](../index.md) / ProgramRenderState
+[vis-engine - v1.5.1](../index.md) / ProgramRenderState
 
 # Interface: ProgramRenderState
 
@@ -14,6 +14,7 @@
 
 - [blendEquation](ProgramRenderState.md#blendequation)
 - [blendFunc](ProgramRenderState.md#blendfunc)
+- [blending](ProgramRenderState.md#blending)
 - [cullFace](ProgramRenderState.md#cullface)
 - [depthFunc](ProgramRenderState.md#depthfunc)
 - [depthTest](ProgramRenderState.md#depthtest)
@@ -38,7 +39,7 @@
 
 #### Defined in
 
-[src/core/Program.ts:130](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;130)
+[src/core/Program.ts:136](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L136)
 
 ___
 
@@ -60,7 +61,19 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:119](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;119)
+[src/core/Program.ts:125](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L125)
+
+___
+
+### blending
+
+• **blending**: [`BlendType`](../enums/BlendType.md)
+
+blend 类型
+
+#### Defined in
+
+[src/core/Program.ts:119](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L119)
 
 ___
 
@@ -73,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:83](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;83)
+[src/core/Program.ts:84](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L84)
 
 ___
 
@@ -94,7 +107,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:113](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;113)
+[src/core/Program.ts:114](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L114)
 
 ___
 
@@ -106,7 +119,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:94](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;94)
+[src/core/Program.ts:95](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L95)
 
 ___
 
@@ -118,7 +131,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:99](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;99)
+[src/core/Program.ts:100](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L100)
 
 ___
 
@@ -131,4 +144,4 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:89](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;89)
+[src/core/Program.ts:90](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L90)

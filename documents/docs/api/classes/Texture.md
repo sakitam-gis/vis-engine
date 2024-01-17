@@ -1,6 +1,6 @@
 ---
 id: "Texture"
-title: "Class: Texture"
+title: "Class: Texture<T>"
 sidebar_label: "Texture"
 sidebar_position: 0
 custom_edit_url: null
@@ -25,9 +25,15 @@ image.onload = () => {
 image.src = './assets/posx.jpg';
 ```
 
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends [`TextureOptions`](../interfaces/TextureOptions.md) = [`TextureOptions`](../interfaces/TextureOptions.md) |
+
 ## Hierarchy
 
-- [`Resource`](Resource.md)<[`TextureOptions`](../interfaces/TextureOptions.md)\>
+- [`Resource`](Resource.md)<`T`\>
 
   ↳ **`Texture`**
 
@@ -39,14 +45,20 @@ image.src = './assets/posx.jpg';
 
 ### constructor
 
-• **new Texture**(`renderer`, `options?`, `needsUpdate?`)
+• **new Texture**<`T`\>(`renderer`, `options?`, `needsUpdate?`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends [`TextureOptions`](../interfaces/TextureOptions.md) = [`TextureOptions`](../interfaces/TextureOptions.md) |
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `renderer` | [`Renderer`](Renderer.md) | `undefined` | Renderer 对象 |
-| `options` | `Partial`<[`TextureOptions`](../interfaces/TextureOptions.md)\> | `{}` | 配置项 |
+| `options` | `Partial`<`T`\> | `{}` | 配置项 |
 | `needsUpdate` | `boolean` | `true` | 是否需要`update` |
 
 #### Overrides
@@ -55,7 +67,7 @@ image.src = './assets/posx.jpg';
 
 #### Defined in
 
-[src/core/Texture.ts:169](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L169)
+[src/core/Texture.ts:180](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L180)
 
 ## Properties
 
@@ -69,7 +81,7 @@ image.src = './assets/posx.jpg';
 
 #### Defined in
 
-[src/core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L28)
+[src/core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L28)
 
 ___
 
@@ -81,7 +93,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:160](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L160)
+[src/core/Texture.ts:166](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L166)
 
 ___
 
@@ -95,7 +107,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L21)
+[src/core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L21)
 
 ___
 
@@ -107,7 +119,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:150](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L150)
+[src/core/Texture.ts:156](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L156)
 
 ___
 
@@ -121,7 +133,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L23)
+[src/core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L23)
 
 ___
 
@@ -134,13 +146,13 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:140](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L140)
+[src/core/Texture.ts:146](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L146)
 
 ___
 
 ### options
 
-• **options**: `Partial`<[`ResourceOptions`](../interfaces/ResourceOptions.md) & [`TextureOptions`](../interfaces/TextureOptions.md)\>
+• **options**: `Partial`<`T`\>
 
 #### Inherited from
 
@@ -148,7 +160,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L30)
+[src/core/Resource.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L30)
 
 ___
 
@@ -162,7 +174,19 @@ ___
 
 #### Defined in
 
-[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Base.ts#L7)
+[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L7)
+
+___
+
+### target
+
+• **target**: `number`
+
+`texImage2D` target
+
+#### Defined in
+
+[src/core/Texture.ts:171](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L171)
 
 ___
 
@@ -174,7 +198,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:145](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L145)
+[src/core/Texture.ts:151](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L151)
 
 ___
 
@@ -188,7 +212,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L25)
+[src/core/Resource.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L25)
 
 ___
 
@@ -200,7 +224,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:155](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L155)
+[src/core/Texture.ts:161](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L161)
 
 ## Accessors
 
@@ -220,7 +244,7 @@ Resource.gl
 
 #### Defined in
 
-[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Base.ts#L16)
+[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L16)
 
 ___
 
@@ -238,7 +262,7 @@ Resource.handle
 
 #### Defined in
 
-[src/core/Resource.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L47)
+[src/core/Resource.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L47)
 
 ___
 
@@ -258,7 +282,7 @@ Resource.rendererState
 
 #### Defined in
 
-[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Base.ts#L23)
+[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L23)
 
 ## Methods
 
@@ -284,13 +308,13 @@ Resource.rendererState
 
 #### Defined in
 
-[src/core/Texture.ts:381](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L381)
+[src/core/Texture.ts:458](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L458)
 
 ___
 
 ### delete
 
-▸ **delete**(`«destructured»?`): [`Texture`](Texture.md)
+▸ **delete**(`«destructured»?`): [`Texture`](Texture.md)<`T`\>
 
 #### Parameters
 
@@ -301,7 +325,7 @@ ___
 
 #### Returns
 
-[`Texture`](Texture.md)
+[`Texture`](Texture.md)<`T`\>
 
 #### Inherited from
 
@@ -309,7 +333,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:74](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L74)
+[src/core/Resource.ts:74](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L74)
 
 ___
 
@@ -329,7 +353,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:400](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L400)
+[src/core/Texture.ts:477](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L477)
 
 ___
 
@@ -351,7 +375,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:228](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L228)
+[src/core/Texture.ts:241](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L241)
 
 ___
 
@@ -371,7 +395,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:408](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L408)
+[src/core/Texture.ts:485](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L485)
 
 ___
 
@@ -391,7 +415,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:63](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L63)
+[src/core/Resource.ts:63](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L63)
 
 ___
 
@@ -415,7 +439,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:206](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L206)
+[src/core/Texture.ts:219](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L219)
 
 ___
 
@@ -429,7 +453,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | `Partial`<[`TextureOptions`](../interfaces/TextureOptions.md)\> | 配置项 |
+| `options` | `Partial`<`T`\> | 配置项 |
 
 #### Returns
 
@@ -437,7 +461,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:217](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L217)
+[src/core/Texture.ts:230](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L230)
 
 ___
 
@@ -463,7 +487,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L55)
+[src/core/Resource.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L55)
 
 ___
 
@@ -483,7 +507,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:434](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L434)
+[src/core/Texture.ts:511](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L511)
 
 ___
 
@@ -503,7 +527,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:391](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L391)
+[src/core/Texture.ts:468](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L468)
 
 ___
 
@@ -525,4 +549,4 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:247](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L247)
+[src/core/Texture.ts:260](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L260)

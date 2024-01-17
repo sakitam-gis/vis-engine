@@ -26,7 +26,7 @@ image.src = './assets/posx.jpg';
 
 ## Hierarchy
 
-- [`Texture`](Texture.md)
+- [`Texture`](Texture.md)<[`Texture3DOptions`](../interfaces/Texture3DOptions.md)\>
 
   ↳ **`Texture3D`**
 
@@ -49,7 +49,7 @@ image.src = './assets/posx.jpg';
 
 #### Defined in
 
-[src/core/Texture3D.ts:158](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L158)
+[src/core/Texture3D.ts:94](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture3D.ts#L94)
 
 ## Properties
 
@@ -63,7 +63,7 @@ image.src = './assets/posx.jpg';
 
 #### Defined in
 
-[src/core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L28)
+[src/core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L28)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture3D.ts:150](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L150)
+[src/core/Texture3D.ts:86](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture3D.ts#L86)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:160](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L160)
+[src/core/Texture.ts:166](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L166)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L21)
+[src/core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L21)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:150](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L150)
+[src/core/Texture.ts:156](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L156)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L23)
+[src/core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L23)
 
 ___
 
@@ -152,13 +152,13 @@ ___
 
 #### Defined in
 
-[src/core/Texture3D.ts:140](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L140)
+[src/core/Texture3D.ts:76](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture3D.ts#L76)
 
 ___
 
 ### options
 
-• **options**: `Partial`<[`ResourceOptions`](../interfaces/ResourceOptions.md) & [`TextureOptions`](../interfaces/TextureOptions.md)\>
+• **options**: `Partial`<[`Texture3DOptions`](../interfaces/Texture3DOptions.md)\>
 
 #### Inherited from
 
@@ -166,7 +166,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L30)
+[src/core/Resource.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L30)
 
 ___
 
@@ -180,7 +180,23 @@ ___
 
 #### Defined in
 
-[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Base.ts#L7)
+[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L7)
+
+___
+
+### target
+
+• **target**: `number`
+
+`texImage2D` target
+
+#### Inherited from
+
+[Texture](Texture.md).[target](Texture.md#target)
+
+#### Defined in
+
+[src/core/Texture.ts:171](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L171)
 
 ___
 
@@ -196,7 +212,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture3D.ts:145](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L145)
+[src/core/Texture3D.ts:81](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture3D.ts#L81)
 
 ___
 
@@ -210,7 +226,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L25)
+[src/core/Resource.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L25)
 
 ___
 
@@ -226,7 +242,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:155](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L155)
+[src/core/Texture.ts:161](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L161)
 
 ## Accessors
 
@@ -246,7 +262,7 @@ Texture.gl
 
 #### Defined in
 
-[src/core/Texture3D.ts:188](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L188)
+[src/core/Texture3D.ts:126](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture3D.ts#L126)
 
 ___
 
@@ -264,7 +280,7 @@ Texture.handle
 
 #### Defined in
 
-[src/core/Resource.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L47)
+[src/core/Resource.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L47)
 
 ___
 
@@ -284,7 +300,7 @@ Texture.rendererState
 
 #### Defined in
 
-[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Base.ts#L23)
+[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L23)
 
 ## Methods
 
@@ -304,13 +320,13 @@ Texture.rendererState
 
 `void`
 
-#### Overrides
+#### Inherited from
 
 [Texture](Texture.md).[bind](Texture.md#bind)
 
 #### Defined in
 
-[src/core/Texture3D.ts:372](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L372)
+[src/core/Texture.ts:458](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L458)
 
 ___
 
@@ -335,7 +351,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:74](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L74)
+[src/core/Resource.ts:74](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L74)
 
 ___
 
@@ -349,13 +365,13 @@ ___
 
 `void`
 
-#### Overrides
+#### Inherited from
 
 [Texture](Texture.md).[destroy](Texture.md#destroy)
 
 #### Defined in
 
-[src/core/Texture3D.ts:400](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L400)
+[src/core/Texture.ts:477](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L477)
 
 ___
 
@@ -381,7 +397,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:228](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture.ts#L228)
+[src/core/Texture.ts:241](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L241)
 
 ___
 
@@ -401,7 +417,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture3D.ts:391](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L391)
+[src/core/Texture3D.ts:341](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture3D.ts#L341)
 
 ___
 
@@ -421,7 +437,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:63](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L63)
+[src/core/Resource.ts:63](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L63)
 
 ___
 
@@ -450,7 +466,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture3D.ts:199](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L199)
+[src/core/Texture3D.ts:137](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture3D.ts#L137)
 
 ___
 
@@ -476,7 +492,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture3D.ts:211](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L211)
+[src/core/Texture3D.ts:149](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture3D.ts#L149)
 
 ___
 
@@ -502,7 +518,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L55)
+[src/core/Resource.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L55)
 
 ___
 
@@ -522,7 +538,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture3D.ts:408](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L408)
+[src/core/Texture3D.ts:350](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture3D.ts#L350)
 
 ___
 
@@ -536,13 +552,13 @@ ___
 
 `void`
 
-#### Overrides
+#### Inherited from
 
 [Texture](Texture.md).[unbind](Texture.md#unbind)
 
 #### Defined in
 
-[src/core/Texture3D.ts:382](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L382)
+[src/core/Texture.ts:468](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L468)
 
 ___
 
@@ -568,4 +584,4 @@ ___
 
 #### Defined in
 
-[src/core/Texture3D.ts:223](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Texture3D.ts#L223)
+[src/core/Texture3D.ts:161](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture3D.ts#L161)

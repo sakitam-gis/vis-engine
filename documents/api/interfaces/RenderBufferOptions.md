@@ -1,13 +1,23 @@
-[vis-engine - v1.3.1](../index.md) / RenderBufferOptions
+[vis-engine - v1.5.1](../index.md) / RenderBufferOptions
 
 # Interface: RenderBufferOptions
+
+## Hierarchy
+
+- [`ResourceOptions`](ResourceOptions.md)
+
+  ↳ **`RenderBufferOptions`**
 
 ## Table of contents
 
 ### Properties
 
 - [format](RenderBufferOptions.md#format)
+- [handle](RenderBufferOptions.md#handle)
 - [height](RenderBufferOptions.md#height)
+- [id](RenderBufferOptions.md#id)
+- [name](RenderBufferOptions.md#name)
+- [userData](RenderBufferOptions.md#userdata)
 - [width](RenderBufferOptions.md#width)
 
 ## Properties
@@ -20,7 +30,21 @@
 
 #### Defined in
 
-[src/core/RenderBuffer.ts:18](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts?at&#x3D;bbe6a01#line&#x3D;18)
+[src/core/RenderBuffer.ts:18](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L18)
+
+___
+
+### handle
+
+• **handle**: `any`
+
+#### Inherited from
+
+[ResourceOptions](ResourceOptions.md).[handle](ResourceOptions.md#handle)
+
+#### Defined in
+
+[src/core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L12)
 
 ___
 
@@ -32,7 +56,49 @@ ___
 
 #### Defined in
 
-[src/core/RenderBuffer.ts:13](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts?at&#x3D;bbe6a01#line&#x3D;13)
+[src/core/RenderBuffer.ts:13](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L13)
+
+___
+
+### id
+
+• **id**: `string`
+
+#### Inherited from
+
+[ResourceOptions](ResourceOptions.md).[id](ResourceOptions.md#id)
+
+#### Defined in
+
+[src/core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L10)
+
+___
+
+### name
+
+• **name**: `string`
+
+#### Inherited from
+
+[ResourceOptions](ResourceOptions.md).[name](ResourceOptions.md#name)
+
+#### Defined in
+
+[src/core/Resource.ts:11](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L11)
+
+___
+
+### userData
+
+• **userData**: `any`
+
+#### Inherited from
+
+[ResourceOptions](ResourceOptions.md).[userData](ResourceOptions.md#userdata)
+
+#### Defined in
+
+[src/core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L13)
 
 ___
 
@@ -44,4 +110,4 @@ ___
 
 #### Defined in
 
-[src/core/RenderBuffer.ts:8](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderBuffer.ts?at&#x3D;bbe6a01#line&#x3D;8)
+[src/core/RenderBuffer.ts:8](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderBuffer.ts#L8)

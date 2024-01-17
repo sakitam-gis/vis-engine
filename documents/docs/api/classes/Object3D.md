@@ -26,7 +26,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[src/objects/Object3D.ts:71](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L71)
+[src/objects/Object3D.ts:71](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L71)
 
 ## Properties
 
@@ -38,7 +38,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[src/objects/Object3D.ts:59](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L59)
+[src/objects/Object3D.ts:59](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L59)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:19](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L19)
+[src/objects/Object3D.ts:19](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L19)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:29](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L29)
+[src/objects/Object3D.ts:29](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L29)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:64](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L64)
+[src/objects/Object3D.ts:64](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L64)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:34](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L34)
+[src/objects/Object3D.ts:34](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L34)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:49](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L49)
+[src/objects/Object3D.ts:49](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L49)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:44](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L44)
+[src/objects/Object3D.ts:44](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L44)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:39](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L39)
+[src/objects/Object3D.ts:39](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L39)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:54](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L54)
+[src/objects/Object3D.ts:54](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L54)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:14](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L14)
+[src/objects/Object3D.ts:14](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L14)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:24](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L24)
+[src/objects/Object3D.ts:24](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L24)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:69](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L69)
+[src/objects/Object3D.ts:69](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L69)
 
 ## Methods
 
@@ -193,7 +193,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:97](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L97)
+[src/objects/Object3D.ts:97](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L97)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:218](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L218)
+[src/objects/Object3D.ts:218](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L218)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:124](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L124)
+[src/objects/Object3D.ts:124](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L124)
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:227](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L227)
+[src/objects/Object3D.ts:227](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L227)
 
 ___
 
@@ -270,7 +270,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:208](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L208)
+[src/objects/Object3D.ts:208](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L208)
 
 ___
 
@@ -293,7 +293,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:160](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L160)
+[src/objects/Object3D.ts:160](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L160)
 
 ___
 
@@ -316,7 +316,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:111](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L111)
+[src/objects/Object3D.ts:111](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L111)
 
 ___
 
@@ -339,7 +339,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:133](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L133)
+[src/objects/Object3D.ts:133](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L133)
 
 ___
 
@@ -361,7 +361,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:147](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L147)
+[src/objects/Object3D.ts:147](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L147)
 
 ___
 
@@ -377,7 +377,7 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:200](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L200)
+[src/objects/Object3D.ts:200](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L200)
 
 ___
 
@@ -399,4 +399,4 @@ ___
 
 #### Defined in
 
-[src/objects/Object3D.ts:174](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Object3D.ts#L174)
+[src/objects/Object3D.ts:174](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Object3D.ts#L174)

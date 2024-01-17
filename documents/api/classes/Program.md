@@ -1,4 +1,4 @@
-[vis-engine - v1.3.1](../index.md) / Program
+[vis-engine - v1.5.1](../index.md) / Program
 
 # Class: Program
 
@@ -208,7 +208,7 @@ function render(props) {
 
 #### Defined in
 
-[src/core/Program.ts:330](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;330)
+[src/core/Program.ts:336](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L336)
 
 ## Properties
 
@@ -218,7 +218,7 @@ function render(props) {
 
 #### Defined in
 
-[src/core/Program.ts:316](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;316)
+[src/core/Program.ts:322](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L322)
 
 ___
 
@@ -232,7 +232,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;bbe6a01#line&#x3D;28)
+[src/core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L28)
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;bbe6a01#line&#x3D;21)
+[src/core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L21)
 
 ___
 
@@ -260,13 +260,13 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;bbe6a01#line&#x3D;23)
+[src/core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L23)
 
 ___
 
 ### options
 
-• **options**: `Partial`<[`ResourceOptions`](../interfaces/ResourceOptions.md) & [`ProgramOptions`](../interfaces/ProgramOptions.md)\>
+• **options**: `Partial`<[`ProgramOptions`](../interfaces/ProgramOptions.md)\>
 
 #### Inherited from
 
@@ -274,7 +274,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;bbe6a01#line&#x3D;30)
+[src/core/Resource.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L30)
 
 ___
 
@@ -288,7 +288,7 @@ ___
 
 #### Defined in
 
-[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;bbe6a01#line&#x3D;7)
+[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L7)
 
 ___
 
@@ -298,7 +298,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:318](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;318)
+[src/core/Program.ts:324](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L324)
 
 ___
 
@@ -312,7 +312,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;bbe6a01#line&#x3D;25)
+[src/core/Resource.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L25)
 
 ## Accessors
 
@@ -326,7 +326,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:415](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;415)
+[src/core/Program.ts:423](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L423)
 
 ___
 
@@ -342,7 +342,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:429](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;429)
+[src/core/Program.ts:437](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L437)
 
 ___
 
@@ -362,7 +362,7 @@ Resource.gl
 
 #### Defined in
 
-[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;bbe6a01#line&#x3D;16)
+[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L16)
 
 ___
 
@@ -380,7 +380,7 @@ Resource.handle
 
 #### Defined in
 
-[src/core/Resource.ts:47](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;bbe6a01#line&#x3D;47)
+[src/core/Resource.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L47)
 
 ___
 
@@ -400,7 +400,7 @@ Resource.rendererState
 
 #### Defined in
 
-[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Base.ts?at&#x3D;bbe6a01#line&#x3D;23)
+[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L23)
 
 ___
 
@@ -414,7 +414,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:411](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;411)
+[src/core/Program.ts:419](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L419)
 
 ___
 
@@ -430,7 +430,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:422](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;422)
+[src/core/Program.ts:430](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L430)
 
 ## Methods
 
@@ -444,7 +444,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:518](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;518)
+[src/core/Program.ts:526](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L526)
 
 ___
 
@@ -464,7 +464,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:536](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;536)
+[src/core/Program.ts:544](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L544)
 
 ___
 
@@ -482,7 +482,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:547](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;547)
+[src/core/Program.ts:555](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L555)
 
 ___
 
@@ -507,7 +507,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:74](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;bbe6a01#line&#x3D;74)
+[src/core/Resource.ts:74](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L74)
 
 ___
 
@@ -525,7 +525,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:551](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;551)
+[src/core/Program.ts:559](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L559)
 
 ___
 
@@ -545,7 +545,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:601](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;601)
+[src/core/Program.ts:609](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L609)
 
 ___
 
@@ -563,7 +563,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:99](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;bbe6a01#line&#x3D;99)
+[src/core/Resource.ts:99](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L99)
 
 ___
 
@@ -583,7 +583,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:63](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;bbe6a01#line&#x3D;63)
+[src/core/Resource.ts:63](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L63)
 
 ___
 
@@ -606,7 +606,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:495](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;495)
+[src/core/Program.ts:503](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L503)
 
 ___
 
@@ -629,7 +629,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:527](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;527)
+[src/core/Program.ts:535](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L535)
 
 ___
 
@@ -655,7 +655,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:55](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;bbe6a01#line&#x3D;55)
+[src/core/Resource.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L55)
 
 ___
 
@@ -673,7 +673,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:111](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Resource.ts?at&#x3D;bbe6a01#line&#x3D;111)
+[src/core/Resource.ts:111](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L111)
 
 ___
 
@@ -693,7 +693,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:543](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;543)
+[src/core/Program.ts:551](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L551)
 
 ___
 
@@ -707,4 +707,4 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:436](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Program.ts?at&#x3D;bbe6a01#line&#x3D;436)
+[src/core/Program.ts:444](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L444)

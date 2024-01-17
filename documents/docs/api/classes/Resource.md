@@ -8,9 +8,9 @@ custom_edit_url: null
 
 ## Type parameters
 
-| Name |
-| :------ |
-| `T` |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends [`ResourceOptions`](../interfaces/ResourceOptions.md) |
 
 ## Hierarchy
 
@@ -34,16 +34,16 @@ custom_edit_url: null
 
 #### Type parameters
 
-| Name |
-| :------ |
-| `T` |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends [`ResourceOptions`](../interfaces/ResourceOptions.md) |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `renderer` | [`Renderer`](Renderer.md) |
-| `options` | `Partial`<[`ResourceOptions`](../interfaces/ResourceOptions.md) & `T`\> |
+| `options` | `Partial`<`T`\> |
 
 #### Overrides
 
@@ -51,7 +51,7 @@ Base.constructor
 
 #### Defined in
 
-[src/core/Resource.ts:32](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L32)
+[src/core/Resource.ts:32](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L32)
 
 ## Properties
 
@@ -61,7 +61,7 @@ Base.constructor
 
 #### Defined in
 
-[src/core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L28)
+[src/core/Resource.ts:28](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L28)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L21)
+[src/core/Resource.ts:21](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L21)
 
 ___
 
@@ -81,17 +81,17 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L23)
+[src/core/Resource.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L23)
 
 ___
 
 ### options
 
-• **options**: `Partial`<[`ResourceOptions`](../interfaces/ResourceOptions.md) & `T`\>
+• **options**: `Partial`<`T`\>
 
 #### Defined in
 
-[src/core/Resource.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L30)
+[src/core/Resource.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L30)
 
 ___
 
@@ -105,7 +105,7 @@ Base.renderer
 
 #### Defined in
 
-[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Base.ts#L7)
+[src/core/Base.ts:7](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L7)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L25)
+[src/core/Resource.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L25)
 
 ## Accessors
 
@@ -135,7 +135,7 @@ Base.gl
 
 #### Defined in
 
-[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Base.ts#L16)
+[src/core/Base.ts:16](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L16)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L47)
+[src/core/Resource.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L47)
 
 ___
 
@@ -169,7 +169,7 @@ Base.rendererState
 
 #### Defined in
 
-[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Base.ts#L23)
+[src/core/Base.ts:23](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Base.ts#L23)
 
 ## Methods
 
@@ -189,7 +189,7 @@ Base.rendererState
 
 #### Defined in
 
-[src/core/Resource.ts:91](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L91)
+[src/core/Resource.ts:91](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L91)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:103](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L103)
+[src/core/Resource.ts:103](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L103)
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:74](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L74)
+[src/core/Resource.ts:74](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L74)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:107](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L107)
+[src/core/Resource.ts:107](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L107)
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:70](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L70)
+[src/core/Resource.ts:70](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L70)
 
 ___
 
@@ -268,7 +268,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:99](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L99)
+[src/core/Resource.ts:99](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L99)
 
 ___
 
@@ -284,7 +284,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:63](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L63)
+[src/core/Resource.ts:63](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L63)
 
 ___
 
@@ -306,7 +306,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L55)
+[src/core/Resource.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L55)
 
 ___
 
@@ -320,7 +320,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:111](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L111)
+[src/core/Resource.ts:111](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L111)
 
 ___
 
@@ -334,4 +334,4 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:95](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L95)
+[src/core/Resource.ts:95](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L95)

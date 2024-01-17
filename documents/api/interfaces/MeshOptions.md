@@ -1,4 +1,4 @@
-[vis-engine - v1.3.1](../index.md) / MeshOptions
+[vis-engine - v1.5.1](../index.md) / MeshOptions
 
 # Interface: MeshOptions
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/objects/Mesh.ts:47](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;bbe6a01#line&#x3D;47)
+[src/objects/Mesh.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L47)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:24](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;bbe6a01#line&#x3D;24)
+[src/objects/Mesh.ts:24](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L24)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:19](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;bbe6a01#line&#x3D;19)
+[src/objects/Mesh.ts:19](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L19)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:42](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;bbe6a01#line&#x3D;42)
+[src/objects/Mesh.ts:42](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L42)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:29](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;bbe6a01#line&#x3D;29)
+[src/objects/Mesh.ts:29](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L29)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:52](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;bbe6a01#line&#x3D;52)
+[src/objects/Mesh.ts:52](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L52)
 
 ___
 
@@ -104,4 +104,4 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:57](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;bbe6a01#line&#x3D;57)
+[src/objects/Mesh.ts:57](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L57)

@@ -1,4 +1,4 @@
-[vis-engine - v1.3.1](../index.md) / EventEmitter
+[vis-engine - v1.5.1](../index.md) / EventEmitter
 
 # Class: EventEmitter<EventsMap\>
 
@@ -64,7 +64,7 @@ e.clear();
 
 #### Defined in
 
-[src/core/Event.ts:49](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;bbe6a01#line&#x3D;49)
+[src/core/Event.ts:49](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L49)
 
 ## Methods
 
@@ -80,7 +80,7 @@ e.clear();
 
 #### Defined in
 
-[src/core/Event.ts:174](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;bbe6a01#line&#x3D;174)
+[src/core/Event.ts:174](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L174)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[src/core/Event.ts:158](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;bbe6a01#line&#x3D;158)
+[src/core/Event.ts:158](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L158)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[src/core/Event.ts:167](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;bbe6a01#line&#x3D;167)
+[src/core/Event.ts:167](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L167)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[src/core/Event.ts:130](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;bbe6a01#line&#x3D;130)
+[src/core/Event.ts:130](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L130)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-[src/core/Event.ts:82](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;bbe6a01#line&#x3D;82)
+[src/core/Event.ts:82](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L82)
 
 ___
 
@@ -195,4 +195,4 @@ ___
 
 #### Defined in
 
-[src/core/Event.ts:106](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Event.ts?at&#x3D;bbe6a01#line&#x3D;106)
+[src/core/Event.ts:106](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Event.ts#L106)

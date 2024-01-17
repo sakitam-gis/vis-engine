@@ -1,6 +1,6 @@
 ---
 id: "index"
-title: "vis-engine - v1.4.2"
+title: "vis-engine - v1.5.1"
 sidebar_label: "Exports"
 sidebar_position: 0.5
 custom_edit_url: null
@@ -9,6 +9,10 @@ custom_edit_url: null
 ## Namespaces
 
 - [utils](namespaces/utils.md)
+
+## Enumerations
+
+- [BlendType](enums/BlendType.md)
 
 ## Classes
 
@@ -79,7 +83,7 @@ Re-exports [highPrecision](namespaces/utils.md#highprecision)
 
 #### Defined in
 
-[src/core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/RenderTarget.ts#L9)
+[src/core/RenderTarget.ts:9](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L9)
 
 ___
 
@@ -98,7 +102,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L12)
+[src/cameras/Camera.ts:12](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/cameras/Camera.ts#L12)
 
 ___
 
@@ -110,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/cameras/Camera.ts#L10)
+[src/cameras/Camera.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/cameras/Camera.ts#L10)
 
 ___
 
@@ -120,7 +124,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:241](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/math/Color.ts#L241)
+[src/math/Color.ts:241](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/math/Color.ts#L241)
 
 ___
 
@@ -132,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/BufferAttribute.ts#L8)
+[src/core/BufferAttribute.ts:8](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/BufferAttribute.ts#L8)
 
 ___
 
@@ -142,7 +146,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:65](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Program.ts#L65)
+[src/core/Program.ts:66](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L66)
 
 ## Functions
 
@@ -179,4 +183,4 @@ ___
 
 #### Defined in
 
-[src/geometries/Plane.ts:51](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/geometries/Plane.ts#L51)
+[src/geometries/Plane.ts:51](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/geometries/Plane.ts#L51)

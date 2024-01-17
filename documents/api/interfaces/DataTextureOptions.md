@@ -1,4 +1,4 @@
-[vis-engine - v1.3.1](../index.md) / DataTextureOptions
+[vis-engine - v1.5.1](../index.md) / DataTextureOptions
 
 # Interface: DataTextureOptions
 
@@ -12,26 +12,50 @@
 
 ### Properties
 
+- [anisotropy](DataTextureOptions.md#anisotropy)
 - [data](DataTextureOptions.md#data)
-- [depth](DataTextureOptions.md#depth)
 - [flipY](DataTextureOptions.md#flipy)
 - [format](DataTextureOptions.md#format)
 - [generateMipmaps](DataTextureOptions.md#generatemipmaps)
+- [handle](DataTextureOptions.md#handle)
 - [height](DataTextureOptions.md#height)
+- [id](DataTextureOptions.md#id)
 - [image](DataTextureOptions.md#image)
 - [internalFormat](DataTextureOptions.md#internalformat)
 - [level](DataTextureOptions.md#level)
 - [magFilter](DataTextureOptions.md#magfilter)
 - [minFilter](DataTextureOptions.md#minfilter)
+- [name](DataTextureOptions.md#name)
+- [offset](DataTextureOptions.md#offset)
 - [premultiplyAlpha](DataTextureOptions.md#premultiplyalpha)
+- [target](DataTextureOptions.md#target)
 - [type](DataTextureOptions.md#type)
 - [unpackAlignment](DataTextureOptions.md#unpackalignment)
+- [userData](DataTextureOptions.md#userdata)
 - [width](DataTextureOptions.md#width)
-- [wrapR](DataTextureOptions.md#wrapr)
 - [wrapS](DataTextureOptions.md#wraps)
 - [wrapT](DataTextureOptions.md#wrapt)
 
 ## Properties
+
+### anisotropy
+
+• **anisotropy**: `number`
+
+沿通过具有最高纹理像素密度的像素的坐标轴取样的数量。默认情况下，此值为 `1`。
+ 较高的值会产生比基本mipmap更少的模糊结果，但需要使用更多纹理样本。通常我们在实现让物体缩小时
+ 获取更高的清晰度，可以将此值设大，注意需要 `gl.getParameter(ext.MAX_TEXTURE_MAX_ANISOTROPY_EXT)`
+ 获取允许的最大值。（see: https://developer.mozilla.org/en-US/docs/Web/API/EXT_texture_filter_anisotropic）
+
+#### Inherited from
+
+[TextureOptions](TextureOptions.md).[anisotropy](TextureOptions.md#anisotropy)
+
+#### Defined in
+
+[src/core/Texture.ts:81](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L81)
+
+___
 
 ### data
 
@@ -39,23 +63,7 @@
 
 #### Defined in
 
-[src/core/DataTexture.ts:5](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/DataTexture.ts?at&#x3D;bbe6a01#line&#x3D;5)
-
-___
-
-### depth
-
-• **depth**: `number`
-
-指定纹理深度，默认为`0`
-
-#### Inherited from
-
-[TextureOptions](TextureOptions.md).[depth](TextureOptions.md#depth)
-
-#### Defined in
-
-[src/core/Texture.ts:95](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;95)
+[src/core/DataTexture.ts:5](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/DataTexture.ts#L5)
 
 ___
 
@@ -71,7 +79,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:74](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;74)
+[src/core/Texture.ts:73](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L73)
 
 ___
 
@@ -88,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:50](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;50)
+[src/core/Texture.ts:49](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L49)
 
 ___
 
@@ -98,7 +106,7 @@ ___
 
 配置是否启用 `mipmap`，默认为`true`
 `generateMipmaps`会自动生成若干小尺寸的纹理，根据当前三维物体在屏幕上的大小来自动选择最合适的尺寸。
-使用`mipmap`要求纹理的长度和宽度必须是2的整数次幂。
+在 `webgl2` 使用`mipmap` 不再强制要求纹理的长度和宽度必须是2的整数次幂。
 
 #### Inherited from
 
@@ -106,7 +114,21 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;69)
+[src/core/Texture.ts:68](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L68)
+
+___
+
+### handle
+
+• **handle**: `any`
+
+#### Inherited from
+
+[TextureOptions](TextureOptions.md).[handle](TextureOptions.md#handle)
+
+#### Defined in
+
+[src/core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L12)
 
 ___
 
@@ -122,7 +144,21 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:14](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;14)
+[src/core/Texture.ts:19](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L19)
+
+___
+
+### id
+
+• **id**: `string`
+
+#### Inherited from
+
+[TextureOptions](TextureOptions.md).[id](TextureOptions.md#id)
+
+#### Defined in
+
+[src/core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L10)
 
 ___
 
@@ -138,7 +174,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:100](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;100)
+[src/core/Texture.ts:107](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L107)
 
 ___
 
@@ -155,7 +191,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;56)
+[src/core/Texture.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L55)
 
 ___
 
@@ -171,7 +207,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:90](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;90)
+[src/core/Texture.ts:97](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L97)
 
 ___
 
@@ -188,7 +224,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;20)
+[src/core/Texture.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L25)
 
 ___
 
@@ -205,7 +241,37 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:26](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;26)
+[src/core/Texture.ts:31](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L31)
+
+___
+
+### name
+
+• **name**: `string`
+
+#### Inherited from
+
+[TextureOptions](TextureOptions.md).[name](TextureOptions.md#name)
+
+#### Defined in
+
+[src/core/Resource.ts:11](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L11)
+
+___
+
+### offset
+
+• `Optional` **offset**: `number`
+
+[GLintptr](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Types) 类型偏移到 [WebGLBuffer](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGLBuffer) 的数据存储中。用于上传数据到当前范围 [WebGLTexture](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGLTexture) 从WebGLBuffer 范围到PIXEL_UNPACK_BUFFER 目标
+
+#### Inherited from
+
+[TextureOptions](TextureOptions.md).[offset](TextureOptions.md#offset)
+
+#### Defined in
+
+[src/core/Texture.ts:102](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L102)
 
 ___
 
@@ -221,7 +287,23 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:85](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;85)
+[src/core/Texture.ts:92](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L92)
+
+___
+
+### target
+
+• **target**: `number`
+
+默认为 `gl.TEXTURE_2D`
+
+#### Inherited from
+
+[TextureOptions](TextureOptions.md).[target](TextureOptions.md#target)
+
+#### Defined in
+
+[src/core/Texture.ts:9](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L9)
 
 ___
 
@@ -238,7 +320,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:62](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;62)
+[src/core/Texture.ts:61](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L61)
 
 ___
 
@@ -255,7 +337,21 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:80](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;80)
+[src/core/Texture.ts:87](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L87)
+
+___
+
+### userData
+
+• **userData**: `any`
+
+#### Inherited from
+
+[TextureOptions](TextureOptions.md).[userData](TextureOptions.md#userdata)
+
+#### Defined in
+
+[src/core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L13)
 
 ___
 
@@ -271,24 +367,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:9](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;9)
-
-___
-
-### wrapR
-
-• **wrapR**: `number`
-
-深度采样纹理时使用的行为。
-可能的值：`gl.REPEAT`，`gl.MIRRORED_REPEAT`，`gl.CLAMP_TO_EDGE`
-
-#### Inherited from
-
-[TextureOptions](TextureOptions.md).[wrapR](TextureOptions.md#wrapr)
-
-#### Defined in
-
-[src/core/Texture.ts:44](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;44)
+[src/core/Texture.ts:14](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L14)
 
 ___
 
@@ -305,7 +384,7 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:32](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;32)
+[src/core/Texture.ts:37](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L37)
 
 ___
 
@@ -322,4 +401,4 @@ ___
 
 #### Defined in
 
-[src/core/Texture.ts:38](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/Texture.ts?at&#x3D;bbe6a01#line&#x3D;38)
+[src/core/Texture.ts:43](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Texture.ts#L43)

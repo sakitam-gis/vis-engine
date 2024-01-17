@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[src/core/Program.ts:130](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Program.ts#L130)
+[src/core/Program.ts:136](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L136)
 
 ___
 
@@ -52,7 +52,19 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:119](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Program.ts#L119)
+[src/core/Program.ts:125](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L125)
+
+___
+
+### blending
+
+• **blending**: [`BlendType`](../enums/BlendType.md)
+
+blend 类型
+
+#### Defined in
+
+[src/core/Program.ts:119](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L119)
 
 ___
 
@@ -65,7 +77,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:83](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Program.ts#L83)
+[src/core/Program.ts:84](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L84)
 
 ___
 
@@ -86,7 +98,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:113](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Program.ts#L113)
+[src/core/Program.ts:114](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L114)
 
 ___
 
@@ -98,7 +110,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:94](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Program.ts#L94)
+[src/core/Program.ts:95](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L95)
 
 ___
 
@@ -110,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:99](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Program.ts#L99)
+[src/core/Program.ts:100](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L100)
 
 ___
 
@@ -123,4 +135,4 @@ ___
 
 #### Defined in
 
-[src/core/Program.ts:89](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Program.ts#L89)
+[src/core/Program.ts:90](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Program.ts#L90)

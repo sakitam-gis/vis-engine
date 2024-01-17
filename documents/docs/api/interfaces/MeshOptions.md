@@ -16,7 +16,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[src/objects/Mesh.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Mesh.ts#L47)
+[src/objects/Mesh.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L47)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:24](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Mesh.ts#L24)
+[src/objects/Mesh.ts:24](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L24)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:19](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Mesh.ts#L19)
+[src/objects/Mesh.ts:19](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L19)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:42](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Mesh.ts#L42)
+[src/objects/Mesh.ts:42](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L42)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:29](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Mesh.ts#L29)
+[src/objects/Mesh.ts:29](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L29)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:52](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Mesh.ts#L52)
+[src/objects/Mesh.ts:52](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L52)
 
 ___
 
@@ -96,4 +96,4 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:57](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/objects/Mesh.ts#L57)
+[src/objects/Mesh.ts:57](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L57)

@@ -1,4 +1,4 @@
-[vis-engine - v1.3.1](../index.md) / [utils](../modules/utils.md) / GlOptions
+[vis-engine - v1.5.1](../index.md) / [utils](../modules/utils.md) / GlOptions
 
 # Interface: GlOptions
 
@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/utils/gl.ts:43](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;bbe6a01#line&#x3D;43)
+[src/utils/gl.ts:43](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L43)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[src/utils/gl.ts:47](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;bbe6a01#line&#x3D;47)
+[src/utils/gl.ts:47](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L47)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[src/utils/gl.ts:51](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;bbe6a01#line&#x3D;51)
+[src/utils/gl.ts:51](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L51)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/utils/gl.ts:55](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;bbe6a01#line&#x3D;55)
+[src/utils/gl.ts:55](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L55)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[src/utils/gl.ts:63](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;bbe6a01#line&#x3D;63)
+[src/utils/gl.ts:63](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L63)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[src/utils/gl.ts:75](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;bbe6a01#line&#x3D;75)
+[src/utils/gl.ts:75](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L75)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[src/utils/gl.ts:67](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;bbe6a01#line&#x3D;67)
+[src/utils/gl.ts:67](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L67)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[src/utils/gl.ts:71](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;bbe6a01#line&#x3D;71)
+[src/utils/gl.ts:71](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L71)
 
 ___
 
@@ -124,4 +124,4 @@ ___
 
 #### Defined in
 
-[src/utils/gl.ts:59](https://github.com/sakitam-gis/vis-engine/blob/master/src/utils/gl.ts?at&#x3D;bbe6a01#line&#x3D;59)
+[src/utils/gl.ts:59](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/utils/gl.ts#L59)

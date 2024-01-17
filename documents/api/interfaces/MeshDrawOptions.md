@@ -1,4 +1,4 @@
-[vis-engine - v1.3.1](../index.md) / MeshDrawOptions
+[vis-engine - v1.5.1](../index.md) / MeshDrawOptions
 
 # Interface: MeshDrawOptions
 
@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[src/objects/Mesh.ts:69](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;bbe6a01#line&#x3D;69)
+[src/objects/Mesh.ts:69](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L69)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:64](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;bbe6a01#line&#x3D;64)
+[src/objects/Mesh.ts:64](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L64)
 
 ___
 
@@ -44,4 +44,4 @@ ___
 
 #### Defined in
 
-[src/objects/Mesh.ts:74](https://github.com/sakitam-gis/vis-engine/blob/master/src/objects/Mesh.ts?at&#x3D;bbe6a01#line&#x3D;74)
+[src/objects/Mesh.ts:74](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/objects/Mesh.ts#L74)

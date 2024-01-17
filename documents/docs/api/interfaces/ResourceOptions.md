@@ -6,6 +6,18 @@ sidebar_position: 0
 custom_edit_url: null
 ---
 
+## Hierarchy
+
+- **`ResourceOptions`**
+
+  ↳ [`TextureOptions`](TextureOptions.md)
+
+  ↳ [`RenderBufferOptions`](RenderBufferOptions.md)
+
+  ↳ [`RenderTargetOptions`](RenderTargetOptions.md)
+
+  ↳ [`ProgramOptions`](ProgramOptions.md)
+
 ## Properties
 
 ### handle
@@ -14,7 +26,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[src/core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L12)
+[src/core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L12)
 
 ___
 
@@ -24,7 +36,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L10)
+[src/core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L10)
 
 ___
 
@@ -34,7 +46,7 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:11](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L11)
+[src/core/Resource.ts:11](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L11)
 
 ___
 
@@ -44,4 +56,4 @@ ___
 
 #### Defined in
 
-[src/core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/7cb4094/src/core/Resource.ts#L13)
+[src/core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L13)

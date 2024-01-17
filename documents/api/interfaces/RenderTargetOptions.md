@@ -1,6 +1,12 @@
-[vis-engine - v1.3.1](../index.md) / RenderTargetOptions
+[vis-engine - v1.5.1](../index.md) / RenderTargetOptions
 
 # Interface: RenderTargetOptions
+
+## Hierarchy
+
+- [`ResourceOptions`](ResourceOptions.md)
+
+  ↳ **`RenderTargetOptions`**
 
 ## Table of contents
 
@@ -11,9 +17,12 @@
 - [data](RenderTargetOptions.md#data)
 - [depth](RenderTargetOptions.md#depth)
 - [depthTexture](RenderTargetOptions.md#depthtexture)
+- [handle](RenderTargetOptions.md#handle)
 - [height](RenderTargetOptions.md#height)
+- [id](RenderTargetOptions.md#id)
 - [name](RenderTargetOptions.md#name)
 - [stencil](RenderTargetOptions.md#stencil)
+- [userData](RenderTargetOptions.md#userdata)
 - [width](RenderTargetOptions.md#width)
 
 ## Properties
@@ -26,7 +35,7 @@
 
 #### Defined in
 
-[src/core/RenderTarget.ts:41](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;bbe6a01#line&#x3D;41)
+[src/core/RenderTarget.ts:41](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L41)
 
 ___
 
@@ -39,7 +48,7 @@ ___
 
 #### Defined in
 
-[src/core/RenderTarget.ts:36](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;bbe6a01#line&#x3D;36)
+[src/core/RenderTarget.ts:36](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L36)
 
 ___
 
@@ -51,7 +60,7 @@ ___
 
 #### Defined in
 
-[src/core/RenderTarget.ts:15](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;bbe6a01#line&#x3D;15)
+[src/core/RenderTarget.ts:15](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L15)
 
 ___
 
@@ -63,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/core/RenderTarget.ts:46](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;bbe6a01#line&#x3D;46)
+[src/core/RenderTarget.ts:46](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L46)
 
 ___
 
@@ -75,7 +84,21 @@ ___
 
 #### Defined in
 
-[src/core/RenderTarget.ts:56](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;bbe6a01#line&#x3D;56)
+[src/core/RenderTarget.ts:56](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L56)
+
+___
+
+### handle
+
+• **handle**: `any`
+
+#### Inherited from
+
+[ResourceOptions](ResourceOptions.md).[handle](ResourceOptions.md#handle)
+
+#### Defined in
+
+[src/core/Resource.ts:12](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L12)
 
 ___
 
@@ -87,7 +110,21 @@ ___
 
 #### Defined in
 
-[src/core/RenderTarget.ts:30](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;bbe6a01#line&#x3D;30)
+[src/core/RenderTarget.ts:30](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L30)
+
+___
+
+### id
+
+• **id**: `string`
+
+#### Inherited from
+
+[ResourceOptions](ResourceOptions.md).[id](ResourceOptions.md#id)
+
+#### Defined in
+
+[src/core/Resource.ts:10](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L10)
 
 ___
 
@@ -97,9 +134,13 @@ ___
 
 设置此 `RenderTarget` 的名称，方便我们区分不同的 `RenderTarget`。
 
+#### Overrides
+
+[ResourceOptions](ResourceOptions.md).[name](ResourceOptions.md#name)
+
 #### Defined in
 
-[src/core/RenderTarget.ts:20](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;bbe6a01#line&#x3D;20)
+[src/core/RenderTarget.ts:20](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L20)
 
 ___
 
@@ -111,7 +152,21 @@ ___
 
 #### Defined in
 
-[src/core/RenderTarget.ts:51](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;bbe6a01#line&#x3D;51)
+[src/core/RenderTarget.ts:51](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L51)
+
+___
+
+### userData
+
+• **userData**: `any`
+
+#### Inherited from
+
+[ResourceOptions](ResourceOptions.md).[userData](ResourceOptions.md#userdata)
+
+#### Defined in
+
+[src/core/Resource.ts:13](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/Resource.ts#L13)
 
 ___
 
@@ -123,4 +178,4 @@ ___
 
 #### Defined in
 
-[src/core/RenderTarget.ts:25](https://github.com/sakitam-gis/vis-engine/blob/master/src/core/RenderTarget.ts?at&#x3D;bbe6a01#line&#x3D;25)
+[src/core/RenderTarget.ts:25](https://github.com/sakitam-gis/vis-engine/blob/7b15dbb/src/core/RenderTarget.ts#L25)
