@@ -8,6 +8,7 @@ import esbuild from 'rollup-plugin-esbuild';
 import json from '@rollup/plugin-json';
 import glslify from 'rollup-plugin-glslify';
 import replace from '@rollup/plugin-replace';
+import sourcemaps from 'rollup-plugin-sourcemaps';
 // import alias from '@rollup/plugin-alias';
 import dts from 'rollup-plugin-dts';
 import terser from '@rollup/plugin-terser';
@@ -65,7 +66,8 @@ const plugins = [
     preferBuiltins: false,
     extensions: ['.ts', '.js', '.mjs', '.json']
   }),
-  esbuild({ target: 'node14' }),
+  esbuild({ target: 'esnext' }),
+  sourcemaps(),
   ...(MINIFY ? [
     terser({
       compress: true,

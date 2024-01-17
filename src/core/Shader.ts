@@ -1,12 +1,8 @@
 import Resource, { ResourceOptions } from './Resource';
 import Renderer from './Renderer';
+import { getShaderName } from '../utils';
 
 const ERR_SOURCE = 'Shader: GLSL source code must be a JavaScript string';
-
-const getShaderName = (t) => {
-  const v = t.match(/#define[\s*]SHADER_NAME[\s*]([\w-]+)[\s*]/);
-  return v ? v[1] : 'unnamed';
-};
 
 const cachedIds = {};
 function genShaderName(key = 'id') {
