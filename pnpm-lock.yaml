@@ -211,8 +211,8 @@ importers:
   adapters/mapbox:
     dependencies:
       '@sakitam-gis/vis-engine':
-        specifier: ^1.5.2
-        version: link:../..
+        specifier: ^1.5.3
+        version: 1.5.3
       mapbox-gl:
         specifier: '>=0.50.0 || >=1.0.0 || >=2.0.0'
         version: 2.12.0
@@ -220,8 +220,8 @@ importers:
   adapters/maptalks:
     dependencies:
       '@sakitam-gis/vis-engine':
-        specifier: ^1.5.2
-        version: link:../..
+        specifier: ^1.5.3
+        version: 1.5.3
       maptalks:
         specifier: '>=1.0.0-rc.11'
         version: 1.0.0-rc.17
@@ -5364,6 +5364,14 @@ packages:
       picomatch: 2.3.1
       rollup: 3.9.1
     dev: true
+
+  /@sakitam-gis/vis-engine@1.5.3:
+    resolution: {integrity: sha512-IpuZwi0XRflJiP1mNTwOSjlAJZRCczOuVh6s/feVOpXctiAoSWrAuhK0HVITLpCWAQF1bN6CRKA3LW0z1nCr0g==}
+    engines: {node: '>= 14.18.1', npm: '>= 6.14.15'}
+    dependencies:
+      colord: 2.9.3
+      gl-matrix: 3.4.3
+    dev: false
 
   /@semantic-release/changelog@6.0.3(semantic-release@21.1.2):
     resolution: {integrity: sha512-dZuR5qByyfe3Y03TpmCvAxCyTnp7r5XwtHRf/8vD9EAn4ZWbavUX8adMtXYzE86EVh0gyLA7lm5yW4IV30XUag==}
