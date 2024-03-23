@@ -1,3 +1,10 @@
+## @sakitam-gis/mapbox-ve [1.0.8](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/mapbox-ve@1.0.7...@sakitam-gis/mapbox-ve@1.0.8) (2024-03-23)
+
+
+### Bug Fixes
+
+* **release-adapters:** proxy raf func ([23a7bbd](https://github.com/sakitam-gis/vis-engine/commit/23a7bbde04f4277e51ece527cc1f681848494804))
+
 ## @sakitam-gis/mapbox-ve [1.0.7](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/mapbox-ve@1.0.6...@sakitam-gis/mapbox-ve@1.0.7) (2024-01-17)
 
 
