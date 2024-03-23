@@ -1,3 +1,10 @@
+## @sakitam-gis/maptalks-ve [1.0.5](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/maptalks-ve@1.0.4...@sakitam-gis/maptalks-ve@1.0.5) (2024-03-23)
+
+
+### Bug Fixes
+
+* **release-adapters:** proxy raf func ([23a7bbd](https://github.com/sakitam-gis/vis-engine/commit/23a7bbde04f4277e51ece527cc1f681848494804))
+
 ## @sakitam-gis/maptalks-ve [1.0.4](https://github.com/sakitam-gis/vis-engine/compare/@sakitam-gis/maptalks-ve@1.0.3...@sakitam-gis/maptalks-ve@1.0.4) (2024-01-17)
 
 
