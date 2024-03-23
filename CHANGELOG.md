@@ -1,3 +1,16 @@
+## [1.5.3](https://github.com/sakitam-gis/vis-engine/compare/v1.5.2...v1.5.3) (2024-03-23)
+
+
+### Bug Fixes
+
+* **patch:** fix semantic-release ([56c6063](https://github.com/sakitam-gis/vis-engine/commit/56c6063445eac7d3e5bcb38e526da8a136e2c9d7))
+* **patch:** fix vitepress build error ([9cd8b81](https://github.com/sakitam-gis/vis-engine/commit/9cd8b81f49f15a205fc4c03745e96ec213fdccb0))
+* **patch:** fix vitepress build error ([bc8c3ee](https://github.com/sakitam-gis/vis-engine/commit/bc8c3ee52bd9b61bebee3e272bd0d7d2ff08b854))
+* **release-adapters:** fix getShaderName regex ([5f06306](https://github.com/sakitam-gis/vis-engine/commit/5f06306ff652bc231ea5c8ede9fbc9cb2c96b451))
+* **skip-release:** bump ci node version ([3dace37](https://github.com/sakitam-gis/vis-engine/commit/3dace37e3bbd26baf029a2a48165c31f8d28bb2f))
+* **skip-release:** dep ([77a44ea](https://github.com/sakitam-gis/vis-engine/commit/77a44ea82ece37fcb705136b0c39f86b02feecec))
+* **skip-release:** fix ci ([4e982bd](https://github.com/sakitam-gis/vis-engine/commit/4e982bd17287eef0dbe4f20ea21cb828c790245e))
+
 ## [1.5.2](https://github.com/sakitam-gis/vis-engine/compare/v1.5.1...v1.5.2) (2024-01-17)
 
 
