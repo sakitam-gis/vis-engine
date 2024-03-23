@@ -11,6 +11,7 @@ import replace from '@rollup/plugin-replace';
 import sourcemaps from 'rollup-plugin-sourcemaps';
 // import alias from '@rollup/plugin-alias';
 import dts from 'rollup-plugin-dts';
+import { visualizer } from 'rollup-plugin-visualizer';
 import terser from '@rollup/plugin-terser';
 import worker from 'rollup-plugin-web-worker-loader';
 
@@ -18,6 +19,7 @@ const rq = createRequire(import.meta.url);
 const pkg = rq('./package.json');
 const ROOT = fileURLToPath(import.meta.url);
 const DEV = process.env.NODE_ENV === 'development';
+const ANALYZER = process.env.BUILD_ANALYZER === 'true';
 const MINIFY = process.env.MINIFY;
 const PROD = !DEV;
 
@@ -73,6 +75,12 @@ const plugins = [
       compress: true,
     }),
   ] : []),
+  ...(ANALYZER ? [
+    visualizer({
+      sourcemap: true,
+      open: false
+    }),
+  ] : [])
 ];
 
 const esmBuild: RollupOptions = {

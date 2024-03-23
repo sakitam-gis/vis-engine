@@ -1,4 +1,5 @@
 import Clock from './Clock';
+import { requestAnimationFrame, cancelAnimationFrame } from '../utils';
 
 /**
  * Raf 配置项
@@ -30,11 +31,11 @@ export default class Raf {
 
   #callback: () => void;
 
-  constructor (cb, options: Partial<RafOptions> = {}) {
+  constructor(cb, options: Partial<RafOptions> = {}) {
     this.options = {
       ...options,
       ...defaultOptions,
-    }
+    };
     this.#clock = new Clock();
 
     this.reset();
@@ -78,14 +79,14 @@ export default class Raf {
   /**
    * 获取总时长
    */
-  public get elapsedTime () {
+  public get elapsedTime() {
     return this.#clock.getElapsedTime();
   }
 
   /**
    * 启动 `raf`
    */
-  public start () {
+  public start() {
     // 如果已经启动，不需要再次启动
     if (this.#animating) return;
 
@@ -93,31 +94,23 @@ export default class Raf {
     this.#clock.start();
     this.tick();
 
-    if (document) {
-      document.addEventListener(
-        'visibilitychange',
-        this.onVisibilityChange,
-        false,
-      );
+    if (typeof window !== 'undefined' && window.document) {
+      window.document.addEventListener('visibilitychange', this.onVisibilityChange, false);
     }
   }
 
   /**
    * 停止 `raf`
    */
-  public stop () {
+  public stop() {
     this.#clock.stop();
     this.reset();
-    if (document) {
-      document.removeEventListener(
-        'visibilitychange',
-        this.onVisibilityChange,
-        false,
-      );
+    if (typeof window !== 'undefined' && window.document) {
+      window.document.removeEventListener('visibilitychange', this.onVisibilityChange, false);
     }
   }
 
-  public tick () {
+  public tick() {
     if (!this.#animating || !this.#isVisible) return;
     // @tip 注意如果需要进行锁帧，需要在此处进行逻辑处理
     this.#raf = requestAnimationFrame(() => {
@@ -131,7 +124,9 @@ export default class Raf {
    * @private
    */
   private onVisibilityChange() {
-    this.#isVisible = !document.hidden;
+    if (typeof window !== 'undefined' && window.document) {
+      this.#isVisible = !window.document.hidden;
+    }
 
     if (this.#isVisible) {
       this.reset();

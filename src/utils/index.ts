@@ -131,3 +131,52 @@ export function pick<T, K extends keyof T>(obj: T, keys: K[] = []): Omit<T, K> {
       {} as Omit<T, K>,
     );
 }
+
+const callbacks: any[] = [];
+const fpsInterval = 1000 / 60;
+let time = performance.now();
+
+function requestAnimationFrameLoop() {
+  const current = now();
+  const delta = current - time;
+  if (delta >= fpsInterval) {
+    // Adjust next execution time in case this loop took longer to execute
+    time = current - (delta % fpsInterval);
+    // Clone array in case callbacks pushes more functions to it
+    const funcs = callbacks.slice();
+    callbacks.length = 0;
+    for (let i = 0; i < funcs.length; i++) {
+      funcs[i] && funcs[i](current, delta);
+    }
+  } else {
+    setImmediate(requestAnimationFrameLoop);
+  }
+}
+
+function raf(func) {
+  callbacks.push(func);
+  if (callbacks.length === 1) {
+    setImmediate(requestAnimationFrameLoop);
+  }
+  return callbacks.length - 1;
+}
+
+function caf(id: any) {
+  callbacks[id] = undefined;
+}
+
+export function requestAnimationFrame(cb) {
+  if (typeof window !== 'undefined' && window.requestAnimationFrame) {
+    return window.requestAnimationFrame(cb);
+  }
+
+  return raf(cb);
+}
+
+export function cancelAnimationFrame(cb) {
+  if (typeof window !== 'undefined' && window.cancelAnimationFrame) {
+    return window.cancelAnimationFrame(cb);
+  }
+
+  return caf(cb);
+}
