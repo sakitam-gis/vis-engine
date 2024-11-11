@@ -6,7 +6,6 @@ import autoImport from 'unplugin-auto-import/vite';
 import glslify from 'rollup-plugin-glslify';
 // import fs from 'fs-extra';
 import eslint from 'vite-plugin-eslint';
-import { viteExternalsPlugin } from 'vite-plugin-externals';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vitejs.dev/config/
@@ -41,9 +40,6 @@ export default defineConfig(({ mode }) => {
             plugins: ['optionalChaining', 'nullishCoalescingOperator'],
           },
         },
-      }),
-      viteExternalsPlugin({
-        // 'mapbox-gl': 'mapboxgl',
       }),
       autoImport({
         imports: [

@@ -237,6 +237,10 @@ class VeLayer extends maptalks.CanvasLayer {
   constructor(id: string, opts: BaseLayerOptionType) {
     super(id, opts);
     this.type = 'VeLayer';
+
+    if (!this.options) {
+      this.options = options;
+    }
   }
 
   prepareToDraw(...args) {

@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import Mapbox from './Mapbox';
 import Maptalks from './Maptalks';
-
+import MaptalksVolume from './MaptalksVolume';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -19,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: '/maptalks',
     element: <Maptalks />,
+  },
+  {
+    path: '/maptalks-volume',
+    element: <MaptalksVolume />,
   },
 ]);
 
